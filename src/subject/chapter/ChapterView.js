@@ -5,6 +5,7 @@ var Col = require("react-bootstrap/lib/Col");
 var Row = require("react-bootstrap/lib/Row");
 var NavItem = require("react-bootstrap/lib/NavItem");
 var Nav = require("react-bootstrap/lib/Nav");
+var Accordion = require('../subchapter/Accordion.js');
 
 var Tabs = React.createClass({
     render: function () {
@@ -33,7 +34,7 @@ var Tabs = React.createClass({
       <Col sm={8}>
         <Tab.Content animation>
           <Tab.Pane eventKey="first" >
-            Tab 1 content
+            <Accordion />
           </Tab.Pane>
           <Tab.Pane eventKey="second">
             Tab 2 content

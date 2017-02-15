@@ -3,7 +3,6 @@ import logo from './logo.svg';
 import './App.css';
 
 var NavBar = require('./navbar/NavBar.js');
-var Accordion = require('./subject/subchapter/Accordion.js');
 var ChapTabs = require('./subject/chapter/ChapterView.js');
 
 class App extends Component {
