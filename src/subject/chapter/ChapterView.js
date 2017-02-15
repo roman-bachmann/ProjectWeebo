@@ -10,6 +10,7 @@ var Accordion = require('../subchapter/Accordion.js');
 var Tabs = React.createClass({
     render: function () {
         return (
+    <div bsClass='container'>
     <Tab.Container id="left-tabs-example" defaultActiveKey="first">
     <Row className="clearfix">
       <Col sm={3}>
@@ -31,7 +32,7 @@ var Tabs = React.createClass({
           </NavItem>
         </Nav>
       </Col>
-      <Col sm={8}>
+      <Col sm={9}>
         <Tab.Content animation>
           <Tab.Pane eventKey="first" >
             <Accordion />
@@ -52,6 +53,7 @@ var Tabs = React.createClass({
       </Col>
     </Row>
   </Tab.Container>
+            </div>
         )
     }
 });
