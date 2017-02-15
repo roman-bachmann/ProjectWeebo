@@ -6,7 +6,9 @@ const YouTube = ({ id }) => (
         <div className="youtube">
             <iframe
                 className="youtube-frame"
-                src={`https://www.youtube.com/embed/${id}?autoplay=1`}
+                width="500"
+                height="300"
+                src={`https://www.youtube.com/embed/${id}?autoplay=0`}
                 allowFullScreen
             />
         </div>

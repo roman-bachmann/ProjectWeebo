@@ -10,9 +10,9 @@ var Accordion = require('../subchapter/Accordion.js');
 var Tabs = React.createClass({
     render: function () {
         return (
-    <Tab.Container id="left-tabs-example" style={{width: '800px'}} defaultActiveKey="first">
+    <Tab.Container id="left-tabs-example" defaultActiveKey="first">
     <Row className="clearfix">
-      <Col sm={4}>
+      <Col sm={3}>
         <Nav bsStyle="pills" stacked>
           <NavItem eventKey="first">
             Problems and algorithms
