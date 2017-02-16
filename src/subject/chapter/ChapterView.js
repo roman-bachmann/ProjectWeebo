@@ -3,6 +3,8 @@ var React = require('react');
 var Tab = require("react-bootstrap/lib/Tab");
 var Col = require("react-bootstrap/lib/Col");
 var Row = require("react-bootstrap/lib/Row");
+
+
 var NavItem = require("react-bootstrap/lib/NavItem");
 var Nav = require("react-bootstrap/lib/Nav");
 var Accordion = require('../subchapter/Accordion.js');
@@ -10,7 +12,6 @@ var Accordion = require('../subchapter/Accordion.js');
 var Tabs = React.createClass({
     render: function () {
         return (
-    <div bsClass='container'>
     <Tab.Container id="left-tabs-example" defaultActiveKey="first">
     <Row className="clearfix">
       <Col sm={3}>
@@ -53,7 +54,6 @@ var Tabs = React.createClass({
       </Col>
     </Row>
   </Tab.Container>
-            </div>
         )
     }
 });

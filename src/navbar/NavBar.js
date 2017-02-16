@@ -8,7 +8,7 @@ var MenuItem = require("react-bootstrap/lib/MenuItem");
 var NavBar = React.createClass({
     render: function () {
         return (
-<Navbar inverse collapseOnSelect>
+<Navbar inverse collapseOnSelect style={{background: '#4a5051'}}>
     <Navbar.Header>
       <Navbar.Brand>
         <a href="#">Project Weebo</a>

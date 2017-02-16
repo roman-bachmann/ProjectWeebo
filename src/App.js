@@ -9,9 +9,11 @@ var ChapTabs = require('./subject/chapter/ChapterView.js');
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div>
         <NavBar />
-        <ChapTabs />
+        <div className="App">
+        	<ChapTabs />
+        </div>
       </div>
     );
   }
