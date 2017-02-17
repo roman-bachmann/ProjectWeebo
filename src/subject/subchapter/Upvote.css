@@ -1,0 +1,19 @@
+.upvoteBtn {
+    color: #008b8b;
+}
+
+.downvoteBtn {
+    color: #cd5c5c;
+}
+
+.upvoteBtn:hover {
+    opacity: 0.45;
+    transition: .185s;
+    color: #6495ed;
+}
+
+.downvoteBtn:hover {
+    opacity: 0.45;
+    transition: .185s;
+    color: #6495ed;
+}

@@ -1,6 +1,6 @@
+import './Upvote.css';
+
 var React = require('react');
-
-
 
 var Upvote = React.createClass({
 	getInitialState: function () {
@@ -24,10 +24,10 @@ var Upvote = React.createClass({
 	},
 	render: function() {
 		return (
-			<div>
+			<div>    
 				<p>{this.state.votecount}</p>
-				<button className="upvoteBtn" onClick={this.addVote}>+</button>
-				<button className="downvoteBtn" onClick={this.removeVote}>-</button>
+				<button className="upvoteBtn" onClick={this.addVote}>▲</button>
+				<button className="downvoteBtn" onClick={this.removeVote}>▼</button>
 			</div>
 		);
 	}
