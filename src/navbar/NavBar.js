@@ -26,7 +26,7 @@ var NavBar = React.createClass({
         </NavDropdown>
       </Nav>
       <Nav pullRight>
-        <NavItem eventKey={1} href="#">Login</NavItem>
+        <NavItem eventKey={1} href="www.facebook.com">Login</NavItem>
         <NavItem eventKey={2} href="#">Sign up</NavItem>
       </Nav>
     </Navbar.Collapse>

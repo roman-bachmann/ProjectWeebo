@@ -1,4 +1,5 @@
 import './Upvote.css';
+import {Grid, Row, Col} from 'react-bootstrap';
 
 var React = require('react');
 
@@ -24,10 +25,18 @@ var Upvote = React.createClass({
 	},
 	render: function() {
 		return (
-			<div>    
-				<p>{this.state.votecount}</p>
-				<button className="upvoteBtn" onClick={this.addVote}>▲</button>
-				<button className="downvoteBtn" onClick={this.removeVote}>▼</button>
+			<div> 
+				<Grid>
+				<Row>
+					<button className="upvoteBtn" onClick={this.addVote}>▲</button>
+				</Row>
+				<Row>
+					<p className="votenumber">{this.state.votecount}</p>
+				</Row>
+				<Row>
+					<button className="downvoteBtn" onClick={this.removeVote}>▼</button>
+				</Row>
+				</Grid>
 			</div>
 		);
 	}
