@@ -4,6 +4,7 @@ var Panel = require("react-bootstrap/lib/Panel");
 var Row = require("react-bootstrap/lib/Row");
 var Col = require("react-bootstrap/lib/Col");
 var YouTube = require('./YouTubePlayer.js');
+var Upvote = require('./Upvote.js');
 
 var styling = {
     
@@ -22,12 +23,13 @@ var AccordionBoot = React.createClass({
                 <Col xs={12} md={8}>
                     <YouTube id='6qpudAhYhpc' />
                 </Col>
-                <Col xs={6} md={4} >Hei her kan vi få til ratingsystem</Col>
+                <Col xs={6} md={4} ><Upvote></Upvote></Col>
             </Row>        
             <Row>
                 <Col xs={12} md={8}>
                     <YouTube id='EZ7OpCAC98g' />
                 </Col>
+                <Col xs={6} md={4} ><Upvote></Upvote></Col>
             </Row>
         </div>
     </Panel>
