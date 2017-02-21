@@ -21,19 +21,27 @@ var Tabs = React.createClass({
       });
       console.log("mounted");
     },
-
     
     componentWillMount: function (){
       this.loadCommentsFromServer()
+    },
+    handleSelect: function (selectedKey){
+      console.log(selectedKey);
     },
 
     render: function () {
       if(this.state.data){
         var chaptersList = this.state.data.map(function (name, index){
-          return <NavItem eventKey={'num' + index}>{name}</NavItem>;
-        });
+          return <NavItem 
+                    eventKey={'num' + index} 
+                    onSelect={this.handleSelect}>
+                    {name}
+                  </NavItem>;
+        }, this);
+        var tabPanes = this.state.data.map(function (name, index){
+          return <Tab.Pane eventKey={'num' + index}>Content</Tab.Pane>;
+        }, this);
       }
-
       return (
         <Tab.Container id="left-tabs-example" defaultActiveKey="num0">
           <Row className="clearfix">
@@ -42,18 +50,7 @@ var Tabs = React.createClass({
             </Col>
             <Col sm={9}>
               <Tab.Content animation>
-                <Tab.Pane eventKey="num0" >
-                  <Accordion />
-                </Tab.Pane>
-                <Tab.Pane eventKey="num1">
-                  Tab 2 content
-                </Tab.Pane>
-                  <Tab.Pane eventKey="num2">
-                  Tab 3 content
-                </Tab.Pane>
-                  <Tab.Pane eventKey="num3">
-                  Tab 4 content
-                </Tab.Pane>
+                {tabPanes}
               </Tab.Content>
             </Col>
           </Row>
