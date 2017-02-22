@@ -1,7 +1,7 @@
 // Handels API calls to the backend
 
-function getCoursesForUser(userID, cb) {
-    return fetch(`getCourses/userID?u=${userID}`, {
+function getCoursesForUser(userName, cb) {
+    return fetch(`getCourses/userID?u=${userName}`, {
         accept: 'application/json',
     }).then(checkStatus)
       .then(parseJSON)

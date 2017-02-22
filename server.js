@@ -1,5 +1,7 @@
 const express = require('express');
 var mysql = require('mysql');
+//var passport = require('passport');
+//var FacebookStrategy = require('passport-facebook').Strategy;
 
 // Settings of the MySQL database
 var pool = mysql.createPool({
@@ -21,20 +23,56 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
 }
 
-app.get('/api/test', (req, res) => {
-    
-//    const param = req.query.q;
-//
-//    if (!param) {
-//        res.json({
-//            error: 'Missing required parameter `q`',
-//        });
-//        return;
+//const FACEBOOK_APP_ID = "";
+//const FACEBOOK_APP_SECRET = ""
+
+//// Setting up the passport strategy
+//passport.use(new FacebookStrategy({
+//    clientID: FACEBOOK_APP_ID,
+//    clientSecret: FACEBOOK_APP_SECRET,
+//    callbackURL: 'http://localhost:3000/auth/facebook/callback'
+//  },
+//  function(accessToken, refreshToken, profile, cb) {
+//    //var userExists = checkUserExistance(profile.id);
+////    User.findOrCreate({ facebookId: profile.id }, function (err, user) { // mockcode
+////      return cb(err, user);
+////    });
+//    return cb(null, profile);
+//  }
+//));
+
+
+
+// ###############################
+// ******* Handling routes *******
+// ###############################
+
+//// Handling authentication
+//function loggedIn(req, res, next) {
+//    if (req.user) {
+//        next();
+//    } else {
+//        res.redirect('/login');
 //    }
-    
-    get_users(req,res);
-    
-});
+//}
+//
+//app.get('/', loggedIn, function(req, res, next) {
+//    
+//});
+
+//app.get('/auth/facebook',
+//  passport.authenticate('facebook'));
+//
+//app.get('/auth/facebook/callback', 
+//  passport.authenticate('facebook', { failureRedirect: '/login' }),
+//  function(req, res) {
+//    res.redirect('/');
+//});
+//
+//app.get('/logout', function(req, res){
+//  req.logout();
+//  res.redirect('/');
+//});
 
 app.get('/getCourses/userID', (req, res) => {
     const userID = req.query.u;
@@ -59,7 +97,8 @@ app.listen(app.get('port'), () => {
 // ******* Handling database *******
 // #################################
 
-function get_users(req,res) {
+// TODO: make it dependent on user
+function get_courses(req, res, userID) {
     pool.getConnection(function(err,connection){
         if (err) {
             connection.release();
@@ -69,8 +108,16 @@ function get_users(req,res) {
         }   
  
         console.log('connected as id ' + connection.threadId);
+        
+        var sql = `SELECT Subject.subjectID, Subject.classYear, Subject.name
+                  FROM Subject, User, UserSubject
+                  WHERE Subject.subjectID = UserSubject.subjectID
+                  AND User.userID = UserSubject.userID
+                  AND User.userID =  ?`;
+        var inserts = [userID];
+        sql = mysql.format(sql, inserts);
          
-        connection.query("SELECT * from USERS",function(err,rows){
+        connection.query(sql, function(err,rows){
             connection.release();
             if (!err) {
                 console.log('The solution is: ', rows);
@@ -88,35 +135,35 @@ function get_users(req,res) {
     });
 }
 
-// TODO: make it dependent on user
-function get_courses(req, res, userID) {
-    pool.getConnection(function(err,connection){
-        if (err) {
-            connection.release();
-            //res.json({"code" : 100, "status" : "Error in connection database"});
-            res.json([]);
-            return;
-        }   
- 
-        console.log('connected as id ' + connection.threadId);
-         
-        connection.query("SELECT * from Subject",function(err,rows){
-            connection.release();
-            if (!err) {
-                console.log('The solution is: ', rows);
-                res.json(rows);
-            } else {
-                console.log('Error while performing Query.');
-            }           
-        });
- 
-        connection.on('error', function(err) {      
-            //res.json({"code" : 100, "status" : "Error in connection database"});
-            res.json([]);
-            return;     
-        });
-    });
-}
+//function checkUserExistance(facebookID) {
+//    pool.getConnection(function(err,connection){
+//        if (err) {
+//            connection.release();
+//            return false;
+//        }
+//        
+//        var sql = "SELECT EXISTS(SELECT 1 FROM User WHERE facebookID = ?)";
+//        var inserts = [facebookID];
+//        sql = mysql.format(sql, inserts);
+//         
+//        connection.query(sql, function(err,rows){
+//            connection.release();
+//            if (!err) {
+//                if (rows.json() == 1) {
+//                    return true;
+//                } else {
+//                    return false;
+//                }
+//            } else {
+//                console.log('Error while performing Query.');
+//            }           
+//        });
+// 
+//        connection.on('error', function(err) {      
+//            return false;   
+//        });
+//    });
+//}
 
 
 // ##############################
