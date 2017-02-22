@@ -14,7 +14,7 @@ var AccordionBoot = React.createClass({
                 <Grid>
                     <Row>
                         <Col xs={4} md={2}>
-                            <YouTube id='6qpudAhYhpc' />
+                            <YouTube id='6qpudAhYhpc' />{this.props.subject}{this.props.chapter}
                         </Col>
                         <Col xs={1} md={1} ><Upvote></Upvote></Col>
                     </Row>        

@@ -17,7 +17,8 @@ var Tabs = React.createClass({
     loadCommentsFromServer: function () {
       var chapters = ['Problems and algorithms', 'Datastructures', 'Split and conquer', 'Ranking in linear time'];
       this.setState({
-        data: chapters
+        data: chapters,
+        subject: 'tdt4145'
       });
       console.log("mounted");
     },
@@ -33,17 +34,17 @@ var Tabs = React.createClass({
       if(this.state.data){
         var chaptersList = this.state.data.map(function (name, index){
           return <NavItem 
-                    eventKey={'num' + index} 
+                    eventKey={'chap' + index} 
                     onSelect={this.handleSelect}>
                     {name}
                   </NavItem>;
         }, this);
         var tabPanes = this.state.data.map(function (name, index){
-          return <Tab.Pane eventKey={'num' + index}>Content</Tab.Pane>;
+          return <Tab.Pane eventKey={'chap' + index}><Accordion subject={this.state.subject} chapter = {'chap' + index}/></Tab.Pane>;
         }, this);
       }
       return (
-        <Tab.Container id="left-tabs-example" defaultActiveKey="num0">
+        <Tab.Container id="left-tabs-example" defaultActiveKey="chap0">
           <Row className="clearfix">
             <Col sm={3}>
               <Nav bsStyle="pills" stacked>{chaptersList}</Nav>
