@@ -1,7 +1,15 @@
 // Handels API calls to the backend
 
-function getCoursesForUser(userName, cb) {
-    return fetch(`getCourses/userID?u=${userName}`, {
+function getCoursesForUser(userID, cb) {
+    return fetch(`getCourses/userID?u=${userID}`, {
+        accept: 'application/json',
+    }).then(checkStatus)
+      .then(parseJSON)
+      .then(cb);
+}
+
+function getChaptersForSubject(subjectID, cb) {
+    return fetch(`getChapters/subjectID?s=${subjectID}`, {
         accept: 'application/json',
     }).then(checkStatus)
       .then(parseJSON)
@@ -23,5 +31,5 @@ function parseJSON(response) {
     return response.json();
 }
 
-const Client = { getCoursesForUser };
+const Client = { getCoursesForUser, getChaptersForSubject };
 export default Client;

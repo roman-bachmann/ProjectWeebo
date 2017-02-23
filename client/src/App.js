@@ -12,11 +12,11 @@ var App = React.createClass({
     getInitialState: function () {
         return {
             user: {},
-            courses: [ { subjectID: 'emptyID', name: 'emptyName', classYear: 'emptyYear' } ],
-            selectedCourse: { subjectID: 'emptyID', name: 'emptyName', classYear: 'emptyYear' }
+            courses: [{}],
+            selectedCourse: {}
         };
     },
-    
+
 
     handleUserChange: function (userID) {
         // if user is new on site
@@ -35,37 +35,21 @@ var App = React.createClass({
     },
 
     changeSelectedCourse: function (newSelectedCourse) {
-        console.log('changeSelectedCourse');
-        console.log(newSelectedCourse);
         this.setState({selectedCourse: newSelectedCourse});
-        console.log(this.state.selectedCourse);
     },
-    
+
     render: function () {
-        var courseEntries = this.state.courses.map((c, idx) => (
-            <tr key={idx}>
-                <td>{c.subjectID}</td>
-                <td>{c.name}</td>
-                <td>{c.classYear}</td>
-            </tr>
-        ));
-        
         return (
             <div>
-                <p>Selected course: {this.state.selectedCourse.subjectID} - {this.state.selectedCourse.name}</p>
-                <button type="button" onClick={() => this.handleCourses('frodo')}>Login as frodo</button>
-                    
-                <table>
-                    {courseEntries}
-                </table>
-                    
-                <NavBar 
+                <button type="button" onClick={() => this.handleCourses('frodo')}>Login test</button>
+
+                <NavBar
                     courses={this.state.courses}
                     onCourseChange={this.changeSelectedCourse} />
                 <div className="App">
-                    <ChapTabs 
+                    <ChapTabs
                         selectedCourse={this.state.selectedCourse}/>
-                </div> 
+                </div>
 
             </div>
         );

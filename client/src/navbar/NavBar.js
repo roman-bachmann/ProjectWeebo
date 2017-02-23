@@ -7,14 +7,12 @@ var MenuItem = require("react-bootstrap/lib/MenuItem");
 
 var NavBar = React.createClass({
     handleCourseChange: function (selectedKey) {
-        console.log(selectedKey);
-        console.log(this.props.courses[selectedKey]);
         this.props.onCourseChange(this.props.courses[selectedKey]);
     },
-    
+
     render: function () {
         var courseItems;
-        
+
         if (this.props.courses) {
             courseItems = this.props.courses.map((c, idx) => (
                 <MenuItem eventKey={idx}>
@@ -24,7 +22,7 @@ var NavBar = React.createClass({
         } else {
             courseItems = <MenuItem eventKey={0}>You have no courses.</MenuItem>
         }
-        
+
         return (
             <Navbar inverse collapseOnSelect style={{background: '#4a5051'}}>
                 <Navbar.Header>
@@ -35,9 +33,9 @@ var NavBar = React.createClass({
                 </Navbar.Header>
                 <Navbar.Collapse>
                     <Nav>
-                        <NavDropdown 
-                                eventKey={300} 
-                                title="Subjects" 
+                        <NavDropdown
+                                eventKey={300}
+                                title="Subjects"
                                 id="basic-nav-dropdown"
                                 onSelect={this.handleCourseChange} >
                             {courseItems}

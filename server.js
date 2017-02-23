@@ -57,13 +57,13 @@ if (process.env.NODE_ENV === 'production') {
 //}
 //
 //app.get('/', loggedIn, function(req, res, next) {
-//    
+//
 //});
 
 //app.get('/auth/facebook',
 //  passport.authenticate('facebook'));
 //
-//app.get('/auth/facebook/callback', 
+//app.get('/auth/facebook/callback',
 //  passport.authenticate('facebook', { failureRedirect: '/login' }),
 //  function(req, res) {
 //    res.redirect('/');
@@ -83,8 +83,21 @@ app.get('/getCourses/userID', (req, res) => {
         });
         return;
     }
-    
+
     get_courses(req, res, userID);
+});
+
+app.get('/getChapters/subjectID', (req, res) => {
+    const subjectID = req.query.s;
+
+    if (!subjectID) {
+        res.json({
+            error: 'Missing required parameter `s`',
+        });
+        return;
+    }
+
+    get_chapters(req, res, subjectID);
 });
 
 app.listen(app.get('port'), () => {
@@ -97,26 +110,18 @@ app.listen(app.get('port'), () => {
 // ******* Handling database *******
 // #################################
 
-// TODO: make it dependent on user
-function get_courses(req, res, userID) {
+// Generic function that takes a query and returns the data from the database to the frontend
+function get_data(req, res, sql) {
     pool.getConnection(function(err,connection){
         if (err) {
             connection.release();
             //res.json({"code" : 100, "status" : "Error in connection database"});
             res.json([]);
             return;
-        }   
- 
+        }
+
         console.log('connected as id ' + connection.threadId);
-        
-        var sql = `SELECT Subject.subjectID, Subject.classYear, Subject.name
-                  FROM Subject, User, UserSubject
-                  WHERE Subject.subjectID = UserSubject.subjectID
-                  AND User.userID = UserSubject.userID
-                  AND User.userID =  ?`;
-        var inserts = [userID];
-        sql = mysql.format(sql, inserts);
-         
+
         connection.query(sql, function(err,rows){
             connection.release();
             if (!err) {
@@ -124,16 +129,41 @@ function get_courses(req, res, userID) {
                 res.json(rows);
             } else {
                 console.log('Error while performing Query.');
-            }           
+            }
         });
- 
-        connection.on('error', function(err) {      
+
+        connection.on('error', function(err) {
             //res.json({"code" : 100, "status" : "Error in connection database"});
             res.json([]);
-            return;     
+            return;
         });
     });
 }
+
+// TODO: make it dependent on user
+function get_courses(req, res, userID) {
+    var sql = `SELECT Subject.subjectID, Subject.classYear, Subject.name
+               FROM Subject, User, UserSubject
+               WHERE Subject.subjectID = UserSubject.subjectID
+               AND User.userID = UserSubject.userID
+               AND User.userID =  ?`;
+    var inserts = [userID];
+    sql = mysql.format(sql, inserts);
+
+    get_data(req, res, sql);
+}
+
+function get_chapters(req, res, subjectID) {
+    var sql = `SELECT chapterID, cname
+               FROM Subject, Chapter
+               WHERE Subject.subjectID = Chapter.subjectID
+               AND Subject.subjectID =  ?`;
+    var inserts = [subjectID];
+    sql = mysql.format(sql, inserts);
+
+    get_data(req, res, sql);
+}
+
 
 //function checkUserExistance(facebookID) {
 //    pool.getConnection(function(err,connection){
@@ -141,11 +171,11 @@ function get_courses(req, res, userID) {
 //            connection.release();
 //            return false;
 //        }
-//        
+//
 //        var sql = "SELECT EXISTS(SELECT 1 FROM User WHERE facebookID = ?)";
 //        var inserts = [facebookID];
 //        sql = mysql.format(sql, inserts);
-//         
+//
 //        connection.query(sql, function(err,rows){
 //            connection.release();
 //            if (!err) {
@@ -156,11 +186,11 @@ function get_courses(req, res, userID) {
 //                }
 //            } else {
 //                console.log('Error while performing Query.');
-//            }           
+//            }
 //        });
-// 
-//        connection.on('error', function(err) {      
-//            return false;   
+//
+//        connection.on('error', function(err) {
+//            return false;
 //        });
 //    });
 //}
