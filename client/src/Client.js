@@ -1,7 +1,7 @@
 // Handels API calls to the backend
 
 function getCoursesForUser(userID, cb) {
-    return fetch(`getCourses/userID?u=${userID}`, {
+    return fetch(`api/getCourses?u=${userID}`, {
         accept: 'application/json',
     }).then(checkStatus)
       .then(parseJSON)
@@ -9,7 +9,15 @@ function getCoursesForUser(userID, cb) {
 }
 
 function getChaptersForSubject(subjectID, cb) {
-    return fetch(`getChapters/subjectID?s=${subjectID}`, {
+    return fetch(`api/getChapters?s=${subjectID}`, {
+        accept: 'application/json',
+    }).then(checkStatus)
+      .then(parseJSON)
+      .then(cb);
+}
+
+function getSubChapters(subjectID, chapterID, cb) {
+    return fetch(`api/getSubChapters?s=${subjectID}&c=${chapterID}`, {
         accept: 'application/json',
     }).then(checkStatus)
       .then(parseJSON)
@@ -31,5 +39,5 @@ function parseJSON(response) {
     return response.json();
 }
 
-const Client = { getCoursesForUser, getChaptersForSubject };
+const Client = { getCoursesForUser, getChaptersForSubject, getSubChapters };
 export default Client;

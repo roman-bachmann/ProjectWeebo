@@ -26,7 +26,7 @@ var Tabs = React.createClass({
 	},
 
 	componentWillMount: function () {
-		this.loadChaptersFromServer();
+		this.loadChaptersFromServer(this.props.selectedCourse.subjectID);
 	},
 
 	componentWillReceiveProps: function (nextProps) {
@@ -51,7 +51,9 @@ var Tabs = React.createClass({
 			var tabPanes = this.state.chapters.map(function (c, idx){
 				return (
 					<Tab.Pane eventKey={'chap' + idx}>
-						<Accordion subject={this.props.selectedCourse.subjectID} chapter={'chapAcc' + idx}/>
+						<Accordion
+							subject={this.props.selectedCourse}
+							chapter={this.state.chapters[idx]}/>
 					</Tab.Pane>
 				);
 			}, this);

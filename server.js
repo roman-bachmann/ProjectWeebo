@@ -74,7 +74,7 @@ if (process.env.NODE_ENV === 'production') {
 //  res.redirect('/');
 //});
 
-app.get('/getCourses/userID', (req, res) => {
+app.get('/api/getCourses', (req, res) => {
     const userID = req.query.u;
 
     if (!userID) {
@@ -87,7 +87,7 @@ app.get('/getCourses/userID', (req, res) => {
     get_courses(req, res, userID);
 });
 
-app.get('/getChapters/subjectID', (req, res) => {
+app.get('/api/getChapters', (req, res) => {
     const subjectID = req.query.s;
 
     if (!subjectID) {
@@ -98,6 +98,26 @@ app.get('/getChapters/subjectID', (req, res) => {
     }
 
     get_chapters(req, res, subjectID);
+});
+
+app.get('/api/getSubChapters', (req, res) => {
+    const subjectID = req.query.s;
+    const chapterID = req.query.c;
+
+    if (!subjectID) {
+        res.json({
+            error: 'Missing required parameter `s`',
+        });
+        return;
+    }
+    if (!chapterID) {
+        res.json({
+            error: 'Missing required parameter `c`',
+        });
+        return;
+    }
+
+    get_subchapters(req, res, subjectID, chapterID);
 });
 
 app.listen(app.get('port'), () => {
@@ -159,6 +179,19 @@ function get_chapters(req, res, subjectID) {
                WHERE Subject.subjectID = Chapter.subjectID
                AND Subject.subjectID =  ?`;
     var inserts = [subjectID];
+    sql = mysql.format(sql, inserts);
+
+    get_data(req, res, sql);
+}
+
+function get_subchapters(req, res, subjectID, chapterID) {
+    var sql = `SELECT subChapterID, sname
+               FROM subChapter, Chapter, Subject
+               WHERE Subject.SubjectID = Chapter.SubjectID
+               AND Chapter.chapterID = subChapter.chapterID
+               AND Subject.SubjectID = ?
+               AND Chapter.chapterID = ?`;
+    var inserts = [subjectID, chapterID];
     sql = mysql.format(sql, inserts);
 
     get_data(req, res, sql);
