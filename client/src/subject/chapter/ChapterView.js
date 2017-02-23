@@ -40,7 +40,11 @@ var Tabs = React.createClass({
                   </NavItem>;
         }, this);
         var tabPanes = this.state.data.map(function (name, index){
-          return <Tab.Pane eventKey={'chap' + index}><Accordion subject={this.state.subject} chapter = {'chap' + index}/></Tab.Pane>;
+          return <Tab.Pane 
+                  eventKey={'chap' + index}>
+                    <Accordion subject={this.state.subject} 
+                    chapter={'chap' + index}/>
+                  </Tab.Pane>;
         }, this);
       }
       return (
