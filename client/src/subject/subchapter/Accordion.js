@@ -10,7 +10,7 @@ var AccordionBoot = React.createClass({
         return {
             showComponent: false,
             subchapters: [],
-            activeTab: 'none'
+            activePanel: 'none'
         };
     },
 
@@ -37,7 +37,7 @@ var AccordionBoot = React.createClass({
 
     handleSelect: function(panel){
         this.setState({
-            activeTab: panel
+            activePanel: panel
         });
     },
 
@@ -50,16 +50,15 @@ var AccordionBoot = React.createClass({
               return (<Panel header={s.sname}
                         eventKey={theKey}
                         onSelect={this.handleSelect}>
-                            
                             <SubChapterContent
                                 subject={this.props.subject}
                                 chapter={this.props.chapter}
                                 subchapter={this.state.subchapters[idx]}
                                 needActive={theKey}
-                                activeTab={this.state.activeTab} />
-                                
-                            
-                      </Panel>);
+                                activePanel={this.state.activePanel} />
+                      </Panel>
+                      
+                    );
             }, this);
         }
         return (

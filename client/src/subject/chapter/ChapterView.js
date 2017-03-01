@@ -13,7 +13,8 @@ import Client from '../../Client.js';
 var Tabs = React.createClass({
 	getInitialState: function () {
 		return {
-			chapters: []
+			chapters: [],
+      activeTab: 'none'
 		};
 	},
 
@@ -35,8 +36,10 @@ var Tabs = React.createClass({
 		}
 	},
 
-	handleSelect: function (selectedKey){
-		console.log(selectedKey);
+	handleSelect: function (tab){
+		this.setState({
+            activeTab: tab
+    });
 	},
 
 	render: function () {
@@ -49,12 +52,16 @@ var Tabs = React.createClass({
 						</NavItem>);
 			}, this);
 			var tabPanes = this.state.chapters.map(function (c, idx){
-				return (
-					<Tab.Pane eventKey={'chap' + idx}>
-						<Accordion
+				var theKey = 'chap' + idx;
+        return (
+					<Tab.Pane eventKey={theKey}>
+						{this.state.activeTab === theKey ? 
+            <Accordion
 							subject={this.props.selectedCourse}
 							chapter={this.state.chapters[idx]}
-              chapId={'chap' + idx}/>
+              chapId={'chap' + idx}
+              />
+              :null}
 					</Tab.Pane>
 				);
 			}, this);
@@ -63,7 +70,7 @@ var Tabs = React.createClass({
 		return (
 			<div>
 
-			<Tab.Container id="left-tabs-example" defaultActiveKey="chap0">
+			<Tab.Container id="left-tabs-example" >
 				<Row className="clearfix">
 					<Col sm={3}>
 						<h1>{this.props.selectedCourse.subjectID}</h1>

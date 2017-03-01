@@ -37,7 +37,7 @@ var SubChapterContent = React.createClass({
 		if(this.state.videos){
             var videosList = this.state.videos.map(function (v, idx){
               	return (<div>
-              		{this.props.activeTab === this.props.needActive ? 
+              		{this.props.activePanel === this.props.needActive ? 
               			<Row>
                 			<Col xs={4} md={2}>
                 				<YouTube id={v.videoID} />
