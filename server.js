@@ -75,9 +75,10 @@ if (process.env.NODE_ENV === 'production') {
 // app.get('/api/auth/facebook',
 //  passport.authenticate('facebook'));
 
-app.post('/test', function(req, res, next) {
-    console.log("post");
-});
+// app.post('/api/auth/facebook', function(req, res, next) {
+//     console.log("Logging in!");
+//     passport.authenticate('facebook');
+// });
 
 // app.get('/api/auth/facebook', function(req, res) {
 //     console.log('Logging in!');
@@ -168,6 +169,56 @@ app.get('/api/getVideos', (req, res) => {
     get_videos(req, res, subjectID, chapterID, subChapterID);
 });
 
+app.get('/api/getRating', (req, res) => {
+   const userID = req.query.u;
+   const videoID = req.query.v;
+   const rating_score = req.query.r;
+   const date_rated = req.query.d;
+
+   if (!userID) {
+       res.json({
+           error: 'Missing required parameter `u`',
+       });
+       return;
+   }
+   if (!videoID) {
+       res.json({
+           error: 'Missing required parameter `v`',
+       });
+       return;
+   }
+   if (!rating_score) {
+       res.json({
+           error: 'Missing required parameter `r`',
+       });
+       return;
+   }
+   if (!date_rated) {
+       res.json({
+           error: 'Missing required parameter `d`',
+       });
+       return;
+   }
+   get_rating(req, res, userID, videoID, rating_score, date_rated);
+});
+
+app.get('/api/getFavoriteVideo', (req, res) => {
+   const userID = req.query.u;
+   const videoID = req.query.v;
+
+   if (!userID) {
+       res.json({
+           error: 'Missing required parameter `u`',
+       });
+       return;
+   }
+   if (!videoID) {
+       res.json({
+           error: 'Missing required parameter `v`',
+       });
+       return;
+   }
+
 app.listen(app.get('port'), () => {
     console.log(`Find the server at: http://localhost:${app.get('port')}/`);
 });
@@ -256,6 +307,30 @@ function get_videos(req, res, subjectID, chapterID, subChapterID) {
     sql = mysql.format(sql, inserts);
 
     get_data(req, res, sql);
+}
+
+function get_rating(req, res, userID, videoID, rating_score, date_rated) {
+   var sql = `SELECT User.userID
+              FROM rating, User
+              WHERE rating.userID = User.userID
+              AND rating.videoID = ?
+              AND rating.rating_score = ?
+              AND rating.date_rated = ?;`;
+   var inserts = [userID, videoID, rating_score, date_rated];
+   sql = mysql.format(sql, inserts);
+
+   get_data(req, res, sql);
+}
+
+function get_favoriteVideo(req, res, videoID, userID) {
+   var sql = `SELECT User.userID
+              FROM FavoriteVideo, User
+              WHERE FavoriteVideo.userID = User.userID
+              AND FavoriteVideo.videoID = ?;`;
+   var inserts = [userID, videoID, rating_score, date_rated];
+   sql = mysql.format(sql, inserts);
+
+   get_data(req, res, sql);
 }
 
 

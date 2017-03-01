@@ -32,14 +32,26 @@ function getVideosForSubChapter(subjectID, chapterID, subChapterID, cb) {
       .then(cb);
 }
 
+function getRating(userID, videoID, rating_score, date_rated, cb) {
+   return fetch(`api/getRating?u=${userID}&v=${videoID}&r=${rating_score}&d=${date_rated}`, {
+       accept: 'application/jason',
+   }).then(checkStatus)
+     .then(parseJSON)
+     .then(cb);
+}
+
+function getFavoriteVideo(userID, videoID, cb) {
+   return fetch(`api/getRating?u=${userID}&v=${videoID}`, {
+       accept: 'application/jason',
+   }).then(checkStatus)
+     .then(parseJSON)
+     .then(cb);
+}
+
 function loginFacebook() {
     console.log("fb...");
-    fetch('test', {
-        method: 'post',
-        body: JSON.stringify({
-            username: 'user',
-            password: 'pw'
-        })
+    fetch('api/auth/facebook', {
+        method: 'post'
     })
 }
 
@@ -63,6 +75,8 @@ const Client = {
     getChaptersForSubject,
     getSubChapters,
     getVideosForSubChapter,
+    getRating,
+    getFavoriteVideo,
     loginFacebook
 };
 export default Client;
