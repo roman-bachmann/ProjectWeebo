@@ -5,8 +5,11 @@ var Col = require("react-bootstrap/lib/Col");
 
 var NavBar = require('./navbar/NavBar.js');
 var ChapTabs = require('./subject/chapter/ChapterView.js');
+var Login = require('./Login.js');
 
 import Client from './Client';
+
+import {Router, Route, hashHistory, IndexRoute} from 'react-router';
 
 var App = React.createClass({
     getInitialState: function () {
@@ -49,16 +52,21 @@ var App = React.createClass({
     },
 
     render: function () {
+
+        const childrenWithProps = React.Children.map(this.props.children,
+            (child) => React.cloneElement(child,
+                {selectedCourse: this.state.selectedCourse}
+            )
+        );
+
         return (
             <div>
-                <button onClick={this.callFacebookLogin}>Facebook AUTH</button>
-
                 <NavBar
                     courses={this.state.courses}
                     onCourseChange={this.changeSelectedCourse} />
+
                 <div className="App">
-                    <ChapTabs
-                        selectedCourse={this.state.selectedCourse}/>
+                    {childrenWithProps}
                 </div>
 
             </div>

@@ -4,6 +4,7 @@ var Nav = require("react-bootstrap/lib/Nav");
 var NavItem = require("react-bootstrap/lib/NavItem");
 var NavDropdown = require("react-bootstrap/lib/NavDropdown");
 var MenuItem = require("react-bootstrap/lib/MenuItem");
+import {Link} from 'react-router';
 
 var NavBar = React.createClass({
     handleCourseChange: function (selectedKey) {
@@ -16,7 +17,9 @@ var NavBar = React.createClass({
         if (this.props.courses) {
             courseItems = this.props.courses.map((c, idx) => (
                 <MenuItem eventKey={idx}>
+                    <Link to="/learn">
                     {c.subjectID + " - " + c.name}
+                    </Link>
                 </MenuItem>
             ));
         } else {
@@ -44,8 +47,14 @@ var NavBar = React.createClass({
                         </NavDropdown>
                     </Nav>
                     <Nav pullRight>
-                        <NavItem eventKey={100} href="www.facebook.com">Login</NavItem>
-                        <NavItem eventKey={200} href="#">Sign up</NavItem>
+                        <NavItem eventKey={99}>
+                            <Link
+                                className="link"
+                                to="/login"
+                                activeClassName="active" >
+                                Login with Facebook
+                            </Link>
+                        </NavItem>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
