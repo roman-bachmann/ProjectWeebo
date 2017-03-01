@@ -53,7 +53,8 @@ var Tabs = React.createClass({
 					<Tab.Pane eventKey={'chap' + idx}>
 						<Accordion
 							subject={this.props.selectedCourse}
-							chapter={this.state.chapters[idx]}/>
+							chapter={this.state.chapters[idx]}
+              chapId={'chap' + idx}/>
 					</Tab.Pane>
 				);
 			}, this);

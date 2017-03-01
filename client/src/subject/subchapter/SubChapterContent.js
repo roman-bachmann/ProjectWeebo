@@ -36,12 +36,16 @@ var SubChapterContent = React.createClass({
 	render: function() {
 		if(this.state.videos){
             var videosList = this.state.videos.map(function (v, idx){
-              	return (<Row>
+              	return (<div>
+              		{this.props.activeTab === this.props.needActive ? 
+              			<Row>
                 			<Col xs={4} md={2}>
                 				<YouTube id={v.videoID} />
                 			</Col>
                 			<Col xs={1} md={1} ><Upvote></Upvote></Col>
-            			</Row>);
+            			</Row>
+            			:null} 
+            			</div>);
             }, this);
         }
 

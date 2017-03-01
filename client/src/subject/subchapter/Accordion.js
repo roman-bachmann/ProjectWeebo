@@ -9,7 +9,8 @@ var AccordionBoot = React.createClass({
     getInitialState: function(){
         return {
             showComponent: false,
-            subchapters: []
+            subchapters: [],
+            activeTab: 'none'
         };
     },
 
@@ -18,11 +19,14 @@ var AccordionBoot = React.createClass({
 			if (subchptrs) {
 				this.setState({ subchapters: subchptrs });
 			}
+            
 		});
     },
 
     componentWillMount: function (){
         this.loadSubChaptersFromServer(this.props.subject.subjectID, this.props.chapter.chapterID);
+
+        
     },
 
     componentWillReceiveProps: function (nextProps) {
@@ -31,25 +35,30 @@ var AccordionBoot = React.createClass({
 		}
 	},
 
-    handleSelect: function(selectedKey){
+    handleSelect: function(panel){
         this.setState({
-            showComponent: true
+            activeTab: panel
         });
     },
 
     render: function () {
+        
+
         if(this.state.subchapters){
             var subchaptersList = this.state.subchapters.map(function (s, idx){
+              var theKey = this.props.chapId + 'subchap' + idx;
               return (<Panel header={s.sname}
-                        eventKey={'subchap' + idx}
+                        eventKey={theKey}
                         onSelect={this.handleSelect}>
-                        {this.state.showComponent ?
+                            
                             <SubChapterContent
                                 subject={this.props.subject}
                                 chapter={this.props.chapter}
-                                subchapter={this.state.subchapters[idx]} />
-                            : null
-                        }
+                                subchapter={this.state.subchapters[idx]}
+                                needActive={theKey}
+                                activeTab={this.state.activeTab} />
+                                
+                            
                       </Panel>);
             }, this);
         }
