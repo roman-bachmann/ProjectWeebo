@@ -14,7 +14,7 @@ var Tabs = React.createClass({
 	getInitialState: function () {
 		return {
 			chapters: [],
-      activeTab: 'none'
+      activeTab: 'chap0'
 		};
 	},
 
@@ -70,7 +70,7 @@ var Tabs = React.createClass({
 		return (
 			<div>
 
-			<Tab.Container id="left-tabs-example" >
+			<Tab.Container id="left-tabs-example" defaultActiveKey="chap0">
 				<Row className="clearfix">
 					<Col sm={3}>
 						<h1>{this.props.selectedCourse.subjectID}</h1>
