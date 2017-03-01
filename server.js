@@ -219,6 +219,9 @@ app.get('/api/getFavoriteVideo', (req, res) => {
        return;
    }
 
+   get_favoriteVideo(req, res, videoID, userID);
+});
+
 app.listen(app.get('port'), () => {
     console.log(`Find the server at: http://localhost:${app.get('port')}/`);
 });
