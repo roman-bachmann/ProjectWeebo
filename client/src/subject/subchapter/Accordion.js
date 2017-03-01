@@ -22,7 +22,7 @@ var AccordionBoot = React.createClass({
     },
 
     componentWillMount: function (){
-        this.loadSubChaptersFromServer(this.props.subject.subjectID, this.props.chapter.chapterID)
+        this.loadSubChaptersFromServer(this.props.subject.subjectID, this.props.chapter.chapterID);
     },
 
     componentWillReceiveProps: function (nextProps) {

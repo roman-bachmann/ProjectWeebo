@@ -1,7 +1,7 @@
 const express = require('express');
 var mysql = require('mysql');
-//var passport = require('passport');
-//var FacebookStrategy = require('passport-facebook').Strategy;
+// var passport = require('passport');
+// var FacebookStrategy = require('passport-facebook').Strategy;
 
 // Settings of the MySQL database
 var pool = mysql.createPool({
@@ -23,23 +23,35 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
 }
 
-//const FACEBOOK_APP_ID = "";
-//const FACEBOOK_APP_SECRET = ""
-
-//// Setting up the passport strategy
-//passport.use(new FacebookStrategy({
+// const FACEBOOK_APP_ID = "";
+// const FACEBOOK_APP_SECRET = "";
+//
+// // Setting up the passport strategy
+// passport.use(new FacebookStrategy({
 //    clientID: FACEBOOK_APP_ID,
 //    clientSecret: FACEBOOK_APP_SECRET,
 //    callbackURL: 'http://localhost:3000/auth/facebook/callback'
 //  },
 //  function(accessToken, refreshToken, profile, cb) {
 //    //var userExists = checkUserExistance(profile.id);
-////    User.findOrCreate({ facebookId: profile.id }, function (err, user) { // mockcode
-////      return cb(err, user);
-////    });
+// //    User.findOrCreate({ facebookId: profile.id }, function (err, user) { // mockcode
+// //      return cb(err, user);
+// //    });
 //    return cb(null, profile);
 //  }
-//));
+// ));
+//
+// // TODO
+// passport.serializeUser(function(user, cb) {
+//   cb(null, user);
+// });
+// // TODO
+// passport.deserializeUser(function(obj, cb) {
+//   cb(null, obj);
+// });
+//
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 
 
@@ -47,32 +59,41 @@ if (process.env.NODE_ENV === 'production') {
 // ******* Handling routes *******
 // ###############################
 
-//// Handling authentication
-//function loggedIn(req, res, next) {
+// // Handling authentication
+// function loggedIn(req, res, next) {
 //    if (req.user) {
 //        next();
 //    } else {
 //        res.redirect('/login');
 //    }
-//}
+// }
 //
-//app.get('/', loggedIn, function(req, res, next) {
+// app.get('/', loggedIn, function(req, res, next) {
 //
-//});
+// });
 
-//app.get('/auth/facebook',
+// app.get('/api/auth/facebook',
 //  passport.authenticate('facebook'));
+
+app.post('/test', function(req, res, next) {
+    console.log("post");
+});
+
+// app.get('/api/auth/facebook', function(req, res) {
+//     console.log('Logging in!');
+//     passport.authenticate('facebook');
+// });
 //
-//app.get('/auth/facebook/callback',
+// app.get('/api/auth/facebook/callback',
 //  passport.authenticate('facebook', { failureRedirect: '/login' }),
 //  function(req, res) {
 //    res.redirect('/');
-//});
+// });
 //
-//app.get('/logout', function(req, res){
+// app.get('/api/logout', function(req, res){
 //  req.logout();
 //  res.redirect('/');
-//});
+// });
 
 app.get('/api/getCourses', (req, res) => {
     const userID = req.query.u;
@@ -118,6 +139,33 @@ app.get('/api/getSubChapters', (req, res) => {
     }
 
     get_subchapters(req, res, subjectID, chapterID);
+});
+
+app.get('/api/getVideos', (req, res) => {
+    const subjectID = req.query.s;
+    const chapterID = req.query.c;
+    const subChapterID = req.query.sc;
+
+    if (!subjectID) {
+        res.json({
+            error: 'Missing required parameter `s`',
+        });
+        return;
+    }
+    if (!chapterID) {
+        res.json({
+            error: 'Missing required parameter `c`',
+        });
+        return;
+    }
+    if (!subChapterID) {
+        res.json({
+            error: 'Missing required parameter `sc`',
+        });
+        return;
+    }
+
+    get_videos(req, res, subjectID, chapterID, subChapterID);
 });
 
 app.listen(app.get('port'), () => {
@@ -192,6 +240,19 @@ function get_subchapters(req, res, subjectID, chapterID) {
                AND Subject.SubjectID = ?
                AND Chapter.chapterID = ?`;
     var inserts = [subjectID, chapterID];
+    sql = mysql.format(sql, inserts);
+
+    get_data(req, res, sql);
+}
+
+function get_videos(req, res, subjectID, chapterID, subChapterID) {
+    var sql = `SELECT Video.videoID
+               FROM subChapterVideo, Video
+               WHERE subChapterVideo.videoID = Video.videoID
+               AND subChapterVideo.subjectID = ?
+               AND subChapterVideo.chapterID = ?
+               AND subChapterVideo.subChapterID = ?;`;
+    var inserts = [subjectID, chapterID, subChapterID];
     sql = mysql.format(sql, inserts);
 
     get_data(req, res, sql);

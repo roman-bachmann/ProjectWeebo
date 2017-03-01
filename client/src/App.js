@@ -17,6 +17,11 @@ var App = React.createClass({
         };
     },
 
+    // Remove this after testing
+    componentWillMount: function (){
+        this.handleCourses('frodo');
+        // <button type="button" onClick={() => this.handleCourses('frodo')}>Login test</button>
+    },
 
     handleUserChange: function (userID) {
         // if user is new on site
@@ -38,10 +43,15 @@ var App = React.createClass({
         this.setState({selectedCourse: newSelectedCourse});
     },
 
+    callFacebookLogin() {
+        console.log("asdf");
+        Client.loginFacebook();
+    },
+
     render: function () {
         return (
             <div>
-                <button type="button" onClick={() => this.handleCourses('frodo')}>Login test</button>
+                <button onClick={this.callFacebookLogin}>Facebook AUTH</button>
 
                 <NavBar
                     courses={this.state.courses}

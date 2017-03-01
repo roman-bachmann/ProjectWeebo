@@ -24,6 +24,25 @@ function getSubChapters(subjectID, chapterID, cb) {
       .then(cb);
 }
 
+function getVideosForSubChapter(subjectID, chapterID, subChapterID, cb) {
+    return fetch(`api/getVideos?s=${subjectID}&c=${chapterID}&sc=${subChapterID}`, {
+        accept: 'application/json',
+    }).then(checkStatus)
+      .then(parseJSON)
+      .then(cb);
+}
+
+function loginFacebook() {
+    console.log("fb...");
+    fetch('test', {
+        method: 'post',
+        body: JSON.stringify({
+            username: 'user',
+            password: 'pw'
+        })
+    })
+}
+
 function checkStatus(response) {
     if (response.status >= 200 && response.status < 300) {
         return response;
@@ -39,5 +58,11 @@ function parseJSON(response) {
     return response.json();
 }
 
-const Client = { getCoursesForUser, getChaptersForSubject, getSubChapters };
+const Client = {
+    getCoursesForUser,
+    getChaptersForSubject,
+    getSubChapters,
+    getVideosForSubChapter,
+    loginFacebook
+};
 export default Client;
