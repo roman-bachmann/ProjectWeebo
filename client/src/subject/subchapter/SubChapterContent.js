@@ -41,11 +41,13 @@ var SubChapterContent = React.createClass({
               		return (<Grid bsClass="container" className="subGrid">
 		              		{this.props.activePanel === this.props.needActive ? 
 		              			<Row>
-							      <Col md={6}><YouTube id={v.videoID} /></Col>
-							      <Col md={4}>
+							      <Col md={7}>
+							      	<YouTube id={v.videoID} />
+							      </Col>
+							      <Col md={3} className="subCol">
 							      	<Upvote ></Upvote>
 							      </Col>
-							      <Col md={2}>
+							      <Col md={2} className="subCol">
 							      	<button className="shareBtn"><span>Add</span></button>
 							      </Col>
 							    </Row>
@@ -56,8 +58,10 @@ var SubChapterContent = React.createClass({
 	              	return (<Grid bsClass="container" className="subGrid">
 			              		{this.props.activePanel === this.props.needActive ? 
 			              			<Row>
-								      <Col md={6}><YouTube id={v.videoID} /></Col>
-								      <Col md={6}>
+								      <Col md={7} className="subCol">
+								      	<YouTube id={v.videoID} />
+								      </Col>
+								      <Col md={5}  className="subCol">
 								      	<Upvote ></Upvote>
 								      </Col>
 								    </Row>

@@ -46,3 +46,7 @@
 .subGrid {
     width: 100%;
 }
+.subCol {
+    border-style: solid;
+    text-align: left;
+}
