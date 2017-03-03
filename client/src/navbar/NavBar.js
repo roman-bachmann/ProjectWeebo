@@ -1,4 +1,6 @@
 var React = require('react');
+import './NavBar.css';
+
 var Navbar = require("react-bootstrap/lib/Navbar");
 var Nav = require("react-bootstrap/lib/Nav");
 var NavItem = require("react-bootstrap/lib/NavItem");
@@ -33,7 +35,7 @@ var NavBar = React.createClass({
         }
 
         return (
-            <Navbar inverse collapseOnSelect style={{background: '#4a5051'}}>
+            <Navbar inverse collapseOnSelect className="theNavBar">
                 <Navbar.Header>
                     <Navbar.Brand>
                         <Link to="/learn">
