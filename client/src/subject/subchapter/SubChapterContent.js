@@ -39,11 +39,10 @@ var SubChapterContent = React.createClass({
               	return (<div>
               		{this.props.activePanel === this.props.needActive ? 
               			<Row>
-                			<Col xs={4} md={4}>
-                				<h4>{v.title}</h4>
+                			<Col xs={3} md={3}>
                 				<YouTube id={v.videoID} />
                 			</Col>
-                			<Col xs={1} md={1} ><Upvote></Upvote></Col>
+                			<Col xs={1} md={1}><Upvote></Upvote></Col>
             			</Row>
             			:null} 
             			</div>);
