@@ -300,7 +300,7 @@ function get_subchapters(req, res, subjectID, chapterID) {
 }
 
 function get_videos(req, res, subjectID, chapterID, subChapterID) {
-    var sql = `SELECT Video.videoID
+    var sql = `SELECT Video.videoID, title
                FROM subChapterVideo, Video
                WHERE subChapterVideo.videoID = Video.videoID
                AND subChapterVideo.subjectID = ?
