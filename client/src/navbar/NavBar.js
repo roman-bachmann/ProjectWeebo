@@ -7,8 +7,14 @@ var MenuItem = require("react-bootstrap/lib/MenuItem");
 import {Link} from 'react-router';
 
 var NavBar = React.createClass({
+    getInitialState: function () {
+        return {subjectName: "Subjects"};
+    },
+
     handleCourseChange: function (selectedKey) {
         this.props.onCourseChange(this.props.courses[selectedKey]);
+        var subject = this.props.courses[selectedKey].subjectID;
+        this.setState({subjectName: subject});
     },
 
     render: function () {
@@ -30,7 +36,9 @@ var NavBar = React.createClass({
             <Navbar inverse collapseOnSelect style={{background: '#4a5051'}}>
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <a href="#">Project Weebo</a>
+                        <Link to="/learn">
+                            Project Weebo
+                        </Link>
                     </Navbar.Brand>
                     <Navbar.Toggle />
                 </Navbar.Header>
@@ -38,7 +46,7 @@ var NavBar = React.createClass({
                     <Nav>
                         <NavDropdown
                                 eventKey={300}
-                                title="Subjects"
+                                title={this.state.subjectName}
                                 id="basic-nav-dropdown"
                                 onSelect={this.handleCourseChange} >
                             {courseItems}
