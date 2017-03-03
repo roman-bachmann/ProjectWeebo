@@ -1,7 +1,7 @@
 const express = require('express');
 var mysql = require('mysql');
-// var passport = require('passport');
-// var FacebookStrategy = require('passport-facebook').Strategy;
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
 // Settings of the MySQL database
 var pool = mysql.createPool({
@@ -23,35 +23,25 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
 }
 
-// const FACEBOOK_APP_ID = "";
-// const FACEBOOK_APP_SECRET = "";
-//
-// // Setting up the passport strategy
-// passport.use(new FacebookStrategy({
-//    clientID: FACEBOOK_APP_ID,
-//    clientSecret: FACEBOOK_APP_SECRET,
-//    callbackURL: 'http://localhost:3000/auth/facebook/callback'
-//  },
-//  function(accessToken, refreshToken, profile, cb) {
-//    //var userExists = checkUserExistance(profile.id);
-// //    User.findOrCreate({ facebookId: profile.id }, function (err, user) { // mockcode
-// //      return cb(err, user);
-// //    });
-//    return cb(null, profile);
-//  }
-// ));
-//
-// // TODO
-// passport.serializeUser(function(user, cb) {
-//   cb(null, user);
-// });
-// // TODO
-// passport.deserializeUser(function(obj, cb) {
-//   cb(null, obj);
-// });
-//
-// app.use(passport.initialize());
-// app.use(passport.session());
+// ###############################
+// *** Handling authentication ***
+// ###############################
+
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+      return done(null, 'frodo');
+    // User.findOne({ username: username }, function(err, user) {
+    //   if (err) { return done(err); }
+    //   if (!user) {
+    //     return done(null, false, { message: 'Incorrect username.' });
+    //   }
+    //   if (!user.validPassword(password)) {
+    //     return done(null, false, { message: 'Incorrect password.' });
+    //   }
+    //   return done(null, user);
+    // });
+  }
+));
 
 
 
@@ -72,26 +62,8 @@ if (process.env.NODE_ENV === 'production') {
 //
 // });
 
-// app.get('/api/auth/facebook',
-//  passport.authenticate('facebook'));
 
-// app.post('/api/auth/facebook', function(req, res, next) {
-//     console.log("Logging in!");
-//     passport.authenticate('facebook');
-// });
-
-// app.get('/api/auth/facebook', function(req, res) {
-//     console.log('Logging in!');
-//     passport.authenticate('facebook');
-// });
-//
-// app.get('/api/auth/facebook/callback',
-//  passport.authenticate('facebook', { failureRedirect: '/login' }),
-//  function(req, res) {
-//    res.redirect('/');
-// });
-//
-// app.get('/api/logout', function(req, res){
+// app.get('/logout', function(req, res){
 //  req.logout();
 //  res.redirect('/');
 // });
@@ -262,7 +234,6 @@ function get_data(req, res, sql) {
     });
 }
 
-// TODO: make it dependent on user
 function get_courses(req, res, userID) {
     var sql = `SELECT Subject.subjectID, Subject.classYear, Subject.name
                FROM Subject, User, UserSubject
