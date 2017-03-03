@@ -73,7 +73,6 @@ var Tabs = React.createClass({
 			<Tab.Container id="left-tabs-example" defaultActiveKey="chap0">
 				<Row className="clearfix">
 					<Col sm={3}>
-						<h1>{this.props.selectedCourse.subjectID}</h1>
 						<Nav bsStyle="pills" stacked>
 							{chaptersList}
 						</Nav>
