@@ -37,35 +37,41 @@ var SubChapterContent = React.createClass({
 	render: function() {
 		if(this.state.videos){
             var videosList = this.state.videos.map(function (v, idx){
-              	/*if(idx == 0){
-              		return (<div>
-              		{this.props.activePanel === this.props.needActive ? 
-              			<Row>
-                			<Col xs={1} md={1}>
-                				<YouTube id={v.videoID} />
-                			</Col>
-                			<Col xs={1} md={1}><Upvote></Upvote></Col>
-            			</Row>
-            			:null} 
-            			</div>);
-              	}*/
-              	return (<div>
-              		{this.props.activePanel === this.props.needActive ? 
-              			<div className="rowParent">
-	              			<Row >
-	                			<YouTube id={v.videoID} />
-	            			</Row>
-            			</div>
-            			:null} 
-            			</div>);
+              	if(idx == 0){
+              		return (<Grid bsClass="container" className="subGrid">
+		              		{this.props.activePanel === this.props.needActive ? 
+		              			<Row>
+							      <Col md={6}><YouTube id={v.videoID} /></Col>
+							      <Col md={4}>
+							      	<Upvote ></Upvote>
+							      </Col>
+							      <Col md={2}>
+							      	<button className="shareBtn"><span>Add</span></button>
+							      </Col>
+							    </Row>
+	            			:null} 
+            			</Grid>);
+              	}
+              	else {
+	              	return (<Grid bsClass="container" className="subGrid">
+			              		{this.props.activePanel === this.props.needActive ? 
+			              			<Row>
+								      <Col md={6}><YouTube id={v.videoID} /></Col>
+								      <Col md={6}>
+								      	<Upvote ></Upvote>
+								      </Col>
+								    </Row>
+		            			:null} 
+	            			</Grid>);
+              	}
             }, this);
         }
 
 		return (
-			<Grid fluid={true}>
-			<Row className="shareRow"><button className="shareBtn"><span>Add</span></button></Row>
+			<div>
+			{/*<Row className="shareRow"><button className="shareBtn"><span>Add</span></button></Row>*/}
 				{videosList}
-			</Grid>
+			</div>
 		);
 	}
 

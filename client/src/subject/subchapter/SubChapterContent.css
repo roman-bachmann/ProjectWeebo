@@ -1,3 +1,6 @@
+.shareRow {
+    text-align: right;
+}
 .shareBtn {
   display: inline-block;
   border-radius: 4px;
@@ -38,6 +41,8 @@
   right: 0;
 }
 .rowParent {
-    border-style: solid;
+    width: 100%;
+}
+.subGrid {
     width: 100%;
 }

@@ -25,18 +25,10 @@ var Upvote = React.createClass({
 	},
 	render: function() {
 		return (
-			<div> 
-				<Grid>
-				<Row>
+			<div className="upVoteWrap"> 
 					<button className="upvoteBtn" onClick={this.addVote}>▲</button>
-				</Row>
-				<Row>
 					<p className="votenumber">{this.state.votecount}</p>
-				</Row>
-				<Row>
 					<button className="downvoteBtn" onClick={this.removeVote}>▼</button>
-				</Row>
-				</Grid>
 			</div>
 		);
 	}
