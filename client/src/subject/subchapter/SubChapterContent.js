@@ -39,7 +39,8 @@ var SubChapterContent = React.createClass({
               	return (<div>
               		{this.props.activePanel === this.props.needActive ? 
               			<Row>
-                			<Col xs={4} md={2}>
+                			<Col xs={4} md={4}>
+                				<h4>{v.title}</h4>
                 				<YouTube id={v.videoID} />
                 			</Col>
                 			<Col xs={1} md={1} ><Upvote></Upvote></Col>
@@ -50,9 +51,9 @@ var SubChapterContent = React.createClass({
         }
 
 		return (
-			<div>
+			<Grid fluid={true}>
 				{videosList}
-			</div>
+			</Grid>
 		);
 	}
 
