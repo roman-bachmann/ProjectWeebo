@@ -1,4 +1,5 @@
 var React = require('react');
+import './SubChapterContent.css';
 import {Row, Col, Grid} from 'react-bootstrap';
 var YouTube = require('./YouTubePlayer.js');
 var Upvote = require('./Upvote.js');
@@ -39,7 +40,7 @@ var SubChapterContent = React.createClass({
               	return (<div>
               		{this.props.activePanel === this.props.needActive ? 
               			<Row>
-                			<Col xs={3} md={3}>
+                			<Col xs={1} md={1}>
                 				<YouTube id={v.videoID} />
                 			</Col>
                 			<Col xs={1} md={1}><Upvote></Upvote></Col>
@@ -51,6 +52,7 @@ var SubChapterContent = React.createClass({
 
 		return (
 			<Grid fluid={true}>
+			<Row className="shareRow"><button className="shareBtn">Share</button></Row>
 				{videosList}
 			</Grid>
 		);
