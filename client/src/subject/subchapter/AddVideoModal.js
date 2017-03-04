@@ -11,6 +11,10 @@ const MySmallModal = React.createClass({
   },
 
    handleUserInput: function(e) {
+    /*  The link that caused troubles, so that I had to split on &
+        https://www.youtube.com/watch?v=5kcdRBHM7kM&t=2s
+        Please update split method if other problems with links occurs.
+    */
     var videoSplit = e.target.value.split("=");
     var videoWithoutExtras = videoSplit[1].split("&");
     var videoId = videoWithoutExtras[0];
