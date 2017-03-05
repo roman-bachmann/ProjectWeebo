@@ -1,0 +1,17 @@
+.closeBtn {
+	float: left;
+	background-color: red;
+	color: white;
+}
+.closeBtn:hover {
+	background-color: #770b0b;
+	color: white;
+}
+.acceptBtn {
+	background-color: green;
+	color: white;
+}
+.acceptBtn:hover {
+	background-color: #0b541f;
+	color: white;
+}

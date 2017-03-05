@@ -3,11 +3,15 @@ import './SubChapterContent.css';
 import {Row, Col, Grid} from 'react-bootstrap';
 var YouTube = require('./YouTubePlayer.js');
 var Upvote = require('./Upvote.js');
+var VideoModal = require('./AddVideoModal.js');
 import Client from '../../Client.js';
 
 var SubChapterContent = React.createClass({
 	getInitialState: function () {
-		return { videos: [] };
+		return { 
+			videos: [],
+			smShow: false
+		};
 	},
 
 	loadVideosFromServer: function (subjectID, chapterID, subChapterID) {
@@ -33,39 +37,81 @@ var SubChapterContent = React.createClass({
 				nextProps.subchapter.subChapterID);
 		}
 	},
+	handleAddVideo: function () {
+
+	},
 
 	render: function() {
+		let smClose = () => this.setState({ smShow: false });
 		if(this.state.videos){
             var videosList = this.state.videos.map(function (v, idx){
-              	/*if(idx == 0){
-              		return (<div>
-              		{this.props.activePanel === this.props.needActive ? 
-              			<Row>
-                			<Col xs={1} md={1}>
-                				<YouTube id={v.videoID} />
-                			</Col>
-                			<Col xs={1} md={1}><Upvote></Upvote></Col>
-            			</Row>
-            			:null} 
-            			</div>);
-              	}*/
-              	return (<div>
-              		{this.props.activePanel === this.props.needActive ? 
-              			<div className="rowParent">
-	              			<Row >
-	                			<YouTube id={v.videoID} />
-	            			</Row>
-            			</div>
-            			:null} 
-            			</div>);
+              	if(idx == 0){
+              		return (<Grid bsClass="container" className="subGrid">
+		              		{this.props.activePanel === this.props.needActive ? 
+		              			<Row>
+		              			<VideoModal 
+		              				show={this.state.smShow} 
+		              				onHide={smClose} 
+		              				subject={this.props.subject.subjectID}
+		              				chapter={this.props.chapter.chapterID}
+		              				subchapter={this.props.subchapter.subChapterID}/>
+							      <Col md={7}>
+							      	<YouTube id={v.videoID} />
+							      </Col>
+							      <Col md={3} className="subCol">
+							      	<Upvote ></Upvote>
+							      </Col>
+							      <Col md={2} className="subCol">
+							      	<button className="shareBtn" onClick={()=>this.setState({ smShow: true })}><span>Add</span></button>
+							      </Col>
+							    </Row>
+	            			:null} 
+            			</Grid>);
+              	}
+              	else {
+	              	return (<Grid bsClass="container" className="subGrid">
+			              		{this.props.activePanel === this.props.needActive ? 
+			              			<Row>
+								      <Col md={7} className="subCol">
+								      	<YouTube id={v.videoID} />
+								      </Col>
+								      <Col md={5}  className="subCol">
+								      	<Upvote ></Upvote>
+								      </Col>
+								    </Row>
+		            			:null} 
+	            			</Grid>);
+              	}
             }, this);
+        }
+        if(this.state.videos.length == 0){
+        	return (<Grid bsClass="container" className="subGrid">
+		              		{this.props.activePanel === this.props.needActive ? 
+		              			<Row>
+		              			<VideoModal 
+		              				show={this.state.smShow} 
+		              				onHide={smClose} 
+		              				subject={this.props.subject.subjectID}
+		              				chapter={this.props.chapter.chapterID}
+		              				subchapter={this.props.subchapter.subChapterID}/>
+		              			<Col md={7}>
+		              			</Col>
+		              			<Col md={3} className="subCol">
+							      	
+							      </Col>
+							      <Col md={2} className="subCol">
+							      	<button className="shareBtn" onClick={()=>this.setState({ smShow: true })}><span>Add</span></button>
+							      </Col>
+							</Row>
+	            			:null} 
+	            			</Grid>);
         }
 
 		return (
-			<Grid fluid={true}>
-			<Row className="shareRow"><button className="shareBtn"><span>Add</span></button></Row>
+			<div>
+
 				{videosList}
-			</Grid>
+			</div>
 		);
 	}
 
