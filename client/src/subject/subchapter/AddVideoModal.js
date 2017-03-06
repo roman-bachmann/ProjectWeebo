@@ -41,7 +41,6 @@ const MySmallModal = React.createClass({
     var subChapterID = this.props.subchapter;
     var videoID = this.state.userInput;
     Client.videoShare(userID, subjectID, chapterID, subChapterID, videoID);
-    this.props.refreshPanel();
     this.props.onHide();
   },
 
@@ -52,9 +51,9 @@ const MySmallModal = React.createClass({
           <Modal.Title id="contained-modal-title-sm">Add video</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>Your video might not show instantly in the panel. Try reopening your panel after sharing your video.</p>
           <p>YouTube link/id: <input type="text" onChange={this.handleUserInput}/></p>
           <YouTube id={this.state.userInput}/>
+          <p><span style={{color: 'red'}}>Notice: </span>You need to reopen your active panel to see the video you shared.</p>
         </Modal.Body>
         <Modal.Footer>
           <Button className="closeBtn" onClick={this.props.onHide}>Close</Button>
