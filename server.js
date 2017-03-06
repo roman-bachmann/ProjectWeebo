@@ -96,6 +96,8 @@ if (process.env.NODE_ENV === 'production') {
 //  res.redirect('/');
 // });
 
+
+
 app.get('/api/getCourses', (req, res) => {
     const userID = req.query.u;
 
@@ -167,6 +169,46 @@ app.get('/api/getVideos', (req, res) => {
     }
 
     get_videos(req, res, subjectID, chapterID, subChapterID);
+});
+app.get('/api/shareVideo', (req, res) => {
+  console.log("hello there and welcome");
+  const userID = req.query.user;
+  const subjectID = req.query.subj;
+  const chapterID = req.query.chap;
+  const subChapterID = req.query.subc;
+  const videoID = req.query.vid;
+  if(!userID){
+    res.json({
+            error: 'Missing required parameter `s`',
+      });
+      return;
+  }
+  if (!subjectID) {
+        res.json({
+            error: 'Missing required parameter `s`',
+        });
+        return;
+  }
+  if (!chapterID) {
+      res.json({
+          error: 'Missing required parameter `c`',
+      });
+      return;
+  }
+  if (!subChapterID) {
+      res.json({
+          error: 'Missing required parameter `sc`',
+      });
+      return;
+  }
+  if (!videoID) {
+      res.json({
+          error: 'Missing required parameter `v`',
+      });
+      return;
+  }
+  console.log("about to post");
+  post_video(req, res, userID, subjectID, chapterID, subChapterID, videoID);
 });
 
 app.get('/api/getRating', (req, res) => {
@@ -261,6 +303,34 @@ function get_data(req, res, sql) {
         });
     });
 }
+function post_data(req, res, sql) {
+  pool.getConnection(function(err,connection){
+        if (err) {
+            connection.release();
+            //res.json({"code" : 100, "status" : "Error in connection database"});
+            res.json([]);
+            return;
+        }
+
+        console.log('connected as id ' + connection.threadId);
+
+        connection.query(sql, function(err,rows){
+            connection.release();
+            if (!err) {
+                console.log('The solution is: ', rows);
+                res.json(rows);
+            } else {
+                console.log('Error while performing Query.');
+            }
+        });
+
+        connection.on('error', function(err) {
+            //res.json({"code" : 100, "status" : "Error in connection database"});
+            res.json([]);
+            return;
+        });
+    });
+}
 
 // TODO: make it dependent on user
 function get_courses(req, res, userID) {
@@ -300,12 +370,18 @@ function get_subchapters(req, res, subjectID, chapterID) {
 }
 
 function get_videos(req, res, subjectID, chapterID, subChapterID) {
+    var sql = `SELECT subChapterVideo.videoID
+               FROM subChapterVideo
+               WHERE subChapterVideo.subjectID = ?
+               AND subChapterVideo.chapterID = ?
+               AND subChapterVideo.subChapterID = ?;`;
+    /* Not sure if we need the Video table so I stopped fetching from it
     var sql = `SELECT Video.videoID
                FROM subChapterVideo, Video
                WHERE subChapterVideo.videoID = Video.videoID
                AND subChapterVideo.subjectID = ?
                AND subChapterVideo.chapterID = ?
-               AND subChapterVideo.subChapterID = ?;`;
+               AND subChapterVideo.subChapterID = ?;`;*/
     var inserts = [subjectID, chapterID, subChapterID];
     sql = mysql.format(sql, inserts);
 
@@ -334,6 +410,17 @@ function get_favoriteVideo(req, res, videoID, userID) {
    sql = mysql.format(sql, inserts);
 
    get_data(req, res, sql);
+}
+function post_video(req, res, userID, subjectID, chapterID, subChapterID, videoID){
+  console.log("sqling");
+  var sql =   `INSERT INTO subChapterVideo (userID, subjectID, chapterID, subChapterID, videoID)
+              VALUES (?, ?, ?, ?, ?)`;
+  console.log("ready to insert");
+  var inserts = [userID, subjectID, chapterID, subChapterID, videoID];
+  console.log("inserted");
+  sql = mysql.format(sql, inserts);
+  console.log("about to update database");
+  get_data(req, res, sql);
 }
 
 

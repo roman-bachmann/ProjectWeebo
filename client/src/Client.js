@@ -42,7 +42,7 @@ function getRating(userID, videoID, rating_score, date_rated, cb) {
 
 function getFavoriteVideo(userID, videoID, cb) {
    return fetch(`api/getRating?u=${userID}&v=${videoID}`, {
-       accept: 'application/jason',
+       accept: 'application/json',
    }).then(checkStatus)
      .then(parseJSON)
      .then(cb);
@@ -53,6 +53,12 @@ function loginFacebook() {
     fetch('api/auth/facebook', {
         method: 'post'
     })
+}
+function videoShare(userID, subjectID, chapterID, subChapterID, videoID, cb) {
+  console.log("post video...")
+  fetch(`api/shareVideo?user=${userID}&subj=${subjectID}&chap=${chapterID}&subc=${subChapterID}&vid=${videoID}`, {
+       accept: 'application/json'
+  })
 }
 
 function checkStatus(response) {
@@ -77,6 +83,7 @@ const Client = {
     getVideosForSubChapter,
     getRating,
     getFavoriteVideo,
+    videoShare,
     loginFacebook
 };
 export default Client;

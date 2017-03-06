@@ -2,6 +2,7 @@ var React = require('react');
 import {Modal, Button} from 'react-bootstrap';
 var YouTube = require('./YouTubePlayer.js');
 import './AddVideoModal.css';
+import Client from '../../Client.js';
 
 const MySmallModal = React.createClass({
   getInitialState: function () {
@@ -15,9 +16,18 @@ const MySmallModal = React.createClass({
         https://www.youtube.com/watch?v=5kcdRBHM7kM&t=2s
         Please update split method if other problems with links occurs.
     */
+    var videoId = '';
     var videoSplit = e.target.value.split("=");
-    var videoWithoutExtras = videoSplit[1].split("&");
-    var videoId = videoWithoutExtras[0];
+    if(videoSplit.length != 1){
+      //If user posts the whole link
+      var videoWithoutExtras = videoSplit[1].split("&");
+      videoId = videoWithoutExtras[0];
+    }
+    else{
+      //If user only posts video ID
+      var videoWithoutExtras = videoSplit[0].split("&");
+      videoId = videoWithoutExtras[0];
+    }
     this.setState({
       userInput: videoId
     });
@@ -25,6 +35,12 @@ const MySmallModal = React.createClass({
 
   handleShare: function() {
     console.log(this.state.userInput);
+    var userID = 'frodo';
+    var subjectID = this.props.subject;
+    var chapterID = this.props.chapter;
+    var subChapterID = this.props.subchapter;
+    var videoID = this.state.userInput;
+    Client.videoShare(userID, subjectID, chapterID, subChapterID, videoID);
   },
 
   render() {
@@ -35,7 +51,7 @@ const MySmallModal = React.createClass({
         </Modal.Header>
         <Modal.Body>
           <p>Subject: {this.props.subject} Chapter: {this.props.chapter} Subchapter: {this.props.subchapter}</p>
-          <p>YouTube link: <input type="text" onChange={this.handleUserInput}/></p>
+          <p>YouTube link/id: <input type="text" onChange={this.handleUserInput}/></p>
           <YouTube id={this.state.userInput}/>
         </Modal.Body>
         <Modal.Footer>
