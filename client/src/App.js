@@ -9,7 +9,7 @@ var Login = require('./Login.js');
 
 import Client from './Client';
 
-import {Router, Route, hashHistory, IndexRoute} from 'react-router';
+import {Router, Route, browserHistory, IndexRoute} from 'react-router';
 
 var App = React.createClass({
     getInitialState: function () {
