@@ -1,7 +1,7 @@
 const express = require('express');
+const morgan = require('morgan');
+
 var mysql = require('mysql');
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
 
 // Settings of the MySQL database
 var pool = mysql.createPool({
@@ -15,6 +15,9 @@ var pool = mysql.createPool({
 
 const app = express();
 
+// Setup logger
+app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] :response-time ms'));
+
 // Set the port of the backend (Different than the port of the frontend at 3000)
 app.set('port', (process.env.PORT || 3001));
 
@@ -23,50 +26,11 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
 }
 
-// ###############################
-// *** Handling authentication ***
-// ###############################
-
-passport.use(new LocalStrategy(
-  function(username, password, done) {
-      return done(null, 'frodo');
-    // User.findOne({ username: username }, function(err, user) {
-    //   if (err) { return done(err); }
-    //   if (!user) {
-    //     return done(null, false, { message: 'Incorrect username.' });
-    //   }
-    //   if (!user.validPassword(password)) {
-    //     return done(null, false, { message: 'Incorrect password.' });
-    //   }
-    //   return done(null, user);
-    // });
-  }
-));
-
 
 
 // ###############################
 // ******* Handling routes *******
 // ###############################
-
-// // Handling authentication
-// function loggedIn(req, res, next) {
-//    if (req.user) {
-//        next();
-//    } else {
-//        res.redirect('/login');
-//    }
-// }
-//
-// app.get('/', loggedIn, function(req, res, next) {
-//
-// });
-
-
-// app.get('/logout', function(req, res){
-//  req.logout();
-//  res.redirect('/');
-// });
 
 app.get('/api/getCourses', (req, res) => {
     const userID = req.query.u;
@@ -306,37 +270,6 @@ function get_favoriteVideo(req, res, videoID, userID) {
 
    get_data(req, res, sql);
 }
-
-
-//function checkUserExistance(facebookID) {
-//    pool.getConnection(function(err,connection){
-//        if (err) {
-//            connection.release();
-//            return false;
-//        }
-//
-//        var sql = "SELECT EXISTS(SELECT 1 FROM User WHERE facebookID = ?)";
-//        var inserts = [facebookID];
-//        sql = mysql.format(sql, inserts);
-//
-//        connection.query(sql, function(err,rows){
-//            connection.release();
-//            if (!err) {
-//                if (rows.json() == 1) {
-//                    return true;
-//                } else {
-//                    return false;
-//                }
-//            } else {
-//                console.log('Error while performing Query.');
-//            }
-//        });
-//
-//        connection.on('error', function(err) {
-//            return false;
-//        });
-//    });
-//}
 
 
 // ##############################
