@@ -1,7 +1,7 @@
 const express = require('express');
+const morgan = require('morgan');
+
 var mysql = require('mysql');
-// var passport = require('passport');
-// var FacebookStrategy = require('passport-facebook').Strategy;
 
 // Settings of the MySQL database
 var pool = mysql.createPool({
@@ -15,6 +15,9 @@ var pool = mysql.createPool({
 
 const app = express();
 
+// Setup logger
+app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] :response-time ms'));
+
 // Set the port of the backend (Different than the port of the frontend at 3000)
 app.set('port', (process.env.PORT || 3001));
 
@@ -23,79 +26,11 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
 }
 
-// const FACEBOOK_APP_ID = "";
-// const FACEBOOK_APP_SECRET = "";
-//
-// // Setting up the passport strategy
-// passport.use(new FacebookStrategy({
-//    clientID: FACEBOOK_APP_ID,
-//    clientSecret: FACEBOOK_APP_SECRET,
-//    callbackURL: 'http://localhost:3000/auth/facebook/callback'
-//  },
-//  function(accessToken, refreshToken, profile, cb) {
-//    //var userExists = checkUserExistance(profile.id);
-// //    User.findOrCreate({ facebookId: profile.id }, function (err, user) { // mockcode
-// //      return cb(err, user);
-// //    });
-//    return cb(null, profile);
-//  }
-// ));
-//
-// // TODO
-// passport.serializeUser(function(user, cb) {
-//   cb(null, user);
-// });
-// // TODO
-// passport.deserializeUser(function(obj, cb) {
-//   cb(null, obj);
-// });
-//
-// app.use(passport.initialize());
-// app.use(passport.session());
-
 
 
 // ###############################
 // ******* Handling routes *******
 // ###############################
-
-// // Handling authentication
-// function loggedIn(req, res, next) {
-//    if (req.user) {
-//        next();
-//    } else {
-//        res.redirect('/login');
-//    }
-// }
-//
-// app.get('/', loggedIn, function(req, res, next) {
-//
-// });
-
-// app.get('/api/auth/facebook',
-//  passport.authenticate('facebook'));
-
-// app.post('/api/auth/facebook', function(req, res, next) {
-//     console.log("Logging in!");
-//     passport.authenticate('facebook');
-// });
-
-// app.get('/api/auth/facebook', function(req, res) {
-//     console.log('Logging in!');
-//     passport.authenticate('facebook');
-// });
-//
-// app.get('/api/auth/facebook/callback',
-//  passport.authenticate('facebook', { failureRedirect: '/login' }),
-//  function(req, res) {
-//    res.redirect('/');
-// });
-//
-// app.get('/api/logout', function(req, res){
-//  req.logout();
-//  res.redirect('/');
-// });
-
 
 
 app.get('/api/getCourses', (req, res) => {
@@ -332,7 +267,6 @@ function post_data(req, res, sql) {
     });
 }
 
-// TODO: make it dependent on user
 function get_courses(req, res, userID) {
     var sql = `SELECT Subject.subjectID, Subject.classYear, Subject.name
                FROM Subject, User, UserSubject
@@ -422,37 +356,6 @@ function post_video(req, res, userID, subjectID, chapterID, subChapterID, videoI
   console.log("about to update database");
   get_data(req, res, sql);
 }
-
-
-//function checkUserExistance(facebookID) {
-//    pool.getConnection(function(err,connection){
-//        if (err) {
-//            connection.release();
-//            return false;
-//        }
-//
-//        var sql = "SELECT EXISTS(SELECT 1 FROM User WHERE facebookID = ?)";
-//        var inserts = [facebookID];
-//        sql = mysql.format(sql, inserts);
-//
-//        connection.query(sql, function(err,rows){
-//            connection.release();
-//            if (!err) {
-//                if (rows.json() == 1) {
-//                    return true;
-//                } else {
-//                    return false;
-//                }
-//            } else {
-//                console.log('Error while performing Query.');
-//            }
-//        });
-//
-//        connection.on('error', function(err) {
-//            return false;
-//        });
-//    });
-//}
 
 
 // ##############################

@@ -52,7 +52,7 @@ function loginFacebook() {
     console.log("fb...");
     fetch('api/auth/facebook', {
         method: 'post'
-    })
+    });
 }
 function videoShare(userID, subjectID, chapterID, subChapterID, videoID, cb) {
   console.log("post video...")
