@@ -36,9 +36,15 @@ var AccordionBoot = React.createClass({
 	},
 
     handleSelect: function(panel){
-        this.setState({
-            activePanel: panel
-        });
+        if(this.state.activePanel != panel){
+            this.setState({
+                activePanel: panel
+            });
+        }else{
+            this.setState({
+                activePanel: ''
+            });
+        }
     },
 
     render: function () {

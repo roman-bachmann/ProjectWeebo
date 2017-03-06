@@ -37,8 +37,12 @@ var SubChapterContent = React.createClass({
 				nextProps.subchapter.subChapterID);
 		}
 	},
-	handleAddVideo: function () {
-
+	updatePanel: function () {
+		console.log("trying to refresh");
+		var panel = this.state.activePanel;
+		this.setState({
+			activePanel: panel
+		});
 	},
 
 	render: function() {
@@ -50,8 +54,9 @@ var SubChapterContent = React.createClass({
 		              		{this.props.activePanel === this.props.needActive ? 
 		              			<Row>
 		              			<VideoModal 
-		              				show={this.state.smShow} 
-		              				onHide={smClose} 
+		              				show={this.state.smShow}
+		              				refreshPanel={this.updatePanel}
+		              				onHide={smClose}
 		              				subject={this.props.subject.subjectID}
 		              				chapter={this.props.chapter.chapterID}
 		              				subchapter={this.props.subchapter.subChapterID}/>
