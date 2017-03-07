@@ -13,14 +13,23 @@ var NavBar = React.createClass({
         return {subjectName: "Subjects"};
     },
 
-    handleCourseChange: function (selectedKey) {
-        this.props.onCourseChange(this.props.courses[selectedKey]);
-        var subject = this.props.courses[selectedKey].subjectID;
-        this.setState({subjectName: subject});
+    handleCourseDropdown: function (selectedKey) {
+        // If we select to add courses
+        if (selectedKey == 'addCoursesKey') {
+            console.log("Adding courses!");
+        }
+        // If we select a course
+        else {
+            this.props.onCourseChange(this.props.courses[selectedKey]);
+            var subject = this.props.courses[selectedKey].subjectID;
+            this.setState({subjectName: subject});
+        }
     },
 
     render: function () {
         var courseItems;
+
+        console.log(this.props.courses);
 
         if (this.props.courses) {
             courseItems = this.props.courses.map((c, idx) => (
@@ -30,8 +39,6 @@ var NavBar = React.createClass({
                     </Link>
                 </MenuItem>
             ));
-        } else {
-            courseItems = <MenuItem eventKey={0}>You have no courses.</MenuItem>
         }
 
         return (
@@ -52,10 +59,10 @@ var NavBar = React.createClass({
                                     eventKey={300}
                                     title={this.state.subjectName}
                                     id="basic-nav-dropdown"
-                                    onSelect={this.handleCourseChange} >
+                                    onSelect={this.handleCourseDropdown} >
                                 {courseItems}
-                                <MenuItem divider />
-                                <MenuItem eventKey={400}>Separated link</MenuItem>
+                                {this.props.courses[0] && <MenuItem divider />}
+                                <MenuItem eventKey={'addCoursesKey'}>Add courses!</MenuItem>
                             </NavDropdown>
                         )}
 

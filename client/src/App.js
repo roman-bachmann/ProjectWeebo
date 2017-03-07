@@ -9,51 +9,55 @@ var ChapTabs = require('./subject/chapter/ChapterView.js');
 var Login = require('./auth/Login.js');
 
 import Client from './Client';
-
+import AuthService from './auth/AuthService.js'
 import {Router, Route, browserHistory, IndexRoute} from 'react-router';
 
-var App = React.createClass({
-    getInitialState: function () {
-        return {
+
+export class App extends React.Component {
+
+    constructor(props, context) {
+        super(props, context)
+        this.state = {
             user: {},
             courses: [{}],
             selectedCourse: {}
-        };
-    },
+        }
 
-    // Remove this after testing
-    componentWillMount: function (){
-        this.handleCourses('frodo');
-        // <button type="button" onClick={() => this.handleCourses('frodo')}>Login test</button>
-    },
+        this.changeSelectedCourse = this.changeSelectedCourse.bind(this)
 
-    handleUserChange: function (userID) {
-        // if user is new on site
+        // Listen to profile_updated events to update internal state
+        props.route.auth.on('profile_updated', (newProfile) => {
+            this.handleUserChange(newProfile.user_id);
+        })
+    }
+
+    componentWillMount() {
+        var auth = this.props.route.auth;
+        if (auth.getProfile()) {
+            this.handleCourses(auth.getProfile().user_id);
+        }
+    }
+
+    handleUserChange(userID) {
         this.setState({ user: userID });
-        // TODO: fetch user form db/facebook etc
         this.handleCourses(userID);
-    },
+    }
 
-    handleCourses: function (userID) {
-        // TODO make content dependent on user in backend
+    handleCourses(userID) {
         Client.getCoursesForUser(userID, (crs) => {
             this.setState({
                 courses: crs
             });
         });
-    },
+    }
 
-    changeSelectedCourse: function (newSelectedCourse) {
-        this.setState({selectedCourse: newSelectedCourse});
-    },
+    changeSelectedCourse(newSelectedCourse) {
+        this.setState({
+            selectedCourse: newSelectedCourse
+        });
+    }
 
-    callFacebookLogin() {
-        console.log("asdf");
-        Client.loginFacebook();
-    },
-
-    render: function () {
-
+    render () {
         const childrenWithProps = React.Children.map(this.props.children,
             (child) => React.cloneElement(child, {
                 selectedCourse: this.state.selectedCourse,
@@ -75,6 +79,6 @@ var App = React.createClass({
             </div>
         );
     }
-});
+}
 
-module.exports = App;
+export default App;
