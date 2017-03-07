@@ -46,26 +46,34 @@ var NavBar = React.createClass({
                 </Navbar.Header>
                 <Navbar.Collapse>
                     <Nav>
-                        <NavDropdown
-                                eventKey={300}
-                                title={this.state.subjectName}
-                                id="basic-nav-dropdown"
-                                onSelect={this.handleCourseChange} >
-                            {courseItems}
-                            <MenuItem divider />
-                            <MenuItem eventKey={400}>Separated link</MenuItem>
-                        </NavDropdown>
+
+                        {this.props.auth.loggedIn() && (
+                            <NavDropdown
+                                    eventKey={300}
+                                    title={this.state.subjectName}
+                                    id="basic-nav-dropdown"
+                                    onSelect={this.handleCourseChange} >
+                                {courseItems}
+                                <MenuItem divider />
+                                <MenuItem eventKey={400}>Separated link</MenuItem>
+                            </NavDropdown>
+                        )}
+
                     </Nav>
-                    <Nav pullRight>
-                        <NavItem eventKey={99}>
-                            <Link
-                                className="link"
-                                to="/login"
-                                activeClassName="active" >
-                                Login with Facebook
-                            </Link>
-                        </NavItem>
-                    </Nav>
+
+                    {this.props.auth.loggedIn() ? (
+                        <Nav pullRight>
+                            <NavItem eventKey={88}>
+                                <Link className="Nav__link" to="/profile">Profile</Link>
+                            </NavItem>
+                            <NavItem eventKey={111} onClick={this.props.auth.logout.bind(this)}>Log Out</NavItem>
+                        </Nav>
+                    ) : (
+                        <Nav pullRight>
+                            <NavItem eventKey={99} onClick={this.props.auth.login.bind(this)}>Log In / Sign Up</NavItem>
+                        </Nav>
+                    )}
+
                 </Navbar.Collapse>
             </Navbar>
         );

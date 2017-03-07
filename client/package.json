@@ -5,6 +5,8 @@
   "proxy": "http://localhost:3001/",
   "devDependencies": {
     "auth0-lock": "^10.12.2",
+    "events": "^1.1.1",
+    "jwt-decode": "^2.1.0",
     "react-bootstrap": "^0.30.7",
     "react-router": "^3.0.2",
     "react-scripts": "0.8.5",

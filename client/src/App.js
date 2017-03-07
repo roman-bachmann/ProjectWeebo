@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import { PropTypes as T } from 'react';
 import logo from './logo.svg';
 import './App.css';
 var Col = require("react-bootstrap/lib/Col");
 
 var NavBar = require('./navbar/NavBar.js');
 var ChapTabs = require('./subject/chapter/ChapterView.js');
-var Login = require('./Login.js');
+var Login = require('./auth/Login.js');
 
 import Client from './Client';
 
@@ -54,16 +55,18 @@ var App = React.createClass({
     render: function () {
 
         const childrenWithProps = React.Children.map(this.props.children,
-            (child) => React.cloneElement(child,
-                {selectedCourse: this.state.selectedCourse}
-            )
+            (child) => React.cloneElement(child, {
+                selectedCourse: this.state.selectedCourse,
+                auth: this.props.route.auth
+            })
         );
 
         return (
             <div>
                 <NavBar
                     courses={this.state.courses}
-                    onCourseChange={this.changeSelectedCourse} />
+                    onCourseChange={this.changeSelectedCourse}
+                    auth={this.props.route.auth} />
 
                 <div className="App">
                     {childrenWithProps}
