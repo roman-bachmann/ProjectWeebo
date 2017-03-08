@@ -13,24 +13,17 @@ const MySmallModal = React.createClass({
   },
 
    handleUserInput: function(e) {
-    /*  The link that caused troubles, so that I had to split on &
-        https://www.youtube.com/watch?v=5kcdRBHM7kM&t=2s
-        Please update split method if other problems with links occurs.
-    */
-    var videoId = '';
-    var videoSplit = e.target.value.split("=");
-    if(videoSplit.length != 1){
-      //If user posts the whole link
-      var videoWithoutExtras = videoSplit[1].split("&");
-      videoId = videoWithoutExtras[0];
-    }
-    else{
-      //If user only posts video ID
-      var videoWithoutExtras = videoSplit[0].split("&");
-      videoId = videoWithoutExtras[0];
+    //This function finds the YouTube video id to change the userInput state so that it shows in the YouTube iframe.
+    var url = e.target.value;
+    var videofinds = url.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
+    var videoid = '';
+    if(videofinds != null) {
+       videoid = videofinds[1];
+    }else{
+      videoid = url;
     }
     this.setState({
-      userInput: videoId
+      userInput: videoid
     });
   },
 
