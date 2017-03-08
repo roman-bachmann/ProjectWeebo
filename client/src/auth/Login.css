@@ -1,0 +1,35 @@
+.LogInBox {
+  margin-top: 50px;
+  border: 2px solid black;
+  div {
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  width: 100px;
+  height: 100px;
+  background-color: #ccc;
+
+}
+}
+
+.LogInBox h2 {
+    margin-top: 150px;
+}
+
+.LogIn {
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+  background: url(../img/background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
