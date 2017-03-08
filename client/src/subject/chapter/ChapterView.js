@@ -14,7 +14,7 @@ var Tabs = React.createClass({
 	getInitialState: function () {
 		return {
 			chapters: [],
-      activeTab: 'chap0'
+      		activeTab: 'chap0'
 		};
 	},
 
@@ -53,19 +53,19 @@ var Tabs = React.createClass({
 			}, this);
 			var tabPanes = this.state.chapters.map(function (c, idx){
 				var theKey = 'chap' + idx;
-        return (
-					<Tab.Pane eventKey={theKey}>
-						{this.state.activeTab === theKey ? 
-            <Accordion
-							subject={this.props.selectedCourse}
-							chapter={this.state.chapters[idx]}
-              chapId={'chap' + idx}
-              />
-              :null}
-					</Tab.Pane>
-				);
+			return (
+			<Tab.Pane eventKey={theKey}>
+				{this.state.activeTab === theKey ? 
+					<Accordion
+						subject={this.props.selectedCourse}
+						chapter={this.state.chapters[idx]}
+						chapId={'chap' + idx}
+						userID={this.props.userID}/>
+				:null}
+			</Tab.Pane>
+			);
 			}, this);
-		}
+			}
 
 		return (
 			<div>

@@ -61,7 +61,8 @@ var AccordionBoot = React.createClass({
                                 chapter={this.props.chapter}
                                 subchapter={this.state.subchapters[idx]}
                                 needActive={theKey}
-                                activePanel={this.state.activePanel} />
+                                activePanel={this.state.activePanel} 
+                                userID={this.props.userID}/>
                       </Panel>
                       
                     );

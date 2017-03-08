@@ -108,6 +108,16 @@ app.get('/api/getVideos', (req, res) => {
 
     get_videos(req, res, subjectID, chapterID, subChapterID);
 });
+app.get('/api/getVoting', (req, res) => {
+  const videoID = req.query.v;
+  if(!videoID){
+    res.json({
+            error: 'Missing required parameter `v`',
+        });
+        return;
+  }
+  get_votes(req, res, videoID);
+});
 
 app.post('/api/shareVideo', (req, res) => {
   console.log("hello there and welcome");
@@ -287,7 +297,7 @@ function get_subchapters(req, res, subjectID, chapterID) {
 }
 
 function get_videos(req, res, subjectID, chapterID, subChapterID) {
-    var sql = `SELECT subChapterVideo.videoID
+    var sql = `SELECT videoID, subChapterVideoID
                FROM subChapterVideo
                WHERE subChapterVideo.subjectID = ?
                AND subChapterVideo.chapterID = ?
@@ -316,6 +326,13 @@ function get_rating(req, res, userID, videoID, rating_score, date_rated) {
    sql = mysql.format(sql, inserts);
 
    get_data(req, res, sql);
+}
+function get_votes(req, res, videoID){
+  var sql =   `SELECT userID, rating_score
+              FROM rating
+              WHERE subChapterVideoID = ?`;
+  sql = mysql.format(sql, videoID);
+  get_data(req, res, sql);
 }
 
 function get_favoriteVideo(req, res, videoID, userID) {
