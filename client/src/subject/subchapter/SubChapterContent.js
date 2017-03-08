@@ -73,7 +73,7 @@ var SubChapterContent = React.createClass({
 								      	<YouTube id={v.videoID} />
 								      </Col>
 								      <Col md={5}  className="subCol">
-								      	<Upvote ></Upvote>
+								      	<Upvote videoid={v.subChapterVideoID} userID={this.props.userID}></Upvote>
 								      </Col>
 								    </Row>
 		            			:null} 

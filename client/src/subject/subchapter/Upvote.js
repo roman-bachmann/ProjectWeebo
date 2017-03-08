@@ -6,20 +6,30 @@ import Client from '../../Client.js';
 var Upvote = React.createClass({
 	getInitialState: function () {
 		//fetch from database here
-		return {votes: 0, users: []};
+		return {
+			votes: 0,
+			 users: [],
+			 containsUser: false
+			};
 	},
 	loadVotesFromServer: function (videoID) {
 		Client.getVotesForVideo(videoID, (voteData) => {
+			console.log("done fetching.");
 			if (voteData) {
 				var usersList = [];
 				var counts = 0;
 				for (var i = 0; i < voteData.length; i++) {
 					counts += voteData[i].rating_score;
 					usersList.push(voteData[i].userID);
-					console.log(usersList);
-					console.log(counts);
 				}
-				this.setState({ votes: counts, users: usersList});				
+				var userID = String(this.props.userID);
+				var containsUserValue = false;
+				for(var i = 0; i < usersList.length; i++){
+					if(usersList[i]==userID){
+						containsUserValue = true;
+					}
+				}
+				this.setState({ votes: counts, users: usersList, containsUser: containsUserValue});
 			}
 		});
     },
@@ -35,18 +45,24 @@ var Upvote = React.createClass({
 
 	addVote: function () {
 		//if user haven't already voted add vote and update database. 
-		console.log(this.props.userID);
-		var newVote = this.state.votes + 1;
-		this.setState({
-			votes: newVote
-		});
+		if(this.state.containsUser == false){
+			console.log(this.props.userID);
+			var newVote = this.state.votes + 1;
+			this.setState({
+				votes: newVote,
+				containsUser: true
+			});
+		}
 	},
 	removeVote: function (){
 		//check authentication and update database here
-		var newVote = this.state.votes - 1;
-		this.setState({
-			votes: newVote
-		});
+		if(this.state.containsUser == false){
+			var newVote = this.state.votes - 1;
+			this.setState({
+				votes: newVote,
+				containsUser: true
+			});
+		}
 	},
 	render: function() {
 		return (
