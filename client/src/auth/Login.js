@@ -1,8 +1,6 @@
 import React, { PropTypes as T } from 'react'
 import {ButtonToolbar, Button} from 'react-bootstrap'
 import AuthService from './AuthService.js'
-import './Login.css';
-
 // import styles from './styles.module.css'
 
 export class Login extends React.Component {
@@ -12,15 +10,15 @@ export class Login extends React.Component {
   }
 
   render() {
-    const { auth } = this.props.route
+    const { auth } = this.props
     return (
-    <body>
-      <div className="LogInBox">
-        <h2>Hi</h2>
-        <div className="LogIn"><Button bsStyle="primary" onClick={auth.login.bind(this)}>Log In / Sign Up</Button></div>
+      <div>
+        <h2>Welcome to Weebo!</h2>
+        This could act as a welcome page.
+        <div>
+          <Button bsStyle="primary" onClick={auth.login.bind(this)}>Log In or Sign Up now!</Button>
+        </div>
       </div>
-    </body>
-
     )
   }
 }

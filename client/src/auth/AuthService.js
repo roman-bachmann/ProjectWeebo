@@ -2,24 +2,15 @@ import Auth0Lock from 'auth0-lock'
 import { EventEmitter } from 'events'
 import { isTokenExpired } from './jwtHelper'
 import { browserHistory } from 'react-router'
-import LogoImg from '../img/W.png';
 
 export default class AuthService extends EventEmitter {
     constructor(clientId, domain) {
         super()
-          // Configure Auth0
+        // Configure Auth0
         this.lock = new Auth0Lock(clientId, domain, {
-         theme: {
-           logo: LogoImg,
-           primaryColor: "#2db57a"
-         },
-
-         languageDictionary: {
-   title: "Weebo"
- },
-         auth: {
-           redirectUrl: 'http://localhost:3000/login',
-           responseType: 'token'
+            auth: {
+                redirectUrl: 'http://localhost:3000/login',
+                responseType: 'token'
             },
             additionalSignUpFields: [{
                 name: "address",                              // required
@@ -58,8 +49,6 @@ export default class AuthService extends EventEmitter {
         // Call the show method to display the widget.
         this.lock.show()
     }
-
-
 
     loggedIn() {
         // Checks if there is a saved token and it's still valid
