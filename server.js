@@ -32,6 +32,9 @@ if (process.env.NODE_ENV === 'production') {
 // ******* Handling routes *******
 // ###############################
 
+app.get('/api/getAllCourses', (req, res) => {
+    get_all_courses(req, res);
+});
 
 app.get('/api/getCourses', (req, res) => {
     const userID = req.query.u;
@@ -105,7 +108,8 @@ app.get('/api/getVideos', (req, res) => {
 
     get_videos(req, res, subjectID, chapterID, subChapterID);
 });
-app.get('/api/shareVideo', (req, res) => {
+
+app.post('/api/shareVideo', (req, res) => {
   console.log("hello there and welcome");
   const userID = req.query.user;
   const subjectID = req.query.subj;
@@ -238,33 +242,12 @@ function get_data(req, res, sql) {
         });
     });
 }
-function post_data(req, res, sql) {
-  pool.getConnection(function(err,connection){
-        if (err) {
-            connection.release();
-            //res.json({"code" : 100, "status" : "Error in connection database"});
-            res.json([]);
-            return;
-        }
 
-        console.log('connected as id ' + connection.threadId);
+function get_all_courses(req, res) {
+    var sql = `SELECT Subject.subjectID, Subject.classYear, Subject.name
+               FROM Subject`;
 
-        connection.query(sql, function(err,rows){
-            connection.release();
-            if (!err) {
-                console.log('The solution is: ', rows);
-                res.json(rows);
-            } else {
-                console.log('Error while performing Query.');
-            }
-        });
-
-        connection.on('error', function(err) {
-            //res.json({"code" : 100, "status" : "Error in connection database"});
-            res.json([]);
-            return;
-        });
-    });
+    get_data(req, res, sql);
 }
 
 function get_courses(req, res, userID) {
@@ -345,6 +328,7 @@ function get_favoriteVideo(req, res, videoID, userID) {
 
    get_data(req, res, sql);
 }
+
 function post_video(req, res, userID, subjectID, chapterID, subChapterID, videoID){
   console.log("sqling");
   var sql =   `INSERT INTO subChapterVideo (userID, subjectID, chapterID, subChapterID, videoID)

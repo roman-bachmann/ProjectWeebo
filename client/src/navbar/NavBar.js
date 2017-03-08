@@ -6,17 +6,22 @@ var Nav = require("react-bootstrap/lib/Nav");
 var NavItem = require("react-bootstrap/lib/NavItem");
 var NavDropdown = require("react-bootstrap/lib/NavDropdown");
 var MenuItem = require("react-bootstrap/lib/MenuItem");
+var AddCoursesModal = require('./AddCoursesModal.js');
 import {Link} from 'react-router';
 
 var NavBar = React.createClass({
     getInitialState: function () {
-        return {subjectName: "Subjects"};
+        return {
+            subjectName: "Subjects",
+            showCourseModal: false
+        };
     },
 
     handleCourseDropdown: function (selectedKey) {
         // If we select to add courses
         if (selectedKey == 'addCoursesKey') {
             console.log("Adding courses!");
+            this.setState({ showCourseModal: true });
         }
         // If we select a course
         else {
@@ -27,6 +32,8 @@ var NavBar = React.createClass({
     },
 
     render: function () {
+        let modalClose = () => this.setState({ showCourseModal: false });
+
         var courseItems;
 
         console.log(this.props.courses);
@@ -63,6 +70,10 @@ var NavBar = React.createClass({
                                 {courseItems}
                                 {this.props.courses[0] && <MenuItem divider />}
                                 <MenuItem eventKey={'addCoursesKey'}>Add courses!</MenuItem>
+                                <AddCoursesModal
+		              				show={this.state.showCourseModal}
+		              				onHide={modalClose}
+                                    userID={this.props.userID} />
                             </NavDropdown>
                         )}
 

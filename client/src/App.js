@@ -18,7 +18,7 @@ export class App extends React.Component {
     constructor(props, context) {
         super(props, context)
         this.state = {
-            user: {},
+            userID: {},
             courses: [{}],
             selectedCourse: {}
         }
@@ -39,7 +39,7 @@ export class App extends React.Component {
     }
 
     handleUserChange(userID) {
-        this.setState({ user: userID });
+        this.setState({ userID: userID });
         this.handleCourses(userID);
     }
 
@@ -70,7 +70,8 @@ export class App extends React.Component {
                 <NavBar
                     courses={this.state.courses}
                     onCourseChange={this.changeSelectedCourse}
-                    auth={this.props.route.auth} />
+                    auth={this.props.route.auth}
+                    userID={this.state.userID}/>
 
                 <div className="App">
                     {childrenWithProps}

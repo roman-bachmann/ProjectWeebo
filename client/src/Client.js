@@ -1,5 +1,13 @@
 // Handels API calls to the backend
 
+function getAllCourses(cb) {
+    return fetch(`api/getAllCourses`, {
+        accept: 'application/json',
+    }).then(checkStatus)
+      .then(parseJSON)
+      .then(cb);
+}
+
 function getCoursesForUser(userID, cb) {
     return fetch(`api/getCourses?u=${userID}`, {
         accept: 'application/json',
@@ -58,7 +66,7 @@ function getFavoriteVideo(userID, videoID, cb) {
 function videoShare(userID, subjectID, chapterID, subChapterID, videoID, cb) {
   console.log("post video...")
   fetch(`api/shareVideo?user=${userID}&subj=${subjectID}&chap=${chapterID}&subc=${subChapterID}&vid=${videoID}`, {
-       accept: 'application/json'
+       method: 'post'
   })
 }
 
@@ -78,6 +86,7 @@ function parseJSON(response) {
 }
 
 const Client = {
+    getAllCourses,
     getCoursesForUser,
     getChaptersForSubject,
     getSubChapters,
