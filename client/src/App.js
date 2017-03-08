@@ -61,7 +61,8 @@ export class App extends React.Component {
         const childrenWithProps = React.Children.map(this.props.children,
             (child) => React.cloneElement(child, {
                 selectedCourse: this.state.selectedCourse,
-                auth: this.props.route.auth
+                auth: this.props.route.auth,
+                userID: this.state.userID
             })
         );
 
