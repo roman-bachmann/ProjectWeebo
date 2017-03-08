@@ -56,18 +56,17 @@ function getFavoriteVideo(userID, videoID, cb) {
      .then(cb);
 }
 
-// function loginFacebook() {
-//     console.log("fb...");
-//     fetch('api/auth/facebook', {
-//         method: 'post'
-//     });
-// }
-
 function videoShare(userID, subjectID, chapterID, subChapterID, videoID, cb) {
   console.log("post video...")
   fetch(`api/shareVideo?user=${userID}&subj=${subjectID}&chap=${chapterID}&subc=${subChapterID}&vid=${videoID}`, {
        method: 'post'
   })
+}
+
+function addCourseForUser(userID, subjectID) {
+    fetch(`api/addCourseForUser?user=${userID}&subj=${subjectID}`, {
+        method: 'post'
+    })
 }
 
 function checkStatus(response) {
@@ -93,6 +92,7 @@ const Client = {
     getVideosForSubChapter,
     getRating,
     getFavoriteVideo,
-    videoShare
+    videoShare,
+    addCourseForUser
 };
 export default Client;
