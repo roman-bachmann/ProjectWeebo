@@ -1,5 +1,5 @@
 var React = require('react');
-import {Modal, Button} from 'react-bootstrap';
+import {Modal, Button, ButtonToolbar} from 'react-bootstrap';
 import {Typeahead} from 'react-bootstrap-typeahead';
 import Client from '../Client.js';
 
@@ -7,16 +7,26 @@ var AddCoursesModal = React.createClass({
     getInitialState: function () {
         return {
             multiple: true,
-            courseOptions: [
-                {courseID: 'TDT1111', courseName: 'Course1'},
-                {courseID: 'TDT2222', courseName: 'Course2'},
-                {courseID: 'TDT3333', courseName: 'Course3'},
-            ]
+            courseOptions: [],
+            selectedCourses: []
         };
     },
 
-    handleAddCourses: function () {
+    componentWillMount: function () {
+        Client.getAllCourses((crs) => {
+            this.setState({courseOptions: crs});
+        });
+    },
 
+    handleTypeahead: function (crs) {
+        this.setState({selectedCourses: crs});
+    },
+
+    handleSelectedCourses: function () {
+        // for (i = 0; i < this.state.selectedCourses.length; i++) {
+        //     var c = this.state.selectedCourses[i];
+        //     Client.addCourseForUser(this.props.userID, c.subjectID);
+        // }
     },
 
     render: function () {
@@ -27,11 +37,20 @@ var AddCoursesModal = React.createClass({
                 </Modal.Header>
                 <Modal.Body>
                     <Typeahead
-                        labelKey={option => `${option.courseID} - ${option.courseName}`}
+                        onChange={this.handleTypeahead}
+                        labelKey={option => `${option.subjectID} - ${option.name}`}
                         multiple={this.state.multiple}
                         options={this.state.courseOptions}
+                        ref={ref => this._typeahead = ref}
                         placeholder="Choose a course..." />
-                    <Button className="addCoursesBtn" onClick={this.handleAddCourses}>Add course(s)</Button>
+                    <ButtonToolbar style={{marginTop: '10px'}}>
+                        <Button className="addCoursesBtn" onClick={() => this.handleSelectedCourses}>
+                            Add selected courses
+                        </Button>
+                        <Button className="addCoursesBtn" onClick={() => this._typeahead.getInstance().clear()}>
+                            Clear
+                        </Button>
+                    </ButtonToolbar>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button className="confirmBtn" onClick={this.props.onHide}>Confirm</Button>
