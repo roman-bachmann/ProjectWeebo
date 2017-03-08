@@ -25,16 +25,14 @@ var Routes = React.createClass({
                 <Route path="/" component={App} auth={auth}>
                     <IndexRedirect to="/home" />
                     <Route path="learn" component={ChapTabs} onEnter={requireAuth} />
+                    <Route path="login" component={Login} />
                     <Route path="home" component={Home} onEnter={requireAuth} />
                     <Route path="profile" component={Profile} onEnter={requireAuth} />
                 </Route>
-                <Route path="/login" component={Login} auth={auth} />
             </Router>
         );
 
     }
 });
-
-// <Route path="login" component={Login} />
 
 module.exports = Routes;
