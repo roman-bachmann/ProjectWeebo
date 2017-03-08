@@ -34,7 +34,7 @@ export class App extends React.Component {
     componentWillMount() {
         var auth = this.props.route.auth;
         if (auth.getProfile()) {
-            this.handleCourses(auth.getProfile().user_id);
+            this.handleUserChange(auth.getProfile().user_id);
         }
     }
 
