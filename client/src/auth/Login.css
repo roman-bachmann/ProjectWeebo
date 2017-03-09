@@ -1,0 +1,60 @@
+@font-face {
+     font-family: "Noteworthy";
+     src: url(../fonts/Noteworthy-Light.ttf) format("truetype");
+ }
+
+ @font-face {
+      font-family: "Webly Sleek";
+       src: url(../fonts/weblysleekuil.ttf) format("truetype");
+}
+
+.LogInBox h1 {
+  font-family: "Webly Sleek";
+  font-size: 25px;
+}
+
+.LogInBox h2 {
+    font-family: "Noteworthy";
+    font-size: 200px;
+    margin-bottom: 60px;
+}
+
+.LogInOuterBox {
+	border: 2px solid black;
+}
+.LogInBox {
+	  margin-top: 20px;
+	  text-align: center;
+	  position: absolute;
+	width: 330px;
+	height: 250px;
+	z-index: 15;
+	top: 50%;
+	left: 50%;
+	margin: -100px 0 0 -150px;
+	background-color:  #3cb979;
+	opacity: 0.985;
+	color: white;
+	border-radius: 100%;
+}
+
+.LogInBody {
+  width: 100%;
+  height: 820px;
+  background: url(../img/background2.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
+}
+
+.btn-primary {
+	background-color: #37c690;
+	border-color: green;
+}
+
+.btn-primary:hover {
+	background-color: #329a64;
+	border-color: green;
+}
