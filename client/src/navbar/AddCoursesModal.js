@@ -1,6 +1,7 @@
 var React = require('react');
 import {Modal, Button, ButtonToolbar} from 'react-bootstrap';
 import {Typeahead} from 'react-bootstrap-typeahead';
+import './AddCoursesModal.css';
 import Client from '../Client.js';
 
 var AddCoursesModal = React.createClass({
@@ -33,7 +34,7 @@ var AddCoursesModal = React.createClass({
 
     render: function () {
         return (
-            <Modal {...this.props} bsSize="medium" aria-labelledby="contained-modal-title-sm">
+            <Modal {...this.props} bsSize="large" aria-labelledby="contained-modal-title-sm">
                 <Modal.Header closeButton>
                     <Modal.Title id="contained-modal-title-sm">Add courses</Modal.Title>
                 </Modal.Header>
@@ -41,16 +42,15 @@ var AddCoursesModal = React.createClass({
                     <Typeahead
                         onChange={this.handleTypeahead}
                         labelKey={option => `${option.subjectID} - ${option.name}`}
-                        multiple={this.state.multiple}
+                        clearButton
+                        multiple
+                        maxResults='20'
                         options={this.state.courseOptions}
                         ref={ref => this._typeahead = ref}
                         placeholder="Choose a course..." />
                     <ButtonToolbar style={{marginTop: '10px'}}>
                         <Button className="addCoursesBtn" onClick={this.handleSelectedCourses}>
                             Add selected courses
-                        </Button>
-                        <Button className="addCoursesBtn" onClick={() => this._typeahead.getInstance().clear()}>
-                            Clear
                         </Button>
                     </ButtonToolbar>
                 </Modal.Body>
