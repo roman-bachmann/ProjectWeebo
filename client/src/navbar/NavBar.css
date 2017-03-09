@@ -20,7 +20,7 @@
 .navbar-inverse .navbar-brand {
 	color: #3cb979;
 	font-family: "Noteworthy";
-	font-size: 50px;
+	font-size: 52px;
 	padding-left: 40px;
 }
 
@@ -53,9 +53,6 @@ background-color: #3cb979;
 	padding: 10px 15px;
 }
 
-.navbar .dropdown-menu {
-	color:  black;
-}
 
 .dropdown-menu li a:hover {
 	background-color: white;
