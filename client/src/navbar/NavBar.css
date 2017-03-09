@@ -1,4 +1,72 @@
+@font-face {
+     font-family: "Noteworthy";
+     src: url(../fonts/Noteworthy-Light.ttf) format("truetype");
+ }
+
 .theNavBar {
-	background-color: #4a5051; 
+	background-color: white;
 	margin-bottom: 0;
+}
+
+.navbar-inverse {
+	background-color: white;
+	border-color: white;
+}
+
+.navbar {
+	border-radius: 0px;
+}
+
+.navbar-inverse .navbar-brand {
+	color: #3cb979;
+	font-family: "Noteworthy";
+	font-size: 52px;
+	padding-left: 40px;
+}
+
+
+
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
+background-color: #3cb979;
+
+}
+
+.navbar-inverse .navbar-nav li a {
+	color: #3cb979;
+
+}
+
+
+.dropdown-menu {
+	background-color: white;
+}
+
+.nav .nav-pills .nav-stacked {
+	background-color: #3cb979
+}
+
+.nav-pills li.active a, .nav-pills li.active a:focus, .nav-pills li.active a:hover {
+	background-color: #3cb979;
+}
+
+.navbar-brand {
+	padding: 10px 15px;
+}
+
+
+.dropdown-menu li a:hover {
+	background-color: white;
+	opacity: 0.90;
+}
+
+.navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover {
+	color: #329a64;
+}
+
+.navbar-inverse .navbar-nav li a:hover {
+	color: #329a64;
+}
+
+.navbar-inverse .navbar-nav li a:focus {
+	color: #329a64;
 }

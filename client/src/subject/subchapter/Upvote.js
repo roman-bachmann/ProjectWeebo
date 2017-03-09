@@ -1,36 +1,99 @@
 import './Upvote.css';
 import {Grid, Row, Col} from 'react-bootstrap';
-
 var React = require('react');
+import Client from '../../Client.js';
+
+var ColorsVote = { 	"Upgreen": "#81b71a",
+                    "Downred": "#cd5c5c",
+                    "BgUnclicked": "#efefef",
+                    "BgClicked": '#7f7c7c',
+                    
+};
 
 var Upvote = React.createClass({
 	getInitialState: function () {
 		//fetch from database here
-		return {votecount: 5};
+		return {
+			votes: 0,
+			 users: {},
+			 containsUser: false,
+			 upVoteColor: ColorsVote.Upgreen,
+			 downVoteColor: ColorsVote.Downred,
+			 bgUp: ColorsVote.BgUnclicked,
+			 bgDown: ColorsVote.BgUnclicked
+			};
+	},
+	loadVotesFromServer: function (videoID) {
+		Client.getVotesForVideo(videoID, (voteData) => {
+			console.log("done fetching.");
+			if (voteData) {
+				var usersDict = {};
+				var counts = 0;
+				for (var i = 0; i < voteData.length; i++) {
+					counts += voteData[i].rating_score;
+					usersDict[voteData[i].userID] = voteData[i].rating_score;
+				}
+				var userID = this.props.userID;
+				var containsUserValue = false;
+				
+				if(userID in usersDict){
+					containsUserValue = true;
+					if(usersDict[userID] == 1){
+						this.setState({ votes: counts, users: usersDict, containsUser: containsUserValue, bgUp: ColorsVote.BgClicked});
+					}else{
+						this.setState({ votes: counts, users: usersDict, containsUser: containsUserValue, bgDown: ColorsVote.BgClicked});
+					}
+				}
+				else{
+					this.setState({ votes: counts, users: usersDict, containsUser: containsUserValue});
+				}
+			}
+		});
+    },
+
+	componentWillMount: function (){
+        this.loadVotesFromServer(this.props.videoid);
+    },
+    componentWillReceiveProps: function (nextProps) {
+		if (nextProps.videoID) {
+			this.loadVotesFromServer(nextProps.videoID);
+		}
 	},
 	addVote: function () {
 		//if user haven't already voted add vote and update database. 
-		
-		var newVote = this.state.votecount + 1;
-		this.setState({
-			votecount: newVote
-		});
+		if(this.state.containsUser == false){
+			var d = new Date().toISOString().slice(0, 19).replace('T', ' ');
+			Client.videoVote(this.props.userID, this.props.videoid, 1, d);
+			var newVote = this.state.votes + 1;
+			this.setState({
+				votes: newVote,
+				containsUser: true,
+				bgUp: '#7f7c7c'
+			});
+		}
 	},
 	removeVote: function (){
 		//check authentication and update database here
-		var newVote = this.state.votecount - 1;
-		this.setState({
-			votecount: newVote
-		});
+		if(this.state.containsUser == false){
+			var d = new Date().toISOString().slice(0, 19).replace('T', ' ');
+			Client.videoVote(this.props.userID, this.props.videoid, -1, d);
+			var newVote = this.state.votes - 1;
+			this.setState({
+				votes: newVote,
+				containsUser: true,
+				bgDown: '#7f7c7c'
+
+			});
+		}
 	},
 	render: function() {
 		return (
 			<div className="upVoteWrap"> 
-					<button className="upvoteBtn" onClick={this.addVote}>▲</button>
+					<button className="upvoteBtn" onClick={this.addVote} style={{color: this.state.upVoteColor, backgroundColor: this.state.bgUp}}>▲</button>
 					<div className="numDiv">
-						<p className="votenumber">{this.state.votecount}</p>
+						<p className="votenumber">{this.state.votes}</p>
 					</div>
-					<button className="downvoteBtn" onClick={this.removeVote}>▼</button>
+					<button className="downvoteBtn" onClick={this.removeVote} style={{color: this.state.downVoteColor, backgroundColor: this.state.bgDown}}>▼</button>
 			</div>
 		);
 	}

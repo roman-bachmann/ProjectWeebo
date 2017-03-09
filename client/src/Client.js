@@ -47,6 +47,13 @@ function getRating(userID, videoID, rating_score, date_rated, cb) {
      .then(parseJSON)
      .then(cb);
 }
+function getVotesForVideo(videoID, cb) {
+   return fetch(`api/getVoting?v=${videoID}`, {
+       accept: 'application/json',
+   }).then(checkStatus)
+     .then(parseJSON)
+     .then(cb);
+}
 
 function getFavoriteVideo(userID, videoID, cb) {
    return fetch(`api/getRating?u=${userID}&v=${videoID}`, {
@@ -59,6 +66,12 @@ function getFavoriteVideo(userID, videoID, cb) {
 function videoShare(userID, subjectID, chapterID, subChapterID, videoID, cb) {
   console.log("post video...")
   fetch(`api/shareVideo?user=${userID}&subj=${subjectID}&chap=${chapterID}&subc=${subChapterID}&vid=${videoID}`, {
+       method: 'post'
+  })
+}
+function videoVote(userID, videoID, rating_score, dato, cb) {
+  console.log("add vote...")
+  fetch(`api/voteVideo?u=${userID}&v=${videoID}&r=${rating_score}&d=${dato}`, {
        method: 'post'
   })
 }
@@ -93,6 +106,8 @@ const Client = {
     getRating,
     getFavoriteVideo,
     videoShare,
-    addCourseForUser
+    addCourseForUser,
+    getVotesForVideo,
+    videoVote
 };
 export default Client;

@@ -1,9 +1,9 @@
 .upvoteBtn {
-    color: #008b8b;
+    border-style: none;
 }
 
 .downvoteBtn {
-    color: #cd5c5c;
+    border-style: none;
 }
 
 .upvoteBtn:hover {

@@ -54,7 +54,7 @@ var NavBar = React.createClass({
                 <Navbar.Header>
                     <Navbar.Brand>
                         <Link to="/learn">
-                            Project Weebo
+                            Weebo
                         </Link>
                     </Navbar.Brand>
                     <Navbar.Toggle />
