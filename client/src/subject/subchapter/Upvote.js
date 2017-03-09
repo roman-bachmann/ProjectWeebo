@@ -22,7 +22,7 @@ var Upvote = React.createClass({
 					counts += voteData[i].rating_score;
 					usersList.push(voteData[i].userID);
 				}
-				var userID = String(this.props.userID);
+				var userID = this.props.userID;
 				var containsUserValue = false;
 				for(var i = 0; i < usersList.length; i++){
 					if(usersList[i]==userID){
@@ -46,7 +46,9 @@ var Upvote = React.createClass({
 	addVote: function () {
 		//if user haven't already voted add vote and update database. 
 		if(this.state.containsUser == false){
-			console.log(this.props.userID);
+			var d = new Date().toISOString().slice(0, 19).replace('T', ' ');
+			console.log(d);
+			Client.videoVote(this.props.userID, this.props.videoid, 1, d);
 			var newVote = this.state.votes + 1;
 			this.setState({
 				votes: newVote,
@@ -57,6 +59,9 @@ var Upvote = React.createClass({
 	removeVote: function (){
 		//check authentication and update database here
 		if(this.state.containsUser == false){
+			var d = new Date().toISOString().slice(0, 19).replace('T', ' ');
+			console.log(d);
+			Client.videoVote(this.props.userID, this.props.videoid, -1, d);
 			var newVote = this.state.votes - 1;
 			this.setState({
 				votes: newVote,

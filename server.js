@@ -160,6 +160,39 @@ app.post('/api/shareVideo', (req, res) => {
   post_video(req, res, userID, subjectID, chapterID, subChapterID, videoID);
 });
 
+app.post('/api/voteVideo', (req, res) => {
+  const userID = req.query.u;
+  const videoID = req.query.v;
+  const rating_score = req.query.r;
+  const dato = req.query.d;
+  if(!userID){
+    res.json({
+            error: 'Missing required parameter `s`',
+      });
+      return;
+  }
+  if (!videoID) {
+      res.json({
+          error: 'Missing required parameter `v`',
+      });
+      return;
+  }
+  if (!rating_score) {
+      res.json({
+          error: 'Missing required parameter `r`',
+      });
+      return;
+  }
+  if (!dato) {
+      res.json({
+          error: 'Missing required parameter `d`',
+      });
+      return;
+  }
+  console.log("bout to send vote");
+  send_vote(req, res, userID, videoID, rating_score, dato);
+});
+
 app.get('/api/getRating', (req, res) => {
    const userID = req.query.u;
    const videoID = req.query.v;
@@ -347,14 +380,18 @@ function get_favoriteVideo(req, res, videoID, userID) {
 }
 
 function post_video(req, res, userID, subjectID, chapterID, subChapterID, videoID){
-  console.log("sqling");
   var sql =   `INSERT INTO subChapterVideo (userID, subjectID, chapterID, subChapterID, videoID)
               VALUES (?, ?, ?, ?, ?)`;
-  console.log("ready to insert");
   var inserts = [userID, subjectID, chapterID, subChapterID, videoID];
-  console.log("inserted");
   sql = mysql.format(sql, inserts);
-  console.log("about to update database");
+  get_data(req, res, sql);
+}
+
+function send_vote(req, res, userID, videoID, rating_score, dato){
+  var sql =     `INSERT INTO rating (userID, subChapterVideoID, rating_score, date_rated)
+                VALUES (?, ?, ?, ?)`;
+  var inserts = [userID, videoID, rating_score, dato];
+  sql = mysql.format(sql, inserts);
   get_data(req, res, sql);
 }
 

@@ -75,6 +75,12 @@ function videoShare(userID, subjectID, chapterID, subChapterID, videoID, cb) {
        method: 'post'
   })
 }
+function videoVote(userID, videoID, rating_score, dato, cb) {
+  console.log("add vote...")
+  fetch(`api/voteVideo?u=${userID}&v=${videoID}&r=${rating_score}&d=${dato}`, {
+       method: 'post'
+  })
+}
 
 function checkStatus(response) {
     if (response.status >= 200 && response.status < 300) {
@@ -100,6 +106,7 @@ const Client = {
     getRating,
     getFavoriteVideo,
     videoShare,
-    getVotesForVideo
+    getVotesForVideo,
+    videoVote
 };
 export default Client;
