@@ -23,10 +23,12 @@ var AddCoursesModal = React.createClass({
     },
 
     handleSelectedCourses: function () {
-        // for (i = 0; i < this.state.selectedCourses.length; i++) {
-        //     var c = this.state.selectedCourses[i];
-        //     Client.addCourseForUser(this.props.userID, c.subjectID);
-        // }
+        for (var i = 0; i < this.state.selectedCourses.length; i++) {
+            var c = this.state.selectedCourses[i];
+            Client.addCourseForUser(this.props.userID, 'student', c.subjectID);
+        }
+        this._typeahead.getInstance().clear()
+        this.props.onCourseAdd(this.props.userID);
     },
 
     render: function () {
@@ -44,7 +46,7 @@ var AddCoursesModal = React.createClass({
                         ref={ref => this._typeahead = ref}
                         placeholder="Choose a course..." />
                     <ButtonToolbar style={{marginTop: '10px'}}>
-                        <Button className="addCoursesBtn" onClick={() => this.handleSelectedCourses}>
+                        <Button className="addCoursesBtn" onClick={this.handleSelectedCourses}>
                             Add selected courses
                         </Button>
                         <Button className="addCoursesBtn" onClick={() => this._typeahead.getInstance().clear()}>

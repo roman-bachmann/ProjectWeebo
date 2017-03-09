@@ -63,8 +63,8 @@ function videoShare(userID, subjectID, chapterID, subChapterID, videoID, cb) {
   })
 }
 
-function addCourseForUser(userID, subjectID) {
-    fetch(`api/addCourseForUser?user=${userID}&subj=${subjectID}`, {
+function addCourseForUser(userID, role, subjectID) {
+    fetch(`api/addCourseForUser?user=${userID}&role=${role}&subj=${subjectID}`, {
         method: 'post'
     })
 }

@@ -24,7 +24,8 @@ var NavBar = React.createClass({
             this.setState({ showCourseModal: true });
         }
         // If we select a course
-        else {
+        else if (selectedKey === parseInt(selectedKey, 10)) {
+            console.log(selectedKey);
             this.props.onCourseChange(this.props.courses[selectedKey]);
             var subject = this.props.courses[selectedKey].subjectID;
             this.setState({subjectName: subject});
@@ -36,7 +37,7 @@ var NavBar = React.createClass({
 
         var courseItems;
 
-        console.log(this.props.courses);
+        // console.log(this.props.courses);
 
         if (this.props.courses) {
             courseItems = this.props.courses.map((c, idx) => (
@@ -73,7 +74,8 @@ var NavBar = React.createClass({
                                 <AddCoursesModal
 		              				show={this.state.showCourseModal}
 		              				onHide={modalClose}
-                                    userID={this.props.userID} />
+                                    userID={this.props.userID}
+                                    onCourseAdd={this.props.onCourseAdd}/>
                             </NavDropdown>
                         )}
 
