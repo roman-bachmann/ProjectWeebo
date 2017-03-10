@@ -135,6 +135,7 @@ app.post('/api/shareVideo', (req, res) => {
   const chapterID = req.query.chap;
   const subChapterID = req.query.subc;
   const videoID = req.query.vid;
+  const description = req.query.d;
   if(!userID){
     res.json({
             error: 'Missing required parameter `user`',
@@ -161,14 +162,18 @@ app.post('/api/shareVideo', (req, res) => {
   }
   if (!videoID) {
       res.json({
-
           error: 'Missing required parameter `vid`',
-
+      });
+      return;
+  }
+  if (!description) {
+      res.json({
+          error: 'Missing required parameter `d`',
       });
       return;
   }
   console.log("about to post");
-  post_video(req, res, userID, subjectID, chapterID, subChapterID, videoID);
+  post_video(req, res, userID, subjectID, chapterID, subChapterID, videoID, description);
 });
 
 app.post('/api/addCourseForUser', (req, res) => {
@@ -408,10 +413,10 @@ function get_favoriteVideo(req, res, videoID) {
     get_data(req, res, sql);
 }
 
-function post_video(req, res, userID, subjectID, chapterID, subChapterID, videoID){
-  var sql =   `INSERT INTO subChapterVideo (userID, subjectID, chapterID, subChapterID, videoID)
-              VALUES (?, ?, ?, ?, ?)`;
-  var inserts = [userID, subjectID, chapterID, subChapterID, videoID];
+function post_video(req, res, userID, subjectID, chapterID, subChapterID, videoID, description){
+  var sql =   `INSERT INTO subChapterVideo (userID, subjectID, chapterID, subChapterID, videoID, Description)
+              VALUES (?, ?, ?, ?, ?, ?)`;
+  var inserts = [userID, subjectID, chapterID, subChapterID, videoID, description];
   sql = mysql.format(sql, inserts);
   get_data(req, res, sql);
 }
