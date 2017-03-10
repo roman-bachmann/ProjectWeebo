@@ -322,10 +322,9 @@ function get_all_courses(req, res) {
 
 function get_courses(req, res, userID) {
     var sql = `SELECT Subject.subjectID, Subject.classYear, Subject.name
-               FROM Subject, User, UserSubject
+               FROM Subject, UserSubject
                WHERE Subject.subjectID = UserSubject.subjectID
-               AND User.userID = UserSubject.userID
-               AND User.userID =  ?`;
+               AND UserSubject.userID =  ?`;
     var inserts = [userID];
     sql = mysql.format(sql, inserts);
 
@@ -376,17 +375,18 @@ function get_videos(req, res, subjectID, chapterID, subChapterID) {
 }
 
 function get_rating(req, res, userID, videoID, rating_score, date_rated) {
-   var sql = `SELECT User.userID
-              FROM rating, User
-              WHERE rating.userID = User.userID
-              AND rating.videoID = ?
-              AND rating.rating_score = ?
-              AND rating.date_rated = ?;`;
-   var inserts = [userID, videoID, rating_score, date_rated];
-   sql = mysql.format(sql, inserts);
-
-   get_data(req, res, sql);
+   // var sql = `SELECT User.userID
+   //            FROM rating, User
+   //            WHERE rating.userID = User.userID
+   //            AND rating.videoID = ?
+   //            AND rating.rating_score = ?
+   //            AND rating.date_rated = ?;`;
+   // var inserts = [userID, videoID, rating_score, date_rated];
+   // sql = mysql.format(sql, inserts);
+   //
+   // get_data(req, res, sql);
 }
+
 function get_votes(req, res, videoID){
   var sql =   `SELECT userID, rating_score
               FROM rating
@@ -396,14 +396,14 @@ function get_votes(req, res, videoID){
 }
 
 function get_favoriteVideo(req, res, videoID, userID) {
-   var sql = `SELECT User.userID
-              FROM FavoriteVideo, User
-              WHERE FavoriteVideo.userID = User.userID
-              AND FavoriteVideo.videoID = ?;`;
-   var inserts = [userID, videoID, rating_score, date_rated];
-   sql = mysql.format(sql, inserts);
-
-   get_data(req, res, sql);
+   // var sql = `SELECT User.userID
+   //            FROM FavoriteVideo, User
+   //            WHERE FavoriteVideo.userID = User.userID
+   //            AND FavoriteVideo.videoID = ?;`;
+   // var inserts = [userID, videoID, rating_score, date_rated];
+   // sql = mysql.format(sql, inserts);
+   //
+   // get_data(req, res, sql);
 }
 
 function post_video(req, res, userID, subjectID, chapterID, subChapterID, videoID) {
