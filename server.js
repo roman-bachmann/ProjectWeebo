@@ -376,7 +376,7 @@ function get_videos(req, res, subjectID, chapterID, subChapterID) {
                 AND subChapterVideo.subChapterID = ?
                 GROUP BY subChapterVideo.subChapterVideoID
                 ORDER BY votes DESC;`;
-    /* Not sure if we need the Video table so I stopped fetching from it*/  
+    /* Not sure if we need the Video table so I stopped fetching from it*/
     var inserts = [subjectID, chapterID, subChapterID];
     sql = mysql.format(sql, inserts);
 

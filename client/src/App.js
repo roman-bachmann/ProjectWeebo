@@ -8,6 +8,7 @@ var NavBar = require('./navbar/NavBar.js');
 var ChapTabs = require('./subject/chapter/ChapterView.js');
 var Login = require('./auth/Login.js');
 
+import Footer from './footer/Footer.js';
 
 import Client from './Client';
 import AuthService from './auth/AuthService.js'
@@ -80,8 +81,8 @@ export class App extends React.Component {
                     {childrenWithProps}
                 </div>
 
-
-
+                <Footer />
+                
             </div>
         );
     }
