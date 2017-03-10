@@ -126,11 +126,10 @@ app.get('/api/getVoteCount', (req, res) => {
     });
     return;
   }
-  get_vote_count(req, res, videoID);
+  get_vote_count(req, res, videoID);7
 });
 
 app.post('/api/shareVideo', (req, res) => {
-  console.log("hello there and welcome");
   const userID = req.query.user;
   const subjectID = req.query.subj;
   const chapterID = req.query.chap;
@@ -161,7 +160,7 @@ app.post('/api/shareVideo', (req, res) => {
       return;
   }
   if (!videoID) {
-      res.json({
+      res.json({7
           error: 'Missing required parameter `v`',
       });
       return;
