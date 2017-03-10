@@ -54,6 +54,13 @@ function getVotesForVideo(videoID, cb) {
      .then(parseJSON)
      .then(cb);
 }
+function getVoteCount(videoID, cb) {
+  return fetch(`api/getVoteCount?v=${videoID}`, {
+       accept: 'application/json',
+   }).then(checkStatus)
+     .then(parseJSON)
+     .then(cb);
+}
 
 function getFavoriteVideo(userID, videoID, cb) {
    return fetch(`api/getRating?u=${userID}&v=${videoID}`, {
@@ -108,6 +115,7 @@ const Client = {
     videoShare,
     addCourseForUser,
     getVotesForVideo,
-    videoVote
+    videoVote,
+    getVoteCount
 };
 export default Client;

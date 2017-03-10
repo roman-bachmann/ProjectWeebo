@@ -19,6 +19,7 @@ var SubChapterContent = React.createClass({
 			if (vids) {
 				this.setState({ videos: vids });
 			}
+			console.log(this.state.videos);
 		});
     },
 
@@ -83,30 +84,27 @@ var SubChapterContent = React.createClass({
         }
         if(this.state.videos.length == 0){
         	return (<Grid bsClass="container" className="subGrid">
-		              		{this.props.activePanel === this.props.needActive ? 
-		              			<Row>
-		              			<VideoModal 
-		              				show={this.state.smShow} 
-		              				onHide={smClose} 
-		              				subject={this.props.subject.subjectID}
-		              				chapter={this.props.chapter.chapterID}
-		              				subchapter={this.props.subchapter.subChapterID}/>
-		              			<Col md={7}>
-		              			</Col>
-		              			<Col md={3} className="subCol">
-							      	
-							      </Col>
-							      <Col md={2} className="subCol">
-							      	<button className="shareBtn" onClick={()=>this.setState({ smShow: true })}><span>Add</span></button>
-							      </Col>
+	              		{this.props.activePanel === this.props.needActive ? 
+	              			<Row>
+								<VideoModal 
+									show={this.state.smShow} 
+									onHide={smClose} 
+									subject={this.props.subject.subjectID}
+									chapter={this.props.chapter.chapterID}
+									subchapter={this.props.subchapter.subChapterID}/>
+								<Col md={7}>
+								</Col>
+								<Col md={3} className="subCol">
+								</Col>
+								<Col md={2} className="subCol">
+									<button className="shareBtn" onClick={()=>this.setState({ smShow: true })}><span>Add</span></button>
+								</Col>
 							</Row>
-	            			:null} 
-	            			</Grid>);
+	        			:null}
+        			</Grid>);
         }
-
 		return (
 			<div>
-
 				{videosList}
 			</div>
 		);

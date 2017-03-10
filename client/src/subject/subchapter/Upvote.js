@@ -7,7 +7,6 @@ var ColorsVote = { 	"Upgreen": "#81b71a",
                     "Downred": "#cd5c5c",
                     "BgUnclicked": "#efefef",
                     "BgClicked": '#7f7c7c',
-                    
 };
 
 var Upvote = React.createClass({
@@ -21,11 +20,10 @@ var Upvote = React.createClass({
 			 downVoteColor: ColorsVote.Downred,
 			 bgUp: ColorsVote.BgUnclicked,
 			 bgDown: ColorsVote.BgUnclicked
-			};
+		};
 	},
 	loadVotesFromServer: function (videoID) {
 		Client.getVotesForVideo(videoID, (voteData) => {
-			console.log("done fetching.");
 			if (voteData) {
 				var usersDict = {};
 				var counts = 0;
@@ -37,6 +35,7 @@ var Upvote = React.createClass({
 				var containsUserValue = false;
 				
 				if(userID in usersDict){
+					//If the user has already voted the button colors will change to the vote value.
 					containsUserValue = true;
 					if(usersDict[userID] == 1){
 						this.setState({ votes: counts, users: usersDict, containsUser: containsUserValue, bgUp: ColorsVote.BgClicked});
@@ -50,7 +49,6 @@ var Upvote = React.createClass({
 			}
 		});
     },
-
 	componentWillMount: function (){
         this.loadVotesFromServer(this.props.videoid);
     },
@@ -68,7 +66,7 @@ var Upvote = React.createClass({
 			this.setState({
 				votes: newVote,
 				containsUser: true,
-				bgUp: '#7f7c7c'
+				bgUp: ColorsVote.BgClicked
 			});
 		}
 	},
@@ -81,7 +79,7 @@ var Upvote = React.createClass({
 			this.setState({
 				votes: newVote,
 				containsUser: true,
-				bgDown: '#7f7c7c'
+				bgDown: ColorsVote.BgClicked
 
 			});
 		}
