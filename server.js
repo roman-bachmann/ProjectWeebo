@@ -343,30 +343,11 @@ function get_videos(req, res, subjectID, chapterID, subChapterID) {
                WHERE subChapterVideo.subjectID = ?
                AND subChapterVideo.chapterID = ?
                AND subChapterVideo.subChapterID = ?;`;
-    /* Not sure if we need the Video table so I stopped fetching from it
-    var sql = `SELECT Video.videoID
-               FROM subChapterVideo, Video
-               WHERE subChapterVideo.videoID = Video.videoID
-               AND subChapterVideo.subjectID = ?
-               AND subChapterVideo.chapterID = ?
-               AND subChapterVideo.subChapterID = ?;`;*/
+    /* Not sure if we need the Video table so I stopped fetching from it*/  
     var inserts = [subjectID, chapterID, subChapterID];
     sql = mysql.format(sql, inserts);
 
     get_data(req, res, sql);
-}
-
-function get_rating(req, res, userID, videoID, rating_score, date_rated) {
-   // var sql = `SELECT User.userID
-   //            FROM rating, User
-   //            WHERE rating.userID = User.userID
-   //            AND rating.videoID = ?
-   //            AND rating.rating_score = ?
-   //            AND rating.date_rated = ?;`;
-   // var inserts = [userID, videoID, rating_score, date_rated];
-   // sql = mysql.format(sql, inserts);
-   //
-   // get_data(req, res, sql);
 }
 
 function get_votes(req, res, videoID){
@@ -384,15 +365,14 @@ function get_vote_count(req, res, videoID){
   get_data(req, res, sql);
 }
 
-function get_favoriteVideo(req, res, videoID, userID) {
-   // var sql = `SELECT User.userID
-   //            FROM FavoriteVideo, User
-   //            WHERE FavoriteVideo.userID = User.userID
-   //            AND FavoriteVideo.videoID = ?;`;
-   // var inserts = [userID, videoID, rating_score, date_rated];
-   // sql = mysql.format(sql, inserts);
-   //
-   // get_data(req, res, sql);
+function get_favoriteVideo(req, res, videoID) {
+    var sql = `SELECT userID
+              FROM FavoriteVideo
+              WHERE videoID = ?`;
+    var inserts = [videoID];
+    sql = mysql.format(sql, inserts);
+   
+    get_data(req, res, sql);
 }
 
 function post_video(req, res, userID, subjectID, chapterID, subChapterID, videoID){
