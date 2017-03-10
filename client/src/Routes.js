@@ -1,12 +1,15 @@
 import React from 'react';
-import {Router, Route, browserHistory, IndexRoute, IndexRedirect} from 'react-router';
+import {Router, Route, browserHistory, IndexRoute, IndexRedirect, Redirect} from 'react-router';
 import AuthService from './auth/AuthService.js';
 
 import App from './App.js';
 import Login from './auth/Login.js';
 import Home from './Home.js';
 import Profile from './profile/Profile.js';
-var ChapTabs = require('./subject/chapter/ChapterView.js');
+import Admin from './admin/Admin.js';
+import Unauthorized from './error/Unauthorized.js';
+import PageNotFound from './error/PageNotFound.js';
+import ChapterView from './subject/chapter/ChapterView.js';
 
 
 const auth = new AuthService('qMCf6J8kSiuC3T8sM8jBVT92CG2R7sIY', 'weebo.eu.auth0.com');
@@ -18,21 +21,34 @@ const requireAuth = (nextState, replace) => {
   }
 }
 
+// onEnter callback to require admin role
+const requireAdminAuth = (nextState, replace) => {
+  if (!auth.isAdmin()) {
+    replace({ pathname: '/unauthorized' })
+  }
+}
+
 var Routes = React.createClass({
     render: function () {
         return (
             <Router history={browserHistory}>
                 <Route path="/" component={App} auth={auth}>
                     <IndexRedirect to="/home" />
-                    <Route path="learn" component={ChapTabs} onEnter={requireAuth} />
-                    <Route path="login" component={Login} />
+                    <Route path="learn" component={ChapterView} onEnter={requireAuth} />
                     <Route path="home" component={Home} onEnter={requireAuth} />
                     <Route path="profile" component={Profile} onEnter={requireAuth} />
+                    <Route path="admin" component={Admin} onEnter={requireAdminAuth} />
+                    <Route path="unauthorized" component={Unauthorized} />
+                    <Route path="404" component={PageNotFound} />
                 </Route>
+                <Route path="/login" component={Login} auth={auth}/>
+                <Redirect from='*' to='/404' />
             </Router>
         );
 
     }
 });
+
+// <Route path="login" component={Login} />
 
 module.exports = Routes;

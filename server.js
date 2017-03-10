@@ -137,36 +137,65 @@ app.post('/api/shareVideo', (req, res) => {
   const videoID = req.query.vid;
   if(!userID){
     res.json({
-            error: 'Missing required parameter `s`',
+            error: 'Missing required parameter `user`',
       });
       return;
   }
   if (!subjectID) {
         res.json({
-            error: 'Missing required parameter `s`',
+            error: 'Missing required parameter `subj`',
         });
         return;
   }
   if (!chapterID) {
       res.json({
-          error: 'Missing required parameter `c`',
+          error: 'Missing required parameter `chap`',
       });
       return;
   }
   if (!subChapterID) {
       res.json({
-          error: 'Missing required parameter `sc`',
+          error: 'Missing required parameter `subc`',
       });
       return;
   }
   if (!videoID) {
       res.json({
-          error: 'Missing required parameter `v`',
+
+          error: 'Missing required parameter `vid`',
+
       });
       return;
   }
   console.log("about to post");
   post_video(req, res, userID, subjectID, chapterID, subChapterID, videoID);
+});
+
+app.post('/api/addCourseForUser', (req, res) => {
+    const userID = req.query.user;
+    const subjectID = req.query.subj;
+    const role = req.query.role;
+
+    if(!userID){
+      res.json({
+              error: 'Missing required parameter `user`',
+        });
+        return;
+    }
+    if (!subjectID) {
+          res.json({
+              error: 'Missing required parameter `subj`',
+          });
+          return;
+    }
+    if (!role) {
+          res.json({
+              error: 'Missing required parameter `role`',
+          });
+          return;
+    }
+
+    add_course_for_user(req, res, userID, role, subjectID);
 });
 
 app.post('/api/voteVideo', (req, res) => {
@@ -375,7 +404,7 @@ function get_favoriteVideo(req, res, videoID) {
               WHERE videoID = ?`;
     var inserts = [videoID];
     sql = mysql.format(sql, inserts);
-   
+
     get_data(req, res, sql);
 }
 
@@ -393,6 +422,15 @@ function send_vote(req, res, userID, videoID, rating_score, dato){
   var inserts = [userID, videoID, rating_score, dato];
   sql = mysql.format(sql, inserts);
   get_data(req, res, sql);
+}
+
+function add_course_for_user(req, res, userID, role, subjectID) {
+    var sql = `INSERT INTO UserSubject (userID, role, subjectID)
+               VALUES (?, ?, ?)`;
+    var inserts = [userID, role, subjectID];
+    sql = mysql.format(sql, inserts);
+
+    get_data(req, res, sql);
 }
 
 

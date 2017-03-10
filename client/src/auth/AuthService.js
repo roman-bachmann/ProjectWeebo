@@ -22,7 +22,17 @@ export default class AuthService extends EventEmitter {
             auth: {
                 redirectUrl: 'http://localhost:3000/login',
                 responseType: 'token'
-            }
+            },
+
+            additionalSignUpFields: [
+            {
+                name: "first_name",
+                placeholder: "enter your first name"
+            },
+            {
+                name: "last_name",
+                placeholder: "enter your last name"
+            }]
         })
         // Add callback for lock `authenticated` event
         this.lock.on('authenticated', this._doAuthentication.bind(this))
@@ -50,6 +60,13 @@ export default class AuthService extends EventEmitter {
     login() {
         // Call the show method to display the widget.
         this.lock.show()
+    }
+
+    logout() {
+        // Clear user token and profile data from local storage
+        localStorage.removeItem('id_token');
+        localStorage.removeItem('profile');
+        browserHistory.replace('/login')
     }
 
     loggedIn() {
@@ -97,10 +114,10 @@ export default class AuthService extends EventEmitter {
         .then(newProfile => this.setProfile(newProfile)) //updating current profile
     }
 
-    logout() {
-        // Clear user token and profile data from local storage
-        localStorage.removeItem('id_token');
-        localStorage.removeItem('profile');
-        browserHistory.replace('/login')
+    isAdmin() {
+        // Checks if the user has an `admin` role in the profile app_metadata
+        const profile = this.getProfile();
+        const { roles } = profile.app_metadata || {};
+        return !!roles && roles.indexOf('admin') > -1;
     }
 }

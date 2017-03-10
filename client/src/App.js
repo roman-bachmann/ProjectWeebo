@@ -8,6 +8,7 @@ var NavBar = require('./navbar/NavBar.js');
 var ChapTabs = require('./subject/chapter/ChapterView.js');
 var Login = require('./auth/Login.js');
 
+
 import Client from './Client';
 import AuthService from './auth/AuthService.js'
 import {Router, Route, browserHistory, IndexRoute} from 'react-router';
@@ -72,11 +73,14 @@ export class App extends React.Component {
                     courses={this.state.courses}
                     onCourseChange={this.changeSelectedCourse}
                     auth={this.props.route.auth}
-                    userID={this.state.userID}/>
+                    userID={this.state.userID}
+                    onCourseAdd={this.handleCourses.bind(this)} />
 
                 <div className="App">
                     {childrenWithProps}
                 </div>
+
+
 
             </div>
         );

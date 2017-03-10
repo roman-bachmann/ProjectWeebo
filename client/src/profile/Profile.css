@@ -1,0 +1,11 @@
+@font-face {
+     font-family: "Webly Sleek";
+      src: url(../fonts/weblysleekuil.ttf) format("truetype");
+}
+
+.ProfileTitle {
+  color: #329a64;
+  text-decoration: underline;
+   font-family: "Webly Sleek";
+   font-size: 25px;
+}
