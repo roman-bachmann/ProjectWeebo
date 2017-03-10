@@ -9,6 +9,7 @@ const MySmallModal = React.createClass({
     return {
       userInput: '',
       sharingsite: 'YouTube',
+      description: ''
     };
   },
 
@@ -26,16 +27,23 @@ const MySmallModal = React.createClass({
       userInput: videoid
     });
   },
+  handleDescription: function (e) {
+    var descr = e.target.value;
+    this.setState({
+      description: descr
+    });
+  },
 
   handleShare: function() {
     if(this.state.sharingsite === 'YouTube'){
       console.log(this.state.userInput);
+      var descr = this.state.description;
       var userID = 'frodo';
       var subjectID = this.props.subject;
       var chapterID = this.props.chapter;
       var subChapterID = this.props.subchapter;
       var videoID = this.state.userInput;
-      Client.videoShare(userID, subjectID, chapterID, subChapterID, videoID);
+      Client.videoShare(userID, subjectID, chapterID, subChapterID, videoID, descr);
       this.props.onHide();
     }else{
       this.props.onHide();
@@ -59,6 +67,7 @@ const MySmallModal = React.createClass({
            <span> Vimeo </span><input name="sharingsite" type="radio" value="Vimeo" onChange={this.videoSiteChange} checked={this.state.sharingsite === 'Vimeo'}/>
           </p>
           <p>{this.state.sharingsite} link/id: <input type="text" onChange={this.handleUserInput}/></p>
+          <p>Description: <textarea onChange={this.handleDescription}/></p>
           {this.state.sharingsite === 'YouTube' ? 
             <YouTube id={this.state.userInput}/>
           :<h3 style={{color: 'orange'}}>Vimeo will be supported later.</h3>}
