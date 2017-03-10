@@ -11,7 +11,7 @@ export class ProfileDetails extends React.Component {
     const { profile } = this.props
     const { address } = profile.user_metadata || {}
     return (
-      <Row>
+      <Row className="ProfileRow">
         <Col md={2} mdOffset={4}>
           <Image className="profileimg" src={profile.picture} circle/>
         </Col>

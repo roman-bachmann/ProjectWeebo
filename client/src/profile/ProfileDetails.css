@@ -3,7 +3,7 @@
      src: url(../fonts/GeosansLight.ttf) format("truetype");
  }
 
-.row {
+.ProfileRow{
     border-style: solid;
     margin-top: 50px;
     border-radius: 25px;

@@ -8,6 +8,7 @@ var NavBar = require('./navbar/NavBar.js');
 var ChapTabs = require('./subject/chapter/ChapterView.js');
 var Login = require('./auth/Login.js');
 
+
 import Client from './Client';
 import AuthService from './auth/AuthService.js'
 import {Router, Route, browserHistory, IndexRoute} from 'react-router';
@@ -78,6 +79,8 @@ export class App extends React.Component {
                 <div className="App">
                     {childrenWithProps}
                 </div>
+
+
 
             </div>
         );
