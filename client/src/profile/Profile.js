@@ -2,6 +2,7 @@ import React, { PropTypes as T } from 'react'
 import {Button} from 'react-bootstrap'
 import AuthService from '../auth/AuthService.js'
 import ProfileDetails from './ProfileDetails.js'
+import './Profile.css'
 
 export class Profile extends React.Component {
   static contextTypes = {
@@ -32,7 +33,7 @@ export class Profile extends React.Component {
     const { profile } = this.state
     return (
       <div>
-        <h2>Profile Page</h2>
+        <h2 className="ProfileTitle">Profile Page</h2>
         <ProfileDetails profile={profile}></ProfileDetails>
       </div>
     )

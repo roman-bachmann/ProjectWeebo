@@ -1,0 +1,45 @@
+@font-face {
+     font-family: "GeosansLight";
+     src: url(../fonts/GeosansLight.ttf) format("truetype");
+ }
+
+.row {
+    border-style: solid;
+    margin-top: 50px;
+    border-radius: 25px;
+    border: 0.5px solid white;
+    width: 400px;
+    height: 300px;
+    background-color: white;
+    box-shadow: 3.8px 3.8px #e6e6e6;
+    opacity: 0.98;
+    margin-left: 520px;
+    text-align: center;
+}
+
+.col-md-6 {
+text-align:center;
+position:relative;
+width: 200px;
+margin-left: 90px;
+}
+
+.profileimg {
+  width: 100px;
+  margin-top: 5px;
+}
+
+.ProfileName {
+  color: #329a64;
+  font-family: "GeosansLight";
+  font-size: 30px;
+  text-align: center;
+}
+
+.ProfileDetails {
+    margin-top: 2px;
+    font-family: "GeosansLight";
+    font-size: 18px;
+    text-align: center;
+
+}
