@@ -20,34 +20,8 @@ var SubChapterContent = React.createClass({
 			if (vids) {
 				this.setState({ videos: vids });
 			}
-			var dict = {};
-			for(var i = 0; i < vids.length; i++){
-				var subVidID = vids[i].subChapterVideoID;
-				var vidID = vids[i].videoID;
-				Client.getVoteCount(subVidID, (voteData) => {
-					if(voteData){
-						var votes = 0;
-						if(voteData[0].votes != null){
-							votes = voteData[0].votes;
-						}
-						dict[voteData[0].votes] = [subVidID, vidID];
-					}
-				});
-			}/*
-			var videosList = this.state.videos.map(function (v, idx){
-				var score = 0;
-				Client.getVoteCount(v.subChapterVideoID, (voteData) => {
-					if(voteData){
-						dict[v.subChapterVideoID] = voteData[0].votes;
-					}
-				});
-			}, this);*/
-			dict.map(function (v, idx) {
-				console.log(v);
-			});
-			this.setState({ voteDict: dict });
-			console.log(dict);
 		});
+		
     },
 
 	componentWillMount: function (){

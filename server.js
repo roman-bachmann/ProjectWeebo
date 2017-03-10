@@ -160,7 +160,7 @@ app.post('/api/shareVideo', (req, res) => {
       return;
   }
   if (!videoID) {
-      res.json({7
+      res.json({
           error: 'Missing required parameter `v`',
       });
       return;
@@ -338,11 +338,15 @@ function get_subchapters(req, res, subjectID, chapterID) {
 }
 
 function get_videos(req, res, subjectID, chapterID, subChapterID) {
-    var sql = `SELECT videoID, subChapterVideoID
-               FROM subChapterVideo
-               WHERE subChapterVideo.subjectID = ?
-               AND subChapterVideo.chapterID = ?
-               AND subChapterVideo.subChapterID = ?;`;
+    var sql = `SELECT subChapterVideo.videoID, subChapterVideo.subChapterVideoID, SUM(rating.rating_score) AS votes
+                FROM subChapterVideo
+                LEFT JOIN rating
+                ON subChapterVideo.subChapterVideoID = rating.subChapterVideoID
+                WHERE subChapterVideo.subjectID = ?
+                AND subChapterVideo.chapterID = ?
+                AND subChapterVideo.subChapterID = ?
+                GROUP BY subChapterVideo.subChapterVideoID
+                ORDER BY votes DESC;`;
     /* Not sure if we need the Video table so I stopped fetching from it*/  
     var inserts = [subjectID, chapterID, subChapterID];
     sql = mysql.format(sql, inserts);
