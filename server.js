@@ -128,63 +128,36 @@ app.post('/api/shareVideo', (req, res) => {
   const videoID = req.query.vid;
   if(!userID){
     res.json({
-            error: 'Missing required parameter `user`',
+            error: 'Missing required parameter `s`',
       });
       return;
   }
   if (!subjectID) {
         res.json({
-            error: 'Missing required parameter `subj`',
+            error: 'Missing required parameter `s`',
         });
         return;
   }
   if (!chapterID) {
       res.json({
-          error: 'Missing required parameter `chap`',
+          error: 'Missing required parameter `c`',
       });
       return;
   }
   if (!subChapterID) {
       res.json({
-          error: 'Missing required parameter `subc`',
+          error: 'Missing required parameter `sc`',
       });
       return;
   }
   if (!videoID) {
       res.json({
-          error: 'Missing required parameter `vid`',
+          error: 'Missing required parameter `v`',
       });
       return;
   }
   console.log("about to post");
   post_video(req, res, userID, subjectID, chapterID, subChapterID, videoID);
-});
-
-app.post('/api/addCourseForUser', (req, res) => {
-    const userID = req.query.user;
-    const subjectID = req.query.subj;
-    const role = req.query.role;
-
-    if(!userID){
-      res.json({
-              error: 'Missing required parameter `user`',
-        });
-        return;
-    }
-    if (!subjectID) {
-          res.json({
-              error: 'Missing required parameter `subj`',
-          });
-          return;
-    }
-    if (!role) {
-          res.json({
-              error: 'Missing required parameter `role`',
-          });
-          return;
-    }
-
-    add_course_for_user(req, res, userID, role, subjectID);
 });
 
 app.post('/api/voteVideo', (req, res) => {
@@ -406,7 +379,7 @@ function get_favoriteVideo(req, res, videoID, userID) {
    // get_data(req, res, sql);
 }
 
-function post_video(req, res, userID, subjectID, chapterID, subChapterID, videoID) {
+function post_video(req, res, userID, subjectID, chapterID, subChapterID, videoID){
   var sql =   `INSERT INTO subChapterVideo (userID, subjectID, chapterID, subChapterID, videoID)
               VALUES (?, ?, ?, ?, ?)`;
   var inserts = [userID, subjectID, chapterID, subChapterID, videoID];
@@ -420,15 +393,6 @@ function send_vote(req, res, userID, videoID, rating_score, dato){
   var inserts = [userID, videoID, rating_score, dato];
   sql = mysql.format(sql, inserts);
   get_data(req, res, sql);
-}
-
-function add_course_for_user(req, res, userID, role, subjectID) {
-    var sql = `INSERT INTO UserSubject (userID, role, subjectID)
-               VALUES (?, ?, ?)`;
-    var inserts = [userID, role, subjectID];
-    sql = mysql.format(sql, inserts);
-
-    get_data(req, res, sql);
 }
 
 
