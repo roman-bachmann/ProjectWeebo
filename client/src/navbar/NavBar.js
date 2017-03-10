@@ -12,7 +12,7 @@ import {Link} from 'react-router';
 var NavBar = React.createClass({
     getInitialState: function () {
         return {
-            subjectName: "Subjects",
+            subjectName: "✎ Subjects",
             showCourseModal: false
         };
     },
@@ -24,8 +24,7 @@ var NavBar = React.createClass({
             this.setState({ showCourseModal: true });
         }
         // If we select a course
-        else if (selectedKey === parseInt(selectedKey, 10)) {
-            console.log(selectedKey);
+        else {
             this.props.onCourseChange(this.props.courses[selectedKey]);
             var subject = this.props.courses[selectedKey].subjectID;
             this.setState({subjectName: subject});
@@ -37,7 +36,7 @@ var NavBar = React.createClass({
 
         var courseItems;
 
-        // console.log(this.props.courses);
+        console.log(this.props.courses);
 
         if (this.props.courses) {
             courseItems = this.props.courses.map((c, idx) => (
@@ -74,8 +73,7 @@ var NavBar = React.createClass({
                                 <AddCoursesModal
 		              				show={this.state.showCourseModal}
 		              				onHide={modalClose}
-                                    userID={this.props.userID}
-                                    onCourseAdd={this.props.onCourseAdd}/>
+                                    userID={this.props.userID} />
                             </NavDropdown>
                         )}
 
@@ -84,9 +82,9 @@ var NavBar = React.createClass({
                     {this.props.auth.loggedIn() ? (
                         <Nav pullRight>
                             <NavItem eventKey={88}>
-                                <Link className="Nav__link" to="/profile">Profile</Link>
+                                <Link className="Nav__link" to="/profile">✉ Profile</Link>
                             </NavItem>
-                            <NavItem eventKey={111} onClick={this.props.auth.logout.bind(this)}>Log Out</NavItem>
+                            <NavItem eventKey={111} onClick={this.props.auth.logout.bind(this)}>⚑ Log Out</NavItem>
                         </Nav>
                     ) : (
                         <Nav pullRight>

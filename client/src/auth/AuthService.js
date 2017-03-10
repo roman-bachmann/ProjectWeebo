@@ -7,35 +7,27 @@ import LogoImg from '../img/W.png';
 export default class AuthService extends EventEmitter {
     constructor(clientId, domain) {
         super()
+        this.domain = domain
         // Configure Auth0
         this.lock = new Auth0Lock(clientId, domain, {
             theme: {
-            logo: LogoImg,
-            primaryColor: "#8bdab1"
+                logo: LogoImg,
+                primaryColor: "#8bdab1"
             },
 
             languageDictionary: {
-        title: "Weebo"
-      },
+                title: "Weebo"
+            },
 
             auth: {
                 redirectUrl: 'http://localhost:3000/login',
                 responseType: 'token'
-            },
-            additionalSignUpFields: [{
-                name: "address",                              // required
-                placeholder: "enter your address",            // required
-                icon: "http://findicons.com/files/icons/1687/free_web_design/16/home.png", // optional
-                validator: function(value) {                  // optional
-                    // only accept addresses with more than 10 chars
-                    return value.length > 10;
-                }
-            }]
+            }
         })
         // Add callback for lock `authenticated` event
         this.lock.on('authenticated', this._doAuthentication.bind(this))
-            // Add callback for lock `authorization_error` event
-            // this.lock.on('authorization_error', this._authorizationError.bind(this)) // TODO: breaks everything...
+        // Add callback for lock `authorization_error` event
+        // this.lock.on('authorization_error', this._authorizationError.bind(this)) // TODO: breaks everything...
         // binds login functions to keep this context
         this.login = this.login.bind(this)
     }
@@ -89,10 +81,26 @@ export default class AuthService extends EventEmitter {
         return profile ? JSON.parse(localStorage.profile) : {}
     }
 
+    updateProfile(userId, data) {
+        const headers = {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + this.getToken() //setting authorization header
+        }
+        // making the PATCH http request to auth0 api
+        return fetch(`https://${this.domain}/api/v2/users/${userId}`, {
+            method: 'PATCH',
+            headers: headers,
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(newProfile => this.setProfile(newProfile)) //updating current profile
+    }
+
     logout() {
         // Clear user token and profile data from local storage
         localStorage.removeItem('id_token');
         localStorage.removeItem('profile');
-        browserHistory.replace('/home')
+        browserHistory.replace('/login')
     }
 }
