@@ -72,7 +72,8 @@ export class App extends React.Component {
                     courses={this.state.courses}
                     onCourseChange={this.changeSelectedCourse}
                     auth={this.props.route.auth}
-                    userID={this.state.userID}/>
+                    userID={this.state.userID}
+                    onCourseAdd={this.handleCourses.bind(this)} />
 
                 <div className="App">
                     {childrenWithProps}
