@@ -16,7 +16,7 @@ export class ProfileDetails extends React.Component {
           <Image className="profileimg" src={profile.picture} circle/>
         </Col>
         <Col md={6}>
-          <p className="ProfileName">{first_name} {last_name}</p>
+          <p className="ProfileName">{first_name}<br></br>{last_name}</p>
           <p className="ProfileDetails"><strong>Email: </strong> {profile.email}</p>
           <p className="ProfileDetails"><strong>Nickname: </strong> {profile.nickname}</p>
         </Col>

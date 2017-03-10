@@ -34,6 +34,7 @@ export class Profile extends React.Component {
     return (
       <div>
         <h2 className="ProfileTitle">Profile Page</h2>
+        <div><hr></hr></div>
         <ProfileDetails profile={profile}></ProfileDetails>
       </div>
     )
