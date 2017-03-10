@@ -12,7 +12,7 @@ import {Link} from 'react-router';
 var NavBar = React.createClass({
     getInitialState: function () {
         return {
-            subjectName: "Subjects",
+            subjectName: "✎ Subjects",
             showCourseModal: false
         };
     },
@@ -82,9 +82,9 @@ var NavBar = React.createClass({
                     {this.props.auth.loggedIn() ? (
                         <Nav pullRight>
                             <NavItem eventKey={88}>
-                                <Link className="Nav__link" to="/profile">Profile</Link>
+                                <Link className="Nav__link" to="/profile">✉ Profile</Link>
                             </NavItem>
-                            <NavItem eventKey={111} onClick={this.props.auth.logout.bind(this)}>Log Out</NavItem>
+                            <NavItem eventKey={111} onClick={this.props.auth.logout.bind(this)}>⚑ Log Out</NavItem>
                         </Nav>
                     ) : (
                         <Nav pullRight>

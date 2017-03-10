@@ -3,6 +3,11 @@
      src: url(../fonts/Noteworthy-Light.ttf) format("truetype");
  }
 
+ @font-face {
+     font-family: "Webly Sleek";
+     src: url(../fonts/weblysleekuil.ttf) format("truetype");
+ }
+
 .theNavBar {
 	background-color: white;
 	margin-bottom: 0;
@@ -11,16 +16,18 @@
 .navbar-inverse {
 	background-color: white;
 	border-color: white;
+  box-shadow: 3.8px 3.8px #e6e6e6;
 }
 
 .navbar {
 	border-radius: 0px;
+  font-size: 30px;
 }
 
 .navbar-inverse .navbar-brand {
 	color: #3cb979;
 	font-family: "Noteworthy";
-	font-size: 52px;
+	font-size: 48px;
 	padding-left: 40px;
 }
 
@@ -33,7 +40,8 @@ background-color: #3cb979;
 
 .navbar-inverse .navbar-nav li a {
 	color: #3cb979;
-
+  font-size: 20px;
+  font-family: "Webly Sleek";
 }
 
 
