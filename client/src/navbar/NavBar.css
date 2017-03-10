@@ -73,6 +73,7 @@ background-color: #3cb979;
 
 .navbar-inverse .navbar-nav li a:hover {
 	color: #329a64;
+  text-decoration: underline;
 }
 
 .navbar-inverse .navbar-nav li a:focus {
