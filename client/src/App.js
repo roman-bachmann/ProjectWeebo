@@ -7,6 +7,7 @@ var Col = require("react-bootstrap/lib/Col");
 var NavBar = require('./navbar/NavBar.js');
 var ChapTabs = require('./subject/chapter/ChapterView.js');
 var Login = require('./auth/Login.js');
+import Footer from './footer/Footer.js';
 
 
 import Client from './Client';
@@ -80,7 +81,7 @@ export class App extends React.Component {
                     {childrenWithProps}
                 </div>
 
-
+                <Footer />
 
             </div>
         );

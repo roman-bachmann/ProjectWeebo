@@ -70,9 +70,9 @@ function getFavoriteVideo(userID, videoID, cb) {
      .then(cb);
 }
 
-function videoShare(userID, subjectID, chapterID, subChapterID, videoID, cb) {
+function videoShare(userID, subjectID, chapterID, subChapterID, videoID, description, cb) {
   console.log("post video...")
-  fetch(`api/shareVideo?user=${userID}&subj=${subjectID}&chap=${chapterID}&subc=${subChapterID}&vid=${videoID}`, {
+  fetch(`api/shareVideo?user=${userID}&subj=${subjectID}&chap=${chapterID}&subc=${subChapterID}&vid=${videoID}&d=${description}`, {
        method: 'post'
   })
 }
@@ -85,6 +85,12 @@ function videoVote(userID, videoID, rating_score, dato, cb) {
 
 function addCourseForUser(userID, role, subjectID) {
     fetch(`api/addCourseForUser?user=${userID}&role=${role}&subj=${subjectID}`, {
+        method: 'post'
+    })
+}
+
+function deleteVideo(videoID) {
+    fetch(`api/deleteVideo?v=${videoID}`, {
         method: 'post'
     })
 }
@@ -116,6 +122,7 @@ const Client = {
     getVotesForVideo,
     videoVote,
     getVoteCount,
-    addCourseForUser
+    addCourseForUser,
+    deleteVideo
 };
 export default Client;

@@ -33,7 +33,7 @@ var Upvote = React.createClass({
 				}
 				var userID = this.props.userID;
 				var containsUserValue = false;
-				
+
 				if(userID in usersDict){
 					//If the user has already voted the button colors will change to the vote value.
 					containsUserValue = true;
@@ -58,7 +58,7 @@ var Upvote = React.createClass({
 		}
 	},
 	addVote: function () {
-		//if user haven't already voted add vote and update database. 
+		//if user haven't already voted add vote and update database.
 		if(this.state.containsUser == false){
 			var d = new Date().toISOString().slice(0, 19).replace('T', ' ');
 			Client.videoVote(this.props.userID, this.props.videoid, 1, d);
@@ -86,13 +86,21 @@ var Upvote = React.createClass({
 	},
 	render: function() {
 		return (
-			<div className="upVoteWrap"> 
-					<button className="upvoteBtn" onClick={this.addVote} style={{color: this.state.upVoteColor, backgroundColor: this.state.bgUp}}>▲</button>
-					<div className="numDiv">
-						<p className="votenumber">{this.state.votes}</p>
-					</div>
-					<button className="downvoteBtn" onClick={this.removeVote} style={{color: this.state.downVoteColor, backgroundColor: this.state.bgDown}}>▼</button>
-			</div>
+            <div className="upVoteWrap">
+                <Col md={1}>
+                    <button className="upvoteBtn" onClick={this.addVote} style={{color: this.state.upVoteColor, backgroundColor: this.state.bgUp}}>
+                        ▲
+                    </button>
+                </Col>
+                <Col md={1}>
+                    <p className="votenumber">{this.state.votes}</p>
+                </Col>
+                <Col md={1}>
+                    <button className="downvoteBtn" onClick={this.removeVote} style={{color: this.state.downVoteColor, backgroundColor: this.state.bgDown}}>
+                        ▼
+                        </button>
+                </Col>
+            </div>
 		);
 	}
 

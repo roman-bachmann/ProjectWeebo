@@ -135,6 +135,7 @@ app.post('/api/shareVideo', (req, res) => {
   const chapterID = req.query.chap;
   const subChapterID = req.query.subc;
   const videoID = req.query.vid;
+  const description = req.query.d;
   if(!userID){
     res.json({
             error: 'Missing required parameter `user`',
@@ -161,14 +162,18 @@ app.post('/api/shareVideo', (req, res) => {
   }
   if (!videoID) {
       res.json({
-
           error: 'Missing required parameter `vid`',
-
+      });
+      return;
+  }
+  if (!description) {
+      res.json({
+          error: 'Missing required parameter `d`',
       });
       return;
   }
   console.log("about to post");
-  post_video(req, res, userID, subjectID, chapterID, subChapterID, videoID);
+  post_video(req, res, userID, subjectID, chapterID, subChapterID, videoID, description);
 });
 
 app.post('/api/addCourseForUser', (req, res) => {
@@ -284,6 +289,19 @@ app.get('/api/getFavoriteVideo', (req, res) => {
    get_favoriteVideo(req, res, videoID, userID);
 });
 
+app.post('/api/deleteVideo', (req, res) => {
+    const videoID = req.query.v;
+
+    if (!videoID) {
+        res.json({
+            error: 'Missing required parameter `v`',
+        });
+        return;
+    }
+
+    delete_video(req, res, videoID);
+});
+
 app.listen(app.get('port'), () => {
     console.log(`Find the server at: http://localhost:${app.get('port')}/`);
 });
@@ -376,7 +394,7 @@ function get_videos(req, res, subjectID, chapterID, subChapterID) {
                 AND subChapterVideo.subChapterID = ?
                 GROUP BY subChapterVideo.subChapterVideoID
                 ORDER BY votes DESC;`;
-    /* Not sure if we need the Video table so I stopped fetching from it*/  
+    /* Not sure if we need the Video table so I stopped fetching from it*/
     var inserts = [subjectID, chapterID, subChapterID];
     sql = mysql.format(sql, inserts);
 
@@ -408,10 +426,10 @@ function get_favoriteVideo(req, res, videoID) {
     get_data(req, res, sql);
 }
 
-function post_video(req, res, userID, subjectID, chapterID, subChapterID, videoID){
-  var sql =   `INSERT INTO subChapterVideo (userID, subjectID, chapterID, subChapterID, videoID)
-              VALUES (?, ?, ?, ?, ?)`;
-  var inserts = [userID, subjectID, chapterID, subChapterID, videoID];
+function post_video(req, res, userID, subjectID, chapterID, subChapterID, videoID, description){
+  var sql =   `INSERT INTO subChapterVideo (userID, subjectID, chapterID, subChapterID, videoID, Description)
+              VALUES (?, ?, ?, ?, ?, ?)`;
+  var inserts = [userID, subjectID, chapterID, subChapterID, videoID, description];
   sql = mysql.format(sql, inserts);
   get_data(req, res, sql);
 }
@@ -428,6 +446,15 @@ function add_course_for_user(req, res, userID, role, subjectID) {
     var sql = `INSERT INTO UserSubject (userID, role, subjectID)
                VALUES (?, ?, ?)`;
     var inserts = [userID, role, subjectID];
+    sql = mysql.format(sql, inserts);
+
+    get_data(req, res, sql);
+}
+
+function delete_video(req, res, videoID) {
+    var sql = `DELETE FROM subChapterVideo
+               WHERE videoID = ?`;
+    var inserts = [videoID];
     sql = mysql.format(sql, inserts);
 
     get_data(req, res, sql);

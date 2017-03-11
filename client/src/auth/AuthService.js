@@ -120,4 +120,18 @@ export default class AuthService extends EventEmitter {
         const { roles } = profile.app_metadata || {};
         return !!roles && roles.indexOf('admin') > -1;
     }
+
+    isProfessor() {
+        // Checks if the user has a `professor` role in the profile app_metadata
+        const profile = this.getProfile();
+        const { roles } = profile.app_metadata || {};
+        return !!roles && roles.indexOf('professor') > -1;
+    }
+
+    isStudass() {
+        // Checks if the user has a `studass` role in the profile app_metadata
+        const profile = this.getProfile();
+        const { roles } = profile.app_metadata || {};
+        return !!roles && roles.indexOf('studass') > -1;
+    }
 }
