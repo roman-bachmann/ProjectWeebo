@@ -1,0 +1,118 @@
+@font-face {
+     font-family: "Webly Sleek";
+      src: url(../fonts/weblysleekuil.ttf) format("truetype");
+}
+
+.li_sidekart,
+.li_sosialknapper {
+    list-style-type: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.li_sidekart li,
+.li_sosialknapper li {
+    display: inline-block;
+    margin-left: 18px;
+    margin-right: 18px;
+    font-family: "Webly Sleek";
+}
+
+.li_sidekart li a {
+    color: white;
+    transform: scale(1.0);
+    font-size: 14.5px;
+    opacity: 0.7;
+}
+
+.li_sidekart li a:hover {
+    color: #329a64;
+    transform: scale(1.2);
+    transition: .1s;
+    text-decoration: none;
+}
+
+.underliste li a {
+    color: #e5e5e5;
+}
+
+.footer li img {
+    width: 35px;
+}
+
+.footer a:hover {
+    opacity: 0.835;
+    transition: .3s;
+}
+
+.sidekart {
+    width: 550px;
+    float: left;
+}
+
+.li_sidekart {
+    margin-left: 120px;
+    padding-top: 20px;
+}
+
+.sosial {
+    width: 200px;
+    margin-left: 480px;
+    margin-top: 15px;
+    right: 0;
+    position: absolute;
+}
+
+.li_sosialknapper {
+    float: left;
+}
+
+.li_sosialknapper li {
+    margin-left: 1px;
+    margin-right: 1px;
+    padding: 3px;
+}
+
+.underliste {
+    list-style-type: none;
+    margin-left: 175px;
+}
+
+.underliste li {
+    margin-bottom: 5px;
+}
+
+.sosial img {
+    transition: .2s;
+    height: 25px;
+    border-radius: 50%;
+}
+
+.sosial img:hover {
+    transform: scale(1.2);
+    transition: .2s;
+    opacity: 0.8;
+}
+
+.copyright {
+    width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 12px;
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    opacity: .6;
+    margin-top: 30px;
+}
+
+.copyright {
+    font-family: "Webly Sleek";
+
+}
+
+.copyright a {
+  color: grey;
+}
