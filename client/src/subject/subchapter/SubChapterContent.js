@@ -1,7 +1,7 @@
 var React = require('react');
 import './SubChapterContent.css';
 import {Row, Col, Grid} from 'react-bootstrap';
-import {Button, DropdownButton, MenuItem} from 'react-bootstrap';
+import {Button, Dropdown, MenuItem, Glyphicon} from 'react-bootstrap';
 var YouTube = require('./YouTubePlayer.js');
 var Upvote = require('./Upvote.js');
 var VideoModal = require('./AddVideoModal.js');
@@ -40,15 +40,41 @@ var SubChapterContent = React.createClass({
 		}
 	},
 
+	handleModerateDropdown: function (eventKey, videoID) {
+			if (eventKey == 'reccommendKey') {
+				this.handleRecommendVideo(videoID);
+			} else if (eventKey == 'deleteVideoKey') {
+				Client.deleteVideo(videoID);
+			} else if (eventKey == 'banUserKey') {
+
+			}
+		},
+
+		moderateButton: function (videoID) {
+			return (
+				<Dropdown bsStyle="info"
+						  id={"moderateButtonDropdown-" + videoID}
+						  onSelect={(evt) => this.handleModerateDropdown(evt, videoID)}>
+					<Dropdown.Toggle>
+						<Glyphicon glyph="glyphicon glyphicon-cog"/> Moderate
+				    </Dropdown.Toggle>
+					<Dropdown.Menu className="super-colors">
+						<MenuItem eventKey="recommendKey">
+							<Glyphicon glyph="glyphicon glyphicon-star"/> Recommend Video
+						</MenuItem>
+						<MenuItem divider />
+						<MenuItem eventKey="deleteVideoKey">
+							<Glyphicon glyph="glyphicon glyphicon-trash"/> Delete Video
+						</MenuItem>
+						<MenuItem eventKey="banUserKey">
+							<Glyphicon glyph="glyphicon glyphicon-remove-sign"/> Ban User
+						</MenuItem>
+					</Dropdown.Menu>
+				</Dropdown>
+			);
+		},
+
 	render: function() {
-		var moderateButton = (
-			<DropdownButton bsStyle="info" title="⚙ Moderate" id="moderateButtonDropdown">
-      			<MenuItem eventKey="recommendKey">Recommend Video</MenuItem>
-				<MenuItem divider />
-      			<MenuItem eventKey="deleteVideoKey">Delete Video</MenuItem>
-      			<MenuItem eventKey="banUserKey">Ban User</MenuItem>
-    		</DropdownButton>
-		);
 
 		let closeCourseModal = () => this.setState({ showCourseModal: false });
 
@@ -66,7 +92,7 @@ var SubChapterContent = React.createClass({
 									<Upvote videoid={v.subChapterVideoID} userID={this.props.userID} />
 								</Col>
 								<Col md={4}>
-									{moderateButton}
+									{this.moderateButton(v.videoID)}
 									<Button bsStyle="danger">♥</Button>
 								</Col>
 
@@ -89,95 +115,6 @@ var SubChapterContent = React.createClass({
 			var videosList = null;
 		}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		// if(this.state.videos){
-        //     var videosList = this.state.videos.map(function (v, idx){
-        //       	if(idx == 0){
-        //       		return (<Grid bsClass="container" className="subGrid">
-		//               		{this.props.activePanel === this.props.needActive ?
-		//               			<Row>
-		//               			<VideoModal
-		//               				show={this.state.showCourseModal}
-		//               				onHide={closeCourseModal}
-		//               				subject={this.props.subject.subjectID}
-		//               				chapter={this.props.chapter.chapterID}
-		//               				subchapter={this.props.subchapter.subChapterID}/>
-		// 					      <Col md={7}>
-		// 					      	<YouTube id={v.videoID} />
-		// 					      </Col>
-		// 					      <Col md={3} className="subCol">
-		// 					      	<Upvote videoid={v.subChapterVideoID} userID={this.props.userID}></Upvote>
-		// 					      </Col>
-		// 					      <Col md={2} className="subCol">
-		// 					      	<button className="shareBtn" 
-		// onClick={()=>this.setState({ showCourseModal: true })}><span>Add</span></button>
-		// 					      </Col>
-		// 					    </Row>
-	    //         			:null}
-        //     			</Grid>);
-        //       	}
-        //       	else {
-	    //           	return (<Grid bsClass="container" className="subGrid">
-		// 	              		{this.props.activePanel === this.props.needActive ?
-		// 	              			<Row>
-		// 						      <Col md={7} className="subCol">
-		// 						      	<YouTube id={v.videoID} />
-		// 						      </Col>
-		// 						      <Col md={5}  className="subCol">
-		// 						      	<Upvote videoid={v.subChapterVideoID} userID={this.props.userID}></Upvote>
-		// 						      </Col>
-		// 						    </Row>
-		//             			:null}
-	    //         			</Grid>);
-        //       	}
-        //     }, this);
-        // }
-        // if(this.state.videos.length == 0){
-        // 	return (<Grid bsClass="container" className="subGrid">
-	    //           		{this.props.activePanel === this.props.needActive ?
-	    //           			<Row>
-		// 						<VideoModal
-		// 							show={this.state.showCourseModal}
-		// 							onHide={closeCourseModal}
-		// 							subject={this.props.subject.subjectID}
-		// 							chapter={this.props.chapter.chapterID}
-		// 							subchapter={this.props.subchapter.subChapterID}/>
-		// 						<Col md={7}>
-		// 						</Col>
-		// 						<Col md={3} className="subCol">
-		// 						</Col>
-		// 						<Col md={2} className="subCol">
-		// 							<button className="shareBtn" onClick={()=>this.setState({ showCourseModal: true })}>
-		// <span>Add</span></button>
-		// 						</Col>
-		// 					</Row>
-	    //     			:null}
-        // 			</Grid>);
-        // }
-
-
-
 		return (
 			<div>
 				<Grid bsClass="container" className="subGrid">
@@ -193,7 +130,7 @@ var SubChapterContent = React.createClass({
 					subchapter={this.props.subchapter.subChapterID}
 					userID={this.props.userID}/>
 
-				
+
 			</div>
 		);
 	}
