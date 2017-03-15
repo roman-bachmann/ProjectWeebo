@@ -1,3 +1,27 @@
+@font-face {
+     font-family: "Webly Sleek";
+     src: url(../fonts/weblysleekuil.ttf) format("truetype");
+ }
+
+ @font-face {
+      font-family: "GeosansLight";
+      src: url(../fonts/GeosansLight.ttf) format("truetype");
+  }
+
+.modal-title {
+  font-family: "Webly Sleek";
+  font-size: 24px;
+  color: #329a64;
+}
+
+.glyphicon glyphicon-glyphicon glyphicon-ok {
+  color: #329a64;
+}
+
+.dropdown-menu li a {
+    font-family: "Webly Sleek";
+}
+
 .bootstrap-typeahead-clear-button {
   outline: none;
   margin-top: -12px;
@@ -63,6 +87,38 @@
   padding: 4px 7px;
   position: relative;
 }
+
+.bootstrap-tokenizer-input {
+  font-family: "Webly Sleek";
+  font-size: 18px;
+}
+
+.addCoursesBtn {
+  font-family: "Webly Sleek";
+    font-size: 18px;
+    background-color: #519d9b;
+    color: white;
+    border-color: #519d9b;
+}
+
+.confirmBtn {
+  font-family: "Webly Sleek";
+    font-size: 18px;
+    background-color: #519d9b;
+    border-color: #519d9b;
+    color: white;
+}
+
+.confirmBtn:hover {
+  background-color: #519d9b;
+  border-color: #519d9b;
+}
+
+.addCoursesBtn:hover {
+  background-color: #519d9b;
+  border-color: #519d9b;
+}
+
 .bootstrap-tokenizer .token-disabled {
   background-color: #ddd;
   color: #888;

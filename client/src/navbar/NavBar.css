@@ -9,23 +9,18 @@
  }
 
  @font-face {
-     font-family: "Webly Sleek";
-     src: url(../fonts/weblysleekuil.ttf) format("truetype");
- }
-
- @font-face {
       font-family: "GeosansLight";
       src: url(../fonts/GeosansLight.ttf) format("truetype");
   }
 
 .nav-pills li a {
-  font-family: "GeosansLight";
+  font-family: "Webly Sleek";
   font-size: 18px;
 }
 
 .panel-title {
   color: #337ab7;
-  font-family: "GeosansLight";
+  font-family: "Webly Sleek";
   font-size: 18px;
 }
 

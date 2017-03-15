@@ -1,5 +1,5 @@
 var React = require('react');
-import {Modal, Button, ButtonToolbar} from 'react-bootstrap';
+import {Modal, Button, ButtonToolbar, Glyphicon} from 'react-bootstrap';
 import {Typeahead} from 'react-bootstrap-typeahead';
 import Client from '../Client.js';
 import './AddCoursesModal.css';
@@ -35,7 +35,7 @@ var AddCoursesModal = React.createClass({
         return (
             <Modal {...this.props} bsSize="large" aria-labelledby="contained-modal-title-sm">
                 <Modal.Header closeButton>
-                    <Modal.Title id="contained-modal-title-sm">Add courses</Modal.Title>
+                    <Modal.Title id="contained-modal-title-sm"><Glyphicon glyph="glyphicon glyphicon-book"/> Add courses</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Typeahead
@@ -54,7 +54,7 @@ var AddCoursesModal = React.createClass({
                     </ButtonToolbar>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button className="confirmBtn" onClick={this.props.onHide}>Confirm</Button>
+                    <Button className="confirmBtn" onClick={this.props.onHide}><Glyphicon glyph="glyphicon glyphicon-ok"/></Button>
                 </Modal.Footer>
             </Modal>
         );
