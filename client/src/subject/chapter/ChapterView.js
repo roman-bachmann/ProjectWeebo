@@ -1,3 +1,5 @@
+import './ChapterView.css'
+
 var React = require('react');
 
 var Tab = require("react-bootstrap/lib/Tab");
@@ -55,7 +57,7 @@ var Tabs = React.createClass({
 				var theKey = 'chap' + idx;
 			return (
 			<Tab.Pane eventKey={theKey}>
-				{this.state.activeTab === theKey ? 
+				{this.state.activeTab === theKey ?
 					<Accordion
 						subject={this.props.selectedCourse}
 						chapter={this.state.chapters[idx]}
@@ -69,6 +71,7 @@ var Tabs = React.createClass({
 
 		return (
 			<div>
+				<h2 className="ChapterTitle">{this.props.selectedCourse.name}</h2>
 
 			<Tab.Container id="left-tabs-example" defaultActiveKey="chap0">
 				<Row className="clearfix">

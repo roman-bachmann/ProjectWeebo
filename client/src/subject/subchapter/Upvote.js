@@ -2,6 +2,7 @@ import './Upvote.css';
 import {Grid, Row, Col} from 'react-bootstrap';
 var React = require('react');
 import Client from '../../Client.js';
+import {Glyphicon} from 'react-bootstrap';
 
 //General colors for vote buttons
 var ColorsVote = { 	"Upgreen": "#81b71a",
@@ -93,7 +94,7 @@ var Upvote = React.createClass({
             <div className="upVoteWrap">
                 <Col md={1}>
                     <button className="upvoteBtn" onClick={this.addVote} style={{color: this.state.upVoteColor, backgroundColor: this.state.bgUp}}>
-                        ▲
+                        <Glyphicon glyph="glyphicon glyphicon-triangle-top"/>
                     </button>
                 </Col>
                 <Col md={1}>
@@ -101,7 +102,7 @@ var Upvote = React.createClass({
                 </Col>
                 <Col md={1}>
                     <button className="downvoteBtn" onClick={this.removeVote} style={{color: this.state.downVoteColor, backgroundColor: this.state.bgDown}}>
-                        ▼
+                        <Glyphicon glyph="glyphicon glyphicon-triangle-bottom"/>
                         </button>
                 </Col>
             </div>

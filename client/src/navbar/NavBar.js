@@ -1,5 +1,6 @@
 var React = require('react');
 import './NavBar.css';
+import {Glyphicon} from 'react-bootstrap';
 
 var Navbar = require("react-bootstrap/lib/Navbar");
 var Nav = require("react-bootstrap/lib/Nav");
@@ -12,7 +13,7 @@ import {Link} from 'react-router';
 var NavBar = React.createClass({
     getInitialState: function () {
         return {
-            subjectName: "✎ Subjects",
+            subjectName: (<span><Glyphicon glyph="glyphicon glyphicon-education"/> Subjects</span>),
             showCourseModal: false
         };
     },
@@ -83,13 +84,13 @@ var NavBar = React.createClass({
                     {this.props.auth.loggedIn() ? (
                         <Nav pullRight>
                             <NavItem eventKey={88}>
-                                <Link className="Nav__link" to="/profile">✉ Profile</Link>
+                                <Link className="Nav__link" to="/profile"><Glyphicon glyph="glyphicon glyphicon-user"/> Profile</Link>
                             </NavItem>
-                            <NavItem eventKey={111} onClick={this.props.auth.logout.bind(this)}>⚑ Log Out</NavItem>
+                            <NavItem eventKey={111} onClick={this.props.auth.logout.bind(this)}><Glyphicon glyph="glyphicon glyphicon-log-out"/> Log Out</NavItem>
                         </Nav>
                     ) : (
                         <Nav pullRight>
-                            <NavItem eventKey={99} onClick={this.props.auth.login.bind(this)}>Log In / Sign Up</NavItem>
+                            <NavItem eventKey={99} onClick={this.props.auth.login.bind(this)}><Glyphicon glyph="glyphicon glyphicon-log-in"/>Log In / Sign Up</NavItem>
                         </Nav>
                     )}
 
