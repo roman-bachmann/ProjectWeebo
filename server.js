@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+var http = require('http');
 
 var mysql = require('mysql');
 
@@ -173,7 +174,23 @@ app.post('/api/shareVideo', (req, res) => {
       return;
   }
   console.log("about to post");
-  post_video(req, res, userID, subjectID, chapterID, subChapterID, videoID, description);
+
+  var options = {
+    method: 'HEAD',
+    host: 'img.youtube.com',
+    path: '/vi/' + videoID + '/0.jpg'
+  };
+
+  var reqYou = http.request(options, function(resYou) {
+    if (resYou.statusCode == 200){
+        console.log("Valid Youtube ID");
+      post_video(req, res, userID, subjectID, chapterID, subChapterID, videoID, description);
+    } else {
+        console.log("Invalid Youtube ID");
+    }
+  });
+
+  reqYou.end();
 });
 
 app.post('/api/addCourseForUser', (req, res) => {
