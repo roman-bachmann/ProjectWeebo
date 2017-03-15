@@ -73,11 +73,12 @@ var SubChapterContent = React.createClass({
 							</Row>
 						</Col>
 						<Col md={3} className="commentAndRecommended">
-							<Row className="recommended">
+							{v.Favorite === 1 ? <Row className="recommended">
 								Instructor recommends!
 							</Row>
+							:null}
 							<Row className="comment">
-								Comments lorem ipsum...
+								{v.Description}
 							</Row>
 						</Col>
 					</div>
@@ -129,7 +130,8 @@ var SubChapterContent = React.createClass({
 		// 					      	<Upvote videoid={v.subChapterVideoID} userID={this.props.userID}></Upvote>
 		// 					      </Col>
 		// 					      <Col md={2} className="subCol">
-		// 					      	<button className="shareBtn" onClick={()=>this.setState({ showCourseModal: true })}><span>Add</span></button>
+		// 					      	<button className="shareBtn" 
+		// onClick={()=>this.setState({ showCourseModal: true })}><span>Add</span></button>
 		// 					      </Col>
 		// 					    </Row>
 	    //         			:null}
@@ -166,7 +168,8 @@ var SubChapterContent = React.createClass({
 		// 						<Col md={3} className="subCol">
 		// 						</Col>
 		// 						<Col md={2} className="subCol">
-		// 							<button className="shareBtn" onClick={()=>this.setState({ showCourseModal: true })}><span>Add</span></button>
+		// 							<button className="shareBtn" onClick={()=>this.setState({ showCourseModal: true })}>
+		// <span>Add</span></button>
 		// 						</Col>
 		// 					</Row>
 	    //     			:null}
@@ -178,6 +181,7 @@ var SubChapterContent = React.createClass({
 		return (
 			<div>
 				<Grid bsClass="container" className="subGrid">
+					<button className="shareBtn" onClick={()=>this.setState({ showCourseModal: true })}><span>Add</span></button>
 					{videosList}
 				</Grid>
 
@@ -189,7 +193,7 @@ var SubChapterContent = React.createClass({
 					subchapter={this.props.subchapter.subChapterID}
 					userID={this.props.userID}/>
 
-				<button className="shareBtn" onClick={()=>this.setState({ showCourseModal: true })}><span>Add</span></button>
+				
 			</div>
 		);
 	}

@@ -385,7 +385,7 @@ function get_subchapters(req, res, subjectID, chapterID) {
 }
 
 function get_videos(req, res, subjectID, chapterID, subChapterID) {
-    var sql = `SELECT subChapterVideo.videoID, subChapterVideo.subChapterVideoID, SUM(rating.rating_score) AS votes
+    var sql = `SELECT subChapterVideo.videoID, subChapterVideo.subChapterVideoID, subChapterVideo.Description, subChapterVideo.Favorite, SUM(rating.rating_score) AS votes
                 FROM subChapterVideo
                 LEFT JOIN rating
                 ON subChapterVideo.subChapterVideoID = rating.subChapterVideoID
