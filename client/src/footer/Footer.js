@@ -6,7 +6,7 @@ var style = {
     borderTop: "1px solid #E7E7E7",
     textAlign: "center",
     padding: "20px",
-    position: "fixed",
+    position: "static",
     left: "0",
     bottom: "0",
     height: "96px",
@@ -23,7 +23,7 @@ var phantom = {
 const Footer = React.createClass({
     render: function() {
         return (
-      <div>
+      <div className="footerFoot">
         <div style={phantom}/>
             <div style={style}>
             <div className="sidekart">

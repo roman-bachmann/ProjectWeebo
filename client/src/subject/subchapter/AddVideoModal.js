@@ -44,6 +44,7 @@ const MySmallModal = React.createClass({
       var subChapterID = this.props.subchapter;
       var videoID = this.state.userInput;
       Client.videoShare(userID, subjectID, chapterID, subChapterID, videoID, descr);
+      this.props.reVid();
       this.props.onHide();
     }else{
       this.props.onHide();
@@ -71,7 +72,6 @@ const MySmallModal = React.createClass({
           {this.state.sharingsite === 'YouTube' ?
             <YouTube id={this.state.userInput}/>
           :<h3 style={{color: 'orange'}}>Vimeo will be supported later.</h3>}
-          <p><span style={{color: 'red'}}>Notice: </span>You need to reopen your active panel to see the video you shared.</p>
         </Modal.Body>
         <Modal.Footer>
           <Button className="closeBtn" onClick={this.props.onHide}>Close</Button>
