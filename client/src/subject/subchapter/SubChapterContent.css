@@ -17,16 +17,22 @@
 
 .upvoteBtn {
   border-radius: 50%;
-  background-color: #5bc0de;
+  background-color: #5bc0de !important;
   border-color: #46b8da;
+  width: 35px;
+  height: 35px;
 }
 
 .votenumber {
-  margin-left: 8px;
+  margin-left: 10px;
 }
 
 .downvoteBtn {
   border-radius: 50%;
+  background-color: #5bc0de !important;
+  border-color: #46b8da;
+  width: 35px;
+  height: 35px;
 }
 
 
@@ -36,41 +42,29 @@
 .shareBtn {
   display: inline-block;
   border-radius: 4px;
-  background-color: blue;
+  background-color: #2ea1dd;
   border: none;
   color: #FFFFFF;
   text-align: center;
   font-size: 20px;
-  padding: 15px;
+  padding: 10px;
   width: 130px;
+  height: 40px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
+  margin-left: 900px;
 }
 
 .shareBtn span {
   cursor: pointer;
   display: inline-block;
   position: relative;
-  transition: 0.5s;
-}
-
-.shareBtn span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
+  transition: 0.1s;
 }
 
 .shareBtn:hover span {
-  padding-right: 25px;
-}
-
-.shareBtn:hover span:after {
-  opacity: 1;
-  right: 0;
+  padding-right: 5px;
 }
 .rowParent {
     width: 100%;

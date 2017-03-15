@@ -8,6 +8,27 @@
      src: url(../fonts/weblysleekuil.ttf) format("truetype");
  }
 
+ @font-face {
+     font-family: "Webly Sleek";
+     src: url(../fonts/weblysleekuil.ttf) format("truetype");
+ }
+
+ @font-face {
+      font-family: "GeosansLight";
+      src: url(../fonts/GeosansLight.ttf) format("truetype");
+  }
+
+.nav-pills li a {
+  font-family: "GeosansLight";
+  font-size: 18px;
+}
+
+.panel-title {
+  color: #337ab7;
+  font-family: "GeosansLight";
+  font-size: 18px;
+}
+
 .theNavBar {
 	background-color: white;
 	margin-bottom: 0;
@@ -50,7 +71,7 @@ background-color: #3cb979;
 }
 
 .nav .nav-pills .nav-stacked {
-	background-color: #3cb979
+	background-color: #3cb979;
 }
 
 .nav-pills li.active a, .nav-pills li.active a:focus, .nav-pills li.active a:hover {

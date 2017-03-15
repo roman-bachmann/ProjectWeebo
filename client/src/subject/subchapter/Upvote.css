@@ -1,5 +1,10 @@
 .upvoteBtn {
     border-style: none;
+    background-color: #2ea1dd;
+}
+
+element.style {
+  background-color: black;
 }
 
 .downvoteBtn {

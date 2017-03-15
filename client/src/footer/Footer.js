@@ -11,6 +11,7 @@ var style = {
     bottom: "0",
     height: "96px",
     width: "100%",
+    marginTop: "545px",
 };
 
 var phantom = {
@@ -44,9 +45,6 @@ const Footer = React.createClass({
                  </li>
              </ul>
          </div>
-         <div>
-         <h6 className="copyright"> © <a href="mailto:thayanat@stud.ntnu.no">Made with ♥ by Team Weebo</a> ツ</h6>
-        </div>
     </div>
   </div>
         );
