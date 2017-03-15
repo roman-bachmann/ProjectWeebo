@@ -6,7 +6,7 @@ import Client from '../../Client.js';
 var ColorsVote = { 	"Upgreen": "#81b71a",
                     "Downred": "#cd5c5c",
                     "BgUnclicked": "#efefef",
-                    "BgClicked": "#dbd6d6",
+                    "BgClicked": '#7f7c7c',
 };
 
 var Upvote = React.createClass({
