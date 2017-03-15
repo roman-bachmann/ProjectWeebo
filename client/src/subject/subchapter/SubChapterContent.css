@@ -1,3 +1,30 @@
+.col-md-8 {
+  padding-bottom: 2px;
+}
+
+.col-md-4 {
+  margin-bottom: 8px;
+}
+
+.btn-danger {
+  margin-left: 6px;
+  border-radius: 50%;
+}
+
+.upvoteBtn {
+  border-radius: 50%;
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+
+.votenumber {
+  margin-left: 8px;
+}
+
+.downvoteBtn {
+  border-radius: 50%;
+}
+
 .shareRow {
     text-align: right;
 }

@@ -6,6 +6,7 @@ var YouTube = require('./YouTubePlayer.js');
 var Upvote = require('./Upvote.js');
 var VideoModal = require('./AddVideoModal.js');
 import Client from '../../Client.js';
+import './SubChapterContent.css';
 
 var SubChapterContent = React.createClass({
 	getInitialState: function () {
