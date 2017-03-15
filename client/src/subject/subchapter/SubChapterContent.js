@@ -77,6 +77,7 @@ var SubChapterContent = React.createClass({
 	render: function() {
 
 		let closeCourseModal = () => this.setState({ showCourseModal: false });
+		let reloadVids = () => this.loadVideosFromServer(this.props.subject.subjectID, this.props.chapter.chapterID, this.props.subchapter.subChapterID);
 
 		if (this.state.videos) {
 			var videosList = this.state.videos.map( (v, idx) => (
@@ -118,7 +119,8 @@ var SubChapterContent = React.createClass({
 		return (
 			<div>
 				<Grid bsClass="container" className="subGrid">
-					<button className="shareBtn" onClick={()=>this.setState({ showCourseModal: true })}><span>Add</span></button>
+					<button className="shareBtn" 
+					onClick={()=>this.setState({ showCourseModal: true })}><span>Add</span></button>
 					{videosList}
 				</Grid>
 
@@ -128,7 +130,8 @@ var SubChapterContent = React.createClass({
 					subject={this.props.subject.subjectID}
 					chapter={this.props.chapter.chapterID}
 					subchapter={this.props.subchapter.subChapterID}
-					userID={this.props.userID}/>
+					userID={this.props.userID}
+					reVid={reloadVids}/>
 
 
 			</div>

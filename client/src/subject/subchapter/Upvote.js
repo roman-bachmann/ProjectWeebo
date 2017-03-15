@@ -4,6 +4,7 @@ var React = require('react');
 import Client from '../../Client.js';
 import {Glyphicon} from 'react-bootstrap';
 
+//General colors for vote buttons
 var ColorsVote = { 	"Upgreen": "#81b71a",
                     "Downred": "#cd5c5c",
                     "BgUnclicked": "#efefef",
@@ -12,7 +13,6 @@ var ColorsVote = { 	"Upgreen": "#81b71a",
 
 var Upvote = React.createClass({
 	getInitialState: function () {
-		//fetch from database here
 		return {
 			votes: 0,
 			 users: {},
@@ -35,12 +35,16 @@ var Upvote = React.createClass({
 				var userID = this.props.userID;
 				var containsUserValue = false;
 
+				//checks if the users ID is in the dictionary that stores ID and vote value
 				if(userID in usersDict){
 					//If the user has already voted the button colors will change to the vote value.
 					containsUserValue = true;
+					//if the user voted up
 					if(usersDict[userID] == 1){
 						this.setState({ votes: counts, users: usersDict, containsUser: containsUserValue, bgUp: ColorsVote.BgClicked});
-					}else{
+					}
+					//if the user voted down
+					else{
 						this.setState({ votes: counts, users: usersDict, containsUser: containsUserValue, bgDown: ColorsVote.BgClicked});
 					}
 				}
