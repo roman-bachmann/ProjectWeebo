@@ -1,17 +1,82 @@
+@font-face {
+     font-family: "Webly Sleek";
+      src: url(../../fonts/weblysleekuil.ttf) format("truetype");
+}
+
 .closeBtn {
 	float: left;
-	background-color: red;
+	background-color: #329a64;
+	border-color: #329a64;
 	color: white;
 }
 .closeBtn:hover {
-	background-color: #770b0b;
+	background-color: #329a64;
+	border-color: #329a64;
+	opacity: 0.8;
 	color: white;
 }
 .acceptBtn {
-	background-color: green;
+	background-color: #329a64;
+	border-color: #329a64;
+
 	color: white;
 }
 .acceptBtn:hover {
-	background-color: #0b541f;
+	background-color: #329a64;
+	border-color: #329a64;
 	color: white;
+	opacity: 0.8;
+}
+
+span {
+	font-family: "Webly Sleek";
+}
+
+p {
+	font-family: "Webly Sleek";
+	}
+
+.VimeoLater {
+	font-family: "Webly Sleek";
+}
+
+input[type='radio']:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #329a64;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #519d9b;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+input[type='text'] {
+	width: 300px;
+}
+textarea {
+	margin-left: 2px;
+	width: 550px;
+	height: 60px;
+}
+
+.Description {
+	text-align: left;
 }

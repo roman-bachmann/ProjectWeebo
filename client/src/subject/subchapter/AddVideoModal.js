@@ -1,5 +1,5 @@
 var React = require('react');
-import {Modal, Button} from 'react-bootstrap';
+import {Modal, Button, Glyphicon} from 'react-bootstrap';
 var YouTube = require('./YouTubePlayer.js');
 import './AddVideoModal.css';
 import Client from '../../Client.js';
@@ -67,15 +67,15 @@ const MySmallModal = React.createClass({
           <p><span>YouTube </span><input name="sharingsite" type="radio" value="YouTube" onChange={this.videoSiteChange} checked={this.state.sharingsite === 'YouTube'}/>
            <span> Vimeo </span><input name="sharingsite" type="radio" value="Vimeo" onChange={this.videoSiteChange} checked={this.state.sharingsite === 'Vimeo'}/>
           </p>
-          <p>{this.state.sharingsite} link/id: <input type="text" onChange={this.handleUserInput}/></p>
-          <p>Description: <textarea onChange={this.handleDescription}/></p>
+          <p>{this.state.sharingsite} Link/ID: <input type="text" onChange={this.handleUserInput}/></p>
+          <p className="Description">Description: <textarea onChange={this.handleDescription}/></p>
           {this.state.sharingsite === 'YouTube' ?
             <YouTube id={this.state.userInput}/>
-          :<h3 style={{color: 'orange'}}>Vimeo will be supported later.</h3>}
+          :<h5 className="VimeoLater" style={{color: 'orange'}}>Vimeo will be supported later.</h5>}
         </Modal.Body>
         <Modal.Footer>
-          <Button className="closeBtn" onClick={this.props.onHide}>Close</Button>
-          <Button className="acceptBtn" onClick={this.handleShare}>Share</Button>
+          <Button className="closeBtn" onClick={this.props.onHide}><Glyphicon glyph="glyphicon glyphicon-remove-circle"/></Button>
+          <Button className="acceptBtn" onClick={this.handleShare}><Glyphicon glyph="glyphicon glyphicon-share-alt"/></Button>
         </Modal.Footer>
       </Modal>
     );
