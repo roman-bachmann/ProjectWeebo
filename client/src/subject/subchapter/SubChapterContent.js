@@ -94,14 +94,14 @@ var SubChapterContent = React.createClass({
 								</Col>
 								<Col md={4}>
 									{this.moderateButton(v.videoID)}
-									<Button bsStyle="danger">♥</Button>
+									<Button bsStyle="danger"><Glyphicon glyph="glyphicon glyphicon-heart"/></Button>
 								</Col>
 
 							</Row>
 						</Col>
 						<Col md={3} className="commentAndRecommended">
 							{v.Favorite === 1 ? <Row className="recommended">
-								Instructor recommends!
+								<Glyphicon glyph="glyphicon glyphicon-arrow-left"/>  Recommended by a Professor! <Glyphicon glyph="glyphicon glyphicon-star-empty"/>
 							</Row>
 							:null}
 							<Row className="comment">

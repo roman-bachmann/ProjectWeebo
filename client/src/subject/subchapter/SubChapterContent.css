@@ -1,3 +1,8 @@
+@font-face {
+     font-family: "Webly Sleek";
+     src: url(../../fonts/weblysleekuil.ttf) format("truetype");
+ }
+
 .col-md-8 {
   padding-bottom: 2px;
 }
@@ -12,15 +17,23 @@
 
 .btn-danger {
   margin-left: 6px;
-  border-radius: 50%;
+  border-radius: 100%;
+  background-color: #519d9b !important;
+  border-color: #519d9b !important;;
+  color: white;
+}
+
+.btn-danger:hover {
+  color: #ca3733;
 }
 
 .upvoteBtn {
   border-radius: 50%;
-  background-color: #5bc0de !important;
-  border-color: #46b8da;
+  background-color: ##519d9b !important;
+  border-color: #519d9b;
   width: 35px;
   height: 35px;
+  font-family: "Webly Sleek";
 }
 
 .votenumber {
@@ -29,10 +42,11 @@
 
 .downvoteBtn {
   border-radius: 50%;
-  background-color: #5bc0de !important;
-  border-color: #46b8da;
+  background-color: #519d9b !important;
+  border-color: #519d9b;
   width: 35px;
   height: 35px;
+  font-family: "Webly Sleek";
 }
 
 
@@ -42,18 +56,19 @@
 .shareBtn {
   display: inline-block;
   border-radius: 4px;
-  background-color: #2ea1dd;
+  background-color: #519d9b;
   border: none;
   color: #FFFFFF;
   text-align: center;
   font-size: 20px;
-  padding: 10px;
-  width: 130px;
-  height: 40px;
+  padding: 5px;
+  width: 88px;
+  height: 35px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
   margin-left: 900px;
+  font-family: "Webly Sleek";
 }
 
 .shareBtn span {
@@ -74,4 +89,16 @@
 }
 .subCol {
     text-align: left;
+}
+
+.recommended {
+  font-family: "Webly Sleek";
+  font-size: 15px;
+}
+
+.btn-danger:hover, .btn-danger:focus,
+.btn-danger:active:hover, .btn-danger:active:focus, {
+    background-color: white !important;
+    border-color: white !important;
+    border-style: none !important;
 }

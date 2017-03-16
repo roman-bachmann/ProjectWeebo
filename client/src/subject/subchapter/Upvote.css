@@ -1,10 +1,11 @@
+@font-face {
+     font-family: "Webly Sleek";
+     src: url(../../fonts/weblysleekuil.ttf) format("truetype");
+ }
+
 .upvoteBtn {
     border-style: none;
-    background-color: #2ea1dd;
-}
-
-element.style {
-  background-color: black;
+    background-color: #519d9b;
 }
 
 .downvoteBtn {
@@ -23,5 +24,7 @@ element.style {
     color: #6495ed;
 }
 .votenumber {
-	font-family: "Arial Rounded MT";
+	font-family: "Webly Sleek";
+  font-size: 25px;
+  padding-right: 2px;
 }
