@@ -61,7 +61,7 @@ const MySmallModal = React.createClass({
     return (
       <Modal {...this.props} bsSize="medium" aria-labelledby="contained-modal-title-sm">
         <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-sm">Add video</Modal.Title>
+          <Modal.Title id="contained-modal-title-sm"><Glyphicon glyph="glyphicon glyphicon-film"/> Add a video</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <p><span>YouTube </span><input name="sharingsite" type="radio" value="YouTube" onChange={this.videoSiteChange} checked={this.state.sharingsite === 'YouTube'}/>
