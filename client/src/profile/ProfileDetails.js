@@ -1,5 +1,5 @@
 import React, { PropTypes as T } from 'react'
-import {Row, Col, Image} from 'react-bootstrap'
+import {Row, Col, Image, Glyphicon} from 'react-bootstrap'
 import './ProfileDetails.css'
 
 export class ProfileDetails extends React.Component {
@@ -17,8 +17,8 @@ export class ProfileDetails extends React.Component {
         </Col>
         <Col md={6}>
           <p className="ProfileName">{first_name}<br></br>{last_name}</p>
-          <p className="ProfileDetails"><strong>Email: </strong> {profile.email}</p>
-          <p className="ProfileDetails"><strong>Nickname: </strong> {profile.nickname}</p>
+          <p className="ProfileDetails"><strong><Glyphicon glyph="glyphicon glyphicon-envelope"/>  Email: </strong> {profile.email}</p>
+          <p className="ProfileDetails"><strong><Glyphicon glyph="glyphicon glyphicon-eye-open"/>  Nickname: </strong><br></br> {profile.nickname}</p>
         </Col>
       </Row>
     )

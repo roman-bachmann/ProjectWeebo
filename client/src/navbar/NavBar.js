@@ -70,7 +70,7 @@ var NavBar = React.createClass({
                                     onSelect={this.handleCourseDropdown} >
                                 {courseItems}
                                 {this.props.courses[0] && <MenuItem divider />}
-                                <MenuItem eventKey={'addCoursesKey'}><Glyphicon glyph="glyphicon glyphicon-pencil"/> Click to add courses</MenuItem>
+                                <MenuItem eventKey={'addCoursesKey'}><Glyphicon glyph="glyphicon glyphicon-pencil"/> Add courses</MenuItem>
                                 <AddCoursesModal
 		              				show={this.state.showCourseModal}
 		              				onHide={modalClose}

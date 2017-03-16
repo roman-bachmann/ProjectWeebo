@@ -3,42 +3,49 @@
      src: url(../fonts/GeosansLight.ttf) format("truetype");
  }
 
+ @font-face {
+      font-family: "Webly Sleek";
+       src: url(../fonts/weblysleekuil.ttf) format("truetype");
+ }
+
 .ProfileRow{
     border-style: solid;
     margin-top: 50px;
     border-radius: 25px;
     border: 0.5px solid white;
-    width: 400px;
-    height: 320px;
+    width: 420px;
+    height: 350px;
     background-color: white;
     box-shadow: 3.8px 3.8px #e6e6e6;
     opacity: 0.98;
-    margin-left: 520px;
+    margin-left: 505px;
     text-align: center;
 }
 
 .col-md-6 {
 text-align:center;
 position:relative;
-width: 200px;
-margin-left: 90px;
+width: 300px;
+margin-left: 50px;
 }
 
 .profileimg {
   width: 100px;
-  margin-top: 5px;
+  margin-top: 8px;
+    margin-bottom: 10px;
+  padding: 5px;
 }
 
 .ProfileName {
   color: #329a64;
-  font-family: "GeosansLight";
-  font-size: 30px;
+  font-family: "Webly Sleek";
+  font-size: 26px;
   text-align: center;
 }
 
 .ProfileDetails {
     margin-top: 2px;
-    font-family: "GeosansLight";
+    font-family: "Webly Sleek";
     font-size: 18px;
     text-align: center;
 
