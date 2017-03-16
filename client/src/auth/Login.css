@@ -58,3 +58,14 @@
 	background-color: #329a64;
 	border-color: green;
 }
+
+
+.btn-primary.focus, .btn-primary:focus {
+  background-color: #329a64 !important;
+  outline: 0;
+}
+
+.btn-primary:active {
+outline: 0 !important;
+border: none !important;
+}

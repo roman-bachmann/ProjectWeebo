@@ -27,6 +27,16 @@
   color: #ca3733;
 }
 
+.btn-danger:focus, .btn-danger:focus {
+  background-color: #ca3733 !important;
+  outline: 0;
+}
+
+.btn-danger:active {
+outline: 0 !important;
+border: none !important;
+}
+
 .upvoteBtn {
   border-radius: 50%;
   background-color: ##519d9b !important;
