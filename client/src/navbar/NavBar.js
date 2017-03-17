@@ -54,7 +54,7 @@ var NavBar = React.createClass({
             <Navbar inverse collapseOnSelect className="theNavBar">
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <Link to="/learn">
+                        <Link to="/home">
                             Weebo
                         </Link>
                     </Navbar.Brand>
