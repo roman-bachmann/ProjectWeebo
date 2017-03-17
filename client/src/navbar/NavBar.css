@@ -87,11 +87,45 @@ background-color: #3cb979;
 	color: #329a64;
 }
 
-.navbar-inverse .navbar-nav li a:hover {
-	color: #329a64;
-  text-decoration: underline;
+
+
+.navbar-inverse .navbar-nav li a {
+  position: relative;
+  color: #3cb979;
+  text-decoration: none !important;
+  text-decoration-color: white !important;
 }
 
-.navbar-inverse .navbar-nav li a:focus {
-	color: #329a64;
+.navbar-inverse .navbar-nav a:hover {
+  color: #3cb979;
+}
+
+.navbar-inverse .navbar-nav li a:hover {
+color: #3cb979;
+}
+
+.navbar-inverse .navbar-nav a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1.5px;
+  bottom: 0;
+  left: 0;
+  background-color: #329a64;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.2s ease-in-out 0s;
+  transition: all 0.15s ease-in-out 0s;
+}
+
+
+.navbar-inverse .navbar-nav  a:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+NavDropdown .coursesNames:hover {
+  color: blue;
 }
