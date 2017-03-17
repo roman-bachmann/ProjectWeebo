@@ -1,5 +1,6 @@
 import React from 'react';
 import './Footer.css'
+import {Link} from 'react-router';
 
 var style = {
     backgroundColor: "#3c3c3c",
@@ -29,10 +30,10 @@ const Footer = React.createClass({
             <div style={style}>
             <div className="sidekart">
              <ul className="li_sidekart">
-                 <li><a href="index.html">Home</a></li>
-                 <li><a href="watches.html">Profile</a></li>
-                 <li><a href="order.html">Contact</a></li>
-                 <li><a href="about.html">Log out</a></li>
+                 <li><Link to="/home">Home</Link></li>
+                 <li><Link to="/profile">Profile</Link></li>
+                 <li><Link to="/contact">Contact</Link></li>
+                 <li onClick={this.props.auth.logout.bind(this)}>Log out</li>
              </ul>
          </div>
          <div className="sosial">

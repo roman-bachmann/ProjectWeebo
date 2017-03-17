@@ -1,5 +1,4 @@
 import React, { PropTypes as T } from 'react'
-import {Button} from 'react-bootstrap'
 import AuthService from '../auth/AuthService.js'
 import ProfileDetails from './ProfileDetails.js'
 import './Profile.css'
