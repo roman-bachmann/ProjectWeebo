@@ -53,9 +53,6 @@ var AddCoursesModal = React.createClass({
                         </Button>
                     </ButtonToolbar>
                 </Modal.Body>
-                <Modal.Footer>
-                    <Button className="confirmBtn" onClick={this.props.onHide}><Glyphicon glyph="glyphicon glyphicon-ok"/></Button>
-                </Modal.Footer>
             </Modal>
         );
     }
