@@ -18,7 +18,7 @@
     background-color: white;
     box-shadow: 3.8px 3.8px #e6e6e6;
     opacity: 0.98;
-    margin-left: 505px;
+    margin: auto;
     text-align: center;
 }
 
@@ -32,7 +32,7 @@ margin-left: 50px;
 .profileimg {
   width: 100px;
   margin-top: 8px;
-    margin-bottom: 10px;
+  margin-bottom: 10px;
   padding: 5px;
 }
 
