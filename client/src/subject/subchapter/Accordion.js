@@ -45,7 +45,8 @@ var AccordionBoot = React.createClass({
         if(this.state.subchapters){
             var subchaptersList = this.state.subchapters.map(function (s, idx){
               var theKey = this.props.chapId + 'subchap' + idx;
-              var panelName = (<span>{s.sname}</span>);
+              var panelName = (<span>{s.sname} <Glyphicon glyph="glyphicon glyphicon-plus-sign" /></span>);
+
               return (<Panel
                         header={panelName}
                         eventKey={theKey}
@@ -59,6 +60,7 @@ var AccordionBoot = React.createClass({
                                 userID={this.props.userID}
                                 auth={this.props.auth} />
                       </Panel>
+
                     );
             }, this);
         }
@@ -68,4 +70,6 @@ var AccordionBoot = React.createClass({
           </Accordion>)
     }
 });
+
+
 module.exports = AccordionBoot;
