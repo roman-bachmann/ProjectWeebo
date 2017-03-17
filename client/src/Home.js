@@ -23,13 +23,13 @@ var Home = React.createClass({
         return (
           <div>
             <div className="title">
-                <h1>Home</h1>
+              <h2 className="Welcome">Welcome to Weebo!</h2>
+                <div className="LogoWrap"><h1 className="W_Logo">W</h1></div>
             </div>
             <div className="content">
               <div className="inner">
                 <p>
-                    “Perhaps home is not a place but simply an irrevocable condition.”
-                    ― James Baldwin, Giovannis Room
+                    Please select a subject to continue.
                 </p>
                 <br />
                 {courseButtons}

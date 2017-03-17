@@ -1,5 +1,37 @@
+@font-face {
+     font-family: "Noteworthy";
+     src: url(fonts/Noteworthy-Light.ttf) format("truetype");
+ }
+
+ @font-face {
+     font-family: "Webly Sleek";
+     src: url(fonts/weblysleekuil.ttf) format("truetype");
+ }
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
 }
+
+.Welcome {
+       font-family: "Webly Sleek";
+
+}
+
+.W_Logo {
+      font-family: "Noteworthy";
+      font-size: 50px;
+      border: 1.2px solid white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin: auto;
+             color: white;
+      text-align: center;
+      background-color: #3cb979;
+  }
+
+  .LogoWrap {
+    padding: 20px;
+  }
