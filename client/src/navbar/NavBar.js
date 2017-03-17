@@ -9,6 +9,7 @@ var NavDropdown = require("react-bootstrap/lib/NavDropdown");
 var MenuItem = require("react-bootstrap/lib/MenuItem");
 var AddCoursesModal = require('./AddCoursesModal.js');
 import {Link} from 'react-router';
+import {LinkContainer} from 'react-router-bootstrap';
 
 var NavBar = React.createClass({
     getInitialState: function () {
@@ -83,9 +84,11 @@ var NavBar = React.createClass({
 
                     {this.props.auth.loggedIn() ? (
                         <Nav pullRight>
-                            <NavItem eventKey={88}>
-                                <Link className="Nav__link" to="/profile"><Glyphicon glyph="glyphicon glyphicon-user"/> Profile</Link>
-                            </NavItem>
+                            <LinkContainer className="Nav__link" to="/profile">
+                                <NavItem eventKey={88}>
+                                    <Glyphicon glyph="glyphicon glyphicon-user"/> Profile
+                                </NavItem>
+                            </LinkContainer>
                             <NavItem eventKey={111} onClick={this.props.auth.logout.bind(this)}><Glyphicon glyph="glyphicon glyphicon-log-out"/> Log Out</NavItem>
                         </Nav>
                     ) : (
