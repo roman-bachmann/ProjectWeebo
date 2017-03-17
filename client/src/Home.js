@@ -1,26 +1,25 @@
 import React, { PropTypes as T } from 'react'
-import {Button} from 'react-bootstrap'
+import {Button, Jumbotron} from 'react-bootstrap'
 import AuthService from './auth/AuthService.js'
 import {Link} from 'react-router';
 import './Home.css'
+import Client from './Client.js';
+import {LinkContainer} from 'react-router-bootstrap';
 
-export class Home extends React.Component {
-    static contextTypes = {
-        router: T.object
-    }
+var Home = React.createClass({
 
-    static propTypes = {
-        auth: T.instanceOf(AuthService)
-    }
+    render: function () {
+        const courseButtons = this.props.courses.map((c, idx) => (
+            <span>
+            <LinkContainer to="/learn">
+                <Button onClick={() => this.props.onCourseChange(c)}>
+                    {c.subjectID + " - " + c.name}
+                </Button>
+            </LinkContainer>
+            {idx%2==1 && <br/>}
+            </span>
+        ));
 
-    logout() {
-        // destroys the session data
-        this.props.auth.logout()
-        // redirects to login page
-        this.context.router.push('/login');
-    }
-
-    render() {
         return (
           <div>
             <div className="title">
@@ -32,12 +31,14 @@ export class Home extends React.Component {
                     “Perhaps home is not a place but simply an irrevocable condition.”
                     ― James Baldwin, Giovannis Room
                 </p>
-                <Link to="/learn">Learn now!</Link>
+                <br />
+                {courseButtons}
+
               </div>
             </div>
           </div>
         )
     }
-}
+});
 
-export default Home;
+module.exports = Home;

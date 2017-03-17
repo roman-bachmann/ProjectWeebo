@@ -64,7 +64,9 @@ export class App extends React.Component {
             (child) => React.cloneElement(child, {
                 selectedCourse: this.state.selectedCourse,
                 auth: this.props.route.auth,
-                userID: this.state.userID
+                userID: this.state.userID,
+                courses: this.state.courses,
+                onCourseChange: this.changeSelectedCourse
             })
         );
 
