@@ -45,7 +45,7 @@ var AccordionBoot = React.createClass({
         if(this.state.subchapters){
             var subchaptersList = this.state.subchapters.map(function (s, idx){
               var theKey = this.props.chapId + 'subchap' + idx;
-              var panelName = (<span>{s.sname} <Glyphicon glyph="glyphicon glyphicon-plus-sign" /></span>);
+              var panelName = (<span>{s.sname}</span>);
 
               return (<Panel
                         header={panelName}

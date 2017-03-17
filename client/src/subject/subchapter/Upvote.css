@@ -14,8 +14,7 @@
 .upvoteBtn:hover {
     opacity: 0.45;
     transition: .185s;
-
-}
+  }
 
 .downvoteBtn:hover {
     opacity: 0.45;
@@ -25,5 +24,27 @@
 .votenumber {
 	font-family: "Webly Sleek";
   font-size: 25px;
-  padding-right: 2px;
+}
+
+.upvoteBtn {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  font-family: "Webly Sleek";
+}
+
+.votenumber {
+  margin-left: 10px;
+  float: left;
+}
+
+.downvoteBtn {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  font-family: "Webly Sleek";
+}
+
+.col-md-1 {
+  width: 12.5%;
 }

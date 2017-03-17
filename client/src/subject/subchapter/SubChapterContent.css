@@ -37,27 +37,6 @@ outline: 0 !important;
 border: none !important;
 }
 
-.upvoteBtn {
-  border-radius: 50%;
-  background-color: ##519d9b !important;
-  border-color: #519d9b;
-  width: 35px;
-  height: 35px;
-  font-family: "Webly Sleek";
-}
-
-.votenumber {
-  margin-left: 10px;
-}
-
-.downvoteBtn {
-  border-radius: 50%;
-  background-color: #519d9b !important;
-  border-color: #519d9b;
-  width: 35px;
-  height: 35px;
-  font-family: "Webly Sleek";
-}
 .shareBtn {
   display: inline-block;
   border-radius: 4px;
