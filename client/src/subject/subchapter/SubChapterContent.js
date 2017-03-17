@@ -51,27 +51,33 @@ var SubChapterContent = React.createClass({
 		},
 
 		moderateButton: function (videoID) {
-			return (
-				<Dropdown bsStyle="info"
-						  id={"moderateButtonDropdown-" + videoID}
-						  onSelect={(evt) => this.handleModerateDropdown(evt, videoID)}>
-					<Dropdown.Toggle>
-						<Glyphicon glyph="glyphicon glyphicon-cog"/> Moderate
-				    </Dropdown.Toggle>
-					<Dropdown.Menu className="super-colors">
-						<MenuItem eventKey="recommendKey">
-							<Glyphicon glyph="glyphicon glyphicon-star"/> Recommend Video
-						</MenuItem>
-						<MenuItem divider />
-						<MenuItem eventKey="deleteVideoKey">
-							<Glyphicon glyph="glyphicon glyphicon-trash"/> Delete Video
-						</MenuItem>
-						<MenuItem eventKey="banUserKey">
-							<Glyphicon glyph="glyphicon glyphicon-remove-sign"/> Ban User
-						</MenuItem>
-					</Dropdown.Menu>
-				</Dropdown>
-			);
+			if (this.props.auth.isAdmin() ||
+				this.props.auth.isProfessor() ||
+				this.props.auth.isStudass()) {
+				return (
+					<Dropdown id={"moderateButtonDropdown-" + videoID}
+							  onSelect={(evt) => this.handleModerateDropdown(evt, videoID)}>
+						<Dropdown.Toggle>
+							<Glyphicon glyph="glyphicon glyphicon-cog"/> Moderate
+					    </Dropdown.Toggle>
+						<Dropdown.Menu className="super-colors">
+							<MenuItem eventKey="recommendKey">
+								<Glyphicon glyph="glyphicon glyphicon-star"/> Recommend Video
+							</MenuItem>
+							<MenuItem divider />
+							<MenuItem eventKey="deleteVideoKey">
+								<Glyphicon glyph="glyphicon glyphicon-trash"/> Delete Video
+							</MenuItem>
+							<MenuItem eventKey="banUserKey">
+								<Glyphicon glyph="glyphicon glyphicon-remove-sign"/> Ban User
+							</MenuItem>
+						</Dropdown.Menu>
+					</Dropdown>
+				);
+			} else {
+				return null;
+			}
+
 		},
 
 	render: function() {

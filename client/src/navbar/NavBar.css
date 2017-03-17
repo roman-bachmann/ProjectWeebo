@@ -129,3 +129,8 @@ color: #3cb979;
 NavDropdown .coursesNames:hover {
   color: blue;
 }
+
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+  background-color: white;
+  color: #3cb979;
+}
