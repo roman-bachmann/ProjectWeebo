@@ -1,11 +1,19 @@
 var React = require('react');
 import './SubChapterContent.css';
 import {Row, Col, Grid} from 'react-bootstrap';
-import {Button, Dropdown, MenuItem, Glyphicon} from 'react-bootstrap';
+import {Button, Dropdown, MenuItem, Glyphicon, OverlayTrigger, Tooltip} from 'react-bootstrap';
 var YouTube = require('./YouTubePlayer.js');
 var Upvote = require('./Upvote.js');
 var VideoModal = require('./AddVideoModal.js');
 import Client from '../../Client.js';
+
+const tooltipRecommend = (
+  <Tooltip id="tooltip-recommend"><strong>Recommend</strong> this video!</Tooltip>
+);
+
+const tooltipUnRecommend = (
+  <Tooltip id="tooltip-unrecommend"><strong>Unrecommend</strong> this video!</Tooltip>
+);
 
 var SubChapterContent = React.createClass({
 	getInitialState: function () {
@@ -41,14 +49,20 @@ var SubChapterContent = React.createClass({
 	},
 
 	handleModerateDropdown: function (eventKey, videoID) {
-			if (eventKey == 'reccommendKey') {
-				this.handleRecommendVideo(videoID);
-			} else if (eventKey == 'deleteVideoKey') {
+			if (eventKey == 'deleteVideoKey') {
 				Client.deleteVideo(videoID);
 			} else if (eventKey == 'banUserKey') {
 
 			}
 		},
+
+	handleRecommendVideo: function(videoID) {
+
+	},
+
+	handleUnRecommendVideo: function(videoID) {
+
+	},
 
 		moderateButton: function (videoID) {
 			if (this.props.auth.isAdmin() ||
@@ -61,10 +75,6 @@ var SubChapterContent = React.createClass({
 							<Glyphicon glyph="glyphicon glyphicon-cog"/> Moderate
 					    </Dropdown.Toggle>
 						<Dropdown.Menu className="super-colors">
-							<MenuItem eventKey="recommendKey">
-								<Glyphicon glyph="glyphicon glyphicon-star"/> Recommend Video
-							</MenuItem>
-							<MenuItem divider />
 							<MenuItem eventKey="deleteVideoKey">
 								<Glyphicon glyph="glyphicon glyphicon-trash"/> Delete Video
 							</MenuItem>
@@ -100,7 +110,19 @@ var SubChapterContent = React.createClass({
 								</Col>
 								<Col md={4}>
 									{this.moderateButton(v.videoID)}
-									<Button bsStyle="danger"><Glyphicon glyph="glyphicon glyphicon-heart"/></Button>
+									{v.Favorite === 1 ?
+										<OverlayTrigger placement="top" overlay={tooltipUnRecommend}>
+											<Button onClick={this.handleUnRecommendVideo(v.videoID)}>
+												<Glyphicon glyph="glyphicon glyphicon-star"/>
+											</Button>
+										</OverlayTrigger>
+										:
+										<OverlayTrigger placement="top" overlay={tooltipRecommend}>
+											<Button onClick={this.handleRecommendVideo(v.videoID)}>
+												<Glyphicon glyph="glyphicon glyphicon-star-empty"/>
+											</Button>
+										</OverlayTrigger>
+									}
 								</Col>
 
 							</Row>
