@@ -1,9 +1,10 @@
 var React = require('react');
-import {Accordion, Panel, Row, Col, Grid} from 'react-bootstrap';
+import {Accordion, Panel, Row, Col, Grid, Glyphicon} from 'react-bootstrap';
 var YouTube = require('./YouTubePlayer.js');
 var Upvote = require('./Upvote.js');
 var SubChapterContent = require('./SubChapterContent');
 import Client from '../../Client.js';
+import './Accordion.css';
 
 var AccordionBoot = React.createClass({
     getInitialState: function(){
@@ -44,7 +45,10 @@ var AccordionBoot = React.createClass({
         if(this.state.subchapters){
             var subchaptersList = this.state.subchapters.map(function (s, idx){
               var theKey = this.props.chapId + 'subchap' + idx;
-              return (<Panel header={s.sname}
+              var panelName = (<span>{s.sname} <Glyphicon glyph="glyphicon glyphicon-plus-sign" /></span>);
+
+              return (<Panel
+                        header={panelName}
                         eventKey={theKey}
                         onSelect={this.handleSelect}>
                             <SubChapterContent
@@ -52,10 +56,10 @@ var AccordionBoot = React.createClass({
                                 chapter={this.props.chapter}
                                 subchapter={this.state.subchapters[idx]}
                                 needActive={theKey}
-                                activePanel={this.state.activePanel} 
+                                activePanel={this.state.activePanel}
                                 userID={this.props.userID}/>
                       </Panel>
-                      
+
                     );
             }, this);
         }

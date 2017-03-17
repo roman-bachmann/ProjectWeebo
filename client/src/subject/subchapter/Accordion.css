@@ -1,0 +1,9 @@
+.panel-default>.panel-heading {
+    cursor: pointer;
+    background-color: #329a64;
+}
+
+.panel-title {
+    text-align: left;
+    color: white;
+}
