@@ -35,7 +35,7 @@ var AddCoursesModal = React.createClass({
         return (
             <Modal {...this.props} bsSize="large" aria-labelledby="contained-modal-title-sm">
                 <Modal.Header closeButton>
-                    <Modal.Title id="contained-modal-title-sm"><Glyphicon glyph="glyphicon glyphicon-book"/> Add courses</Modal.Title>
+                    <Modal.Title id="contained-modal-title-sm"><Glyphicon glyph="glyphicon glyphicon-book"/> Add course</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Typeahead
@@ -49,7 +49,7 @@ var AddCoursesModal = React.createClass({
                         placeholder="Choose a course..." />
                     <ButtonToolbar style={{marginTop: '10px'}}>
                         <Button className="addCoursesBtn" onClick={this.handleSelectedCourses}>
-                            Add selected courses
+                            Add selected course(s)
                         </Button>
                     </ButtonToolbar>
                 </Modal.Body>

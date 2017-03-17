@@ -94,11 +94,15 @@
 }
 
 .addCoursesBtn {
+  margin-top: 10px;
+
   font-family: "Webly Sleek";
     font-size: 18px;
-    background-color: #519d9b;
+    background-color: #329a64;
     color: white;
-    border-color: #519d9b;
+    border-color: #329a64;
+    height: 30px;
+    padding: 3px;
 }
 
 .confirmBtn {
@@ -115,8 +119,10 @@
 }
 
 .addCoursesBtn:hover {
-  background-color: #519d9b;
-  border-color: #519d9b;
+  opacity: 0.88;
+  background-color: #329a64;
+  color: white;
+  border-color: #329a64;
 }
 
 .bootstrap-tokenizer .token-disabled {
@@ -198,4 +204,9 @@
 }
 .input-group .bootstrap-typeahead:last-child .form-control {
   border-radius: 0 4px 4px 0;
+}
+
+.bootstrap-tokenizer .token {
+background-color: #519d9b;
+color: white;
 }
