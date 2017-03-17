@@ -86,3 +86,19 @@ border: none !important;
     border-color: white !important;
     border-style: none !important;
 }
+
+ .btnStar_Recommended {
+   float: right;
+   border-radius: 50%;
+   background-color: rgb(127, 124, 124);
+   color: yellow;
+   width: 40px;
+   height: 40px;
+ }
+
+ .btnStar_Unrecommend {
+   float: right;
+   border-radius: 50%;
+   width: 40px;
+   width: 40px;
+ }

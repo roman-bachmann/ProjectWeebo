@@ -112,13 +112,13 @@ var SubChapterContent = React.createClass({
 									{this.moderateButton(v.videoID)}
 									{v.Favorite === 1 ?
 										<OverlayTrigger placement="top" overlay={tooltipUnRecommend}>
-											<Button onClick={this.handleUnRecommendVideo(v.videoID)}>
+											<Button className="btnStar_Recommended" onClick={this.handleUnRecommendVideo(v.videoID)}>
 												<Glyphicon glyph="glyphicon glyphicon-star"/>
 											</Button>
 										</OverlayTrigger>
 										:
 										<OverlayTrigger placement="top" overlay={tooltipRecommend}>
-											<Button onClick={this.handleRecommendVideo(v.videoID)}>
+											<Button  className="btnStar_Unrecommend" onClick={this.handleRecommendVideo(v.videoID)}>
 												<Glyphicon glyph="glyphicon glyphicon-star-empty"/>
 											</Button>
 										</OverlayTrigger>
