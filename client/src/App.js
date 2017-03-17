@@ -83,7 +83,7 @@ export class App extends React.Component {
                     {childrenWithProps}
                 </div>
 
-                <Footer />
+                <Footer auth={this.props.route.auth} />
 
             </div>
         );
