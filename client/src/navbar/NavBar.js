@@ -87,7 +87,7 @@ var NavBar = React.createClass({
                             {this.props.auth.isAdmin() &&
                                 <LinkContainer className="Nav__link" to="/admin">
                                     <NavItem eventKey={77}>
-                                        <Glyphicon glyph="glyphicon glyphicon-king"/> Admin
+                                        <Glyphicon glyph="glyphicon glyphicon-wrench"/> Admin
                                     </NavItem>
                                 </LinkContainer>
                             }
