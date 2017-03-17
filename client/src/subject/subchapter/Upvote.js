@@ -1,5 +1,5 @@
 import './Upvote.css';
-import {Grid, Row, Col} from 'react-bootstrap';
+import {Col} from 'react-bootstrap';
 var React = require('react');
 import Client from '../../Client.js';
 import {Glyphicon} from 'react-bootstrap';
@@ -40,7 +40,7 @@ var Upvote = React.createClass({
 					//If the user has already voted the button colors will change to the vote value.
 					containsUserValue = true;
 					//if the user voted up
-					if(usersDict[userID] == 1){
+					if(usersDict[userID] === 1){
 						console.log("upvoted");
 						this.setState({ votes: counts, users: usersDict, containsUser: containsUserValue, bgUp: ColorsVote.BgClicked});
 					}
@@ -66,7 +66,7 @@ var Upvote = React.createClass({
 	},
 	addVote: function () {
 		//if user haven't already voted add vote and update database.
-		if(this.state.containsUser == false){
+		if(this.state.containsUser === false){
 			var d = new Date().toISOString().slice(0, 19).replace('T', ' ');
 			Client.videoVote(this.props.userID, this.props.videoid, 1, d);
 			var newVote = this.state.votes + 1;
@@ -79,7 +79,7 @@ var Upvote = React.createClass({
 	},
 	removeVote: function (){
 		//check authentication and update database here
-		if(this.state.containsUser == false){
+		if(this.state.containsUser === false){
 			var d = new Date().toISOString().slice(0, 19).replace('T', ' ');
 			Client.videoVote(this.props.userID, this.props.videoid, -1, d);
 			var newVote = this.state.votes - 1;

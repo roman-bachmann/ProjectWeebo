@@ -49,9 +49,9 @@ var SubChapterContent = React.createClass({
 	},
 
 	handleModerateDropdown: function (eventKey, videoID) {
-			if (eventKey == 'deleteVideoKey') {
+			if (eventKey === 'deleteVideoKey') {
 				Client.deleteVideo(videoID);
-			} else if (eventKey == 'banUserKey') {
+			} else if (eventKey === 'banUserKey') {
 
 			}
 		},
@@ -95,8 +95,10 @@ var SubChapterContent = React.createClass({
 		let closeCourseModal = () => this.setState({ showCourseModal: false });
 		let reloadVids = () => this.loadVideosFromServer(this.props.subject.subjectID, this.props.chapter.chapterID, this.props.subchapter.subChapterID);
 
+        var videosList = null;
+
 		if (this.state.videos) {
-			var videosList = this.state.videos.map( (v, idx) => (
+			videosList = this.state.videos.map( (v, idx) => (
 				<Row className="contentRow">
 				{this.props.activePanel === this.props.needActive ?
 					<div>
@@ -140,8 +142,6 @@ var SubChapterContent = React.createClass({
 				:null}
 				</Row>
 			));
-		} else {
-			var videosList = null;
 		}
 
 		return (

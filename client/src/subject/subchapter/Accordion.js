@@ -1,7 +1,5 @@
 var React = require('react');
-import {Accordion, Panel, Row, Col, Grid, Glyphicon} from 'react-bootstrap';
-var YouTube = require('./YouTubePlayer.js');
-var Upvote = require('./Upvote.js');
+import {Accordion, Panel} from 'react-bootstrap';
 var SubChapterContent = require('./SubChapterContent');
 import Client from '../../Client.js';
 import './Accordion.css';
@@ -31,7 +29,7 @@ var AccordionBoot = React.createClass({
 		}
 	},
     handleSelect: function(panel){
-        if(this.state.activePanel != panel){
+        if(this.state.activePanel !== panel){
             this.setState({
                 activePanel: panel
             });
