@@ -125,8 +125,10 @@ var SubChapterContent = React.createClass({
 		return (
 			<div>
 				<Grid bsClass="container" className="subGrid">
+					<Row>
 					<button className="shareBtn"
 					onClick={()=>this.setState({ showCourseModal: true })}><span><Glyphicon glyph="glyphicon glyphicon-plus"/>  Add</span></button>
+					</Row>
 					{videosList}
 				</Grid>
 
