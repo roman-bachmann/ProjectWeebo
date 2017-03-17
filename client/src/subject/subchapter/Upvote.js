@@ -41,10 +41,12 @@ var Upvote = React.createClass({
 					containsUserValue = true;
 					//if the user voted up
 					if(usersDict[userID] == 1){
+						console.log("upvoted");
 						this.setState({ votes: counts, users: usersDict, containsUser: containsUserValue, bgUp: ColorsVote.BgClicked});
 					}
 					//if the user voted down
 					else{
+						console.log("downvoted");
 						this.setState({ votes: counts, users: usersDict, containsUser: containsUserValue, bgDown: ColorsVote.BgClicked});
 					}
 				}

@@ -391,7 +391,7 @@ function get_chapters(req, res, subjectID) {
 function get_subchapters(req, res, subjectID, chapterID) {
     var sql = `SELECT subChapterID, sname
                FROM subChapter, Chapter, Subject
-               WHERE Subject.SubjectID = Chapter.SubjectID
+               WHERE Chapter.SubjectID = subChapter.SubjectID
                AND Chapter.chapterID = subChapter.chapterID
                AND Subject.SubjectID = ?
                AND Chapter.chapterID = ?`;

@@ -5,7 +5,6 @@
 
 .upvoteBtn {
     border-style: none;
-    background-color: #519d9b;
 }
 
 .downvoteBtn {
@@ -15,13 +14,13 @@
 .upvoteBtn:hover {
     opacity: 0.45;
     transition: .185s;
-    color: #6495ed;
+
 }
 
 .downvoteBtn:hover {
     opacity: 0.45;
     transition: .185s;
-    color: #6495ed;
+
 }
 .votenumber {
 	font-family: "Webly Sleek";
