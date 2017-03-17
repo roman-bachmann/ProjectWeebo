@@ -5,13 +5,13 @@
 
 .closeBtn {
 	float: left;
-	background-color: #329a64;
-	border-color: #329a64;
+	background-color: #bc2c12;
+	border-color: #bc2c12;
 	color: white;
 }
 .closeBtn:hover {
-	background-color: #329a64;
-	border-color: #329a64;
+	background-color: #891804;
+	border-color: #891804;
 	opacity: 0.8;
 	color: white;
 }
