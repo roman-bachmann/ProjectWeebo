@@ -28,11 +28,19 @@ var Home = React.createClass({
             </div>
             <div className="content">
               <div className="inner">
-                <p className="SelectTitle">
-                    Please select a subject to continue.
-                </p>
-                <br />
-                {courseButtons}
+
+              {this.props.courses.length > 0 ?
+                  <p className="SelectTitle">
+                      Please select a subject to continue.
+                  </p>
+                  :
+                  <p className="SelectTitle">
+                      You have no courses. Courses can be added in the Subjects Dropdown in the Navigation.
+                  </p>
+              }
+
+              <br />
+              {courseButtons}
 
               </div>
             </div>
