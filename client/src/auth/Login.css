@@ -4,77 +4,561 @@
  }
 
  @font-face {
-      font-family: "Webly Sleek";
-       src: url(../fonts/weblysleekuil.ttf) format("truetype");
+     font-family: "Webly Sleek";
+     src: url(../fonts/weblysleekuil.ttf) format("truetype");
+ }
+
+.background-image {background-image: url("../img/background.jpg");
+  position: fixed !important;
+}
+/*-------------
+ 	General
+-------------*/
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-.LogInBox h1 {
-  font-family: "Webly Sleek";
-  font-size: 25px;
+html{
+	font: normal 16px sans-serif;
+	color: #555;
 }
 
-.LogInBox h2 {
-    font-family: "Noteworthy";
-    font-size: 200px;
-    margin-bottom: 60px;
+ul, nav{
+	list-style: none;
 }
 
-.LogInOuterBox {
-	border: 2px solid black;
-}
-.LogInBox {
-	  margin-top: 5px;
-	  text-align: center;
-	  position: absolute;
-	width: 310px;
-	height: 280px;
-	z-index: 15;
-	top: 50%;
-	left: 50%;
-	margin: -100px 0 0 -150px;
-	background-color:  #3cb979;
-	opacity: 0.985;
-	color: white;
-	border-radius: 100%;
+a{
+	text-decoration: none;
+	color: inherit;
+	cursor: pointer;
+
+	opacity: 0.9;
 }
 
-.WeeboLogin {
-  margin-top: 15px;
-  font-family: "Noteworthy";
-  padding: 18px;
-  font-size: 50px;
-  opacity: 0.9;
+a:hover{
+	opacity: 1;
+}
+
+.LogIn{
+	color: #fff;
+	border-radius: 4px;
+	font-weight: 800;
+	text-align: center;
+  padding: 100px;
+}
+
+.WLogo {
+  font-family: "Noteworthy" !important;
+  font-size: 150px !important;
+  color: white;
+  text-align: center;
 
 }
 
-.LogInBody {
-  width: 100%;
-  height: 900px;
-  background: url(../img/background.png) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+.LogoWrapper {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background-color: none;
+  background-image: -webkit-linear-gradient(top, #3cb979, #3cb979);
+  background-image: linear-gradient(top, #3cb979, #3cb979);
+  box-shadow: 0px 8px 10px 0px grey, inset 0px 4px 1px 1px #3cb979, inset 0px -3px 1px 1px #3cb979;
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+  margin-top: 250px !important;
+  margin: auto;
+  opacity: 0.95;
+}
+
+.WeeboLogin{
+  font-family: "Noteworthy" !important;
+  font-size: 40px !important;
+}
+
+.LoginHR{
+	width: 150px;
+	height: 2px;
+	background-color: #2196F3;
+	border: 0;
+	margin-bottom: 80px;
+  float: left;
+}
+.LoginHR2{
+	width: 150px;
+	height: 2px;
+	background-color: #2196F3;
+	border: 0;
+	margin-bottom: 80px;
+  float: right;
+}
+
+.section{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	padding: 125px 100px;
+}
+
+@media (max-width: 1000px){
+
+	.section{
+		padding: 100px 50px;
+	}
+
+}
+
+@media (max-width: 600px){
+
+.section{
+		padding: 80px 30px;
+	}
+
+}
+
+.FeaturesTitle{
+	color: #414a4f;
+	text-transform: capitalize;
+	font-family: "Webly Sleek";
+  font-size: 35px;
+  padding: 40px;
+	text-align: center;
+}
+
+.FeaturesDescription{
+	max-width: 800px;
+	text-align: center;
+	margin-bottom: 35px;
+	padding: 0 20px;
+	line-height: 2;
+  margin: auto;
+}
+
+.grid{
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+  padding: 50px;
+}
+
+
+/*-------------
+ 	Header
+-------------*/
+
+header{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: #fff;
+	padding: 35px 100px 0;
+}
+
+header h2{
+	font-family: 'Quicksand', sans-serif;
+}
+
+header nav{
+	display: flex;
+}
+
+header nav li{
+	margin: 0 15px;
+}
+
+header nav li:first-child{
+	margin-left: 0;
+}
+
+header nav li:last-child{
+	margin-right: 0;
+}
+
+
+
+@media (max-width: 1000px){
+	header{
+		padding: 20px 50px;
+	}
+}
+
+
+@media (max-width: 700px){
+	header{
+		flex-direction: column;
+	}
+
+	header h2{
+		margin-bottom: 15px;
+	}
+}
+
+
+
+/*----------------
+ 	Hero Section
+----------------*/
+
+.hero{
+	position: relative;
+	justify-content: center;
+	min-height: 100vh;
+	color: #fff;
+	text-align: center;
+}
+
+.hero .background-image{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-image: url("../img/background.jpg");
+	z-index: -1;
+}
+
+.hero .background-image:after{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #414a4f;
+	opacity: 0.75;
+}
+
+.hero h1{
+	font: bold 60px 'Open Sans', sans-serif;
+	margin-bottom: 15px;
+}
+
+.hero h3{
+	font: normal 28px 'Open Sans', sans-serif;
+	margin-bottom: 40px;
+}
+
+.hero a.btn{
+	padding: 20px 46px;
+}
+
+@media (max-width: 800px){
+
+	.hero{
+		min-height: 600px;
+	}
+
+	.hero h1{
+		font-size: 48px;
+	}
+
+	.hero h3{
+		font-size: 24px;
+	}
+
+	.hero a.btn{
+		padding: 15px 40px;
+	}
+
+}
+
+
+
+/*--------------------
+ 	Our Work Section
+---------------------*/
+
+.оur-work{
+	background-color: #fff;
+}
+
+.our-work .grid li{
+	padding: 20px;
+	height: 350px;
+	border-radius: 3px;
+
+	background-clip: content-box;
+	background-size: cover;
+	background-position: center;
+	background-color: #333;
+}
+
+.our-work .grid li.small{
+	flex-basis: 40%;
+}
+
+.our-work .grid li.large{
+	flex-basis: 60%;
+}
+
+
+@media (max-width: 1000px){
+
+	.our-work .grid li.small,
+	.our-work .grid li.large{
+		flex-basis: 100%;
+	}
+
+}
+
+
+
+/*----------------------
+ 	Features Section
+----------------------*/
+
+.MainFeatures {
+  font-size: 28px !important;
+  font-family: "Webly Sleek" !important;
+
+}
+
+.features{
+	background-color: #f7f7f7;
+}
+
+.features .grid li{
+	padding: 0 30px;
+	flex-basis: 33%;
+	text-align: center;
+}
+
+.features .grid li i{
+    font-size: 50px;
+    color: #2196F3;
+    margin-bottom: 25px;
+}
+
+.features .grid li h4{
+	color: #555;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.features .grid li p{
+    margin: 0;
+}
+
+@media (max-width: 1000px){
+
+	.features .grid li{
+		flex-basis: 70%;
+		margin-bottom: 65px;
+	}
+
+	.features .grid li:last-child{
+		margin-bottom: 0;
+	}
+
+}
+
+
+@media (max-width: 600px){
+
+	.features .grid li{
+		flex-basis: 100%;
+	}
+
+}
+
+
+
+/*--------------------
+ 	Reviews Section
+--------------------*/
+.OthersSay {
+  margin: auto;
+  text-align: center;
+  color: #414a4f;
+	font-family: "Webly Sleek";
+  font-size: 35px;
+  padding: 40px;
+	text-align: center;
+}
+
+.author {
+  margin: auto;
+  padding: 20px;
   text-align: center;
 }
 
-.btn-primary {
-	background-color: #37c690;
-	border-color: green;
+.reviews{
+	background-color: #fff;
+  padding: 30px !important;
+  margin: auto;
+
 }
 
-.btn-primary:hover {
-	background-color: #329a64;
-	border-color: green;
+.quote{
+	text-align: center;
+	width: 80%;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    padding: 0;
+      margin: auto;
+}
+
+.author{
+    font-size: 18px;
+    margin-bottom: 50px;
+    margin: auto;
+}
+
+.author:last-child{
+    margin-bottom: 0;
+    margin: auto;
+}
+
+@media (max-width: 1000px){
+
+	.quote{
+		font-size: 20px;
+    margin: auto;
+	}
+
+	.author{
+	    font-size: 16px;
+      margin: auto;
+	}
+
 }
 
 
-.btn-primary.focus, .btn-primary:focus {
-  background-color: #329a64 !important;
-  outline: 0;
+
+/*---------------------
+ 	Contact Section
+---------------------*/
+
+.contact{
+	background-color: #f7f7f7;
 }
 
-.btn-primary:active {
-outline: 0 !important;
-border: none !important;
+.contact form{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+
+	max-width: 800px;
+	width: 80%;
+}
+
+.contact form input{
+	padding: 15px;
+	flex: 1;
+	margin-right: 30px;
+	font-size: 18px;
+	color: #555;
+}
+
+.contact form .btn{
+	padding: 18px 42px;
+}
+
+
+@media (max-width: 800px){
+
+	.contact form input{
+		flex-basis: 100%;
+		margin: 0 0 20px 0;
+	}
+
+}
+
+
+
+
+/*-------------
+ 	Footer
+-------------*/
+
+.footerLogin{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	color: #fff;
+	background-color: #414a4f !important;
+	padding: 60px 0;
+}
+
+.FooterUL ul{
+	display: flex;
+	margin-bottom: 25px;
+	font-size: 32px;
+
+}
+
+.FooterUL img {
+    transition: .2s;
+    height: 25px;
+    border-radius: 50%;
+}
+
+.FooterUL img:hover {
+    transform: scale(1.2);
+    transition: .2s;
+    opacity: 0.8;
+    padding: 30px !important;
+}
+
+ul, nav {
+  display: inherit;
+}
+
+.FooterUL li{
+	margin: 0 8px;
+}
+
+.FooterUL li:first-child{
+	margin-left: 0;
+}
+
+.FooterUL ul li:last-child{
+	margin-right: 0;
+}
+
+.footerLogin p{
+	font-size: 14px;
+	color: rgba(255,255,255,0.6);
+}
+
+.footerLogin p a{
+	color: #fff;
+}
+
+.copyrightLogin {
+  font-size: 2px;
+}
+
+@media (max-width: 700px){
+
+	.footerLogin{
+		padding: 80px 15px;
+	}
+
+}
+
+.Glyphicon-Login {
+  font-size: 30px;
+  color: green;
+}
+
+
+/* -- Demo ads -- */
+
+@media (max-width: 1200px) {
+	#bsaHolder{ display:none;}
 }
