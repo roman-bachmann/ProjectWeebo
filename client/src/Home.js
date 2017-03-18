@@ -23,7 +23,7 @@ var Home = React.createClass({
         return (
           <div>
             <div className="title">
-              <h1 className="Welcome">Welcome to Weebo!</h1>
+              <h1 className="Welcome">Welcome!</h1>
                 <div className="LogoWrap"><h1 className="W_Logo">W</h1></div>
             </div>
             <div className="content">
