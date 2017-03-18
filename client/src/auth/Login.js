@@ -18,12 +18,13 @@ export class Login extends React.Component {
       		<div className="background-image"></div>
       		<div className="LogoWrapper"><h1 className="WLogo">W</h1></div>
       		<h3 className="WeeboLogin">Weebo</h3>
-      		<div className="LogIn"><Button bsStyle="primary" onClick={auth.login.bind(this)}>Log In / Sign Up</Button></div>
+      		<div><Button  className="LogInButton" bsStyle="primary" onClick={auth.login.bind(this)}>Log In / Sign Up</Button></div>
+          <div><Button  className="ScrollButton"><a href="#MainFeatures">  <Glyphicon glyph="glyphicon glyphicon-arrow-down" className="Glyphicon-arrow"/></a></Button></div>
       	</div>
         <div className="features">
   		<h3 className="FeaturesTitle">Features</h3>
+      <hr className="LoginHR"></hr><hr className="LoginHR2"></hr>
   		<p className="FeaturesDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id felis et ipsum bibendum ultrices. Morbi vitae pulvinar velit. Sed aliquam dictum sapien, id sagittis augue malesuada eu.</p>
-  		<hr className="LoginHR"></hr><hr className="LoginHR2"></hr>
   		<ul className="grid">
   			<li>
           <Glyphicon glyph="glyphicon glyphicon-thumbs-up" className="Glyphicon-Login"/>
@@ -43,12 +44,11 @@ export class Login extends React.Component {
       </ul>
   		</div>
 
-      <div className="reviews">
-		<h3 className="OthersSay">What others say</h3>
-          		<hr className="LoginHR"></hr><hr className="LoginHR2"></hr>
+      <div className="features">
+		<h3 className="FeaturesTitle">What others say</h3>
+    <hr className="LoginHR"></hr><hr className="LoginHR2"></hr>
 		<p className="quote">Mauris sit amet mauris a arcu eleifend ultricies eget ut dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
 		<p className="author">— Pekka</p>
-
 		<p className="quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id felis et ipsum bibendum ultrices. Morbi vitae pulvinar velit. Sed aliquam dictum sapien, id sagittis augue malesuada eu.</p>
 		<p className="author">— Pekka</p>
 
@@ -63,7 +63,7 @@ export class Login extends React.Component {
 			<li><a href="https://twitter.com/weeboteam"><img src="https://c866088.ssl.cf3.rackcdn.com/assets/twitter30x30.png"/></a></li>
 		</ul>
 
-  <p>Made by <a href="" target="_blank">Team Weebo</a>. Images courtesy to <a href="http://freepik.com/" target="_blank">Freepik</a>.</p>
+  <p>Made withu <Glyphicon glyph="glyphicon glyphicon-heart"/> by <a href="" target="_blank">Team Weebo</a>. Images courtesy to <a href="http://freepik.com/" target="_blank">Freepik</a>.</p>
   <p className="copyrightLogin">And.. Yes! Weebo will always be a free service.</p>
 
 </div>

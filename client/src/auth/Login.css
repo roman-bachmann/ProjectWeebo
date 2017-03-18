@@ -15,31 +15,8 @@
  	General
 -------------*/
 
-*{
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
-html{
-	font: normal 16px sans-serif;
-	color: #555;
-}
-
 ul, nav{
 	list-style: none;
-}
-
-a{
-	text-decoration: none;
-	color: inherit;
-	cursor: pointer;
-
-	opacity: 0.9;
-}
-
-a:hover{
-	opacity: 1;
 }
 
 .LogIn{
@@ -47,7 +24,7 @@ a:hover{
 	border-radius: 4px;
 	font-weight: 800;
 	text-align: center;
-  padding: 100px;
+  padding: 50px;
 }
 
 .WLogo {
@@ -56,6 +33,23 @@ a:hover{
   color: white;
   text-align: center;
 
+}
+
+.LogInButton {
+  background-color: #2193f5;
+}
+.ScrollButton {
+  float: right;
+  border-radius: 50% !important;
+  height: 40px;
+  width: 40px;
+
+}
+
+.Glyphicon-arrow {
+  color: green;
+    font-size: 16px;
+    padding-right: -2.5px;
 }
 
 .LogoWrapper {
@@ -68,7 +62,7 @@ a:hover{
   box-shadow: 0px 8px 10px 0px grey, inset 0px 4px 1px 1px #3cb979, inset 0px -3px 1px 1px #3cb979;
   -webkit-transition: all .1s linear;
   transition: all .1s linear;
-  margin-top: 250px !important;
+  margin-top: 180px !important;
   margin: auto;
   opacity: 0.95;
 }
@@ -85,6 +79,7 @@ a:hover{
 	border: 0;
 	margin-bottom: 80px;
   float: left;
+
 }
 .LoginHR2{
 	width: 150px;
@@ -384,6 +379,7 @@ header nav li:last-child{
   font-size: 35px;
   padding: 40px;
 	text-align: center;
+  width: 100%;
 }
 
 .author {
@@ -402,7 +398,7 @@ header nav li:last-child{
 .quote{
 	text-align: center;
 	width: 80%;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 300;
     line-height: 1.5;
     margin-bottom: 20px;
