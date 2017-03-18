@@ -47,12 +47,17 @@ border: none !important;
   font-size: 20px;
   padding: 5px;
   width: 88px;
-  height: 35px;
+  height: 40px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
   float:right;
   font-family: "Webly Sleek";
+  background-image: -webkit-linear-gradient(top, #519d9b, #519d9b);
+  background-image: linear-gradient(top, #519d9b, #519d9b);
+  box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
 }
 
 .shareBtn span {
@@ -90,15 +95,43 @@ border: none !important;
  .btnStar_Recommended {
    float: right;
    border-radius: 50%;
-   background-color: rgb(127, 124, 124);
-   color: yellow;
+   color: #fddb0f;
+   font-size: 18px;
    width: 40px;
    height: 40px;
+   			background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
+   			background-image: linear-gradient(top, #f4f1ee, #fff);
+   			border-radius: 50%;
+   			box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
+   			-webkit-transition: all .1s linear;
+   			transition: all .1s linear;
  }
 
  .btnStar_Unrecommend {
    float: right;
    border-radius: 50%;
+   font-size: 18px;
    width: 40px;
-   width: 40px;
+   height: 40px;
+   			background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
+   			background-image: linear-gradient(top, #f4f1ee, #fff);
+   			border-radius: 50%;
+   			box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
+   			-webkit-transition: all .1s linear;
+   			transition: all .1s linear;
  }
+
+ .ModerateButton {
+   background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
+   background-image: linear-gradient(top, #f4f1ee, #fff);
+   box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
+   -webkit-transition: all .1s linear;
+   transition: all .1s linear;
+   outline: 0;
+   font-family: "Webly Sleek";
+   padding: 8.5px;
+}
+
+.super-colors li:hover {
+  opacity: 0.8;
+}

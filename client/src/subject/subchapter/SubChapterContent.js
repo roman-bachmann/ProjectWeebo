@@ -71,7 +71,7 @@ var SubChapterContent = React.createClass({
 				return (
 					<Dropdown id={"moderateButtonDropdown-" + videoID}
 							  onSelect={(evt) => this.handleModerateDropdown(evt, videoID)}>
-						<Dropdown.Toggle>
+						<Dropdown.Toggle className="ModerateButton">
 							<Glyphicon glyph="glyphicon glyphicon-cog"/> Moderate
 					    </Dropdown.Toggle>
 						<Dropdown.Menu className="super-colors">
