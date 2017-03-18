@@ -38,6 +38,7 @@
 .navbar {
 	border-radius: 0px;
   font-size: 30px;
+  min-height: 60px;
 }
 
 .navbar-inverse .navbar-brand {
@@ -74,7 +75,7 @@ background-color: #3cb979;
 }
 
 .navbar-brand {
-	padding: 10px 15px;
+	padding: 13px 15px;
 }
 
 

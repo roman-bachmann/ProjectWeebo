@@ -2,6 +2,7 @@ var React = require('react');
 import './NavBar.css';
 import {Glyphicon} from 'react-bootstrap';
 
+var FontAwesome = require('react-fontawesome');
 var Navbar = require("react-bootstrap/lib/Navbar");
 var Nav = require("react-bootstrap/lib/Nav");
 var NavItem = require("react-bootstrap/lib/NavItem");
@@ -10,6 +11,9 @@ var MenuItem = require("react-bootstrap/lib/MenuItem");
 var AddCoursesModal = require('./AddCoursesModal.js');
 import {Link} from 'react-router';
 import {LinkContainer} from 'react-router-bootstrap';
+
+
+
 
 var NavBar = React.createClass({
     getInitialState: function () {
