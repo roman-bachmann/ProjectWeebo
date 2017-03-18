@@ -5,8 +5,8 @@ import Client from '../../Client.js';
 import {Glyphicon} from 'react-bootstrap';
 
 //General colors for vote buttons
-var ColorsVote = { 	"Upgreen": "green",
-                    "Downred": "red",
+var ColorsVote = { 	"Upgreen": "#519d9b",
+                    "Downred": "#519d9b",
                     "BgUnclicked": "#efefef",
                     "BgClicked": '#7f7c7c',
 };

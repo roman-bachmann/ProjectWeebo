@@ -42,7 +42,7 @@ border: none !important;
   border-radius: 4px;
   background-color: #519d9b;
   border: none;
-  color: #FFFFFF;
+  color: #519d9b;
   text-align: center;
   font-size: 20px;
   padding: 5px;
@@ -53,11 +53,19 @@ border: none !important;
   margin: 5px;
   float:right;
   font-family: "Webly Sleek";
-  background-image: -webkit-linear-gradient(top, #519d9b, #519d9b);
-  background-image: linear-gradient(top, #519d9b, #519d9b);
-  box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
-  -webkit-transition: all .1s linear;
-  transition: all .1s linear;
+  background-color: #eaeaea;
+   background-image: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#eaeaea));
+   background-image: -webkit-linear-gradient(top, #f6f6f6, #eaeaea);
+   background-image: -moz-linear-gradient(top, #f6f6f6, #eaeaea);
+   background-image: -ms-linear-gradient(top, #f6f6f6, #eaeaea);
+   background-image: -o-linear-gradient(top, #f6f6f6, #eaeaea);
+   background-image: linear-gradient(top, #f6f6f6, #eaeaea);
+   -moz-border-radius: 32px;
+   -webkit-border-radius: 32px;
+   border-radius: 32px;
+   -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
+   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
+   box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
 }
 
 .shareBtn span {
@@ -85,51 +93,77 @@ border: none !important;
   font-size: 15px;
 }
 
-.btn-danger:hover, .btn-danger:focus,
-.btn-danger:active:hover, .btn-danger:active:focus, {
-    background-color: white !important;
-    border-color: white !important;
-    border-style: none !important;
-}
-
  .btnStar_Recommended {
    float: right;
    border-radius: 50%;
-   color: #fddb0f;
+   color: #c5d427;
    font-size: 18px;
    width: 40px;
    height: 40px;
-   			background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
-   			background-image: linear-gradient(top, #f4f1ee, #fff);
-   			border-radius: 50%;
-   			box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
-   			-webkit-transition: all .1s linear;
-   			transition: all .1s linear;
+   background-color: #eaeaea;
+   	background-image: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#eaeaea));
+   	background-image: -webkit-linear-gradient(top, #f6f6f6, #eaeaea);
+   	background-image: -moz-linear-gradient(top, #f6f6f6, #eaeaea);
+   	background-image: -ms-linear-gradient(top, #f6f6f6, #eaeaea);
+   	background-image: -o-linear-gradient(top, #f6f6f6, #eaeaea);
+   	background-image: linear-gradient(top, #f6f6f6, #eaeaea);
+   	-moz-border-radius: 32px;
+   	-webkit-border-radius: 32px;
+   	border-radius: 32px;
+   	-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
+   	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
+   	box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
  }
 
- .btnStar_Unrecommend {
+ .btnStar_Recommend {
    float: right;
    border-radius: 50%;
    font-size: 18px;
    width: 40px;
    height: 40px;
-   			background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
-   			background-image: linear-gradient(top, #f4f1ee, #fff);
-   			border-radius: 50%;
-   			box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
-   			-webkit-transition: all .1s linear;
-   			transition: all .1s linear;
+   background-color: #eaeaea;
+   	background-image: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#eaeaea));
+   	background-image: -webkit-linear-gradient(top, #f6f6f6, #eaeaea);
+   	background-image: -moz-linear-gradient(top, #f6f6f6, #eaeaea);
+   	background-image: -ms-linear-gradient(top, #f6f6f6, #eaeaea);
+   	background-image: -o-linear-gradient(top, #f6f6f6, #eaeaea);
+   	background-image: linear-gradient(top, #f6f6f6, #eaeaea);
+   	-moz-border-radius: 32px;
+   	-webkit-border-radius: 32px;
+   	border-radius: 32px;
+   	-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
+   	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
+   	box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
+    color: #519d9b;
  }
 
  .ModerateButton {
-   background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
-   background-image: linear-gradient(top, #f4f1ee, #fff);
-   box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
-   -webkit-transition: all .1s linear;
-   transition: all .1s linear;
-   outline: 0;
+   background-color: #eaeaea;
+   	background-image: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#eaeaea));
+   	background-image: -webkit-linear-gradient(top, #f6f6f6, #eaeaea);
+   	background-image: -moz-linear-gradient(top, #f6f6f6, #eaeaea);
+   	background-image: -ms-linear-gradient(top, #f6f6f6, #eaeaea);
+   	background-image: -o-linear-gradient(top, #f6f6f6, #eaeaea);
+   	background-image: linear-gradient(top, #f6f6f6, #eaeaea);
+   	-moz-border-radius: 32px;
+   	-webkit-border-radius: 32px;
+   	border-radius: 32px;
+   	-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
+   	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
+   	box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
    font-family: "Webly Sleek";
    padding: 8.5px;
+   color: #519d9b;
+}
+ .ModerateButton:active {
+	top: 1px;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#eaeaea), to(#f6f6f6));
+	background-image: -webkit-linear-gradient(top, #eaeaea, #f6f6f6);
+	background-image: -moz-linear-gradient(top, #eaeaea, #f6f6f6);
+	background-image: -ms-linear-gradient(top, #eaeaea, #f6f6f6);
+	background-image: -o-linear-gradient(top, #eaeaea, #f6f6f6);
+	background-image: linear-gradient(top, #eaeaea, #f6f6f6);
+  color: #519d9b;
 }
 
 .super-colors li:hover {

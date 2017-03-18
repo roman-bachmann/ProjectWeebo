@@ -120,7 +120,7 @@ var SubChapterContent = React.createClass({
 										</OverlayTrigger>
 										:
 										<OverlayTrigger placement="top" overlay={tooltipRecommend}>
-											<Button  className="btnStar_Unrecommend" onClick={this.handleRecommendVideo(v.videoID)}>
+											<Button  className="btnStar_Recommend" onClick={this.handleRecommendVideo(v.videoID)}>
 												<Glyphicon glyph="glyphicon glyphicon-star-empty"/>
 											</Button>
 										</OverlayTrigger>
