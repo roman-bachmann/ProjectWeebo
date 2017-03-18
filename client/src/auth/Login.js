@@ -17,7 +17,7 @@ export class Login extends React.Component {
 
                 <div className="LogInBox">
                   <h2>W</h2>
-
+                  <h3 className="WeeboLogin">Weebo</h3>
                   <div className="LogIn"><Button bsStyle="primary" onClick={auth.login.bind(this)}>Log In / Sign Up</Button></div>
                 </div>
           </div>

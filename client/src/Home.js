@@ -12,7 +12,7 @@ var Home = React.createClass({
         const courseButtons = this.props.courses.map((c, idx) => (
             <span>
             <LinkContainer to="/learn">
-                <Button onClick={() => this.props.onCourseChange(c)}>
+                <Button className="homeButtons" onClick={() => this.props.onCourseChange(c)}>
                     {c.subjectID + " - " + c.name}
                 </Button>
             </LinkContainer>
@@ -23,12 +23,12 @@ var Home = React.createClass({
         return (
           <div>
             <div className="title">
-              <h2 className="Welcome">Welcome to Weebo!</h2>
+              <h1 className="Welcome">Welcome to Weebo!</h1>
                 <div className="LogoWrap"><h1 className="W_Logo">W</h1></div>
             </div>
             <div className="content">
               <div className="inner">
-                <p>
+                <p className="SelectTitle">
                     Please select a subject to continue.
                 </p>
                 <br />
