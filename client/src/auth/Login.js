@@ -56,6 +56,12 @@ export class Login extends React.Component {
 		<p className="author">— Pekka</p>
 	</div>
 
+  <div className="features">
+  <h3 className="FeaturesTitle">Soon to mobile devices</h3>
+  <hr className="LoginHR"></hr><hr className="LoginHR2"></hr>
+<div  className="Appimage"><img src="https://github.com/roman-bachmann/ProjectWeebo/blob/master/client/src/img/App.png?raw=true"></img></div>
+<div  className="ComingSoon"><img src="http://allstarmusicempire.com/wp-content/uploads/2015/08/comingsoon-300x209.png"></img></div>
+</div>
   <div className="footerLogin">
 
     <ul className="FooterUL">
@@ -63,7 +69,7 @@ export class Login extends React.Component {
 			<li><a href="https://twitter.com/weeboteam"><img src="https://c866088.ssl.cf3.rackcdn.com/assets/twitter30x30.png"/></a></li>
 		</ul>
 
-  <p>Made withu <Glyphicon glyph="glyphicon glyphicon-heart"/> by <a href="" target="_blank">Team Weebo</a>. Images courtesy to <a href="http://freepik.com/" target="_blank">Freepik</a>.</p>
+  <p>Made with <Glyphicon glyph="glyphicon glyphicon-heart"/> by <a href="" target="_blank">Team Weebo</a>. Images courtesy to <a href="http://freepik.com/" target="_blank">Freepik</a>.</p>
   <p className="copyrightLogin">And.. Yes! Weebo will always be a free service.</p>
 
 </div>

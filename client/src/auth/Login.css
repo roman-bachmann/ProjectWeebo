@@ -43,6 +43,9 @@ ul, nav{
   border-radius: 50% !important;
   height: 40px;
   width: 40px;
+  opacity: 0.7;
+  background-color: #f6f6f6;
+  border: #f6f6f6;
 
 }
 
@@ -50,6 +53,27 @@ ul, nav{
   color: green;
     font-size: 16px;
     padding-right: -2.5px;
+}
+
+.Appimage img {
+  height: auto;
+width: auto;
+max-width: 350px;
+max-height: 350px;
+display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.ComingSoon img {
+  height: auto;
+width: auto;
+max-width: 100px;
+max-height: 100px;
+display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
 }
 
 .LogoWrapper {
