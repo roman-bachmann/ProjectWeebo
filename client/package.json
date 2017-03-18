@@ -20,6 +20,7 @@
     "react": "^15.4.2",
     "react-bootstrap": "^0.30.7",
     "react-dom": "^15.4.2",
+    "react-fontawesome": "^1.5.0",
     "react-upvote": "0.0.2"
   },
   "scripts": {
