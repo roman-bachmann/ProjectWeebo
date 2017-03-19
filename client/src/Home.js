@@ -13,7 +13,7 @@ var Home = React.createClass({
         const courseButtons = this.props.courses.map((c, idx) => (
             <span>
             <LinkContainer to="/learn">
-                <Button className=" animated homeButtons" onClick={() => this.props.onCourseChange(c)}>
+                <Button className="animated homeButtons" onClick={() => this.props.onCourseChange(c)}>
                     {c.subjectID + " - " + c.name}
                 </Button>
             </LinkContainer>
@@ -25,7 +25,7 @@ var Home = React.createClass({
           <div>
             <div className="title">
               <h1 className="animated Welcome">Welcome!</h1>
-              <hr className="LoginHR"></hr><hr className="LoginHR2"></hr>
+              <hr className="animated LoginHR"></hr><hr className="animated LoginHR2"></hr>
                 <div className="animated LogoWrap"><h1 className="W_Logo">W</h1></div>
             </div>
             <div className="content">

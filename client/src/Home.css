@@ -81,11 +81,11 @@ body {
 
 .homeButtons {
 background-color: #519d9b;
-width: 500px;
-height: 80px;
-font-size: 20px;
+width: 550px;
+height: 50px;
+font-size: 17px;
 color: white;
-padding: 20px;
+padding: 10px;
 text-align: center;
 }
 

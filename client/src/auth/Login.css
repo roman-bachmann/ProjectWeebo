@@ -94,7 +94,7 @@ display: block;
 
 .LogoWrapper {
   width: 250px;
-  height: 250px;
+  height: 235px;
   border-radius: 50%;
   background-color: none;
   background-image: -webkit-linear-gradient(top, #3cb979, #3cb979);
@@ -119,8 +119,12 @@ display: block;
 	border: 0;
 	margin-bottom: 80px;
   float: left;
-
 }
+.LoginHR {
+  -webkit-animation-name: slideInLeft;
+  animation-name: slideInLeft;
+}
+
 .LoginHR2{
 	width: 150px;
 	height: 2px;
@@ -128,6 +132,11 @@ display: block;
 	border: 0;
 	margin-bottom: 80px;
   float: right;
+}
+
+.LoginHR2{
+  -webkit-animation-name: slideInRight;
+  animation-name: slideInRight;
 }
 
 .section{
