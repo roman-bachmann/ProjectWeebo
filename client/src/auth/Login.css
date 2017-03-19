@@ -8,7 +8,7 @@
      src: url(../fonts/weblysleekuil.ttf) format("truetype");
  }
 
-.background-image {background-image: url("../img/background2.jpg");
+.background-image {background-image: url("../img/background.jpg");
   position: fixed !important;
 }
 /*-------------
@@ -76,10 +76,11 @@ width: auto;
 max-width: 160px;
 max-height: 160px;
 border-radius: 50%;
+border: 0.15px solid #0fa955;
 display: block;
     margin-left: auto;
     margin-right: auto;
-    padding: 15px;
+    border-style: dotted;
 }
 
 .ComingSoon{
@@ -265,7 +266,7 @@ header nav li:last-child{
 	width: 100%;
 	height: 100%;
 	background-size: cover;
-	background-image: url("../img/background2.jpg");
+	background-image: url("../img/background.jpg");
 	z-index: -1;
 }
 
@@ -326,7 +327,6 @@ header nav li:last-child{
 
 .featuresSection{
 	background-color: #e6e6e6;
-
 }
 
 .featuresSection .grid li{
