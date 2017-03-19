@@ -621,10 +621,3 @@ ul, nav {
   font-size: 30px;
   color: green;
 }
-
-
-/* -- Demo ads -- */
-
-@media (max-width: 1200px) {
-	#bsaHolder{ display:none;}
-}
