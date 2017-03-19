@@ -20,7 +20,7 @@ export class Login extends React.Component {
       		<div className="LogoWrapper"><h1 className="WLogo">W</h1></div>
       		<h3 className="WeeboLogin">Weebo</h3>
       		<div><Button  className="animated LogInButton" bsStyle="primary" onClick={auth.login.bind(this)}>Log In / Sign Up</Button></div>
-          <div><Button  className="ScrollButton"><a href="#MainFeatures">  <Glyphicon glyph="glyphicon glyphicon-arrow-down" className="Glyphicon-arrow"/></a></Button></div>
+          <div><Button  className="ScrollButton"><a href="#MainFeatures">  <Glyphicon glyph="glyphicon glyphicon-menu-down" className="Glyphicon-arrow"/></a></Button></div>
       	</div>
         <div className="featuresSection">
   		<h3 className="FeaturesTitle">Features</h3>
@@ -51,7 +51,7 @@ export class Login extends React.Component {
     <hr className="LoginHR"></hr><hr className="LoginHR2"></hr>
 <img className="Pekka" src="https://innsidawls.itea.ntnu.no/user-profile-service/rest/files/0db9c213-65f8-3a6e-a03d-b4d3bc533030"></img>
 		<p className="quote">Weebo is an amazing product, delivered by young talents from Trondheim in Norway. I am really proud to be a part of their journey and look forward to more features in Weebo.</p>
-		<p className="author">— Pekka Kalevi Abrahamsson</p>
+		<p className="author">— Pekka Kalevi Abrahamsson, </p>
 	</div>
   </div>
 
