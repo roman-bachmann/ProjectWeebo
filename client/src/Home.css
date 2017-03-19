@@ -14,6 +14,37 @@ body {
   font-family: "Webly Sleek";
 }
 
+
+  @-webkit-keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  .Welcome, .SelectTitle, .LogoWrap {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+  }
+
+  .homeButtons {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+  }
+
 .Welcome {
        font-family: "Webly Sleek";
        font-size: 46px;

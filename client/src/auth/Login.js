@@ -2,6 +2,7 @@ import React, { PropTypes as T } from 'react'
 import {Button, Glyphicon} from 'react-bootstrap'
 import AuthService from './AuthService.js'
 import './Login.css'
+import '../Animate.css'
 // import styles from './styles.module.css'
 
 export class Login extends React.Component {
@@ -14,11 +15,11 @@ export class Login extends React.Component {
     const { auth } = this.props.route
     return (
     <div>
-      <div className="hero">
+      <div className="animated hero">
       		<div className="background-image"></div>
       		<div className="LogoWrapper"><h1 className="WLogo">W</h1></div>
       		<h3 className="WeeboLogin">Weebo</h3>
-      		<div><Button  className="LogInButton" bsStyle="primary" onClick={auth.login.bind(this)}>Log In / Sign Up</Button></div>
+      		<div><Button  className="animated LogInButton" bsStyle="primary" onClick={auth.login.bind(this)}>Log In / Sign Up</Button></div>
           <div><Button  className="ScrollButton"><a href="#MainFeatures">  <Glyphicon glyph="glyphicon glyphicon-arrow-down" className="Glyphicon-arrow"/></a></Button></div>
       	</div>
         <div className="features">
