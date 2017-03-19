@@ -82,14 +82,12 @@ display: block;
     padding: 15px;
 }
 
-.ComingSoon img {
+.ComingSoon{
   height: auto;
 width: auto;
-max-width: 100px;
+max-width: 100px !important;
 max-height: 100px;
-display: block;
-  margin: auto;
-    margin-top: 10px;
+padding-bottom: 10px;
 }
 
 .LogoWrapper {

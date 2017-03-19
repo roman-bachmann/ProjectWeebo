@@ -58,8 +58,7 @@ export class Login extends React.Component {
   <div className="features">
   <h3 className="FeaturesTitle">Coming Soon to mobile devices</h3>
   <hr className="LoginHR"></hr><hr className="LoginHR2"></hr>
-<div  className="Appimage"><img src="https://github.com/roman-bachmann/ProjectWeebo/blob/master/client/src/img/App.png?raw=true"></img></div>
-<div  className="ComingSoon"><img src="http://allstarmusicempire.com/wp-content/uploads/2015/08/comingsoon-300x209.png"></img></div>
+<div  className="Appimage"><img src="https://github.com/roman-bachmann/ProjectWeebo/blob/master/client/src/img/App.png?raw=true"></img><img  className="ComingSoon" src="https://myreps.in/images/coming_soon_appstore.png"></img></div>
 </div>
   <div className="footerLogin">
 
