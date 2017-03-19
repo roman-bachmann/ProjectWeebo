@@ -41,8 +41,8 @@ body {
   }
 
   .homeButtons {
-    -webkit-animation-name: fadeInUp;
-    animation-name: fadeInUp;
+    -webkit-animation-name: fadeInUpBig;
+    animation-name: fadeInUpBig;
   }
 
 .Welcome {
