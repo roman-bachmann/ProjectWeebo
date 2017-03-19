@@ -46,18 +46,16 @@ export class Login extends React.Component {
 
       <div className="features">
 		<h3 className="FeaturesTitle">What others say</h3>
-    <hr className="LoginHR"></hr><hr className="LoginHR2"></hr>
-		<p className="quote">Mauris sit amet mauris a arcu eleifend ultricies eget ut dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-		<p className="author">— Pekka</p>
-		<p className="quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id felis et ipsum bibendum ultrices. Morbi vitae pulvinar velit. Sed aliquam dictum sapien, id sagittis augue malesuada eu.</p>
-		<p className="author">— Pekka</p>
 
-		<p className="quote">Donec commodo dolor augue, vitae faucibus tortor tincidunt in. Aliquam vitae leo quis mi pulvinar ornare. Integer eu iaculis metus.</p>
+    <hr className="LoginHR"></hr><hr className="LoginHR2"></hr>
+<img className="Pekka" src="https://innsidawls.itea.ntnu.no/user-profile-service/rest/files/0db9c213-65f8-3a6e-a03d-b4d3bc533030"></img>
+		<p className="quote">Mauris sit amet mauris a arcu eleifend ultricies eget ut dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+		<p className="quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id felis et ipsum bibendum ultrices. Morbi vitae pulvinar velit. Sed aliquam dictum sapien, id sagittis augue malesuada eu.</p>
 		<p className="author">— Pekka</p>
 	</div>
 
   <div className="features">
-  <h3 className="FeaturesTitle">Soon to mobile devices</h3>
+  <h3 className="FeaturesTitle">Coming Soon to mobile devices</h3>
   <hr className="LoginHR"></hr><hr className="LoginHR2"></hr>
 <div  className="Appimage"><img src="https://github.com/roman-bachmann/ProjectWeebo/blob/master/client/src/img/App.png?raw=true"></img></div>
 <div  className="ComingSoon"><img src="http://allstarmusicempire.com/wp-content/uploads/2015/08/comingsoon-300x209.png"></img></div>

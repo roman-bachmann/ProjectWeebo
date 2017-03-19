@@ -65,6 +65,18 @@ display: block;
     margin-right: auto
 }
 
+.Pekka {
+  height: auto;
+width: auto;
+max-width: 160px;
+max-height: 160px;
+border-radius: 50%;
+display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+}
+
 .ComingSoon img {
   height: auto;
 width: auto;
