@@ -24,6 +24,7 @@ var Home = React.createClass({
           <div>
             <div className="title">
               <h1 className="Welcome">Welcome!</h1>
+              <hr className="LoginHR"></hr><hr className="LoginHR2"></hr>
                 <div className="LogoWrap"><h1 className="W_Logo">W</h1></div>
             </div>
             <div className="content">
