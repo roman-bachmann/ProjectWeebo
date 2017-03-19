@@ -15,7 +15,7 @@ export class Login extends React.Component {
     const { auth } = this.props.route
     return (
     <div>
-      <div className="animated hero">
+      <div className="hero">
       		<div className="background-image"></div>
       		<div className="LogoWrapper"><h1 className="WLogo">W</h1></div>
       		<h3 className="WeeboLogin">Weebo</h3>
