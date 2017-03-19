@@ -14,6 +14,10 @@ body {
   font-family: "Webly Sleek";
 }
 
+.animated{
+animation-duration: 1.5s !important;
+}
+
 
   @-webkit-keyframes fadeIn {
     from {
