@@ -8,7 +8,7 @@
      src: url(../fonts/weblysleekuil.ttf) format("truetype");
  }
 
-.background-image {background-image: url("../img/background.jpg");
+.background-image {background-image: url("../img/background2.jpg");
   position: fixed !important;
 }
 /*-------------
@@ -265,7 +265,7 @@ header nav li:last-child{
 	width: 100%;
 	height: 100%;
 	background-size: cover;
-	background-image: url("../img/background.jpg");
+	background-image: url("../img/background2.jpg");
 	z-index: -1;
 }
 
@@ -324,8 +324,68 @@ header nav li:last-child{
 
 }
 
+.featuresSection{
+	background-color: #e6e6e6;
+
+}
+
+.featuresSection .grid li{
+	padding: 0 30px;
+	flex-basis: 33%;
+	text-align: center;
+}
+
+.featuresSection .grid li i{
+    font-size: 50px;
+    color: #2196F3;
+    margin-bottom: 25px;
+}
+
+.featuresSection .grid li h4{
+	color: #555;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.featuresSection .grid li p{
+    margin: 0;
+}
+
+@media (max-width: 1000px){
+
+	.featuresSection .grid li{
+		flex-basis: 70%;
+		margin-bottom: 65px;
+	}
+
+	.featuresSection .grid li:last-child{
+		margin-bottom: 0;
+	}
+
+}
+
+
+@media (max-width: 600px){
+
+	.featuresSection .grid li{
+		flex-basis: 100%;
+	}
+
+}
+
+.featuresSection {
+  transform-style: preserve-3d;
+ box-sizing: border-box;
+ box-shadow: 0 -1px 15px rgba(0, 0, 0, .7);
+ transform-style: inherit;
+ perspective: 1px;
+ opacity: 0.98;
+}
+
 .features{
-	background-color: #f7f7f7;
+	background-color: #e6e6e6;
+
+
 }
 
 .features .grid li{
@@ -367,6 +427,56 @@ header nav li:last-child{
 @media (max-width: 600px){
 
 	.features .grid li{
+		flex-basis: 100%;
+	}
+
+}
+
+.features2{
+	background-color:  #ffffff;
+
+
+}
+
+.features2 .grid li{
+	padding: 0 30px;
+	flex-basis: 33%;
+	text-align: center;
+}
+
+.features2 .grid li i{
+    font-size: 50px;
+    color: #2196F3;
+    margin-bottom: 25px;
+}
+
+.features2 .grid li h4{
+	color: #555;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.features2 .grid li p{
+    margin: 0;
+}
+
+@media (max-width: 1000px){
+
+	.features2 .grid li{
+		flex-basis: 70%;
+		margin-bottom: 65px;
+	}
+
+	.features2 .grid li:last-child{
+		margin-bottom: 0;
+	}
+
+}
+
+
+@media (max-width: 600px){
+
+	.features2 .grid li{
 		flex-basis: 100%;
 	}
 
@@ -436,51 +546,6 @@ header nav li:last-child{
 	}
 
 }
-
-
-
-/*---------------------
- 	Contact Section
----------------------*/
-
-.contact{
-	background-color: #f7f7f7;
-}
-
-.contact form{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-wrap: wrap;
-
-	max-width: 800px;
-	width: 80%;
-}
-
-.contact form input{
-	padding: 15px;
-	flex: 1;
-	margin-right: 30px;
-	font-size: 18px;
-	color: #555;
-}
-
-.contact form .btn{
-	padding: 18px 42px;
-}
-
-
-@media (max-width: 800px){
-
-	.contact form input{
-		flex-basis: 100%;
-		margin: 0 0 20px 0;
-	}
-
-}
-
-
-
 
 /*-------------
  	Footer

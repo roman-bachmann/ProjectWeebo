@@ -22,7 +22,7 @@ export class Login extends React.Component {
       		<div><Button  className="animated LogInButton" bsStyle="primary" onClick={auth.login.bind(this)}>Log In / Sign Up</Button></div>
           <div><Button  className="ScrollButton"><a href="#MainFeatures">  <Glyphicon glyph="glyphicon glyphicon-arrow-down" className="Glyphicon-arrow"/></a></Button></div>
       	</div>
-        <div className="features">
+        <div className="featuresSection">
   		<h3 className="FeaturesTitle">Features</h3>
       <hr className="LoginHR"></hr><hr className="LoginHR2"></hr>
   		<p className="FeaturesDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id felis et ipsum bibendum ultrices. Morbi vitae pulvinar velit. Sed aliquam dictum sapien, id sagittis augue malesuada eu.</p>
@@ -44,8 +44,8 @@ export class Login extends React.Component {
   			</li>
       </ul>
   		</div>
-
-      <div className="features">
+        <div className="featuresSection">
+      <div className="features2">
 		<h3 className="FeaturesTitle">What others say</h3>
 
     <hr className="LoginHR"></hr><hr className="LoginHR2"></hr>
@@ -54,12 +54,15 @@ export class Login extends React.Component {
 		<p className="quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id felis et ipsum bibendum ultrices. Morbi vitae pulvinar velit. Sed aliquam dictum sapien, id sagittis augue malesuada eu.</p>
 		<p className="author">— Pekka</p>
 	</div>
+  </div>
 
+<div className="featuresSection">
   <div className="features">
   <h3 className="FeaturesTitle">Coming Soon to mobile devices</h3>
   <hr className="LoginHR"></hr><hr className="LoginHR2"></hr>
 <div  className="Appimage"><img src="https://github.com/roman-bachmann/ProjectWeebo/blob/master/client/src/img/App.png?raw=true"></img><img  className="ComingSoon" src="https://myreps.in/images/coming_soon_appstore.png"></img></div>
 </div>
+	</div>
   <div className="footerLogin">
 
     <ul className="FooterUL">
