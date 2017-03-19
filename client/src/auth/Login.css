@@ -76,11 +76,10 @@ width: auto;
 max-width: 160px;
 max-height: 160px;
 border-radius: 50%;
-border: 0.15px solid #0fa955;
+border: 0.1px solid #99c6ae;
 display: block;
     margin-left: auto;
     margin-right: auto;
-    border-style: dotted;
 }
 
 .ComingSoon{
