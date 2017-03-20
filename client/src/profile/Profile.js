@@ -1,6 +1,7 @@
 import React, { PropTypes as T } from 'react'
 import AuthService from '../auth/AuthService.js'
 import ProfileDetails from './ProfileDetails.js'
+import CourseList from './CourseList.js'
 import './Profile.css'
 import '../Animate.css'
 
@@ -36,6 +37,10 @@ export class Profile extends React.Component {
       <div>
         <h2 className="animated ProfileTitle">Profile Page</h2>
         <ProfileDetails profile={profile}></ProfileDetails>
+        <CourseList
+            courses={this.props.courses}
+            onCourseAdd={this.props.onCourseAdd}
+            userID={this.props.userID} />
       </div>
     )
   }

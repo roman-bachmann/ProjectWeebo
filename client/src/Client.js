@@ -95,6 +95,12 @@ function deleteVideo(videoID) {
     })
 }
 
+function deleteSubjectForUser(subjectID, userID) {
+    fetch(`api/deleteCourseForUser?s=${subjectID}&u=${userID}`, {
+        method: 'post'
+    })
+}
+
 function checkStatus(response) {
     if (response.status >= 200 && response.status < 300) {
         return response;
@@ -123,6 +129,7 @@ const Client = {
     videoVote,
     getVoteCount,
     addCourseForUser,
-    deleteVideo
+    deleteVideo,
+    deleteSubjectForUser
 };
 export default Client;
