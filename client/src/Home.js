@@ -1,5 +1,5 @@
 import React, { PropTypes as T } from 'react'
-import {Button, Jumbotron} from 'react-bootstrap'
+import {Button, Jumbotron, Glyphicon} from 'react-bootstrap'
 import AuthService from './auth/AuthService.js'
 import {Link} from 'react-router';
 import './Home.css'
@@ -37,7 +37,7 @@ var Home = React.createClass({
                   </p>
                   :
                   <p className="animated SelectTitle">
-                      You have no courses. Courses can be added in the Subjects Dropdown in the Navigation.
+                      You have no courses. Courses can be added under <Glyphicon glyph="glyphicon glyphicon-education"/> Subjects.
                   </p>
               }
 

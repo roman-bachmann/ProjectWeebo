@@ -1,91 +1,85 @@
-@font-face {
-     font-family: "GeosansLight";
-     src: url(../fonts/GeosansLight.ttf) format("truetype");
- }
-
- @font-face {
-      font-family: "Webly Sleek";
-       src: url(../fonts/weblysleekuil.ttf) format("truetype");
- }
-
-.ProfileRow{
-    border-style: solid;
-    margin-top: 50px;
-    border-radius: 25px;
-    border: 0.5px solid white;
-    width: 420px;
-    height: 350px;
-    background-color: white;
-    box-shadow: 3.8px 3.8px #e6e6e6;
-    opacity: 0.98;
-    margin: auto;
-    text-align: center;
+.widget
+{
+  position: relative;
+  width: 350px;
+  height: 400px;
+  margin: 50px auto;
+  background: #FFF;
+  border-radius: 5px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, .1);
 }
 
-.col-md-6 {
-text-align:center;
-position:relative;
-width: 300px;
-margin-left: 50px;
+.widget > .cover
+{
+  height: 160px;
+  overflow: hidden;
 }
 
-.profileimg {
+.widget > .cover > img
+{
+  width: 100%;
+  height: auto;
+  min-height: 160px;
+  border-radius: 4px 4px 0 0;
+}
+
+.widget > .photo
+{
+  position: absolute;
+  top: 85px;
+  left: 50%;
   width: 100px;
-  margin-top: 8px;
-  margin-bottom: 10px;
-  padding: 5px;
+  height: 100px;
+  margin: 0 0 0 -55px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
 }
 
-.ProfileName {
-  color: #329a64;
-  font-family: "Webly Sleek";
-  font-size: 26px;
+.widget > .ProfileName, .widget > .ProfileDetails, .widget > .ProfileDetails
+{
+  display: block;
+  margin: 10px 0;
   text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: #999;
 }
 
-.ProfileDetails {
-    margin-top: 2px;
-    font-family: "Webly Sleek";
-    font-size: 18px;
-    text-align: center;
+.widget > .ProfileName
+{
+  margin: 60px 0 20px;
+  font-size: 26px;
+  color: #000;
+}
 
+.widget > .ProfileDetails { font-size: 12px }
+
+.widget > ul
+{
+  position: absolute;
+  top: 20px;
+  left: 100%;
+  background: #2CDFD3;
+  border-radius: 0 3px 3px 0;
 }
-.profileimg:hover {
--webkit-animation-name: spin;
-    -webkit-animation-duration: 4000ms;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-timing-function: linear;
-    -moz-animation-name: spin;
-    -moz-animation-duration: 4000ms;
-    -moz-animation-iteration-count: infinite;
-    -moz-animation-timing-function: linear;
-    -ms-animation-name: spin;
-    -ms-animation-duration: 4000ms;
-    -ms-animation-iteration-count: infinite;
-    -ms-animation-timing-function: linear;
-    
-    animation-name: spin;
-    animation-duration: 4000ms;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
+
+.widget > ul > li > a
+{
+  display: block;
+  padding: 5px 6px;
+  color: #FFF;
+  cursor: pointer;
+  text-align: center;
+  border-bottom: 1px solid #2CD5CA;
+  transition: background-color .3s;
 }
-@-ms-keyframes spin {
-    from { -ms-transform: rotate(0deg); }
-    to { -ms-transform: rotate(360deg); }
-}
-@-moz-keyframes spin {
-    from { -moz-transform: rotate(0deg); }
-    to { -moz-transform: rotate(360deg); }
-}
-@-webkit-keyframes spin {
-    from { -webkit-transform: rotate(0deg); }
-    to { -webkit-transform: rotate(360deg); }
-}
-@keyframes spin {
-    from {
-        transform:rotate(0deg);
-    }
-    to {
-        transform:rotate(360deg);
-    }
+
+.widget > ul > li:hover > a { background-color: #2CD5CA }
+.widget > ul > li:first-child > a { border-radius: 0 3px 0 0 }
+
+.widget > ul > li:last-child > a
+{
+  border: none;
+  border-radius: 0 0 3px 0;
 }
