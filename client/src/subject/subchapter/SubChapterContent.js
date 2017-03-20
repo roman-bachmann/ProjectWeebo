@@ -108,7 +108,7 @@ var SubChapterContent = React.createClass({
 							</Row>
 							<Row>
 								<Col md={8}>
-									<Upvote videoid={v.subChapterVideoID} userID={this.props.userID} />
+									<Upvote videoid={v.subChapterVideoID} userID={this.props.userID}/>
 								</Col>
 								<Col md={4}>
 									{this.moderateButton(v.videoID)}
@@ -161,7 +161,8 @@ var SubChapterContent = React.createClass({
 					chapter={this.props.chapter.chapterID}
 					subchapter={this.props.subchapter.subChapterID}
 					userID={this.props.userID}
-					reVid={reloadVids}/>
+					reVid={reloadVids}
+					bantime={this.props.bantime}/>
 
 
 			</div>
