@@ -46,13 +46,14 @@ animation-duration: 1.5s !important;
 
   .homeButtons {
     -webkit-animation-name: fadeInUpBig;
-    animation-name: fadeInUpBig;
+    animation-name: fadeInBig;
   }
 
 .Welcome {
        font-family: "Webly Sleek";
        font-size: 46px;
        padding: 20px;
+       color: #0e8c84;
 
 }
 
@@ -84,7 +85,7 @@ animation-duration: 1.5s !important;
   }
 
 .homeButtons {
-background-color: #519d9b;
+background-color: #4CB2BF;
 width: 550px;
 height: 50px;
 font-size: 17px;

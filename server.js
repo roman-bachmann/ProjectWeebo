@@ -319,6 +319,26 @@ app.post('/api/deleteVideo', (req, res) => {
     delete_video(req, res, videoID);
 });
 
+app.post('/api/deleteCourseForUser', (req, res) => {
+    const subjectID = req.query.s;
+    const userID = req.query.u;
+
+    if (!subjectID) {
+        res.json({
+            error: 'Missing required parameter `s`',
+        });
+        return;
+    }
+    if (!userID) {
+        res.json({
+            error: 'Missing required parameter `u`',
+        });
+        return;
+    }
+
+    delete_course_for_user(req, res, subjectID, userID);
+});
+
 app.listen(app.get('port'), () => {
     console.log(`Find the server at: http://localhost:${app.get('port')}/`);
 });
@@ -339,12 +359,12 @@ function get_data(req, res, sql) {
             return;
         }
 
-        console.log('connected as id ' + connection.threadId);
+        //console.log('connected as id ' + connection.threadId);
 
         connection.query(sql, function(err,rows){
             connection.release();
             if (!err) {
-                console.log('The solution is: ', rows);
+                //console.log('The solution is: ', rows);
                 res.json(rows);
             } else {
                 console.log('Error while performing Query.');
@@ -367,7 +387,7 @@ function get_all_courses(req, res) {
 }
 
 function get_courses(req, res, userID) {
-    var sql = `SELECT Subject.subjectID, Subject.classYear, Subject.name, UserSubject.ban_time
+    var sql = `SELECT Subject.subjectID, Subject.classYear, Subject.name
                FROM Subject, UserSubject
                WHERE Subject.subjectID = UserSubject.subjectID
                AND UserSubject.userID =  ?`;
@@ -391,8 +411,7 @@ function get_chapters(req, res, subjectID) {
 function get_subchapters(req, res, subjectID, chapterID) {
     var sql = `SELECT subChapterID, sname
                FROM subChapter, Chapter, Subject
-               WHERE Subject.SubjectID = subChapter.SubjectID
-               AND Chapter.SubjectID = subChapter.SubjectID
+               WHERE Chapter.SubjectID = subChapter.SubjectID
                AND Chapter.chapterID = subChapter.chapterID
                AND Subject.SubjectID = ?
                AND Chapter.chapterID = ?`;
@@ -474,6 +493,19 @@ function delete_video(req, res, videoID) {
                WHERE videoID = ?`;
     var inserts = [videoID];
     sql = mysql.format(sql, inserts);
+
+    get_data(req, res, sql);
+}
+
+function delete_course_for_user(req, res, subjectID, userID) {
+    var sql = `DELETE FROM UserSubject
+               WHERE subjectID = ?
+               AND userID = ?`;
+    var inserts = [subjectID, userID];
+    sql = mysql.format(sql, inserts);
+
+    console.log("-----------------------------------------------------------");
+    console.log(sql);
 
     get_data(req, res, sql);
 }

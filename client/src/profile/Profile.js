@@ -35,7 +35,11 @@ export class Profile extends React.Component {
     return (
       <div>
         <h2 className="animated ProfileTitle">Profile Page</h2>
-        <ProfileDetails profile={profile}></ProfileDetails>
+        <ProfileDetails
+            profile={profile}
+            courses={this.props.courses}
+            onCourseAdd={this.props.onCourseAdd}
+            userID={this.props.userID} />
       </div>
     )
   }

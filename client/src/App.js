@@ -66,7 +66,8 @@ export class App extends React.Component {
                 auth: this.props.route.auth,
                 userID: this.state.userID,
                 courses: this.state.courses,
-                onCourseChange: this.changeSelectedCourse
+                onCourseChange: this.changeSelectedCourse,
+                onCourseAdd: this.handleCourses.bind(this)
             })
         );
 

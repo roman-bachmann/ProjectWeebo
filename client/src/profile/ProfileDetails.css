@@ -1,3 +1,89 @@
+.widget {
+    -webkit-animation-name: pulse;
+  animation-name: pulse;
+}
+
+  .ProfileHR{
+  	width: 450px;
+  	height: 2px;
+  	background-color: #32beb4;
+  	border: 0;
+  	margin-bottom: 80px;
+    float: left;
+  }
+
+  .ProfileHR2{
+  	width: 450px;
+  	height: 2px;
+  	background-color: #32beb4;
+  	border: 0;
+  	margin-bottom: 80px;
+    float: right;
+  }
+
+  @-webkit-keyframes ProfileHRSlide {
+    from {
+      -webkit-transform: translate3d(-100%, 0, 0);
+      transform: translate3d(-100%, 0, 0);
+      visibility: visible;
+    }
+
+    to {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes ProfileHRSlide {
+    from {
+      -webkit-transform: translate3d(-100%, 0, 0);
+      transform: translate3d(-100%, 0, 0);
+      visibility: visible;
+    }
+
+    to {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  .ProfileHR {
+    -webkit-animation-name: ProfileHRSlide !important;
+    animation-name: ProfileHRSlide !important;
+  }
+
+  @-webkit-keyframes ProfileHR2Slide {
+    from {
+      -webkit-transform: translate3d(100%, 0, 0);
+      transform: translate3d(100%, 0, 0);
+      visibility: visible;
+    }
+
+    to {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes ProfileHR2Slide {
+    from {
+      -webkit-transform: translate3d(100%, 0, 0);
+      transform: translate3d(100%, 0, 0);
+      visibility: visible;
+    }
+
+    to {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  .ProfileHR2 {
+    -webkit-animation-name: ProfileHR2Slide !important;
+    animation-name: ProfileHR2Slide !important;
+  }
+
+
 .widget
 {
   position: relative;
