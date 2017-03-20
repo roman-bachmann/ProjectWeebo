@@ -3,6 +3,12 @@
       src: url(../fonts/weblysleekuil.ttf) format("truetype");
 }
 
+
+.ProfileTitle {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
 .ProfileTitle {
   color: #329a64;
    font-family: "Webly Sleek";
