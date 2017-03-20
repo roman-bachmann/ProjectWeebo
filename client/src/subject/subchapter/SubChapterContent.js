@@ -5,6 +5,7 @@ import {Button, Dropdown, MenuItem, Glyphicon, OverlayTrigger, Tooltip} from 're
 var YouTube = require('./YouTubePlayer.js');
 var Upvote = require('./Upvote.js');
 var VideoModal = require('./AddVideoModal.js');
+var Banuser = require('./Banuser.js');
 import Client from '../../Client.js';
 
 const tooltipRecommend = (
@@ -20,7 +21,8 @@ var SubChapterContent = React.createClass({
 		return {
 			videos: [],
 			showCourseModal: false,
-			voteDict: {}
+			voteDict: {},
+			showBanModal: false
 		};
 	},
 
@@ -64,7 +66,8 @@ var SubChapterContent = React.createClass({
 
 	},
 
-		moderateButton: function (videoID) {
+		moderateButton: function (videoID, userID) {
+			let closeBanModal = () => this.setState({showBanModal: false});
 			if (this.props.auth.isAdmin() ||
 				this.props.auth.isProfessor() ||
 				this.props.auth.isStudass()) {
@@ -78,11 +81,16 @@ var SubChapterContent = React.createClass({
 							<MenuItem eventKey="deleteVideoKey">
 								<Glyphicon glyph="glyphicon glyphicon-trash"/> Delete Video
 							</MenuItem>
-							<MenuItem eventKey="banUserKey">
+							<MenuItem onSelect={()=>this.setState({ showBanModal: true })} eventKey="banUserKey">
 								<Glyphicon glyph="glyphicon glyphicon-remove-sign"/> Ban User
 							</MenuItem>
+							<Banuser
+							show={this.state.showBanModal}
+							onHide={closeBanModal}
+							userID={userID}/>
 						</Dropdown.Menu>
 					</Dropdown>
+
 				);
 			} else {
 				return null;
@@ -91,12 +99,10 @@ var SubChapterContent = React.createClass({
 		},
 
 	render: function() {
-
+		
 		let closeCourseModal = () => this.setState({ showCourseModal: false });
 		let reloadVids = () => this.loadVideosFromServer(this.props.subject.subjectID, this.props.chapter.chapterID, this.props.subchapter.subChapterID);
-
         var videosList = null;
-
 		if (this.state.videos) {
 			videosList = this.state.videos.map( (v, idx) => (
 				<Row className="contentRow">
@@ -111,7 +117,7 @@ var SubChapterContent = React.createClass({
 									<Upvote videoid={v.subChapterVideoID} userID={this.props.userID}/>
 								</Col>
 								<Col md={4}>
-									{this.moderateButton(v.videoID)}
+									{this.moderateButton(v.videoID, v.userID)}
 									{v.Favorite === 1 ?
 										<OverlayTrigger placement="top" overlay={tooltipUnRecommend}>
 											<Button className="btnStar_Recommended" onClick={this.handleUnRecommendVideo(v.videoID)}>
@@ -126,7 +132,6 @@ var SubChapterContent = React.createClass({
 										</OverlayTrigger>
 									}
 								</Col>
-
 							</Row>
 						</Col>
 						<Col md={3} className="commentAndRecommended">
@@ -143,7 +148,6 @@ var SubChapterContent = React.createClass({
 				</Row>
 			));
 		}
-
 		return (
 			<div>
 				<Grid bsClass="container" className="subGrid">
@@ -163,8 +167,7 @@ var SubChapterContent = React.createClass({
 					userID={this.props.userID}
 					reVid={reloadVids}
 					bantime={this.props.bantime}/>
-
-
+				
 			</div>
 		);
 	}

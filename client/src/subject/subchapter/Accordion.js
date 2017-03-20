@@ -59,15 +59,11 @@ var AccordionBoot = React.createClass({
             });
         }
     },
-    printban: function(){
-        console.log(this.state.ban_time.getFullYear());
-    },
     render: function () {
         if(this.state.subchapters){
             var subchaptersList = this.state.subchapters.map(function (s, idx){
               var theKey = this.props.chapId + 'subchap' + idx;
               var panelName = (<span>{s.sname}</span>);
-
               return (<Panel
                         header={panelName}
                         eventKey={theKey}
@@ -89,7 +85,6 @@ var AccordionBoot = React.createClass({
         return (
           <Accordion>
             {subchaptersList}
-            <button onClick={this.printban}>Yo</button>
           </Accordion>)
     }
 });

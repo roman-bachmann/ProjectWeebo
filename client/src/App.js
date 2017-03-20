@@ -3,6 +3,8 @@ import { PropTypes as T } from 'react';
 import logo from './logo.svg';
 import './App.css';
 var Col = require("react-bootstrap/lib/Col");
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
 
 var NavBar = require('./navbar/NavBar.js');
 var ChapTabs = require('./subject/chapter/ChapterView.js');
