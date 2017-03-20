@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Glyphicon} from 'react-bootstrap';
+import {Button, Glyphicon, Table} from 'react-bootstrap';
 import Client from '../Client.js';
 import './CourseList.css'
 
@@ -13,18 +13,23 @@ var CourseList = React.createClass({
 
     render: function () {
         var courseItems = this.props.courses.map((c, idx) => (
-              <div>
-                {c.subjectID + " - " + c.name + "  "}
-                <Button className="removeCourseButton" onClick={() => this.deleteCourseForUser(c.subjectID, this.props.userID)}>
-                    <Glyphicon glyph="glyphicon glyphicon-remove"/>
-                </Button>
-            </div>
+            <tr>
+                <th>{c.subjectID}</th>
+                <th>{c.name}</th>
+                <th>
+                    <Button className="removeCourseButton" onClick={() => this.deleteCourseForUser(c.subjectID, this.props.userID)}>
+                        <Glyphicon glyph="glyphicon glyphicon-remove"/>
+                    </Button>
+                </th>
+            </tr>
         ));
 
         return (
             <div>
               <div className="EditCoursesTitle">Edit your subjects</div>
+              <Table className="CourseTable">
                 {courseItems}
+              </Table>
             </div>
         )
     }
