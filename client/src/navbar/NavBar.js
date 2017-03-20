@@ -32,8 +32,8 @@ var NavBar = React.createClass({
         // If we select a course
         else if (selectedKey === parseInt(selectedKey, 10)) {
             this.props.onCourseChange(this.props.courses[selectedKey]);
-            var subject = this.props.courses[selectedKey].subjectID;
-            this.setState({subjectName: subject});
+            //var subject = this.props.courses[selectedKey].subjectID;
+            //this.setState({subjectName: subject});
         }
     },
 
