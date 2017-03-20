@@ -1,6 +1,7 @@
 import React, { PropTypes as T } from 'react'
 import {Row, Col, Image, Glyphicon} from 'react-bootstrap'
 import './ProfileDetails.css'
+import '../Animate.css'
 
 export class ProfileDetails extends React.Component {
   static propTypes = {
@@ -11,6 +12,8 @@ export class ProfileDetails extends React.Component {
     const { profile } = this.props
     const { first_name, last_name } = profile.user_metadata || {}
     return (
+    <div>
+<div><hr animated className="LoginHR"></hr><hr animated className="LoginHR2"></hr></div>
       <div className="widget">
         <div className="cover">
           <img src="http://i.imgur.com/yqB0erk.jpg" />
@@ -23,6 +26,7 @@ export class ProfileDetails extends React.Component {
           <li className="ProfileULLI"><Glyphicon className="Userglyph" glyph="glyphicon glyphicon-user"/></li>
         </ul>
       </div>
+    </div>
     )
   }
 }
