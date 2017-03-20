@@ -13,8 +13,8 @@ export class ProfileDetails extends React.Component {
     const { first_name, last_name } = profile.user_metadata || {}
     return (
     <div>
-<div><hr animated className="LoginHR"></hr><hr animated className="LoginHR2"></hr></div>
-      <div className="widget">
+<div><hr className="animated ProfileHR"></hr><hr className="animated ProfileHR2"></hr></div>
+      <div className=" animated widget">
         <div className="cover">
           <img src="http://i.imgur.com/yqB0erk.jpg" />
         </div>
