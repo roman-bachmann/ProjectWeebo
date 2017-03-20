@@ -38,8 +38,8 @@ var Routes = React.createClass({
                     <Route path="home" component={Home} onEnter={requireAuth} />
                     <Route path="profile" component={Profile} onEnter={requireAuth} />
                     <Route path="admin" component={Admin} onEnter={requireAdminAuth} />
-                    <Route path="unauthorized" component={Unauthorized} />
-                    <Route path="404" component={PageNotFound} />
+                    <Route path="unauthorized" component={Unauthorized} onEnter={requireAuth} />
+                    <Route path="404" component={PageNotFound} onEnter={requireAuth} />
                 </Route>
                 <Route path="/login" component={Login} auth={auth}/>
                 <Redirect from='*' to='/404' />
