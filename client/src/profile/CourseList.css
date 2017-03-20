@@ -1,0 +1,33 @@
+@font-face {
+     font-family: "Webly Sleek";
+      src: url(../fonts/weblysleekuil.ttf) format("truetype");
+}
+
+
+.EditCoursesTitle {
+  padding: 5px;
+    font-size: 26px;
+      font-family: "Webly Sleek";
+    }
+
+.removeCourseButton {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+}
+
+.subchapterName {
+  margin: auto;
+  text-align: center;
+}
+
+.CourseTable {
+  width: 320px;
+    text-align: center;
+    margin: auto;
+}
+
+tr th {
+  text-align: center;
+  padding: 20px;
+}

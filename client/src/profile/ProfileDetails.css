@@ -1,4 +1,14 @@
+@font-face {
+     font-family: "Webly Sleek";
+      src: url(../fonts/weblysleekuil.ttf) format("truetype");
+}
+
 .widget {
+    -webkit-animation-name: pulse;
+  animation-name: pulse;
+}
+
+.Coursewidget {
     -webkit-animation-name: pulse;
   animation-name: pulse;
 }
@@ -126,7 +136,7 @@
   display: block;
   margin: 10px 0;
   text-align: center;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Webly Sleek";
   font-size: 16px;
   font-weight: 300;
   color: #999;
@@ -160,4 +170,90 @@
   padding: 2px;
   padding-right: 40px;
   padding-bottom: 5px;
+}
+
+/*CourseSection */
+
+
+.Coursewidget
+{
+  position: relative;
+  width: 550px;
+  height: 600px;
+  margin: 50px auto;
+  background: #FFF;
+  border-radius: 5px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, .1);
+}
+
+.Coursewidget > .Coursecover
+{
+  height: 160px;
+  overflow: hidden;
+}
+
+.Coursewidget > .Coursecover > img
+{
+  width: 100%;
+  height: auto;
+  min-height: 160px;
+  border-radius: 4px 4px 0 0;
+}
+
+.Coursewidget > .Coursephoto
+{
+  position: absolute;
+  top: 85px;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  margin: 0 0 0 -55px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+
+.Coursewidget > .ProfileName, .Coursewidget > .ProfileDetails, .Coursewidget > .ProfileDetails
+{
+  display: block;
+  margin: 10px 0;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: #999;
+}
+
+.Coursewidget > .ProfileName
+{
+  margin: 60px 0 20px;
+  font-size: 26px;
+  color: #000;
+}
+
+.Coursewidget > .ProfileDetails { font-size: 12px }
+
+.Coursewidget > .CourseProfileUL {
+  position: absolute;
+  top: 20px;
+  left: 100%;
+  background: #2CDFD3;
+  border-radius: 0 10px 10px 0;
+}
+
+.Coursewidget > .CourseProfileUL > .CourseProfileULLI{
+  color: white;
+  display: block;
+  margin: 5px -35px 0;
+}
+
+.Coursewidget > .CourseProfileUL > .CourseProfileULLI .Userglyph{
+  float: left;
+  padding: 2px;
+  padding-right: 40px;
+  padding-bottom: 5px;
+}
+
+.CourseList {
+  padding: 30px;
+  font-family: "Webly Sleek";
 }
