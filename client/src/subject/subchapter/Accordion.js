@@ -9,7 +9,8 @@ var AccordionBoot = React.createClass({
         return {
             showComponent: false,
             subchapters: [],
-            activePanel: 'none'
+            activePanel: 'none',
+            ban_time: new Date()
         };
     },
     loadSubChaptersFromServer: function (subjectID, chapterID) {
@@ -17,17 +18,36 @@ var AccordionBoot = React.createClass({
 			if (subchptrs) {
 				this.setState({ subchapters: subchptrs });
 			}
-		});
+		})
     },
     componentWillMount: function (){
         this.loadSubChaptersFromServer(this.props.subject.subjectID, this.props.chapter.chapterID);
+        this.handleDate();
     },
 
     componentWillReceiveProps: function (nextProps) {
 		if (nextProps.subject) {
 			this.loadSubChaptersFromServer(nextProps.subject.subjectID, nextProps.chapter.chapterID);
-		}
+            this.handleDate();
+        }
 	},
+    handleDate: function() {
+        console.log(this.props.subject.ban_time);
+        if(this.props.subject.ban_time == '0000-00-00 00:00:00'){
+            var t = this.props.subject.ban_time.split(/[- :]/);
+            console.log(t);
+            var d = new Date(Date.UTC(t[0], t[1]-1, t[2], t[3], t[4], t[5]));
+            console.log(d);
+            this.setState({
+                ban_time: d
+            });
+        }else{
+            var d = new Date(this.props.subject.ban_time);
+            this.setState({
+                ban_time: d
+            });
+        }
+    },
     handleSelect: function(panel){
         if(this.state.activePanel !== panel){
             this.setState({
@@ -39,8 +59,10 @@ var AccordionBoot = React.createClass({
             });
         }
     },
+    printban: function(){
+        console.log(this.state.ban_time.getFullYear());
+    },
     render: function () {
-        console.log(this.props.subject.ban_time);
         if(this.state.subchapters){
             var subchaptersList = this.state.subchapters.map(function (s, idx){
               var theKey = this.props.chapId + 'subchap' + idx;
@@ -57,7 +79,8 @@ var AccordionBoot = React.createClass({
                                 needActive={theKey}
                                 activePanel={this.state.activePanel}
                                 userID={this.props.userID}
-                                auth={this.props.auth} />
+                                auth={this.props.auth}
+                                bantime={this.state.ban_time} />
                       </Panel>
 
                     );
@@ -66,6 +89,7 @@ var AccordionBoot = React.createClass({
         return (
           <Accordion>
             {subchaptersList}
+            <button onClick={this.printban}>Yo</button>
           </Accordion>)
     }
 });

@@ -1,5 +1,5 @@
 var React = require('react');
-import {Modal, Button, Glyphicon} from 'react-bootstrap';
+import {Modal, Button, Glyphicon, Popover, ButtonToolbar, Overlay} from 'react-bootstrap';
 var YouTube = require('./YouTubePlayer.js');
 import './AddVideoModal.css';
 import Client from '../../Client.js';
@@ -9,7 +9,8 @@ const MySmallModal = React.createClass({
     return {
       userInput: '',
       sharingsite: 'YouTube',
-      description: ''
+      description: '',
+      show: false
     };
   },
 
@@ -34,21 +35,32 @@ const MySmallModal = React.createClass({
     });
   },
 
-  handleShare: function() {
-    if(this.state.sharingsite === 'YouTube'){
-      console.log(this.state.userInput);
-      var descr = this.state.description;
-      var userID = this.props.userID;
-      var subjectID = this.props.subject;
-      var chapterID = this.props.chapter;
-      var subChapterID = this.props.subchapter;
-      var videoID = this.state.userInput;
-      Client.videoShare(userID, subjectID, chapterID, subChapterID, videoID, descr);
-      this.props.reVid();
-      this.props.onHide();
+  handleShare: function(e) {
+    console.log(this.props.bantime);
+
+    var d = new Date();
+    console.log(d);
+    //Check if bantime is before todays date
+    if(this.props.bantime < d){
+      console.log("yo");
+      if(this.state.sharingsite === 'YouTube'){
+        console.log(this.state.userInput);
+        var descr = this.state.description;
+        var userID = this.props.userID;
+        var subjectID = this.props.subject;
+        var chapterID = this.props.chapter;
+        var subChapterID = this.props.subchapter;
+        var videoID = this.state.userInput;
+        Client.videoShare(userID, subjectID, chapterID, subChapterID, videoID, descr);
+        this.props.reVid();
+        this.props.onHide();
+      }else{
+        this.props.onHide();
+      }
     }else{
-      this.props.onHide();
+      this.setState({ target: e.target, show: !this.state.show });
     }
+
   },
   videoSiteChange: function(e) {
     this.setState({
@@ -58,6 +70,11 @@ const MySmallModal = React.createClass({
   },
 
   render() {
+    const popoverTop = (
+      <Popover id="popover-positioned-top" title="Popover top">
+        <strong>Holy guacamole!</strong> Check this info.
+      </Popover>
+    );
     return (
       <Modal {...this.props} bsSize="medium" aria-labelledby="contained-modal-title-sm">
         <Modal.Header closeButton>
@@ -75,7 +92,19 @@ const MySmallModal = React.createClass({
         </Modal.Body>
         <Modal.Footer>
           <Button className="closeBtn" onClick={this.props.onHide}><Glyphicon glyph="glyphicon glyphicon-remove-circle"/></Button>
-          <Button className="acceptBtn" onClick={this.handleShare}><Glyphicon glyph="glyphicon glyphicon-share-alt"/></Button>
+          <ButtonToolbar className="acceptToolbar">
+              <Button className="acceptBtn" onClick={this.handleShare}><Glyphicon glyph="glyphicon glyphicon-share-alt"/></Button>
+                <Overlay
+                show={this.state.show}
+                target={this.state.target}
+                placement="top"
+                container={this}
+                containerPadding={20}>
+                  <Popover id="popover-contained" title="You can't share videos right now." bantime={this.props.bantime}>
+                    You have been banned until {this.props.bantime.getDate()}-{this.props.bantime.getMonth()}-{this.props.bantime.getFullYear()} for posting inappropriate content.
+                  </Popover>
+              </Overlay>
+          </ButtonToolbar>
         </Modal.Footer>
       </Modal>
     );
