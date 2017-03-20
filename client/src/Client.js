@@ -101,6 +101,18 @@ function deleteSubjectForUser(subjectID, userID) {
     })
 }
 
+function deleteCourse(subjectID) {
+    fetch(`api/deleteCourse?s=${subjectID}`, {
+        method: 'post'
+    })
+}
+
+function insertCourse(subjectID, subjectName) {
+    fetch(`api/insertCourse?s=${subjectID}&name=${subjectName}`, {
+        method: 'post'
+    })
+}
+
 function checkStatus(response) {
     if (response.status >= 200 && response.status < 300) {
         return response;
@@ -130,6 +142,8 @@ const Client = {
     getVoteCount,
     addCourseForUser,
     deleteVideo,
-    deleteSubjectForUser
+    deleteSubjectForUser,
+    deleteCourse,
+    insertCourse
 };
 export default Client;
