@@ -55,31 +55,23 @@
 
 .widget > .ProfileDetails { font-size: 12px }
 
-.widget > ul
-{
+.widget > .ProfileUL {
   position: absolute;
   top: 20px;
   left: 100%;
   background: #2CDFD3;
-  border-radius: 0 3px 3px 0;
+  border-radius: 0 10px 10px 0;
 }
 
-.widget > ul > li > a
-{
+.widget > .ProfileUL > .ProfileULLI{
+  color: white;
   display: block;
-  padding: 5px 6px;
-  color: #FFF;
-  cursor: pointer;
-  text-align: center;
-  border-bottom: 1px solid #2CD5CA;
-  transition: background-color .3s;
+  margin: 5px -35px 0;
 }
 
-.widget > ul > li:hover > a { background-color: #2CD5CA }
-.widget > ul > li:first-child > a { border-radius: 0 3px 0 0 }
-
-.widget > ul > li:last-child > a
-{
-  border: none;
-  border-radius: 0 0 3px 0;
+.widget > .ProfileUL > .ProfileULLI .Userglyph{
+  float: left;
+  padding: 2px;
+  padding-right: 40px;
+  padding-bottom: 5px;
 }

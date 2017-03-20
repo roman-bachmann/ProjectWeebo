@@ -19,10 +19,8 @@ export class ProfileDetails extends React.Component {
         <p className="ProfileName">{first_name}<br></br>{last_name}</p>
         <p className="ProfileDetails"><strong><Glyphicon glyph="glyphicon glyphicon-envelope"/>  Email: </strong> {profile.email}</p>
         <p className="ProfileDetails"><strong><Glyphicon glyph="glyphicon glyphicon-eye-open"/>  Nickname: </strong><br></br> {profile.nickname}</p>
-        <ul>
-          <li><a href="#"></a></li>
-          <li><a href="#"></a></li>
-          <li><a href="#"></a></li>
+        <ul className="ProfileUL">
+          <li className="ProfileULLI"><Glyphicon className="Userglyph" glyph="glyphicon glyphicon-user"/></li>
         </ul>
       </div>
     )
