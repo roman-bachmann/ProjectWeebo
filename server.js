@@ -339,6 +339,45 @@ app.post('/api/deleteCourseForUser', (req, res) => {
     delete_course_for_user(req, res, subjectID, userID);
 });
 
+app.post('/api/deleteCourse', (req, res) => {
+    const subjectID = req.query.s;
+
+    if (!subjectID) {
+        res.json({
+            error: 'Missing required parameter `s`',
+        });
+        return;
+    }
+
+    delete_course(req, res, subjectID);
+});
+
+app.post('/api/insertCourse', (req, res) => {
+    const subjectID = req.query.s;
+    const subjectName = req.query.name;
+
+    if (!subjectID) {
+        res.json({
+            error: 'Missing required parameter `s`',
+        });
+        return;
+    }
+    if (!subjectID) {
+        res.json({
+            error: 'Missing required parameter `y`',
+        });
+        return;
+    }
+    if (!subjectID) {
+        res.json({
+            error: 'Missing required parameter `name`',
+        });
+        return;
+    }
+
+    insert_course(req, res, subjectID, subjectName);
+});
+
 app.listen(app.get('port'), () => {
     console.log(`Find the server at: http://localhost:${app.get('port')}/`);
 });
@@ -380,14 +419,13 @@ function get_data(req, res, sql) {
 }
 
 function get_all_courses(req, res) {
-    var sql = `SELECT Subject.subjectID, Subject.classYear, Subject.name
-               FROM Subject`;
+    var sql = `SELECT * FROM Subject`;
 
     get_data(req, res, sql);
 }
 
 function get_courses(req, res, userID) {
-    var sql = `SELECT Subject.subjectID, Subject.classYear, Subject.name
+    var sql = `SELECT Subject.subjectID, Subject.name
                FROM Subject, UserSubject
                WHERE Subject.subjectID = UserSubject.subjectID
                AND UserSubject.userID =  ?`;
@@ -504,8 +542,22 @@ function delete_course_for_user(req, res, subjectID, userID) {
     var inserts = [subjectID, userID];
     sql = mysql.format(sql, inserts);
 
-    console.log("-----------------------------------------------------------");
-    console.log(sql);
+    get_data(req, res, sql);
+}
+
+function delete_course(req, res, subjectID) {
+    var sql = `DELETE FROM Subject WHERE subjectID = ?`;
+    var inserts = [subjectID];
+    sql = mysql.format(sql, inserts);
+
+    get_data(req, res, sql);
+}
+
+function insert_course(req, res, subjectID, subjectName) {
+    var sql = `INSERT INTO Subject (subjectID, name)
+               VALUES (?, ?)`;
+    var inserts = [subjectID, subjectName];
+    sql = mysql.format(sql, inserts);
 
     get_data(req, res, sql);
 }

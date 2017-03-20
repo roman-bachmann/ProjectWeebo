@@ -15,6 +15,9 @@
 	opacity: 0.8;
 	color: white;
 }
+.acceptToolbar {
+	float: right;
+}
 .acceptBtn {
 	background-color: #329a64;
 	border-color: #329a64;
