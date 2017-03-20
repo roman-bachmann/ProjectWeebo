@@ -1,7 +1,9 @@
 import React, { PropTypes as T } from 'react'
 import {Image, Glyphicon} from 'react-bootstrap'
+import CourseList from './CourseList.js'
 import './ProfileDetails.css'
 import '../Animate.css'
+
 
 export class ProfileDetails extends React.Component {
   static propTypes = {
@@ -26,6 +28,11 @@ export class ProfileDetails extends React.Component {
           <li className="ProfileULLI"><Glyphicon className="Userglyph" glyph="glyphicon glyphicon-user"/></li>
         </ul>
       </div>
+
+      <CourseList
+          courses={this.props.courses}
+          onCourseAdd={this.props.onCourseAdd}
+          userID={this.props.userID} />
     </div>
     )
   }
