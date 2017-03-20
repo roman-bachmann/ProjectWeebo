@@ -1,5 +1,5 @@
 import React, { PropTypes as T } from 'react'
-import {Row, Col, Image, Glyphicon} from 'react-bootstrap'
+import {Image, Glyphicon} from 'react-bootstrap'
 import './ProfileDetails.css'
 import '../Animate.css'
 

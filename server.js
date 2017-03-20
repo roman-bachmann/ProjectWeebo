@@ -367,7 +367,7 @@ function get_all_courses(req, res) {
 }
 
 function get_courses(req, res, userID) {
-    var sql = `SELECT Subject.subjectID, Subject.classYear, Subject.name
+    var sql = `SELECT Subject.subjectID, Subject.classYear, Subject.name, UserSubject.ban_time
                FROM Subject, UserSubject
                WHERE Subject.subjectID = UserSubject.subjectID
                AND UserSubject.userID =  ?`;
@@ -391,7 +391,8 @@ function get_chapters(req, res, subjectID) {
 function get_subchapters(req, res, subjectID, chapterID) {
     var sql = `SELECT subChapterID, sname
                FROM subChapter, Chapter, Subject
-               WHERE Chapter.SubjectID = subChapter.SubjectID
+               WHERE Subject.SubjectID = subChapter.SubjectID
+               AND Chapter.SubjectID = subChapter.SubjectID
                AND Chapter.chapterID = subChapter.chapterID
                AND Subject.SubjectID = ?
                AND Chapter.chapterID = ?`;

@@ -40,6 +40,7 @@ var AccordionBoot = React.createClass({
         }
     },
     render: function () {
+        console.log(this.props.subject.ban_time);
         if(this.state.subchapters){
             var subchaptersList = this.state.subchapters.map(function (s, idx){
               var theKey = this.props.chapId + 'subchap' + idx;
