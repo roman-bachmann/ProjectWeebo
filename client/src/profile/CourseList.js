@@ -18,7 +18,7 @@ var CourseList = React.createClass({
                 <th>{c.name}</th>
                 <th>
                     <Button className="removeCourseButton" onClick={() => this.deleteCourseForUser(c.subjectID, this.props.userID)}>
-                        <Glyphicon glyph="glyphicon glyphicon-remove"/>
+                        <Glyphicon className="CourseRemove" glyph="glyphicon glyphicon-remove"/>
                     </Button>
                 </th>
             </tr>
