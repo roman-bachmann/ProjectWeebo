@@ -179,7 +179,7 @@
 {
   position: relative;
   width: 550px;
-  height: 600px;
+  height: auto;
   margin: 50px auto;
   background: #FFF;
   border-radius: 5px;
