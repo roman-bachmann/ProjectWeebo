@@ -3,6 +3,7 @@ import AuthService from '../auth/AuthService.js'
 import ProfileDetails from './ProfileDetails.js'
 import './Profile.css'
 import '../Animate.css'
+import '../fonts/fontawesome/css/font-awesome.css'
 
 
 export class Profile extends React.Component {
@@ -34,7 +35,7 @@ export class Profile extends React.Component {
     const { profile } = this.state
     return (
       <div>
-        <h2 className="animated ProfileTitle">Profile Page</h2>
+        <h2 className="animated ProfileTitle"> <i className='fa fa-user-circle'/> Profile Page</h2>
         <ProfileDetails
             profile={profile}
             courses={this.props.courses}
