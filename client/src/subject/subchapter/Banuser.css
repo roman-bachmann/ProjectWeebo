@@ -1,3 +1,7 @@
-.datepick {
-	position: block;
+.picktext {
+	display: inline-block;
+	margin-right: 10px;
+}
+.datepicker {
+	display: inline-block;
 }
