@@ -8,7 +8,7 @@ export class Contact extends React.Component {
   render() {
     return (
     <div>
-        <h2 className="animated ProfileTitle"><i className="fa fa-user"/> About Us</h2>
+        <h2 className="animated ProfileTitle"><i className="fa fa-users"/> Contact the team</h2>
       <div><hr className="animated ProfileHR"></hr><hr className="animated ProfileHR2"></hr></div>
       	<div className="speakers">
       		<div className="TeamContainer">

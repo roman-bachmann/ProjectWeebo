@@ -22,7 +22,11 @@
 .clear {clear: both;}
 
 .TeamContainer {
-    background-color: .f2f2f2;
+    background-color: #f2f2f2;
+}
+
+.MainTeamBox {
+  width: auto;
 }
 
 .speakers {
@@ -63,12 +67,12 @@
 }
 
 .speakers img {
-	width: 100%;
-	max-width: 240px;
 	border-radius: 50%;
 	border: 10px solid white;
 	box-shadow: 2px 2px 0px rgba(0,0,0, 0.18);
 	transition: all 0.1s ease-in;
+  height: 241px;
+  width: 241px;
 }
 
 .speakers img:hover {
@@ -97,6 +101,7 @@ opacity: 0.8;
 
 .member-profile{
   text-decoration: none !important;
+    padding: 2px;
 }
 
 .member-profile:hover .unhover_img{
@@ -117,6 +122,7 @@ opacity: 0.8;
 
 .MainTeamBox .TeamRow, .row2 .TeamRow {
 	padding-bottom: 40px;
+  max-width: 400px;
 }
 
 /* Mobile Devices Optimization */
@@ -127,7 +133,7 @@ opacity: 0.8;
 		max-width: 50%;
 	}
 
-.teamImage{max-width: 300px;}
+.teamImage{max-width: 600px;}
 }
 
 .MainTeamBox .TeamRow, .row2 .TeamRow {
