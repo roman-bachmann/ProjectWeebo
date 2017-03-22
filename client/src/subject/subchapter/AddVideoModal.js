@@ -51,8 +51,8 @@ const MySmallModal = React.createClass({
         var chapterID = this.props.chapter;
         var subChapterID = this.props.subchapter;
         var videoID = this.state.userInput;
-        Client.videoShare(userID, subjectID, chapterID, subChapterID, videoID, descr);
-        this.props.reVid();
+        Client.videoShare(userID, subjectID, chapterID, subChapterID, videoID, descr,
+                          () => this.props.reloadOnSubmit());
         this.props.onHide();
       }else{
         this.props.onHide();

@@ -74,7 +74,7 @@ function videoShare(userID, subjectID, chapterID, subChapterID, videoID, descrip
   console.log("post video...")
   fetch(`api/shareVideo?user=${userID}&subj=${subjectID}&chap=${chapterID}&subc=${subChapterID}&vid=${videoID}&d=${description}`, {
        method: 'post'
-  })
+  }).then(cb);
 }
 function videoVote(userID, videoID, rating_score, dato, cb) {
   console.log("add vote...")
@@ -89,10 +89,10 @@ function addCourseForUser(userID, role, subjectID) {
     })
 }
 
-function deleteVideo(videoID) {
+function deleteVideo(videoID, cb) {
     fetch(`api/deleteVideo?v=${videoID}`, {
         method: 'post'
-    })
+    }).then(cb);
 }
 
 function deleteSubjectForUser(subjectID, userID) {

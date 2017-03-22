@@ -51,6 +51,7 @@ var SubChapterContent = React.createClass({
 	},
 
     triggerReloadVideos: function () {
+        console.log("Reloading videos");
         this.loadVideosFromServer(
 			this.props.subject.subjectID,
 			this.props.chapter.chapterID,
@@ -59,7 +60,7 @@ var SubChapterContent = React.createClass({
 
 	handleModerateDropdown: function (eventKey, videoID) {
 			if (eventKey === 'deleteVideoKey') {
-				Client.deleteVideo(videoID);
+				Client.deleteVideo(videoID, () => this.triggerReloadVideos());
 			} else if (eventKey === 'banUserKey') {
 
 			}
@@ -142,7 +143,6 @@ var SubChapterContent = React.createClass({
 
 	render: function() {
 		let closeCourseModal = () => this.setState({ showCourseModal: false });
-		let reloadVids = () => this.loadVideosFromServer(this.props.subject.subjectID, this.props.chapter.chapterID, this.props.subchapter.subChapterID);
         var videosList = null;
 		if (this.state.videos) {
 			videosList = this.state.videos.map( (v, idx) => (
@@ -194,8 +194,8 @@ var SubChapterContent = React.createClass({
 					chapter={this.props.chapter.chapterID}
 					subchapter={this.props.subchapter.subChapterID}
 					userID={this.props.userID}
-					reVid={reloadVids}
-					bantime={this.props.bantime}/>
+					bantime={this.props.bantime}
+                    reloadOnSubmit={this.triggerReloadVideos} />
 
 			</div>
 		);
