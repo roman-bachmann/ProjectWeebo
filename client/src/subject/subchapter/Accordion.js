@@ -43,6 +43,7 @@ var AccordionBoot = React.createClass({
             });
         }else{
             var d = new Date(this.props.subject.ban_time);
+            console.log(d);
             this.setState({
                 ban_time: d
             });

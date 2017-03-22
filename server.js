@@ -515,7 +515,7 @@ function get_all_courses(req, res) {
 }
 
 function get_courses(req, res, userID) {
-    var sql = `SELECT Subject.subjectID, Subject.name
+    var sql = `SELECT Subject.subjectID, Subject.name, UserSubject.ban_time
                FROM Subject, UserSubject
                WHERE Subject.subjectID = UserSubject.subjectID
                AND UserSubject.userID =  ?`;
