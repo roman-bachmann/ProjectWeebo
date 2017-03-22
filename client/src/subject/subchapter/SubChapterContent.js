@@ -66,7 +66,6 @@ var SubChapterContent = React.createClass({
 		},
 
 	handleRecommendVideo: function(videoID) {
-        console.log("Recommend");
         Client.recommendVideo(this.props.subject.subjectID,
                               this.props.chapter.chapterID,
                               this.props.subchapter.subChapterID,
@@ -75,7 +74,6 @@ var SubChapterContent = React.createClass({
 	},
 
 	handleUnRecommendVideo: function(videoID) {
-        console.log("Unrecommend");
         Client.unRecommendVideo(this.props.subject.subjectID,
                               this.props.chapter.chapterID,
                               this.props.subchapter.subChapterID,
