@@ -1,11 +1,11 @@
 @font-face {
      font-family: "Noteworthy";
-     src: url(fonts/Noteworthy-Light.ttf) format("truetype");
+     src: url(../fonts/Noteworthy-Light.ttf) format("truetype");
  }
 
  @font-face {
      font-family: "Webly Sleek";
-     src: url(fonts/weblysleekuil.ttf) format("truetype");
+     src: url(../fonts/weblysleekuil.ttf) format("truetype");
  }
 
 body {
