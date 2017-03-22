@@ -1,6 +1,8 @@
 import React from 'react';
 import './Footer.css'
 import {Link} from 'react-router';
+import Facebook from '../img/facebook.png'
+import Twitter from '../img/twitter.png'
 
 var style = {
     backgroundColor: "#3c3c3c",
@@ -39,10 +41,10 @@ const Footer = React.createClass({
          <div className="sosial">
              <ul className="li_sosialknapper">
                  <li>
-                     <a href="https://www.facebook.com/Weebo-774288392725196/"><img src={"https://c866088.ssl.cf3.rackcdn.com/assets/facebook30x30.png"}/></a>
+                     <a href="https://www.facebook.com/Weebo-774288392725196/"><img src={Facebook}/></a>
                  </li>
                  <li>
-                     <a href="https://twitter.com/weeboteam"><img src="https://c866088.ssl.cf3.rackcdn.com/assets/twitter30x30.png"/></a>
+                     <a href="https://twitter.com/weeboteam"><img src={Twitter}/></a>
                  </li>
              </ul>
          </div>

@@ -1,6 +1,10 @@
 import React, { PropTypes as T } from 'react'
 import {Button, Glyphicon} from 'react-bootstrap'
 import AuthService from './AuthService.js'
+import Pekka from '../img/pekka.jpg'
+import App from '../img/App.png'
+import Facebook from '../img/facebook.png'
+import Twitter from '../img/twitter.png'
 import './Login.css'
 import '../Animate.css'
 // import styles from './styles.module.css'
@@ -49,9 +53,9 @@ export class Login extends React.Component {
 		<h3 className="FeaturesTitle">What professors say</h3>
 
     <hr className="LoginHR"></hr><hr className="LoginHR2"></hr>
-<img className="Pekka" src="https://innsidawls.itea.ntnu.no/user-profile-service/rest/files/0db9c213-65f8-3a6e-a03d-b4d3bc533030"></img>
+<img className="Pekka" src={Pekka}></img>
 		<p className="quote">Weebo is an amazing product, delivered by young talents from Trondheim in Norway. I am really proud to be a part of their journey and look forward to more features in Weebo.</p>
-		<p className="author">— Pekka Kalevi Abrahamsson, </p>
+		<p className="author">— Pekka Kalevi Abrahamsson</p>
 	</div>
   </div>
 
@@ -59,14 +63,14 @@ export class Login extends React.Component {
   <div className="features">
   <h3 className="FeaturesTitle">Coming Soon to mobile devices</h3>
   <hr className="LoginHR"></hr><hr className="LoginHR2"></hr>
-<div  className="Appimage"><img src="https://github.com/roman-bachmann/ProjectWeebo/blob/master/client/src/img/App.png?raw=true"></img><img  className="ComingSoon" src="https://myreps.in/images/coming_soon_appstore.png"></img></div>
+<div  className="Appimage"><img src={App}></img><img  className="ComingSoon" src="https://myreps.in/images/coming_soon_appstore.png"></img></div>
 </div>
 	</div>
   <div className="footerLogin">
 
     <ul className="FooterUL">
-			<li><a href="https://www.facebook.com/Weebo-774288392725196/"><img src={"https://c866088.ssl.cf3.rackcdn.com/assets/facebook30x30.png"}/></a></li>
-			<li><a href="https://twitter.com/weeboteam"><img src="https://c866088.ssl.cf3.rackcdn.com/assets/twitter30x30.png"/></a></li>
+			<li><a href="https://www.facebook.com/Weebo-774288392725196/"><img src={Facebook}/></a></li>
+			<li><a href="https://twitter.com/weeboteam"><img src={Twitter}/></a></li>
 		</ul>
 
   <p>Made with <Glyphicon glyph="glyphicon glyphicon-heart"/> by <a href="" target="_blank">Team Weebo</a>. Images courtesy to <a href="http://freepik.com/" target="_blank">Freepik</a>.</p>
