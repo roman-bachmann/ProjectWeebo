@@ -5,27 +5,9 @@ import Client from '../Client.js';
 var CourseList = React.createClass({
     getInitialState: function () {
         return {
-            allCourses: [],
             showModal: false,
             openModal: ""
         }
-    },
-
-    componentWillMount: function () {
-        this.loadAllCourses();
-    },
-
-    loadAllCourses: function () {
-        Client.getAllCourses((crs) => {
-            this.setState({
-                allCourses: crs
-            });
-        })
-    },
-
-    deleteCourse: function (subjectID) {
-        Client.deleteCourse(subjectID);
-        this.loadAllCourses();
     },
 
     closeModal: function () {
@@ -37,8 +19,14 @@ var CourseList = React.createClass({
         this.setState({ openModalId: modalId });
     },
 
+    handleDeleteButton: function (subjectID) {
+        console.log("ljkdafjkladsfjkladfslkjadfsjklfads");
+        this.props.deleteCourse(subjectID);
+        this.closeModal();
+    },
+
     render: function () {
-        var courseItems = this.state.allCourses.map((c, idx) => (
+        var courseItems = this.props.courses.map((c, idx) => (
             <tr>
                 <th>{c.subjectID}</th>
                 <th>{c.name}</th>
@@ -52,12 +40,12 @@ var CourseList = React.createClass({
                         <Modal.Title>Delete course</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <p>Are you sure that you want to delete the whole course {c.subjectID + " - " + c.name}?</p>
-                        <p>This action cannot be undone!</p>
+                        <p>Are you sure that you want to delete the whole course <strong>{c.subjectID + " - " + c.name}</strong>?</p>
+                        <p><strong>This action cannot be undone!</strong></p>
                     </Modal.Body>
                     <Modal.Footer>
                         <Button onClick={this.closeModal}>Abort</Button>
-                        <Button onClick={() => this.deleteCourse(c.subjectID)}>Delete course</Button>
+                        <Button onClick={() => this.handleDeleteButton(c.subjectID)}>Delete course</Button>
                     </Modal.Footer>
                 </Modal>
             </tr>

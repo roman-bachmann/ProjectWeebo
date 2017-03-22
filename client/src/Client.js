@@ -101,16 +101,16 @@ function deleteSubjectForUser(subjectID, userID) {
     })
 }
 
-function deleteCourse(subjectID) {
+function deleteCourse(subjectID, cb) {
     fetch(`api/deleteCourse?s=${subjectID}`, {
         method: 'post'
-    })
+    }).then(cb);
 }
 
-function insertCourse(subjectID, subjectName) {
+function insertCourse(subjectID, subjectName, cb) {
     fetch(`api/insertCourse?s=${subjectID}&name=${subjectName}`, {
         method: 'post'
-    })
+    }).then(cb);
 }
 function banUser(userID, banTime, subjectID) {
   fetch(`api/banUser?u=${userID}&b=${banTime}&s=${subjectID}`, {
