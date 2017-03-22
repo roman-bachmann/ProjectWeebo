@@ -113,6 +113,18 @@ function insertCourse(subjectID, subjectName) {
     })
 }
 
+function recommendVideo(subjectID, chapterID, subChapterID, videoID, cb) {
+    fetch(`api/recommendVideo?s=${subjectID}&chap=${chapterID}&subChap=${subChapterID}&v=${videoID}`, {
+        method: 'post'
+    }).then(cb);
+}
+
+function unRecommendVideo(subjectID, chapterID, subChapterID, videoID, cb) {
+    fetch(`api/unRecommendVideo?s=${subjectID}&chap=${chapterID}&subChap=${subChapterID}&v=${videoID}`, {
+        method: 'post'
+    }).then(cb);
+}
+
 function checkStatus(response) {
     if (response.status >= 200 && response.status < 300) {
         return response;
@@ -144,6 +156,8 @@ const Client = {
     deleteVideo,
     deleteSubjectForUser,
     deleteCourse,
-    insertCourse
+    insertCourse,
+    recommendVideo,
+    unRecommendVideo
 };
 export default Client;
