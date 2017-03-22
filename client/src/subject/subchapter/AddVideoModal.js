@@ -101,7 +101,7 @@ const MySmallModal = React.createClass({
                 container={this}
                 containerPadding={20}>
                   <Popover id="popover-contained" title="You can't share videos right now." bantime={this.props.bantime}>
-                    You have been banned until {this.props.bantime.getDate()}-{this.props.bantime.getMonth()}-{this.props.bantime.getFullYear()} for posting inappropriate content.
+                    You have been banned until {this.props.bantime.getDate()}-{this.props.bantime.getMonth() + 1}-{this.props.bantime.getFullYear()} for posting inappropriate content.
                   </Popover>
               </Overlay>
           </ButtonToolbar>
