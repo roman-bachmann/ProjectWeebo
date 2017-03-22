@@ -118,6 +118,18 @@ function banUser(userID, banTime, subjectID) {
   })
 }
 
+function recommendVideo(subjectID, chapterID, subChapterID, videoID, cb) {
+    fetch(`api/recommendVideo?s=${subjectID}&chap=${chapterID}&subChap=${subChapterID}&v=${videoID}`, {
+        method: 'post'
+    }).then(cb);
+}
+
+function unRecommendVideo(subjectID, chapterID, subChapterID, videoID, cb) {
+    fetch(`api/unRecommendVideo?s=${subjectID}&chap=${chapterID}&subChap=${subChapterID}&v=${videoID}`, {
+        method: 'post'
+    }).then(cb);
+}
+
 function checkStatus(response) {
     if (response.status >= 200 && response.status < 300) {
         return response;
@@ -150,6 +162,8 @@ const Client = {
     deleteSubjectForUser,
     deleteCourse,
     insertCourse,
-    banUser
+    banUser,
+    recommendVideo,
+    unRecommendVideo
 };
 export default Client;

@@ -50,6 +50,13 @@ var SubChapterContent = React.createClass({
 		}
 	},
 
+    triggerReloadVideos: function () {
+        this.loadVideosFromServer(
+			this.props.subject.subjectID,
+			this.props.chapter.chapterID,
+			this.props.subchapter.subChapterID)
+    },
+
 	handleModerateDropdown: function (eventKey, videoID) {
 			if (eventKey === 'deleteVideoKey') {
 				Client.deleteVideo(videoID);
@@ -59,48 +66,81 @@ var SubChapterContent = React.createClass({
 		},
 
 	handleRecommendVideo: function(videoID) {
-
+        Client.recommendVideo(this.props.subject.subjectID,
+                              this.props.chapter.chapterID,
+                              this.props.subchapter.subChapterID,
+                              videoID,
+                              () => this.triggerReloadVideos());
 	},
 
 	handleUnRecommendVideo: function(videoID) {
+        Client.unRecommendVideo(this.props.subject.subjectID,
+                              this.props.chapter.chapterID,
+                              this.props.subchapter.subChapterID,
+                              videoID,
+                              () => this.triggerReloadVideos());
+	},
+	moderateButton: function (videoID, userID) {
+		let closeBanModal = () => this.setState({showBanModal: false});
+		if (this.props.auth.isAdmin() ||
+			this.props.auth.isProfessor() ||
+			this.props.auth.isStudass()) {
+			return (
+				<Dropdown id={"moderateButtonDropdown-" + videoID}
+						  onSelect={(evt) => this.handleModerateDropdown(evt, videoID)}>
+					<Dropdown.Toggle className="ModerateButton">
+						<Glyphicon glyph="glyphicon glyphicon-cog"/> Moderate
+				    </Dropdown.Toggle>
+					<Dropdown.Menu className="super-colors">
+						<MenuItem eventKey="deleteVideoKey">
+							<Glyphicon glyph="glyphicon glyphicon-trash"/> Delete Video
+						</MenuItem>
+						<MenuItem onSelect={()=>this.setState({ showBanModal: true })} eventKey="banUserKey">
+							<Glyphicon glyph="glyphicon glyphicon-remove-sign"/> Ban User
+						</MenuItem>
+						<Banuser
+						show={this.state.showBanModal}
+						onHide={closeBanModal}
+						userID={userID}
+						subject={this.props.subject.subjectID}/>
+					</Dropdown.Menu>
+				</Dropdown>
+
+			);
+		} else {
+			return null;
+		}
 
 	},
 
-		moderateButton: function (videoID, userID) {
-			let closeBanModal = () => this.setState({showBanModal: false});
-			if (this.props.auth.isAdmin() ||
-				this.props.auth.isProfessor() ||
-				this.props.auth.isStudass()) {
-				return (
-					<Dropdown id={"moderateButtonDropdown-" + videoID}
-							  onSelect={(evt) => this.handleModerateDropdown(evt, videoID)}>
-						<Dropdown.Toggle className="ModerateButton">
-							<Glyphicon glyph="glyphicon glyphicon-cog"/> Moderate
-					    </Dropdown.Toggle>
-						<Dropdown.Menu className="super-colors">
-							<MenuItem eventKey="deleteVideoKey">
-								<Glyphicon glyph="glyphicon glyphicon-trash"/> Delete Video
-							</MenuItem>
-							<MenuItem onSelect={()=>this.setState({ showBanModal: true })} eventKey="banUserKey">
-								<Glyphicon glyph="glyphicon glyphicon-remove-sign"/> Ban User
-							</MenuItem>
-							<Banuser
-							show={this.state.showBanModal}
-							onHide={closeBanModal}
-							userID={userID}
-							subject={this.props.subject.subjectID}/>
-						</Dropdown.Menu>
-					</Dropdown>
+    recommendButton: function (videoID, Favorite) {
+        if (this.props.auth.isAdmin() ||
+            this.props.auth.isProfessor() ||
+            this.props.auth.isStudass()) {
 
-				);
-			} else {
-				return null;
-			}
-
-		},
+            if (Favorite === 1) {
+                return (
+                    <OverlayTrigger placement="top" overlay={tooltipUnRecommend}>
+                        <Button className="btnStar_Recommended" onClick={() => this.handleUnRecommendVideo(videoID)}>
+                            <Glyphicon glyph="glyphicon glyphicon-star"/>
+                        </Button>
+                    </OverlayTrigger>
+                )
+            } else {
+                return (
+                    <OverlayTrigger placement="top" overlay={tooltipRecommend}>
+                        <Button  className="btnStar_Recommend" onClick={() => this.handleRecommendVideo(videoID)}>
+                            <Glyphicon glyph="glyphicon glyphicon-star-empty"/>
+                        </Button>
+                    </OverlayTrigger>
+                )
+            }
+        } else {
+            return null;
+        }
+    },
 
 	render: function() {
-		
 		let closeCourseModal = () => this.setState({ showCourseModal: false });
 		let reloadVids = () => this.loadVideosFromServer(this.props.subject.subjectID, this.props.chapter.chapterID, this.props.subchapter.subChapterID);
         var videosList = null;
@@ -119,19 +159,7 @@ var SubChapterContent = React.createClass({
 								</Col>
 								<Col md={4}>
 									{this.moderateButton(v.videoID, v.userID)}
-									{v.Favorite === 1 ?
-										<OverlayTrigger placement="top" overlay={tooltipUnRecommend}>
-											<Button className="btnStar_Recommended" onClick={this.handleUnRecommendVideo(v.videoID)}>
-												<Glyphicon glyph="glyphicon glyphicon-star"/>
-											</Button>
-										</OverlayTrigger>
-										:
-										<OverlayTrigger placement="top" overlay={tooltipRecommend}>
-											<Button  className="btnStar_Recommend" onClick={this.handleRecommendVideo(v.videoID)}>
-												<Glyphicon glyph="glyphicon glyphicon-star-empty"/>
-											</Button>
-										</OverlayTrigger>
-									}
+                                    {this.recommendButton(v.videoID, v.Favorite)}
 								</Col>
 							</Row>
 						</Col>
@@ -168,7 +196,7 @@ var SubChapterContent = React.createClass({
 					userID={this.props.userID}
 					reVid={reloadVids}
 					bantime={this.props.bantime}/>
-				
+
 			</div>
 		);
 	}

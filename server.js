@@ -377,7 +377,6 @@ app.post('/api/insertCourse', (req, res) => {
 
     insert_course(req, res, subjectID, subjectName);
 });
-
 app.post('/api/banUser', (req, res) => {
   const userID = req.query.u;
   const banTime = req.query.b;
@@ -402,7 +401,73 @@ app.post('/api/banUser', (req, res) => {
   }
   ban_user(req, res, userID, banTime, subjectID);
 })
+app.post('/api/recommendVideo', (req, res) => {
+    const subjectID = req.query.s;
+    const chapterID = req.query.chap;
+    const subChapterID = req.query.subChap;
+    const videoID = req.query.v;
 
+    if (!subjectID) {
+        res.json({
+            error: 'Missing required parameter `s`',
+        });
+        return;
+    }
+    if (!chapterID) {
+        res.json({
+            error: 'Missing required parameter `chap`',
+        });
+        return;
+    }
+    if (!subChapterID) {
+        res.json({
+            error: 'Missing required parameter `subChap`',
+        });
+        return;
+    }
+    if (!videoID) {
+        res.json({
+            error: 'Missing required parameter `v`',
+        });
+        return;
+    }
+
+    recommend_video(req, res, subjectID, chapterID, subChapterID, videoID);
+});
+
+app.post('/api/unRecommendVideo', (req, res) => {
+    const subjectID = req.query.s;
+    const chapterID = req.query.chap;
+    const subChapterID = req.query.subChap;
+    const videoID = req.query.v;
+
+    if (!subjectID) {
+        res.json({
+            error: 'Missing required parameter `s`',
+        });
+        return;
+    }
+    if (!chapterID) {
+        res.json({
+            error: 'Missing required parameter `chap`',
+        });
+        return;
+    }
+    if (!subChapterID) {
+        res.json({
+            error: 'Missing required parameter `subChap`',
+        });
+        return;
+    }
+    if (!videoID) {
+        res.json({
+            error: 'Missing required parameter `v`',
+        });
+        return;
+    }
+
+    unrecommend_video(req, res, subjectID, chapterID, subChapterID, videoID);
+});
 app.listen(app.get('port'), () => {
     console.log(`Find the server at: http://localhost:${app.get('port')}/`);
 });
@@ -591,6 +656,30 @@ function insert_course(req, res, subjectID, subjectName) {
     var sql = `INSERT INTO Subject (subjectID, name)
                VALUES (?, ?)`;
     var inserts = [subjectID, subjectName];
+    sql = mysql.format(sql, inserts);
+
+    get_data(req, res, sql);
+}
+
+function recommend_video(req, res, subjectID, chapterID, subChapterID, videoID) {
+    var sql = `UPDATE subChapterVideo SET Favorite = 1
+               WHERE subjectID = ? AND
+               chapterID = ? AND
+               subChapterID = ? AND
+               videoID = ?;`;
+    var inserts = [subjectID, chapterID, subChapterID, videoID];
+    sql = mysql.format(sql, inserts);
+
+    get_data(req, res, sql);
+}
+
+function unrecommend_video(req, res, subjectID, chapterID, subChapterID, videoID) {
+    var sql = `UPDATE subChapterVideo SET Favorite = 0
+               WHERE subjectID = ? AND
+               chapterID = ? AND
+               subChapterID = ? AND
+               videoID = ?;`;
+    var inserts = [subjectID, chapterID, subChapterID, videoID];
     sql = mysql.format(sql, inserts);
 
     get_data(req, res, sql);
