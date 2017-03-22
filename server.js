@@ -378,6 +378,31 @@ app.post('/api/insertCourse', (req, res) => {
     insert_course(req, res, subjectID, subjectName);
 });
 
+app.post('/api/banUser', (req, res) => {
+  const userID = req.query.u;
+  const banTime = req.query.b;
+  const subjectID = req.query.s;
+  if(!userID) {
+    res.json({
+        error: 'Missing required parameter `u`',
+    });
+    return;
+  }
+  if(!banTime) {
+    res.json({
+        error: 'Missing required parameter `b`',
+    });
+    return;
+  }
+  if(!subjectID) {
+    res.json({
+        error: 'Missing required parameter `s`',
+    });
+    return;
+  }
+  ban_user(req, res, userID, banTime, subjectID);
+})
+
 app.listen(app.get('port'), () => {
     console.log(`Find the server at: http://localhost:${app.get('port')}/`);
 });
@@ -524,6 +549,15 @@ function add_course_for_user(req, res, userID, role, subjectID) {
     sql = mysql.format(sql, inserts);
 
     get_data(req, res, sql);
+}
+function ban_user(req, res, userID, banTime, subjectID) {
+  var sql = `UPDATE UserSubject
+            SET ban_time = ?
+            WHERE userID = ?
+            AND subjectID = ?`;
+  var inserts = [banTime, userID, subjectID];
+  sql = mysql.format(sql, inserts);
+  get_data(req, res, sql);
 }
 
 function delete_video(req, res, videoID) {

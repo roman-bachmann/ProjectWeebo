@@ -5,23 +5,37 @@ import DatePicker from 'material-ui/DatePicker';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import './Banuser.css';
 
+
+
 const MySmallModal = React.createClass({
   getInitialState: function () {
+    var oneWeek = new Date();
+    oneWeek.setDate(oneWeek.getDate() + 7);
     return {
-      controlledDate: null,
+      controlledDate: oneWeek,
+      banperiod: 7
     };
   },
   handleChange: function (event, date) {
+    var today = new Date();
+    var timeDiff = Math.abs(date.getTime() - today.getTime());
+    var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
     this.setState({
       controlledDate: date,
+      banperiod: diffDays,
     });
   },
   handleBan: function(){
+    var date = this.state.controlledDate.toISOString().slice(0, 19).replace('T', ' ');
+    console.log(date);
+    Client.banUser(this.props.userID, date, this.props.subject);
     this.props.onHide();
   },
-
   render() {
-
+    var tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    var oneWeek = new Date();
+    oneWeek.setDate(oneWeek.getDate() + 7);
     return (
       <Modal {...this.props} bsSize="medium" aria-labelledby="contained-modal-title-sm">
         <Modal.Header closeButton>
@@ -35,9 +49,12 @@ const MySmallModal = React.createClass({
               hintText="Pick ban date"
               value={this.state.controlledDate}
               onChange={this.handleChange}
+              disableYearSelection={true}
+              minDate={tomorrow}
             />
           </MuiThemeProvider>
           </div>
+          <p>The user will be banned for {this.state.banperiod} days </p>
         </Modal.Body>
         <Modal.Footer>
           <Button className="closeBtn" onClick={this.props.onHide}><Glyphicon glyph="glyphicon glyphicon-remove-circle"/></Button>

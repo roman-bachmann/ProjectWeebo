@@ -112,6 +112,11 @@ function insertCourse(subjectID, subjectName) {
         method: 'post'
     })
 }
+function banUser(userID, banTime, subjectID) {
+  fetch(`api/banUser?u=${userID}&b=${banTime}&s=${subjectID}`, {
+    method: 'post'
+  })
+}
 
 function checkStatus(response) {
     if (response.status >= 200 && response.status < 300) {
@@ -144,6 +149,7 @@ const Client = {
     deleteVideo,
     deleteSubjectForUser,
     deleteCourse,
-    insertCourse
+    insertCourse,
+    banUser
 };
 export default Client;

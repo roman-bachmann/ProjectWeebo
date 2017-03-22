@@ -87,7 +87,8 @@ var SubChapterContent = React.createClass({
 							<Banuser
 							show={this.state.showBanModal}
 							onHide={closeBanModal}
-							userID={userID}/>
+							userID={userID}
+							subject={this.props.subject.subjectID}/>
 						</Dropdown.Menu>
 					</Dropdown>
 
