@@ -1,5 +1,6 @@
 var React = require('react');
 import './NavBar.css';
+import '../fonts/fontawesome/css/font-awesome.css'
 import {Glyphicon} from 'react-bootstrap';
 
 var FontAwesome = require('react-fontawesome');
@@ -18,7 +19,7 @@ import {LinkContainer} from 'react-router-bootstrap';
 var NavBar = React.createClass({
     getInitialState: function () {
         return {
-            subjectName: (<span><Glyphicon glyph="glyphicon glyphicon-education"/> Subjects</span>),
+            subjectName: (<span><i className='fa fa-graduation-cap'/> Subjects</span>),
             showCourseModal: false
         };
     },

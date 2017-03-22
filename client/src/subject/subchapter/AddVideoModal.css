@@ -3,6 +3,9 @@
       src: url(../../fonts/weblysleekuil.ttf) format("truetype");
 }
 
+.modal-title  {
+  text-align: center;
+}
 .closeBtn {
 	float: left;
 	background-color: #bc2c12;
