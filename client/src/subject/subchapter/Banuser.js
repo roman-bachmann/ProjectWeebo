@@ -1,9 +1,9 @@
 var React = require('react');
 import {Modal, Button, Glyphicon, Popover, ButtonToolbar, Overlay} from 'react-bootstrap';
-var YouTube = require('./YouTubePlayer.js');
 import Client from '../../Client.js';
 import DatePicker from 'material-ui/DatePicker';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import './Banuser.css';
 
 const MySmallModal = React.createClass({
   getInitialState: function () {
@@ -16,6 +16,9 @@ const MySmallModal = React.createClass({
       controlledDate: date,
     });
   },
+  handleBan: function(){
+    this.props.onHide();
+  },
 
   render() {
 
@@ -26,7 +29,7 @@ const MySmallModal = React.createClass({
         </Modal.Header>
         <Modal.Body>
           <p>Ban the user <span style={{color: 'red'}}>{this.props.userID}</span> for a desired time</p>
-          <div>
+          <div className="datepick">
           <MuiThemeProvider>
             <DatePicker
               hintText="Pick ban date"
