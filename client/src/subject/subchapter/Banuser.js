@@ -48,13 +48,14 @@ const MySmallModal = React.createClass({
     return (
       <Modal {...this.props} bsSize="medium" aria-labelledby="contained-modal-title-sm">
         <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-sm">Ban user</Modal.Title>
+          <Modal.Title id="contained-modal-title-sm"><Glyphicon glyph="glyphicon glyphicon-ban-circle"/>Ban user</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>Ban the user <span style={{color: 'red'}}>{this.props.userID}</span> for a desired time</p>
+          <p>Ban the user <span style={{color: 'red'}}>{this.props.userID}</span> for a desired time. The user will be prevented from posting videos in this subject for the time period.</p>
           <div className="datepick">
-          <MuiThemeProvider>
-            <DatePicker
+          <p className="picktext">Pick date: </p>
+          <MuiThemeProvider className="datepicker">
+            <DatePicker className="datepicker"
               hintText="Pick ban date"
               value={this.state.controlledDate}
               onChange={this.handleChange}
@@ -63,7 +64,7 @@ const MySmallModal = React.createClass({
             />
           </MuiThemeProvider>
           </div>
-          <p>The user will be banned for {this.state.banperiod} days </p>
+          <p>The user will be banned for {this.state.banperiod} days.</p>
         </Modal.Body>
         <Modal.Footer>
           <Button className="closeBtn" onClick={this.props.onHide}><Glyphicon glyph="glyphicon glyphicon-remove-circle"/></Button>

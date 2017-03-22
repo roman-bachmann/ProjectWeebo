@@ -6,7 +6,8 @@ var CourseList = React.createClass({
     getInitialState: function () {
         return {
             allCourses: [],
-            showModal: false
+            showModal: false,
+            openModal: ""
         }
     },
 
@@ -31,8 +32,9 @@ var CourseList = React.createClass({
         this.setState({ showModal: false });
     },
 
-    openModal: function () {
+    openModal: function (modalId) {
         this.setState({ showModal: true });
+        this.setState({ openModalId: modalId });
     },
 
     render: function () {
@@ -41,11 +43,11 @@ var CourseList = React.createClass({
                 <th>{c.subjectID}</th>
                 <th>{c.name}</th>
                 <th>
-                    <Button onClick={() => this.openModal()}>
+                    <Button onClick={() => this.openModal(c.subjectID)}>
                         <Glyphicon glyph="glyphicon glyphicon-trash"/>
                     </Button>
                 </th>
-                <Modal show={this.state.showModal} onHide={this.closeModal}>
+                <Modal show={this.state.showModal && this.state.openModalId === c.subjectID} onHide={this.closeModal}>
                     <Modal.Header closeButton>
                         <Modal.Title>Delete course</Modal.Title>
                     </Modal.Header>
@@ -55,7 +57,7 @@ var CourseList = React.createClass({
                     </Modal.Body>
                     <Modal.Footer>
                         <Button onClick={this.closeModal}>Abort</Button>
-                        <Button bsStyle="danger" onClick={() => this.deleteCourse(c.subjectID)}>Delete course</Button>
+                        <Button onClick={() => this.deleteCourse(c.subjectID)}>Delete course</Button>
                     </Modal.Footer>
                 </Modal>
             </tr>

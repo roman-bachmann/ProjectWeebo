@@ -9,7 +9,7 @@ const MySmallModal = React.createClass({
     return {
       userInput: '',
       sharingsite: 'YouTube',
-      description: '',
+      description: 'No description.',
       show: false
     };
   },
@@ -30,6 +30,10 @@ const MySmallModal = React.createClass({
   },
   handleDescription: function (e) {
     var descr = e.target.value;
+    if(!Boolean(descr)){
+      console.log("hey");
+      descr = "No description.";
+    }
     this.setState({
       description: descr
     });
@@ -42,7 +46,6 @@ const MySmallModal = React.createClass({
     console.log(d);
     //Check if bantime is before todays date
     if(this.props.bantime < d){
-      console.log("yo");
       if(this.state.sharingsite === 'YouTube'){
         console.log(this.state.userInput);
         var descr = this.state.description;
