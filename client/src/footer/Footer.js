@@ -12,7 +12,7 @@ var style = {
     bottom: "0",
     height: "96px",
     width: "100%",
-    marginTop: "545px",
+    marginTop: "300px",
 };
 
 var phantom = {

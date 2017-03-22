@@ -54,6 +54,7 @@
 	margin-top: -20px;
 	font-size: 32px;
 	font-weight: 700;
+  	font-family: "Webly Sleek";
 }
 
 .speakers .wholeName .firstname {
@@ -68,15 +69,15 @@
 
 .speakers img {
 	border-radius: 50%;
-	border: 10px solid white;
+	border: 5px solid white;
 	box-shadow: 2px 2px 0px rgba(0,0,0, 0.18);
 	transition: all 0.1s ease-in;
-  height: 241px;
-  width: 241px;
+  height: 160px;
+  width: 160px;
 }
 
 .speakers img:hover {
-	border: 15px solid #3980C9;
+	border: 10px solid #3980C9;
 	position: relative;
 	z-index: 10;
 	transition: all 0.1s ease-in;
@@ -86,12 +87,13 @@ opacity: 0.8;
 .TeamRoles{
 	padding: 8px 20px;
 	position: relative;
-	top: -64px;
-	left: -42px;
+	top: -24px;
+	left: -80px;
 	display: inline-block;
 	background-color: #45e3d0;
 	border-radius: 0 16px 16px 0;
-	font-size: 16px;
+	font-size: 15px;
+  font-family: "Webly Sleek";
 }
 
 /* Member Image Hover Effect */
@@ -130,7 +132,7 @@ opacity: 0.8;
 
 	.MainTeamBox .TeamRow, .row2 .TeamRow {
 		display: inline-block;
-		max-width: 50%;
+		max-width: 25%;
 	}
 
 .teamImage{max-width: 600px;}
@@ -138,4 +140,21 @@ opacity: 0.8;
 
 .MainTeamBox .TeamRow, .row2 .TeamRow {
   		display: inline-block;
+}
+.TeamRow {
+position: relative;
+min-height: 1px;
+width: 25%;
+}
+
+.TeamRow {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+}
+
+.AboutTeamWeebo{
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
 }
