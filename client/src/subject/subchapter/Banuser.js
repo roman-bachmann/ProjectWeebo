@@ -26,7 +26,16 @@ const MySmallModal = React.createClass({
     });
   },
   handleBan: function(){
-    var date = this.state.controlledDate.toISOString().slice(0, 19).replace('T', ' ');
+    var d = this.state.controlledDate;
+    var date = d.getFullYear() + '-';
+    var month = d.getMonth() + 1;
+    var monthString = '';
+    if(month < 10){
+      monthString = '0' + month;
+    }else{
+      monthString = month.toString();
+    }
+    date += monthString + - + d.getDate() + ' 23:59:59';
     console.log(date);
     Client.banUser(this.props.userID, date, this.props.subject);
     this.props.onHide();
