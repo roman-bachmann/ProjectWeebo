@@ -48,7 +48,7 @@ const MySmallModal = React.createClass({
     return (
       <Modal {...this.props} bsSize="medium" aria-labelledby="contained-modal-title-sm">
         <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-sm"><Glyphicon glyph="glyphicon glyphicon-remove-sign"/>Ban user</Modal.Title>
+          <Modal.Title id="contained-modal-title-sm"><Glyphicon glyph="glyphicon glyphicon-ban-circle"/>Ban user</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <p>Ban the user <span style={{color: 'red'}}>{this.props.userID}</span> for a desired time. The user will be prevented from posting videos in this subject for the time period.</p>
