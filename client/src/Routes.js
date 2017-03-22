@@ -4,7 +4,7 @@ import AuthService from './auth/AuthService.js';
 
 import App from './App.js';
 import Login from './auth/Login.js';
-import Home from './Home.js';
+import Home from './home/Home.js';
 import Profile from './profile/Profile.js';
 import Admin from './admin/Admin.js';
 import Unauthorized from './error/Unauthorized.js';

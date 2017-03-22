@@ -1,10 +1,10 @@
 import React, { PropTypes as T } from 'react'
 import {Button, Jumbotron, Glyphicon} from 'react-bootstrap'
-import AuthService from './auth/AuthService.js'
+import AuthService from '../auth/AuthService.js'
 import {Link} from 'react-router';
 import './Home.css'
-import './Animate.css'
-import Client from './Client.js';
+import '../Animate.css'
+import Client from '../Client.js';
 import {LinkContainer} from 'react-router-bootstrap';
 
 var Home = React.createClass({
