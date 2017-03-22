@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from 'react-router'
 import './Contact.css'
 import '../fonts/fontawesome/css/font-awesome.css'
+import '../Animate.css'
 
 export class Contact extends React.Component {
   render() {
@@ -12,11 +13,11 @@ export class Contact extends React.Component {
       	<div className="speakers">
       		<div className="TeamContainer">
       			<div className="col-md-8 col-md-offset-2">
-      				<p className="AboutTeamWeebo">ashfølakshfølkahsflkahsflkah fklahsfløahsflkahskf a fsaløksfhøla sfahfsø ahsf a føahsf øa faøls fhaløksf aølkshf aøsf aølkshfaøsfha ølsfa akjslhfalksf askjfhalksf asfhalksfhaf aksjfhalksfhaklsf fasjhflaksfh asfhajksfhaskl fajshfalksf </p>
+      				<p className="AboutTeamWeebo">Team Weebo consists of 4 members; Roman Backmann (Devoloper), Sølve Hunvik (Developer), Thayanan Tharmapalan (Design & Front-end) & Emil Grip (Back-end). Please feel free to contact any of us if you have any questions or enqueries. </p>
       			</div>
 
       			<div className="MainTeamBox">
-      				<div className="TeamRow">
+      				<div className="animated TeamRow">
       					<a href="#" className="member-profile">
       						<div className="unhover_img">
       						<img className="teamImage" src="https://github.com/roman-bachmann/ProjectWeebo/blob/master/client/src/img/roman.jpg?raw=true" alt="" />
@@ -33,13 +34,13 @@ export class Contact extends React.Component {
       						<li><a href="#" target="_blank"><i className="fa fa-instagram"></i></a></li>
       					</ul>
       				</div>
-      				<div className="TeamRow">
+      				<div className="animated TeamRow">
       					<a href="#" className="member-profile">
       						<div className="unhover_img">
-      						<img src="https://github.com/roman-bachmann/ProjectWeebo/blob/master/client/src/img/sølve.jpg?raw=true" alt="" />
+      						<img src="https://github.com/roman-bachmann/ProjectWeebo/blob/master/client/src/img/sølve.jpg?raw=true"/>
       						</div>
       						<div className="hover_img">
-      						<img src="https://github.com/roman-bachmann/ProjectWeebo/blob/master/client/src/img/sølvebw.jpg?raw=true" alt="" />
+      						<img src="https://github.com/roman-bachmann/ProjectWeebo/blob/master/client/src/img/sølvebw.jpg?raw=true"/>
       						</div>
       						<span className="TeamRoles">Devoloper</span>
       						<h4 className="wholeName"><span className="firstname">Sølve</span> Hunvik</h4>
@@ -50,7 +51,7 @@ export class Contact extends React.Component {
       						<li><a href="#" target="_blank"><i className="fa fa-instagram"></i></a></li>
       					</ul>
       				</div>
-      				<div className="TeamRow">
+      				<div className="animated TeamRow">
       					<a href="#" className="member-profile">
       						<div className="unhover_img">
       						<img src="https://github.com/roman-bachmann/ProjectWeebo/blob/master/client/src/img/thay.JPG?raw=true" alt="" />
@@ -67,7 +68,7 @@ export class Contact extends React.Component {
       						<li><a href="#" target="_blank"><i className="fa fa-instagram"></i></a></li>
       					</ul>
       				</div>
-      				<div className="TeamRow">
+      				<div className="animated TeamRow">
       					<a href="#" className="member-profile">
       						<div className="unhover_img">
       						<img src="https://github.com/roman-bachmann/ProjectWeebo/blob/master/client/src/img/grip.jpg?raw=true" alt="" />
