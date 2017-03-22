@@ -44,7 +44,7 @@ var AdminAddCourse = React.createClass({
             <form className="AdminAddCourseForm">
                 <FormGroup controlId="courseIdForm"
                            validationState={this.getCourseIDValidationState()} >
-                    <ControlLabel>Course ID</ControlLabel>
+                    <ControlLabel className="addCourseControllLabel">Course ID</ControlLabel>
                     <FormControl
                         type="text"
                         value={this.state.newCourseID}
@@ -56,7 +56,7 @@ var AdminAddCourse = React.createClass({
 
                 <FormGroup controlId="courseNameForm"
                            validationState={this.getCourseNameValidationState()} >
-                    <ControlLabel>Course name</ControlLabel>
+                    <ControlLabel  className="addCourseControllLabel">Course name</ControlLabel>
                     <FormControl
                         type="text"
                         value={this.state.newCourseName}
@@ -65,7 +65,7 @@ var AdminAddCourse = React.createClass({
                     <FormControl.Feedback />
                 </FormGroup>
 
-                <Button onClick={this.handleSubmitCourse}>Submit</Button>
+                <Button className="submitCourse" onClick={this.handleSubmitCourse}>Submit</Button>
             </form>
         )
     }

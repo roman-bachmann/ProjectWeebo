@@ -1,0 +1,131 @@
+@font-face {
+     font-family: "Noteworthy";
+     src: url(../fonts/Noteworthy-Light.ttf) format("truetype");
+ }
+
+ @font-face {
+     font-family: "Webly Sleek";
+     src: url(../fonts/weblysleekuil.ttf) format("truetype");
+ }
+
+ .adminTitle {
+   color: #00a2e9;
+    font-family: "Webly Sleek";
+    font-size: 25px;
+ }
+
+ .adminTitle {
+   -webkit-animation-name: fadeIn;
+   animation-name: fadeIn;
+ }
+
+.AddCoursewidget {
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+}
+
+.has-feedback .form-control {
+  margin: auto;
+  border-color: #cce8fe;
+}
+
+ ::-webkit-input-placeholder {
+  font-family: "Webly Sleek";
+}
+
+.addACourseTitle {
+  font-family: "Webly Sleek";
+  font-size: 26px;
+  padding-top: 25px;
+  padding-bottom: 10px;
+}
+.submitCourse {
+  margin-bottom: 8px;
+}
+.addCourseControllLabel{
+    font-family: "Webly Sleek";
+}
+
+.has-success .form-control-feedback {
+  color: #28cf2b;
+}
+
+/*TheWidget */
+
+ .AddCoursewidget
+ {
+   position: relative;
+   width: 350px;
+   height: auto;
+   margin: 50px auto;
+   background: #FFF;
+   border-radius: 5px;
+   box-shadow: 0 5px 25px rgba(0, 0, 0, .1);
+ }
+
+ .AddCoursewidget > .addCoursecover
+ {
+   height: 160px;
+   overflow: hidden;
+ }
+
+ .AddCoursewidget > .addCoursecover > img
+ {
+   width: 100%;
+   height: auto;
+   min-height: 160px;
+   border-radius: 4px 4px 0 0;
+ }
+
+ .AddCoursewidget > .addCoursephoto
+ {
+   position: absolute;
+   top: 85px;
+   left: 50%;
+   width: 100px;
+   height: 100px;
+   margin: 0 0 0 -55px;
+   border: 5px solid #FFF;
+   border-radius: 50%;
+ }
+
+ .AddCoursewidget > .ProfileName, .AddCoursewidget > .ProfileDetails, .AddCoursewidget > .ProfileDetails
+ {
+   display: block;
+   margin: 10px 0;
+   text-align: center;
+   font-family: 'Open Sans', sans-serif;
+   font-size: 16px;
+   font-weight: 300;
+   color: #999;
+ }
+
+ .AddCoursewidget > .ProfileName
+ {
+   margin: 60px 0 20px;
+   font-size: 26px;
+   color: #000;
+ }
+
+ .AddCoursewidget > .ProfileDetails { font-size: 12px }
+
+ .AddCoursewidget > .addCourseProfileUL {
+   position: absolute;
+   top: 20px;
+   left: 100%;
+   background: #2CDFD3;
+   border-radius: 0 10px 10px 0;
+ }
+
+ .AddCoursewidget > .addCourseProfileUL > .addCourseProfileULLI{
+   color: white;
+   display: block;
+   margin: 5px -35px 0;
+ }
+
+ .AddCoursewidget > .addCourseProfileUL > .addCourseProfileULLI .Userglyph{
+   float: left;
+   padding: 2px;
+   padding-right: 40px;
+   padding-bottom: 5px;
+ }
