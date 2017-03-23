@@ -19,7 +19,7 @@ const MySmallModal = React.createClass({
   handleChange: function (event, date) {
     var today = new Date();
     var timeDiff = Math.abs(date.getTime() - today.getTime());
-    var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+    var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
     this.setState({
       controlledDate: date,
       banperiod: diffDays,
@@ -48,7 +48,7 @@ const MySmallModal = React.createClass({
     return (
       <Modal {...this.props} bsSize="medium" aria-labelledby="contained-modal-title-sm">
         <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-sm"><Glyphicon glyph="glyphicon glyphicon-ban-circle"/>Ban user</Modal.Title>
+          <Modal.Title id="contained-modal-title-sm"><Glyphicon glyph="glyphicon glyphicon-ban-circle"/>  Ban User</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <p>Ban the user <span style={{color: 'red'}}>{this.props.userID}</span> for a desired time. The user will be prevented from posting videos in this subject for the time period.</p>

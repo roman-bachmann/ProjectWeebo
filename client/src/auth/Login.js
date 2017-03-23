@@ -20,7 +20,7 @@ export class Login extends React.Component {
     return (
     <div>
       <div className="hero">
-      		<div className="background-image"></div>
+      		<div className="animatedBackground infinite background-image"></div>
       		<div className="LogoWrapper"><h1 className="WLogo">W</h1></div>
       		<h3 className="WeeboLogin">Weebo</h3>
       		<div><Button  className="animated LogInButton" bsStyle="primary" onClick={auth.login.bind(this)}>Log In / Sign Up</Button></div>
