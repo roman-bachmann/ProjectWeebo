@@ -15,26 +15,9 @@
   margin-bottom: 8px;
 }
 
-.btn-danger {
-  margin-left: 6px;
-  border-radius: 100%;
-  background-color: #519d9b !important;
-  border-color: #519d9b !important;;
-  color: white;
-}
-
-.btn-danger:hover {
-  color: #ca3733;
-}
-
-.btn-danger:focus, .btn-danger:focus {
-  background-color: #ca3733 !important;
-  outline: 0;
-}
-
-.btn-danger:active {
-outline: 0 !important;
-border: none !important;
+.col-sm-3 {
+  border: 1px solid #f2f2f2;
+    border-right-color: #71c9c6;
 }
 
 .shareBtn {
