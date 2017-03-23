@@ -25,7 +25,7 @@ var Home = React.createClass({
           <div>
             <div className="title">
               <h1 className="animated Welcome">Welcome!</h1>
-              <hr className="animated LoginHR"></hr><hr className="animated LoginHR2"></hr>
+              <hr className="animated homeHR"></hr><hr className="animated homeHR2"></hr>
                 <div className="animated LogoWrap"><h1 className="W_Logo">W</h1></div>
             </div>
             <div className="content">

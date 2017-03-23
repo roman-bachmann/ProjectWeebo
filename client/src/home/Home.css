@@ -15,7 +15,7 @@ body {
 }
 
 .animated{
-animation-duration: 1.5s !important;
+animation-duration: 1.2s !important;
 }
 
 
@@ -39,6 +39,33 @@ animation-duration: 1.5s !important;
     }
   }
 
+  .homeHR{
+  	width: 450px;
+  	height: 2px;
+  	background-color: #dee1e1;
+  	border: 0;
+  	margin-bottom: 80px;
+    float: left;
+  }
+  .homeHR {
+    -webkit-animation-name: slideInLeft;
+    animation-name: slideInLeft;
+  }
+
+  .homeHR2{
+  	width: 450px;
+  	height: 2px;
+  	background-color: #dee1e1;
+  	border: 0;
+  	margin-bottom: 80px;
+    float: right;
+  }
+
+  .homeHR2{
+    -webkit-animation-name: slideInRight;
+    animation-name: slideInRight;
+  }
+
   .Welcome, .SelectTitle, .LogoWrap {
     -webkit-animation-name: fadeIn;
     animation-name: fadeIn;
@@ -53,7 +80,7 @@ animation-duration: 1.5s !important;
        font-family: "Webly Sleek";
        font-size: 46px;
        padding: 20px;
-       color: #0e8c84;
+       color: #0eaa90;
 
 }
 

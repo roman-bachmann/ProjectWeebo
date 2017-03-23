@@ -16,13 +16,13 @@ export class Contact extends React.Component {
   render() {
     return (
     <div>
-        <h2 className="animated ProfileTitle"><i className="fa fa-users"/> Contact the Team</h2>
+        <h2 className="animated ProfileTitle">Contact the Team</h2>
       <div><hr className="animated ProfileHR"></hr><hr className="animated ProfileHR2"></hr></div>
       	<div className="speakers">
       		<div className="TeamContainer">
       			<div className="col-md-8 col-md-offset-2">
-      				<p className="animated AboutTeamWeebo">Team Weebo consists of 4 members; Roman Backmann (Devoloper), Sølve Hunvik (Developer), Thayanan Tharmapalan (Design & Front-end) & Emil Grip (Back-end). Please feel free to contact any of us if you have any questions or enqueries.</p>
-      			</div>
+      				<p className="animated AboutTeamWeebo">Team Weebo consists of 4 members; Sølve Hunvik (Developer), Roman Backmann (Developer), Thayanan Tharmapalan (Design & Front-end) & Emil Grip (Back-end). Please feel free to contact any of us if you have any questions or enqueries.</p>
+      			</div> 
 
       			<div className="MainTeamBox">
       				<div className="animated TeamRow">

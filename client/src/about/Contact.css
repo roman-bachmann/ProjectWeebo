@@ -77,11 +77,11 @@
 }
 
 .speakers img:hover {
-	border: 10px solid #3980C9;
+	border: 8px solid #16cf83;
 	position: relative;
 	z-index: 10;
-	transition: all 0.1s ease-in;
-opacity: 0.8;
+	transition: all 0.08s ease-in;
+  opacity: 0.92;
 }
 
 .TeamRoles{

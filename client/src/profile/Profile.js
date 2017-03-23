@@ -36,7 +36,7 @@ export class Profile extends React.Component {
     const { profile } = this.state
     return (
       <div>
-        <h2 className="animated ProfileTitle"><i className="fa fa-user"/> Profile Page</h2>
+        <h2 className="animated ProfileTitle">Profile Page</h2>
         <ProfileDetails
             profile={profile}
             courses={this.props.courses}
