@@ -46,7 +46,7 @@ var AddCoursesModal = React.createClass({
                         maxResults='20'
                         options={this.state.courseOptions}
                         ref={ref => this._typeahead = ref}
-                        placeholder="Choose a course..." />
+                        placeholder="Search and choose a course..." />
                     <ButtonToolbar style={{marginTop: '10px'}}>
                         <Button className="addCoursesBtn" onClick={this.handleSelectedCourses}>
                             Add selected course(s)
