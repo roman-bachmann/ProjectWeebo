@@ -51,7 +51,7 @@ var AdminAddCourse = React.createClass({
                         placeholder="Enter course ID"
                         onChange={this.handleCourseID} />
                     <FormControl.Feedback />
-                    <HelpBlock>CourseID length must be shorter than 8 characters.</HelpBlock>
+                    <HelpBlock>CourseID can be at most 8 characters long.</HelpBlock>
                 </FormGroup>
 
                 <FormGroup controlId="courseNameForm"
