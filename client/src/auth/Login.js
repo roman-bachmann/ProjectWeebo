@@ -69,8 +69,8 @@ export class Login extends React.Component {
   <div className="footerLogin">
 
     <ul className="FooterUL">
-			<li><a href="https://www.facebook.com/Weebo-774288392725196/"><img src={Facebook}/></a></li>
-			<li><a href="https://twitter.com/weeboteam"><img src={Twitter}/></a></li>
+			<li><a href="https://www.facebook.com/Weebo-774288392725196/"><img className="facebooklogo" src={Facebook}/></a></li>
+			<li><a href="https://twitter.com/weeboteam"><img className="twitterlogo" src={Twitter}/></a></li>
 		</ul>
 
   <p>Made with <Glyphicon glyph="glyphicon glyphicon-heart"/> by <a href="" target="_blank">Team Weebo</a>. Images courtesy to <a href="http://freepik.com/" target="_blank">Freepik</a>.</p>
