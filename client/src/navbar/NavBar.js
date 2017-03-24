@@ -19,7 +19,7 @@ import {LinkContainer} from 'react-router-bootstrap';
 var NavBar = React.createClass({
     getInitialState: function () {
         return {
-            subjectName: (<span><i className='fa fa-graduation-cap'/> Subjects</span>),
+            subjectName: (<span><i className='fa fa-graduation-cap'/> Courses</span>),
             showCourseModal: false
         };
     },
@@ -114,7 +114,7 @@ var NavBar = React.createClass({
                                 </LinkContainer>
                                 <LinkContainer to="/contact">
                                     <MenuItem eventKey={502}>
-                                        <Glyphicon glyph="glyphicon glyphicon-envelope"/>  Contact
+                                        <Glyphicon glyph="glyphicon glyphicon-envelope"/> Contact
                                     </MenuItem>
                                 </LinkContainer>
                             </NavDropdown>
