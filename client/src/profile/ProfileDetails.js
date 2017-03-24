@@ -19,7 +19,7 @@ export class ProfileDetails extends React.Component {
 <div><hr className="animated ProfileHR"></hr><hr className="animated ProfileHR2"></hr></div>
       <div className=" animated widget">
         <div className="cover">
-          <img src="http://i.imgur.com/yqB0erk.jpg" />
+          <img src="https://s-media-cache-ak0.pinimg.com/originals/f0/b9/52/f0b9523dacbecc5bd4e2aae496a9c8c2.jpg" />
         </div>
       <Image className="photo" src={profile.picture} circle/>
         <p className="ProfileName">{first_name}<br></br>{last_name}</p>

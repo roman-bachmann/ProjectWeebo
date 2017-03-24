@@ -40,7 +40,7 @@ var Admin = React.createClass({
 <div><hr className="animated ProfileHR"></hr><hr className="animated ProfileHR2"></hr></div>
                 <div className=" animated AddCoursewidget">
                   <div className="addCoursecover">
-                    <img src={widgetbg} />
+                    <img src="https://s-media-cache-ak0.pinimg.com/originals/f0/b9/52/f0b9523dacbecc5bd4e2aae496a9c8c2.jpg" />
                   </div>
                 <Image className="addCoursephoto" src={CourseListIcon} circle/>
                 <div className="addACourseTitle">Add a new course</div>
@@ -52,9 +52,9 @@ var Admin = React.createClass({
 
                 <div className=" animated Coursewidget">
                   <div className="Coursecover">
-                    <img src="http://i.imgur.com/yqB0erk.jpg" />
+                    <img src="http://www.techandall.com/wp-content/uploads/2013/08/bg6.jpg" />
                   </div>
-                <Image className="Coursephoto" src={CourseListIcon} circle/>
+                <Image className="deleteCoursephoto" src={CourseListIcon} circle/>
                 <h2 className="DeleteCourses">Delete courses</h2>
                 <p>Delete subjects from the database</p>
                 <AdminCourseList courses={this.state.allCourses}

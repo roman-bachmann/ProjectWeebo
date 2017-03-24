@@ -85,9 +85,22 @@
    width: 100px;
    height: 100px;
    margin: 0 0 0 -55px;
-   border: 5px solid #FFF;
+   border: 5px solid #3cb979;
    border-radius: 50%;
  }
+
+ .Coursewidget > .deleteCoursephoto
+ {
+   position: absolute;
+   top: 85px;
+   left: 50%;
+   width: 100px;
+   height: 100px;
+   margin: 0 0 0 -55px;
+   border: 5px solid #ff5e5e;
+   border-radius: 50%;
+ }
+
 
  .AddCoursewidget > .ProfileName, .AddCoursewidget > .ProfileDetails, .AddCoursewidget > .ProfileDetails
  {

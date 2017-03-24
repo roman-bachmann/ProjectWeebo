@@ -30,13 +30,13 @@ var CourseList = React.createClass({
                 <th>{c.subjectID}</th>
                 <th>{c.name}</th>
                 <th>
-                    <Button onClick={() => this.openModal(c.subjectID)}>
-                        <Glyphicon glyph="glyphicon glyphicon-trash"/>
+                    <Button className="removeCourseButton" onClick={() => this.openModal(c.subjectID)}>
+                        <Glyphicon  className="CourseRemove" glyph="glyphicon glyphicon-trash"/>
                     </Button>
                 </th>
                 <Modal show={this.state.showModal && this.state.openModalId === c.subjectID} onHide={this.closeModal}>
                     <Modal.Header closeButton>
-                        <Modal.Title>Delete course</Modal.Title>
+                        <Modal.Title><Glyphicon glyph="glyphicon glyphicon-trash"/> Delete course</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         <p>Are you sure that you want to delete the whole course <strong>{c.subjectID + " - " + c.name}</strong>?</p>
