@@ -109,12 +109,12 @@ var NavBar = React.createClass({
                                     id="basic-nav-dropdown" >
                                 <LinkContainer to="/about">
                                     <MenuItem eventKey={501}>
-                                        <Glyphicon glyph="glyphicon glyphicon-info-sign"/>  About
+                                        About
                                     </MenuItem>
                                 </LinkContainer>
                                 <LinkContainer to="/contact">
                                     <MenuItem eventKey={502}>
-                                        <Glyphicon glyph="glyphicon glyphicon-envelope"/> Contact
+                                        Contact
                                     </MenuItem>
                                 </LinkContainer>
                             </NavDropdown>
