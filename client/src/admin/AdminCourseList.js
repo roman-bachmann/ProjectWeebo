@@ -20,7 +20,6 @@ var CourseList = React.createClass({
     },
 
     handleDeleteButton: function (subjectID) {
-        console.log("ljkdafjkladsfjkladfslkjadfsjklfads");
         this.props.deleteCourse(subjectID);
         this.closeModal();
     },
