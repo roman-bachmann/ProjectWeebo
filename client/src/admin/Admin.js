@@ -36,7 +36,7 @@ var Admin = React.createClass({
     render() {
         return (
             <div className="AdminBody">
-                  <h2 className="animated adminTitle"><i className="fa fa-street-view"/> Admin Page</h2>
+                  <h2 className="animated adminTitle"> Admin Page</h2>
 <div><hr className="animated ProfileHR"></hr><hr className="animated ProfileHR2"></hr></div>
                 <div className=" animated AddCoursewidget">
                   <div className="addCoursecover">
