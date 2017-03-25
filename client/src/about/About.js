@@ -23,7 +23,7 @@ export class About extends React.Component {
     <div className="animated col-md-4 col-sm-4">
       <span className="aboutIcons"><i className="fa fa-thumbs-up"></i></span>
       <h3 className="serviceTitle">Rate</h3>
-      <p>This website template is brought to you by Tooplate. You can modify and use it for any website. You can change icons by looking at <a rel="nofollow" href="http://fortawesome.github.io/Font-Awesome/examples/" target="_parent">examples</a>.</p>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. Dolore magna aliquam erat volutpat.</p>
     </div>
     <div className="animated col-md-4 col-sm-4">
       <span className="aboutIcons"><i className="fa fa-share-alt"></i></span>
