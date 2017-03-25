@@ -61,3 +61,22 @@ height: 1px;
 
 .container  {
   background-color: white;}
+
+.col-md-12{
+  animation-name: fadeIn;
+  -webkit-animation-name: fadeIn;
+}
+.col-md-4{
+  animation-name: fadeIn;
+  -webkit-animation-name: fadeIn;
+}
+
+.serviceTitle {
+    animation-name: fadeIn;
+    -webkit-animation-name: fadeIn;
+}
+
+.aboutSectionHr{
+  animation-name: bounceInUp;
+  -webkit-animation-name: bounceInUp;
+}
