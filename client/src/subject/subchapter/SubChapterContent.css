@@ -71,10 +71,11 @@
 .recommended {
   font-family: "Webly Sleek";
   font-size: 15px;
-  width: 560px  ;
   margin-top: 12px;
   color: #519d9b;
   font-weight: 800;
+  text-align: center;
+  margin-top: 140px;
 }
 
  .btnStar_Recommended {

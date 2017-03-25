@@ -170,13 +170,14 @@ var SubChapterContent = React.createClass({
             <Row className="comment">
               <i className="fa fa-quote-left"/> {v.Description} <i className="fa fa-quote-right"/>
             </Row>
+            <div>
+              {v.Favorite === 1 ? <Row className="recommended">
+                <Glyphicon glyph="glyphicon glyphicon-arrow-left"/><strong> This video is recommended by a Professor! </strong><Glyphicon glyph="glyphicon glyphicon-star-empty"/>
+              </Row>
+              :null}
             </div>
-						<Col md={3} className="commentAndRecommended">
-							{v.Favorite === 1 ? <Row className="recommended">
-								<Glyphicon glyph="glyphicon glyphicon-arrow-left"/><strong> This video is recommended by a Professor! </strong><Glyphicon glyph="glyphicon glyphicon-star-empty"/>
-							</Row>
-							:null}
-						</Col>
+            </div>
+
 
 					</div>
 				:null}
