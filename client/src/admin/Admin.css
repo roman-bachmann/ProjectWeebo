@@ -19,9 +19,9 @@
    animation-name: fadeIn;
  }
 
-.AddCoursewidget {
-  -webkit-animation-name: pulse;
-  animation-name: pulse;
+.addDeleteCourseWidgets {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
 }
 
 .has-feedback .form-control {
@@ -36,7 +36,7 @@
 .addACourseTitle {
   font-family: "Webly Sleek";
   font-size: 26px;
-  padding-top: 25px;
+  padding-top: 35px;
   padding-bottom: 10px;
 }
 .submitCourse {
@@ -65,7 +65,7 @@
 
  .AddCoursewidget > .addCoursecover
  {
-   height: 160px;
+   height: 85px;
    overflow: hidden;
  }
 
@@ -80,19 +80,19 @@
  .AddCoursewidget > .addCoursephoto
  {
    position: absolute;
-   top: 85px;
-   left: 50%;
-   width: 100px;
-   height: 100px;
+   top: 45px;
+   left: 55%;
+   width: 80px;
+   height: 80px;
    margin: 0 0 0 -55px;
-   border: 5px solid #3cb979;
+   border: 5px solid #d1ffe7;
    border-radius: 50%;
  }
 
- .Coursewidget > .deleteCoursephoto
+ .deleteCoursewidget > .deleteCoursephoto
  {
    position: absolute;
-   top: 85px;
+   top: 5px;
    left: 50%;
    width: 100px;
    height: 100px;
@@ -145,8 +145,90 @@
 
 .DeleteCourses {
   font-family: "Webly Sleek";
+  padding-top: 20px;
+  font-size: 26px;
 }
 
 .table {
   font-family: "Webly Sleek";
+}
+
+.deleteCoursewidget
+{
+  position: relative;
+  width: 350px;
+  height: auto;
+  margin: 50px auto;
+  background: #FFF;
+  border-radius: 5px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, .1);
+}
+
+.deleteCoursewidget > .deleteCoursecover
+{
+  height: 85px;
+  overflow: hidden;
+}
+
+.deleteCoursewidget > .deleteCoursecover > img
+{
+  width: 100%;
+  height: auto;
+  min-height: 160px;
+  border-radius: 4px 4px 0 0;
+}
+
+
+.deleteCoursewidget > .deleteCoursephoto
+{
+  position: absolute;
+  top: 45px;
+  left: 55%;
+  width: 80px;
+  height: 80px;
+  margin: 0 0 0 -55px;
+  border: 5px solid #fabcbc;
+  border-radius: 50%;
+}
+
+
+.deleteCoursewidget > .ProfileName, .deleteCoursewidget > .ProfileDetails, .deleteCoursewidget > .ProfileDetails
+{
+  display: block;
+  margin: 10px 0;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: #999;
+}
+
+.deleteCoursewidget > .ProfileName
+{
+  margin: 60px 0 20px;
+  font-size: 26px;
+  color: #000;
+}
+
+.deleteCoursewidget > .ProfileDetails { font-size: 12px }
+
+.deleteCoursewidget > .deleteCourseProfileUL {
+  position: absolute;
+  top: 20px;
+  left: 100%;
+  background: #2CDFD3;
+  border-radius: 0 10px 10px 0;
+}
+
+.deleteCoursewidget > .deleteCourseProfileUL > .deleteCourseProfileULLI{
+  color: white;
+  display: block;
+  margin: 5px -35px 0;
+}
+
+.deleteCoursewidget > .deleteCourseProfileUL > .deleteCourseProfileULLI .Userglyph{
+  float: left;
+  padding: 2px;
+  padding-right: 40px;
+  padding-bottom: 5px;
 }
