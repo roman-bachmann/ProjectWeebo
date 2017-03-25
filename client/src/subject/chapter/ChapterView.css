@@ -8,9 +8,16 @@
    font-family: "Webly Sleek";
    font-size: 25px;
    padding-bottom: 20px;
+   -webkit-animation-name: fadeIn;
+   animation-name: fadeIn;
 }
 
 .row {
   margin-left: 0px !important;
   margin-right: 0px !important;
+}
+
+.chapterStack {
+    -webkit-animation-name: bounce;
+    animation-name: bounce;
 }

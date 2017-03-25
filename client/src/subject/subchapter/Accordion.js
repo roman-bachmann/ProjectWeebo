@@ -66,6 +66,7 @@ var AccordionBoot = React.createClass({
               var theKey = this.props.chapId + 'subchap' + idx;
               var panelName = (<span>{s.sname}</span>);
               return (<Panel
+                        className="animated subChapterPanel"
                         header={panelName}
                         eventKey={theKey}
                         onSelect={this.handleSelect}>

@@ -33,7 +33,7 @@ var Home = React.createClass({
 
               {this.props.courses.length > 0 ?
                   <p className="animated SelectTitle">
-                      Please select a subject to continue.
+                      Please select a course to continue.
                   </p>
                   :
                   <p className="animated SelectTitle">

@@ -76,7 +76,7 @@ var Tabs = React.createClass({
 
 			<Tab.Container id="left-tabs-example" defaultActiveKey="chap0">
 				<Row className="clearfix">
-					<Col sm={3}>
+					<Col sm={3} className="animated chapterStack">
 						<Nav bsStyle="pills" stacked>
 							{chaptersList}
 						</Nav>
