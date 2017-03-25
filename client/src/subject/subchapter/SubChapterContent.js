@@ -7,6 +7,7 @@ var Upvote = require('./Upvote.js');
 var VideoModal = require('./AddVideoModal.js');
 var Banuser = require('./Banuser.js');
 import Client from '../../Client.js';
+import '../../fonts/fontawesome/css/font-awesome.css'
 
 const tooltipRecommend = (
   <Tooltip id="tooltip-recommend"><strong>Recommend</strong> this video!</Tooltip>
@@ -163,15 +164,20 @@ var SubChapterContent = React.createClass({
 								</Col>
 							</Row>
 						</Col>
+            <div className="commentsWidget">
+              <div className="publishedInfo">Published by Thayanan Tharmapalan on 12.02.17</div>
+              <img className="publishedImage" src="http://en.gravatar.com/userimage/100168919/8cdea380c94fe6c69f9ab909302d7e26.jpeg" circle/>
+            <Row className="comment">
+              <i className="fa fa-quote-left"/> {v.Description} <i className="fa fa-quote-right"/>
+            </Row>
+            </div>
 						<Col md={3} className="commentAndRecommended">
 							{v.Favorite === 1 ? <Row className="recommended">
-								<Glyphicon glyph="glyphicon glyphicon-arrow-left"/>  Recommended by a Professor! <Glyphicon glyph="glyphicon glyphicon-star-empty"/>
+								<Glyphicon glyph="glyphicon glyphicon-arrow-left"/><strong> This video is recommended by a Professor! </strong><Glyphicon glyph="glyphicon glyphicon-star-empty"/>
 							</Row>
 							:null}
-							<Row className="comment">
-								{v.Description}
-							</Row>
 						</Col>
+
 					</div>
 				:null}
 				</Row>
