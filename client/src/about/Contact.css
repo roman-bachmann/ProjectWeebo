@@ -22,7 +22,7 @@
 .clear {clear: both;}
 
 .TeamContainer {
-    background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
 
 .MainTeamBox {
@@ -69,7 +69,7 @@
 
 .speakers img {
 	border-radius: 50%;
-	border: 5px solid white;
+	border: 5px solid #b8f2ff;
 	box-shadow: 2px 2px 0px rgba(0,0,0, 0.18);
 	transition: all 0.1s ease-in;
   height: 160px;
@@ -145,6 +145,8 @@
 position: relative;
 min-height: 1px;
 width: 25%;
+background-color: white;
+box-shadow: 0 5px 5px rgba(0, 0, 0, .1);
 }
 
 .TeamRow {
