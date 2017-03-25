@@ -8,6 +8,8 @@
   padding: 5px;
     font-size: 26px;
       font-family: "Webly Sleek";
+        padding-top: 20px;
+        padding-bottom: 15px;
     }
 
 .removeCourseButton {
@@ -49,5 +51,7 @@ text-align: center;
 
 tr th {
   text-align: center;
-  padding: 20px;
+  padding: 6px;
+  padding-left: 4px;
+  padding-right: 4px;
 }

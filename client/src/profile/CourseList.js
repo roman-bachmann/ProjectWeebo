@@ -26,7 +26,7 @@ var CourseList = React.createClass({
 
         return (
             <div>
-              <div className="EditCoursesTitle">Your course</div>
+              <div className="EditCoursesTitle">My courses</div>
               <Table className="CourseTable">
                 {courseItems}
               </Table>

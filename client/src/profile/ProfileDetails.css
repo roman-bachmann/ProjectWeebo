@@ -98,16 +98,21 @@
 {
   position: relative;
   width: 350px;
-  height: 400px;
+  height: auto;
   margin: 50px auto;
   background: #FFF;
   border-radius: 5px;
   box-shadow: 0 5px 25px rgba(0, 0, 0, .1);
 }
 
+.ProfileDetailsContent{
+  padding-top: 50px;
+  padding-bottom: 10px;
+}
+
 .widget > .cover
 {
-  height: 160px;
+  height: 90px;
   overflow: hidden;
 }
 
@@ -122,12 +127,12 @@
 .widget > .photo
 {
   position: absolute;
-  top: 85px;
-  left: 50%;
-  width: 100px;
-  height: 100px;
+  top: 40px;
+  left: 52.5%;
+  width: 95px;
+  height: 95px;
   margin: 0 0 0 -55px;
-  border: 5px solid #FFF;
+  border: 5px solid #9cdbb9;
   border-radius: 50%;
 }
 
@@ -149,7 +154,13 @@
   color: #000;
 }
 
-.widget > .ProfileDetails { font-size: 12px }
+.ProfileDetailsContent > .ProfileName {
+  font-size: 28px;
+  padding: 5px;
+}
+
+.widget > .ProfileDetails { font-size: 12px
+}
 
 .widget > .ProfileUL {
   position: absolute;
@@ -178,7 +189,7 @@
 .Coursewidget
 {
   position: relative;
-  width: 550px;
+  width: 400px;
   height: auto;
   margin: 50px auto;
   background: #FFF;
@@ -188,7 +199,7 @@
 
 .Coursewidget > .Coursecover
 {
-  height: 160px;
+  height: 80px;
   overflow: hidden;
 }
 
@@ -203,14 +214,15 @@
 .Coursewidget > .Coursephoto
 {
   position: absolute;
-  top: 85px;
-  left: 50%;
-  width: 100px;
-  height: 100px;
+  top: 40px;
+  left: 52.5%;
+  width: 90px;
+  height: 90px;
   margin: 0 0 0 -55px;
-  border: 5px solid #FFF;
+  border: 5px solid #93c6f2;
   border-radius: 50%;
 }
+
 
 .Coursewidget > .ProfileName, .Coursewidget > .ProfileDetails, .Coursewidget > .ProfileDetails
 {

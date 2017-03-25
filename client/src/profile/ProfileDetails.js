@@ -22,8 +22,10 @@ export class ProfileDetails extends React.Component {
           <img src="https://s-media-cache-ak0.pinimg.com/originals/f0/b9/52/f0b9523dacbecc5bd4e2aae496a9c8c2.jpg" />
         </div>
       <Image className="photo" src={profile.picture} circle/>
+      <div className="ProfileDetailsContent">
         <p className="ProfileName">{first_name}<br></br>{last_name}</p>
         <p className="ProfileDetails"><strong><Glyphicon glyph="glyphicon glyphicon-envelope"/>  Email: </strong> {profile.email}</p>
+      </div>
         <ul className="ProfileUL">
           <li className="ProfileULLI"><Glyphicon className="Userglyph" glyph="glyphicon glyphicon-user"/></li>
         </ul>
