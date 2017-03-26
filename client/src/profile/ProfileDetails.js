@@ -4,7 +4,8 @@ import CourseList from './CourseList.js'
 import CourseListIcon from '../img/CourseListIcon.jpeg'
 import './ProfileDetails.css'
 import '../Animate.css'
-
+import greenWidget from '../img/widgetGreenCrop.jpg'
+import blueWidget from '../img/widgetBlueCrop.jpg'
 
 export class ProfileDetails extends React.Component {
   static propTypes = {
@@ -19,7 +20,7 @@ export class ProfileDetails extends React.Component {
 <div><hr className="animated ProfileHR"></hr><hr className="animated ProfileHR2"></hr></div>
       <div className=" animated widget">
         <div className="cover">
-          <img src="https://s-media-cache-ak0.pinimg.com/originals/f0/b9/52/f0b9523dacbecc5bd4e2aae496a9c8c2.jpg" />
+          <img src={greenWidget}/>
         </div>
       <Image className="photo" src={profile.picture} circle/>
       <div className="ProfileDetailsContent">
@@ -33,7 +34,7 @@ export class ProfileDetails extends React.Component {
 
       <div className=" animated Coursewidget">
         <div className="Coursecover">
-          <img src="http://i.imgur.com/yqB0erk.jpg" />
+          <img src={blueWidget} />
         </div>
       <Image className="Coursephoto" src={CourseListIcon} circle/>
             <div className="CourseList"><CourseList

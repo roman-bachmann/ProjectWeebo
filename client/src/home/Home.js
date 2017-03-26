@@ -46,6 +46,9 @@ var Home = React.createClass({
 
               </div>
             </div>
+            <div>
+              <hr className="animated aboutSectionHr"/>
+            </div>
           </div>
         )
     }

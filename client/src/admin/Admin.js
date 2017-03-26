@@ -3,7 +3,8 @@ import Client from '../Client.js'
 import AdminCourseList from './AdminCourseList.js'
 import AdminAddCourse from './AdminAddCourse.js'
 import {Image, Glyphicon} from 'react-bootstrap'
-import widgetbg from '../img/widget_background_crop.jpg'
+import greenWidget from '../img/widgetGreenCrop.jpg'
+import redWidget from '../img/widgetRedCrop.jpg'
 import './Admin.css'
 import CourseListIcon from '../img/CourseListIcon.jpeg'
 
@@ -41,7 +42,7 @@ var Admin = React.createClass({
         <div className="animated addDeleteCourseWidgets">
                 <div className=" animated AddCoursewidget">
                   <div className="addCoursecover">
-                    <img src="https://s-media-cache-ak0.pinimg.com/originals/f0/b9/52/f0b9523dacbecc5bd4e2aae496a9c8c2.jpg" />
+                    <img src={greenWidget}/>
                   </div>
                 <Image className="addCoursephoto" src={CourseListIcon} circle/>
                 <div className="addACourseTitle">Add courses</div>
@@ -53,7 +54,7 @@ var Admin = React.createClass({
 
                 <div className=" animated deleteCoursewidget">
                   <div className="deleteCoursecover">
-                    <img src="http://www.techandall.com/wp-content/uploads/2013/08/bg6.jpg" />
+                    <img src={redWidget} />
                   </div>
                 <Image className="deleteCoursephoto" src={CourseListIcon} circle/>
                 <h2 className="DeleteCourses">Delete courses</h2>

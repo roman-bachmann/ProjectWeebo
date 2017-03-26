@@ -94,7 +94,6 @@ export class Contact extends React.Component {
       					</ul>
       				</div>
       			</div>
-
       		</div>
       	</div>
       </div>
