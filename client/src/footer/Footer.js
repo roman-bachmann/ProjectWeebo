@@ -4,52 +4,40 @@ import {Link} from 'react-router';
 import Facebook from '../img/facebook.png'
 import Twitter from '../img/twitter.png'
 
-var style = {
-    backgroundColor: "#3c3c3c",
-    borderTop: "1px solid #E7E7E7",
-    textAlign: "center",
-    padding: "20px",
-    position: "static",
-    left: "0",
-    bottom: "0",
-    height: "96px",
-    width: "100%",
-    marginTop: "300px",
-};
-
-var phantom = {
-  display: 'block',
-  padding: '20px',
-  height: '60px',
-  width: '100%',
-}
-
 const Footer = React.createClass({
     render: function() {
         return (
-      <div className="footerFoot">
-        <div style={phantom}/>
-            <div style={style}>
-            <div className="sidekart">
-             <ul className="li_sidekart">
-                 <li><Link to="/home">Home</Link></li>
-                 <li><Link to="/profile">Profile</Link></li>
-                 <li><Link to="/contact">Contact</Link></li>
-                 <li onClick={this.props.auth.logout.bind(this)}>Log out</li>
-             </ul>
-         </div>
-         <div className="sosial">
-             <ul className="li_sosialknapper">
-                 <li>
-                     <a href="https://www.facebook.com/Weebo-774288392725196/"><img src={Facebook}/></a>
-                 </li>
-                 <li>
-                     <a href="https://twitter.com/weeboteam"><img src={Twitter}/></a>
-                 </li>
-             </ul>
-         </div>
-    </div>
-  </div>
+          <div className="footer-distributed">
+            <div className="footer-wrap">
+      			<div className="footer-right">
+
+      				<a href="#"><i className="fa fa-facebook"></i></a>
+      				<a href="#"><i className="fa fa-twitter"></i></a>
+      				<a href="#"><i className="fa fa-google-plus"></i></a>
+      				<a href="#"><i className="fa fa-envelope"></i></a>
+
+      			</div>
+
+      			<div className="footer-left">
+
+      				<p className="footer-links">
+      					<a href="#">Home</a>
+
+      					<a href="#">Profile</a>
+
+      					<a href="#">Admin</a>
+
+      					<a href="#">About</a>
+
+      					<a href="#">Contact</a>
+
+      					<a href="#">Log out</a>
+      				</p>
+
+      				<p className="copyright">Team Weebo &copy; 2017</p>
+      			</div>
+            </div>
+      		</div>
         );
     }
 });
