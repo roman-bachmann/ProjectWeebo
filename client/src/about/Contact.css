@@ -104,7 +104,13 @@
 .member-profile{
   text-decoration: none !important;
     padding: 2px;
+    color: #1ea46f;
 }
+
+.teamSocialIcons{
+  color: #9abedd;
+}
+
 
 .member-profile:hover .unhover_img{
   display: none;

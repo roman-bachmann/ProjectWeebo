@@ -22,7 +22,7 @@ export class Contact extends React.Component {
       		<div className="TeamContainer">
       			<div className="col-md-8 col-md-offset-2">
       				<p className="animated AboutTeamWeebo">Team Weebo consists of 4 members; Sølve Hunvik (Developer), Roman Backmann (Developer), Thayanan Tharmapalan (Design & Front-end) & Emil Grip (Back-end). Please feel free to contact any of us if you have any questions or enqueries.</p>
-      			</div> 
+      			</div>
 
       			<div className="MainTeamBox">
       				<div className="animated TeamRow">
@@ -37,9 +37,9 @@ export class Contact extends React.Component {
       						<h4 className="wholeName"><span className="firstname">Sølve </span>Hunvik </h4>
       					</a>
       					<ul>
-      						<li><a href="#" target="_blank"><i className="fa fa-facebook"></i></a></li>
-      						<li><a href="#"  target="_blank"><i className="fa fa-linkedin"></i></a></li>
-      						<li><a href="#" target="_blank"><i className="fa fa-instagram"></i></a></li>
+      						<li><a href="#" target="_blank" className="teamSocialIcons"><i className="fa fa-facebook"></i></a></li>
+      						<li><a href="#"  target="_blank" className="teamSocialIcons"><i className="fa fa-linkedin"></i></a></li>
+      						<li><a href="#" target="_blank" className="teamSocialIcons"><i className="fa fa-instagram"></i></a></li>
       					</ul>
       				</div>
       				<div className="animated TeamRow">
@@ -54,9 +54,9 @@ export class Contact extends React.Component {
       						<h4 className="wholeName"><span className="firstname">Roman</span> Bachmann</h4>
       					</a>
       					<ul>
-      						<li><a href="#" target="_blank"><i className="fa fa-facebook"></i></a></li>
-      						<li><a href="#"  target="_blank"><i className="fa fa-linkedin"></i></a></li>
-      						<li><a href="#" target="_blank"><i className="fa fa-instagram"></i></a></li>
+      						<li><a href="#" target="_blank" className="teamSocialIcons"><i className="fa fa-facebook"></i></a></li>
+      						<li><a href="#"  target="_blank" className="teamSocialIcons"><i className="fa fa-linkedin"></i></a></li>
+      						<li><a href="#" target="_blank" className="teamSocialIcons"><i className="fa fa-instagram"></i></a></li>
       					</ul>
       				</div>
       				<div className="animated TeamRow">
@@ -71,9 +71,9 @@ export class Contact extends React.Component {
       						<h4 className="wholeName"><span className="firstname">Thayanan</span> Tharmapalan</h4>
       					</a>
       					<ul>
-      						<li><a href="#" target="_blank"><i className="fa fa-facebook"></i></a></li>
-      						<li><a href="#"  target="_blank"><i className="fa fa-linkedin"></i></a></li>
-      						<li><a href="#" target="_blank"><i className="fa fa-instagram"></i></a></li>
+      						<li><a href="#" target="_blank" className="teamSocialIcons"><i className="fa fa-facebook"></i></a></li>
+      						<li><a href="#"  target="_blank" className="teamSocialIcons"><i className="fa fa-linkedin"></i></a></li>
+      						<li><a href="#" target="_blank" className="teamSocialIcons"><i className="fa fa-instagram"></i></a></li>
       					</ul>
       				</div>
       				<div className="animated TeamRow">
@@ -88,9 +88,9 @@ export class Contact extends React.Component {
       						<h4 className="wholeName"><span className="firstname">Emil</span> Grip</h4>
       					</a>
       					<ul>
-      						<li><a href="#" target="_blank"><i className="fa fa-facebook"></i></a></li>
-      						<li><a href="#"  target="_blank"><i className="fa fa-linkedin"></i></a></li>
-      						<li><a href="#" target="_blank"><i className="fa fa-instagram"></i></a></li>
+      						<li><a href="#" target="_blank" className="teamSocialIcons"><i className="fa fa-facebook"></i></a></li>
+      						<li><a href="#"  target="_blank" className="teamSocialIcons"><i className="fa fa-linkedin"></i></a></li>
+      						<li><a href="#" target="_blank" className="teamSocialIcons"><i className="fa fa-instagram"></i></a></li>
       					</ul>
       				</div>
       			</div>
