@@ -121,7 +121,7 @@ var NavBar = React.createClass({
                         </Nav>
                     ) : (
                         <Nav pullRight>
-                            <NavItem eventKey={99} onClick={this.props.auth.login.bind(this)}><Glyphicon glyph="glyphicon glyphicon-log-in"/>Log In / Sign Up</NavItem>
+                            <NavItem eventKey={99} onClick={this.props.auth.login.bind(this)}><Glyphicon glyph="glyphicon glyphicon-log-in"/> Log In / Sign Up</NavItem>
                         </Nav>
                     )}
 
