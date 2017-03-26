@@ -6,7 +6,7 @@
 
 /* service section */
 
-.aboutSectionTitle {
+.aboutWorkflowSectionTitle {
   border-bottom: 2px solid #49b59d;
   display: inline-block;
 text-align: center;
@@ -17,12 +17,27 @@ text-align: center;
   color: #425d58;
 }
 
+.aboutSectionTitle {
+  border-bottom: 2px solid #58b0e8;
+  display: inline-block;
+text-align: center;
+ padding-bottom: 30px;
+  font-family: "Webly Sleek";
+  padding-left: 2px;
+  font-size: 24px;
+  color: #425d58;
+}
+
+.aboutWeebo {
+  font-size: 18px;
+}
+
 .service {
   padding-top: 100px;
   padding-bottom: 80px;
 }
 
-.aboutIcons {
+.aboutWorkflowIcons {
   border: 2px solid white;
   border-top: 2px solid #81d5a9;
   border-bottom: 3px solid #32c1a3;
@@ -36,6 +51,22 @@ text-align: center;
   width: 40px;
   height: 40px;
 }
+
+.aboutIcons {
+  border: 2px solid white;
+  border-top: 2px solid #69c7e8;
+  border-bottom: 3px solid #5a77ae;
+  border-radius: 100%;
+  font-size: 25px;
+  color: #35b3e6;
+  text-align: center;
+  vertical-align: middle;
+  margin-top: 50px;
+  padding: 20px;
+  width: 40px;
+  height: 40px;
+}
+
 
 .serviceTitle {
   font-family: "Webly Sleek";
@@ -79,4 +110,9 @@ height: 1px;
 .aboutSectionHr{
   animation-name: bounceInUp;
   -webkit-animation-name: bounceInUp;
+}
+
+.aboutAppImage {
+  height: 280px;
+  margin: auto;
 }
