@@ -161,8 +161,14 @@ var SubChapterContent = React.createClass({
 								<Col md={4}>
 									{this.moderateButton(v.videoID, v.userID)}
                                     {this.recommendButton(v.videoID, v.Favorite)}
-								</Col>
+                </Col>
 							</Row>
+              <div>
+                    {v.Favorite === 1 ? <Row className="recommended">
+                      <Glyphicon glyph="glyphicon glyphicon-arrow-up"/> This video is recommended by a Professor! <Glyphicon glyph="glyphicon glyphicon-star-empty"/>
+                    </Row>
+                    :null}
+                  </div>
 						</Col>
             <div className="commentsWidget">
               <div className="publishedInfo">Published by Thayanan Tharmapalan on 12.02.17</div>
@@ -170,12 +176,7 @@ var SubChapterContent = React.createClass({
             <Row className="comment">
               <i className="fa fa-quote-left"/> {v.Description} <i className="fa fa-quote-right"/>
             </Row>
-            <div>
-              {v.Favorite === 1 ? <Row className="recommended">
-                <Glyphicon glyph="glyphicon glyphicon-arrow-left"/><strong> This video is recommended by a Professor! </strong><Glyphicon glyph="glyphicon glyphicon-star-empty"/>
-              </Row>
-              :null}
-            </div>
+
             </div>
 
 

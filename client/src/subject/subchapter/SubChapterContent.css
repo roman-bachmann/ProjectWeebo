@@ -70,18 +70,17 @@
 
 .recommended {
   font-family: "Webly Sleek";
-  font-size: 15px;
-  margin-top: 12px;
-  color: #519d9b;
-  font-weight: 800;
+  font-size: 17px;
+  color: #11aa51;
+  font-weight: 900;
   text-align: center;
-  margin-top: 140px;
+  padding-top: 8px;
 }
 
  .btnStar_Recommended {
    float: right;
    border-radius: 50%;
-   color: #c5d427;
+   color: #f5e11d;
    font-size: 18px;
    width: 40px;
    height: 40px;
