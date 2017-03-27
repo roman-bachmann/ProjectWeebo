@@ -61,24 +61,10 @@ export class About extends React.Component {
   <div>
     <hr className="animated aboutSectionHr"/>
   </div>
-
-  <div className="service">
-    <div className="container">
-<div className="animated col-md-12 col-sm-12">
-<h2 className="aboutWorkflowSectionTitle">Future Plans</h2>
-<p className="aboutWeebo">Team Weebo is continiously working on improving the user experience. Our next goal is to make Weebo fully compitable to mobile devices with apps launching for both Andorid and iOS devices as well as Apple TV 4.</p>
-</div>
-<img src={AppImage} className="aboutAppImage"/>
-</div>
-</div>
-<div>
-<hr className="animated aboutSectionHr"/>
-</div>
-
 <div className="service">
   <div className="container">
 <div className="animated col-md-12 col-sm-12">
-<h2 className="aboutWorkflowSectionTitle">Follow Us</h2>
+<h2 className="aboutSectionTitle">Follow Us</h2>
 <p className="aboutWeebo">Follow us on social media to catch up with the latest news and updates from Team Weebo. Please share Weebo with friends and family if you like the website. Thanks!</p>
 </div>
 <div className="animated col-md-4 col-sm-4">
@@ -98,6 +84,21 @@ export class About extends React.Component {
 <div>
 <hr className="animated aboutSectionHr"/>
 </div>
+
+
+  <div className="service">
+    <div className="container">
+<div className="animated col-md-12 col-sm-12">
+<h2 className="aboutWorkflowSectionTitle">Future Plans</h2>
+<p className="aboutWeebo">Team Weebo is continiously working on improving the user experience. Our next goal is to make Weebo fully compitable to mobile devices with apps launching for both Andorid and iOS devices as well as Apple TV 4 in a couple of months.</p>
+</div>
+<img src={AppImage} className="aboutAppImage"/>
+</div>
+</div>
+<div>
+<hr className="animated aboutSectionHr"/>
+</div>
+
 
 </div>
     )
