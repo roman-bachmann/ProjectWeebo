@@ -60,6 +60,7 @@ height: 200px;
 	text-align: center;
 	line-height: 35px;
 	margin-left: 3px;
+  border-radius: 50%
 }
 
 /* If you don't want the footer to be responsive, remove these media queries */

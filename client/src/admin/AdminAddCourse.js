@@ -1,6 +1,6 @@
 import React from 'react'
 import Client from '../Client.js'
-import {Button, FormGroup, ControlLabel, FormControl, HelpBlock} from 'react-bootstrap';
+import {Button, FormGroup, ControlLabel, FormControl, HelpBlock, Glyphicon} from 'react-bootstrap';
 
 var AdminAddCourse = React.createClass({
     getInitialState: function () {
@@ -65,7 +65,7 @@ var AdminAddCourse = React.createClass({
                     <FormControl.Feedback />
                 </FormGroup>
 
-                <Button className="submitCourse" onClick={this.handleSubmitCourse}>Submit</Button>
+                <Button className="submitCourse" onClick={this.handleSubmitCourse}>  <Glyphicon  className="submitCourseGlyph" glyph="glyphicon glyphicon-ok"/></Button>
             </form>
         )
     }

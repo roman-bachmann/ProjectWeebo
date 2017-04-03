@@ -232,3 +232,25 @@
   padding-right: 40px;
   padding-bottom: 5px;
 }
+
+.submitCourse{
+  font-size: 12px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+text-align: center;
+  background-color: white;
+   background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(white));
+   background-image: -webkit-linear-gradient(top, white, white);
+   background-image: -moz-linear-gradient(top, white, white);
+   background-image: -ms-linear-gradient(top, white, white);
+   background-image: -o-linear-gradient(top, white, white);
+   background-image: linear-gradient(top, white, white);
+   -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
+   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
+   box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
+}
+
+.submitCourseGlyph{
+  color: green;
+}

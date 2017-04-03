@@ -20,18 +20,15 @@
   height: 35px;
 text-align: center;
   background-color: #eaeaea;
-   background-image: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#eaeaea));
-   background-image: -webkit-linear-gradient(top, #f6f6f6, #eaeaea);
-   background-image: -moz-linear-gradient(top, #f6f6f6, #eaeaea);
-   background-image: -ms-linear-gradient(top, #f6f6f6, #eaeaea);
-   background-image: -o-linear-gradient(top, #f6f6f6, #eaeaea);
-   background-image: linear-gradient(top, #f6f6f6, #eaeaea);
-   -moz-border-radius: 32px;
-   -webkit-border-radius: 32px;
-   border-radius: 32px;
-   -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
-   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
-   box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(white));
+  background-image: -webkit-linear-gradient(top, white, white);
+  background-image: -moz-linear-gradient(top, white, white);
+  background-image: -ms-linear-gradient(top, white, white);
+  background-image: -o-linear-gradient(top, white, white);
+  background-image: linear-gradient(top, white, white);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
 }
 
 .CourseRemove {
@@ -54,4 +51,9 @@ tr th {
   padding: 6px;
   padding-left: 4px;
   padding-right: 4px;
+}
+
+tr  {
+  border: 0.125px solid white;
+  border-bottom-color: #f2f2f2;
 }
