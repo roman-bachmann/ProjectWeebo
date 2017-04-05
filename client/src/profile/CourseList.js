@@ -1,14 +1,29 @@
 import React from 'react';
-import {Button, Glyphicon, Table} from 'react-bootstrap';
+import {Button, Glyphicon, Table, Modal} from 'react-bootstrap';
 import Client from '../Client.js';
 import './CourseList.css'
 
 var CourseList = React.createClass({
+    getInitialState: function () {
+        return {
+            showModal: false,
+            openModal: ""
+        }
+    },
 
+    closeModal: function () {
+        this.setState({ showModal: false });
+    },
 
-    deleteCourseForUser: function (subjectID, userID) {
+    openModal: function (modalId) {
+        this.setState({ showModal: true });
+        this.setState({ openModalId: modalId });
+    },
+
+    handleRemoveButton: function (subjectID, userID) {
         Client.deleteSubjectForUser(subjectID, userID);
-        this.props.onCourseAdd(this.props.userID);
+        this.props.onCourseAdd(userID);
+        this.closeModal();
     },
 
     render: function () {
@@ -17,10 +32,23 @@ var CourseList = React.createClass({
                 <th>{c.subjectID}</th>
                 <th>{c.name}</th>
                 <th>
-                    <Button className="removeCourseButton" onClick={() => this.deleteCourseForUser(c.subjectID, this.props.userID)}>
+                    <Button className="removeCourseButton" onClick={() => this.openModal(c.subjectID)}>
                         <Glyphicon className="CourseRemove" glyph="glyphicon glyphicon-remove"/>
                     </Button>
                 </th>
+                <Modal show={this.state.showModal && this.state.openModalId === c.subjectID} onHide={this.closeModal}>
+                    <Modal.Header closeButton>
+                        <Modal.Title><Glyphicon glyph="glyphicon glyphicon-remove"/> Remove course</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <p>Are you sure that you want to remove the course <strong>{c.subjectID + " - " + c.name}</strong> from your courses?</p>
+                        <p>Courses can be added again via  <span className="noCourses"><Glyphicon glyph="glyphicon glyphicon-education"/> Courses <Glyphicon glyph="glyphicon glyphicon-arrow-right"/> <Glyphicon glyph="glyphicon glyphicon-pencil"/> Add courses </span></p>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button onClick={this.closeModal}>Abort</Button>
+                        <Button onClick={() => this.handleRemoveButton(c.subjectID, this.props.userID)}>Remove course</Button>
+                    </Modal.Footer>
+                </Modal>
             </tr>
         ));
 
