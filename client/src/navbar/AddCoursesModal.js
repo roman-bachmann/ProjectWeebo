@@ -2,6 +2,7 @@ var React = require('react');
 import {Modal, Button, ButtonToolbar, Glyphicon} from 'react-bootstrap';
 import {Typeahead} from 'react-bootstrap-typeahead';
 import Client from '../Client.js';
+import Alert from 'react-s-alert';
 import './AddCoursesModal.css';
 
 var AddCoursesModal = React.createClass({
@@ -29,6 +30,12 @@ var AddCoursesModal = React.createClass({
         }
         this._typeahead.getInstance().clear()
         this.props.onCourseAdd(this.props.userID);
+        Alert.success('Course(s) successfully added!', {
+            position: 'top-right',
+            effect: 'slide',
+            timeout: 4000,
+            offset: 50
+        });
     },
 
     render: function () {

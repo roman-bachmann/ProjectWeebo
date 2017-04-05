@@ -3,6 +3,7 @@ import {Modal, Button, Glyphicon, Popover, ButtonToolbar, Overlay} from 'react-b
 var YouTube = require('./YouTubePlayer.js');
 import './AddVideoModal.css';
 import Client from '../../Client.js';
+import Alert from 'react-s-alert';
 
 const MySmallModal = React.createClass({
   getInitialState: function () {
@@ -64,6 +65,13 @@ const MySmallModal = React.createClass({
     }else{
       this.setState({ target: e.target, show: !this.state.show });
     }
+
+    Alert.success('Video successfully added!', {
+        position: 'top-right',
+        effect: 'slide',
+        timeout: 4000,
+        offset: 50
+    });
 
   },
   videoSiteChange: function(e) {

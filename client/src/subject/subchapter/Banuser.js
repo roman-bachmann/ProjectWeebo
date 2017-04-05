@@ -3,6 +3,7 @@ import {Modal, Button, Glyphicon, Popover, ButtonToolbar, Overlay} from 'react-b
 import Client from '../../Client.js';
 import DatePicker from 'material-ui/DatePicker';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Alert from 'react-s-alert';
 import './Banuser.css';
 
 
@@ -39,6 +40,12 @@ const MySmallModal = React.createClass({
     console.log(date);
     Client.banUser(this.props.userID, date, this.props.subject);
     this.props.onHide();
+    Alert.success('User successfully banned!', {
+        position: 'top-right',
+        effect: 'slide',
+        timeout: 4000,
+        offset: 50
+    });
   },
   render() {
     var tomorrow = new Date();
