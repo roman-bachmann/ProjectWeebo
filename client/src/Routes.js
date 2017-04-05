@@ -25,9 +25,11 @@ const requireAuth = (nextState, replace) => {
 
 // onEnter callback to require admin role
 const requireAdminAuth = (nextState, replace) => {
-  if (!auth.isAdmin()) {
-    replace({ pathname: '/unauthorized' })
-  }
+    if (!auth.loggedIn()) {
+      replace({ pathname: '/login' })
+    } else if (!auth.isAdmin()) {
+        replace({ pathname: '/unauthorized' })
+    }
 }
 
 var Routes = React.createClass({
