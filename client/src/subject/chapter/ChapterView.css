@@ -18,6 +18,6 @@
 }
 
 .chapterStack {
-    -webkit-animation-name: bounce;
-    animation-name: bounce;
+    -webkit-animation-name: pulse;
+    animation-name: pulse;
 }
