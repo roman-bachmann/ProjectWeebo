@@ -143,3 +143,8 @@ NavDropdown .coursesNames:hover {
 .navbar-inverse .navbar-nav>li>a:focus {
   color: #3cb979;
 }
+
+.profileNavPhoto{
+  height: 27.5px;
+  border: 0.1px solid #9ff2c7;
+}

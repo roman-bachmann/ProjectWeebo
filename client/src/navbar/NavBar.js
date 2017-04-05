@@ -98,7 +98,7 @@ var NavBar = React.createClass({
                             }
                             <LinkContainer className="Nav__link" to="/profile">
                                 <NavItem eventKey={88}>
-                                    <Image className="photo" src={this.props.profile.picture} circle/> Profile
+                                    <Image className="profileNavPhoto" src={this.props.profile.picture} circle/> Profile
                                 </NavItem>
                             </LinkContainer>
                             <NavItem eventKey={111} onClick={this.props.auth.logout.bind(this)}><Glyphicon glyph="glyphicon glyphicon-log-out"/> Log Out</NavItem>
