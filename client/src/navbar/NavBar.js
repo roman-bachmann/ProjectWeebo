@@ -1,7 +1,7 @@
 var React = require('react');
 import './NavBar.css';
 import '../fonts/fontawesome/css/font-awesome.css'
-import {Glyphicon} from 'react-bootstrap';
+import {Image, Glyphicon} from 'react-bootstrap';
 
 var FontAwesome = require('react-fontawesome');
 var Navbar = require("react-bootstrap/lib/Navbar");
@@ -98,7 +98,7 @@ var NavBar = React.createClass({
                             }
                             <LinkContainer className="Nav__link" to="/profile">
                                 <NavItem eventKey={88}>
-                                    <Glyphicon glyph="glyphicon glyphicon-user"/> Profile
+                                    <Image className="photo" src={this.props.profile.picture} circle/> Profile
                                 </NavItem>
                             </LinkContainer>
                             <NavItem eventKey={111} onClick={this.props.auth.logout.bind(this)}><Glyphicon glyph="glyphicon glyphicon-log-out"/> Log Out</NavItem>

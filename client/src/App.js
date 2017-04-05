@@ -24,7 +24,8 @@ export class App extends React.Component {
         this.state = {
             userID: {},
             courses: [{}],
-            selectedCourse: {}
+            selectedCourse: {},
+            profile: {}
         }
 
         this.changeSelectedCourse = this.changeSelectedCourse.bind(this)
@@ -39,6 +40,7 @@ export class App extends React.Component {
         var auth = this.props.route.auth;
         if (auth.getProfile()) {
             this.handleUserChange(auth.getProfile().user_id);
+            this.setState({ profile: auth.getProfile() })
         }
     }
 
@@ -80,7 +82,8 @@ export class App extends React.Component {
                     onCourseChange={this.changeSelectedCourse}
                     auth={this.props.route.auth}
                     userID={this.state.userID}
-                    onCourseAdd={this.handleCourses.bind(this)} />
+                    onCourseAdd={this.handleCourses.bind(this)}
+                    profile={this.state.profile} />
 
                 <div className="App">
                     {childrenWithProps}
