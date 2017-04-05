@@ -1,12 +1,13 @@
 import React from 'react';
 import {Button, Glyphicon, Table, Modal} from 'react-bootstrap';
+import Alert from 'react-s-alert';
 import Client from '../Client.js';
 
 var CourseList = React.createClass({
     getInitialState: function () {
         return {
             showModal: false,
-            openModal: ""
+            openModalId: ""
         }
     },
 
@@ -22,6 +23,12 @@ var CourseList = React.createClass({
     handleDeleteButton: function (subjectID) {
         this.props.deleteCourse(subjectID);
         this.closeModal();
+        Alert.success('Course successfully deleted!', {
+            position: 'top-right',
+            effect: 'slide',
+            timeout: 4000,
+            offset: 50
+        });
     },
 
     render: function () {

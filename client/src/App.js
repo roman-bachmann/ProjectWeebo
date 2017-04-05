@@ -16,6 +16,9 @@ import Client from './Client';
 import AuthService from './auth/AuthService.js'
 import {Router, Route, browserHistory, IndexRoute} from 'react-router';
 
+import Alert from 'react-s-alert';
+import 'react-s-alert/dist/s-alert-default.css';
+import 'react-s-alert/dist/s-alert-css-effects/slide.css';
 
 export class App extends React.Component {
 
@@ -92,7 +95,7 @@ export class App extends React.Component {
                 </div>
 
                 <Footer auth={this.props.route.auth} />
-
+                <Alert stack={{limit: 3}} />
             </div>
         );
     }

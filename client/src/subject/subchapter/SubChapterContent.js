@@ -1,13 +1,15 @@
 var React = require('react');
 import './SubChapterContent.css';
 import {Row, Col, Grid} from 'react-bootstrap';
-import {Button, Dropdown, MenuItem, Glyphicon, OverlayTrigger, Tooltip} from 'react-bootstrap';
+import {Button, Dropdown, MenuItem, Glyphicon, OverlayTrigger, Tooltip, Modal} from 'react-bootstrap';
 var YouTube = require('./YouTubePlayer.js');
 var Upvote = require('./Upvote.js');
 var VideoModal = require('./AddVideoModal.js');
 var Banuser = require('./Banuser.js');
+import Alert from 'react-s-alert';
 import Client from '../../Client.js';
 import '../../fonts/fontawesome/css/font-awesome.css'
+import commentsIcon from '../../img/commentsIcon.png'
 
 const tooltipRecommend = (
   <Tooltip id="tooltip-recommend"><strong>Recommend</strong> this video!</Tooltip>
@@ -30,7 +32,9 @@ var SubChapterContent = React.createClass({
 			videoColor: ColorsClicked.Clicked,
 			discussColor: ColorsClicked.Unclicked,
 			videoActive: this.props.needActive,
-			comments: []
+			comments: [],
+            showDeleteModal: false,
+            openDeleteModalId: ""
 		};
 	},
 
@@ -85,12 +89,32 @@ var SubChapterContent = React.createClass({
     },
 
 	handleModerateDropdown: function (eventKey, videoID) {
-			if (eventKey === 'deleteVideoKey') {
-				Client.deleteVideo(videoID, () => this.triggerReloadVideos());
-			} else if (eventKey === 'banUserKey') {
+		if (eventKey === 'deleteVideoKey') {
+            this.openDeleteModal(videoID);
+		} else if (eventKey === 'banUserKey') {
+            // Handled in modal
+		}
+	},
 
-			}
-		},
+    closeDeleteModal: function () {
+        this.setState({ showDeleteModal: false });
+    },
+
+    openDeleteModal: function (modalId) {
+        this.setState({ showDeleteModal: true });
+        this.setState({ openDeleteModalId: modalId });
+    },
+
+    handleDeleteVideoButton: function (videoID) {
+        Client.deleteVideo(videoID, () => this.triggerReloadVideos());
+        Alert.success('Video successfully deleted!', {
+            position: 'top-right',
+            effect: 'slide',
+            timeout: 4000,
+            offset: 50
+        });
+        this.closeModal();
+    },
 
 	handleRecommendVideo: function(videoID) {
         Client.recommendVideo(this.props.subject.subjectID,
@@ -107,6 +131,7 @@ var SubChapterContent = React.createClass({
                               videoID,
                               () => this.triggerReloadVideos());
 	},
+
 	moderateButton: function (videoID, userID) {
 		let closeBanModal = () => this.setState({showBanModal: false});
 		if (this.props.auth.isAdmin() ||
@@ -114,13 +139,27 @@ var SubChapterContent = React.createClass({
 			this.props.auth.isStudass()) {
 			return (
 				<Dropdown id={"moderateButtonDropdown-" + videoID}
-						  onSelect={(evt) => this.handleModerateDropdown(evt, videoID)}>
+						  onSelect={(evt) => this.handleModerateDropdown(evt, videoID)}
+                          dropup >
 					<Dropdown.Toggle className="ModerateButton">
 						<Glyphicon glyph="glyphicon glyphicon-cog"/> Moderate
 				    </Dropdown.Toggle>
 					<Dropdown.Menu className="super-colors">
 						<MenuItem eventKey="deleteVideoKey">
 							<Glyphicon glyph="glyphicon glyphicon-trash"/> Delete Video
+                            <Modal show={this.state.showDeleteModal && this.state.openDeleteModalId === videoID} onHide={this.closeDeleteModal}>
+                                <Modal.Header closeButton>
+                                    <Modal.Title><Glyphicon glyph="glyphicon glyphicon-trash"/> Delete video</Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body>
+                                    <p>Are you sure that you want to delete this video?</p>
+                                    <p><strong>This action cannot be undone!</strong></p>
+                                </Modal.Body>
+                                <Modal.Footer>
+                                    <Button onClick={this.closeDeleteModal}>Abort</Button>
+                                    <Button onClick={() => this.handleDeleteVideoButton(videoID)}>Delete video</Button>
+                                </Modal.Footer>
+                            </Modal>
 						</MenuItem>
 						<MenuItem onSelect={()=>this.setState({ showBanModal: true })} eventKey="banUserKey">
 							<Glyphicon glyph="glyphicon glyphicon-remove-sign"/> Ban User
@@ -190,6 +229,7 @@ var SubChapterContent = React.createClass({
         var videosList = null;
 		if (this.state.videos) {
 			videosList = this.state.videos.map( (v, idx) => (
+<<<<<<< HEAD
 				<div>
 					{this.props.activePanel === this.state.videoActive ?
 					<Row className="contentRow">
@@ -267,7 +307,7 @@ var SubChapterContent = React.createClass({
 					subchapter={this.props.subchapter.subChapterID}
 					userID={this.props.userID}
 					bantime={this.props.bantime}
-                    reloadOnSubmit={this.triggerReloadVideos} 
+                    reloadOnSubmit={this.triggerReloadVideos}
                     profile={this.props.profile}/>
 
 			</div>

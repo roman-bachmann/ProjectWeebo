@@ -1,6 +1,7 @@
 import React from 'react'
 import Client from '../Client.js'
 import {Button, FormGroup, ControlLabel, FormControl, HelpBlock, Glyphicon} from 'react-bootstrap';
+import Alert from 'react-s-alert';
 
 var AdminAddCourse = React.createClass({
     getInitialState: function () {
@@ -35,6 +36,12 @@ var AdminAddCourse = React.createClass({
                             () => this.props.reloadAllCourses());
         this.setState({newCourseID: "",
                        newCourseName: ""});
+        Alert.success('Course successfully created!', {
+            position: 'top-right',
+            effect: 'slide',
+            timeout: 4000,
+            offset: 50
+        });
     },
 
 

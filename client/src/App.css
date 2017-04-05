@@ -34,3 +34,16 @@ body {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.s-alert-success{
+  background-color: #21a497!important;
+  color: white  !important;
+}
+
+.s-alert-box {
+  font-family: "Webly Sleek" !important;
+}
+
+.s-alert-close{
+  color: #21a497 !important;
+}
