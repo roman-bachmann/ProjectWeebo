@@ -8,6 +8,7 @@ var VideoModal = require('./AddVideoModal.js');
 var Banuser = require('./Banuser.js');
 import Client from '../../Client.js';
 import '../../fonts/fontawesome/css/font-awesome.css'
+import commentsIcon from '../../img/commentsIcon.png'
 
 const tooltipRecommend = (
   <Tooltip id="tooltip-recommend"><strong>Recommend</strong> this video!</Tooltip>
@@ -172,6 +173,7 @@ var SubChapterContent = React.createClass({
 						</Col>
             <div className="commentsWidget">
               <div className="publishedInfo">Published by {v.fullName} on {v.addDate.substring(0,10)}</div>
+              <img className="publishedImage" src={commentsIcon} circle/>
             <Row className="comment">
               <i className="fa fa-quote-left"/> {v.Description} <i className="fa fa-quote-right"/>
             </Row>
@@ -202,7 +204,7 @@ var SubChapterContent = React.createClass({
 					subchapter={this.props.subchapter.subChapterID}
 					userID={this.props.userID}
 					bantime={this.props.bantime}
-                    reloadOnSubmit={this.triggerReloadVideos} 
+                    reloadOnSubmit={this.triggerReloadVideos}
                     profile={this.props.profile}/>
 
 			</div>

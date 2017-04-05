@@ -180,10 +180,10 @@
 }
 
 .publishedImage {
-  border-radius: 50%;
-  box-shadow: 0px 8px 10px 0px grey, inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px white;
-  -webkit-transition: all .1s linear;
-  transition: all .1s linear;
+  border-radius: 4px;
+  height: 38px;
+  width: 38px;
+  opacity: 0.65;
 
 }
 
