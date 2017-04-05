@@ -171,7 +171,7 @@ var SubChapterContent = React.createClass({
                   </div>
 						</Col>
             <div className="commentsWidget">
-              <div className="publishedInfo">Published by {this.props.userID} on {v.addDate.substring(0,10)}</div>
+              <div className="publishedInfo">Published by {v.fullName} on {v.addDate.substring(0,10)}</div>
             <Row className="comment">
               <i className="fa fa-quote-left"/> {v.Description} <i className="fa fa-quote-right"/>
             </Row>
@@ -202,7 +202,8 @@ var SubChapterContent = React.createClass({
 					subchapter={this.props.subchapter.subChapterID}
 					userID={this.props.userID}
 					bantime={this.props.bantime}
-                    reloadOnSubmit={this.triggerReloadVideos} />
+                    reloadOnSubmit={this.triggerReloadVideos} 
+                    profile={this.props.profile}/>
 
 			</div>
 		);

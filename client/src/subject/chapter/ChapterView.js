@@ -63,7 +63,8 @@ var Tabs = React.createClass({
 						chapter={this.state.chapters[idx]}
 						chapId={'chap' + idx}
 						userID={this.props.userID}
-						auth={this.props.auth}/>
+						auth={this.props.auth}
+						profile={this.props.profile}/>
 				:null}
 			</Tab.Pane>
 			);

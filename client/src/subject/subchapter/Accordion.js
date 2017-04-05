@@ -78,7 +78,8 @@ var AccordionBoot = React.createClass({
                                 activePanel={this.state.activePanel}
                                 userID={this.props.userID}
                                 auth={this.props.auth}
-                                bantime={this.state.ban_time} />
+                                bantime={this.state.ban_time} 
+                                profile={this.props.profile}/>
                       </Panel>
 
                     );

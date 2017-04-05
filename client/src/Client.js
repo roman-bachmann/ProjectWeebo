@@ -70,9 +70,9 @@ function getFavoriteVideo(userID, videoID, cb) {
      .then(cb);
 }
 
-function videoShare(userID, subjectID, chapterID, subChapterID, videoID, description, cb) {
+function videoShare(userID, subjectID, chapterID, subChapterID, videoID, description, fullName, cb) {
   console.log("post video...")
-  fetch(`api/shareVideo?user=${userID}&subj=${subjectID}&chap=${chapterID}&subc=${subChapterID}&vid=${videoID}&d=${description}`, {
+  fetch(`api/shareVideo?user=${userID}&subj=${subjectID}&chap=${chapterID}&subc=${subChapterID}&vid=${videoID}&d=${description}&fn=${fullName}`, {
        method: 'post'
   }).then(cb);
 }

@@ -71,7 +71,8 @@ export class App extends React.Component {
                 userID: this.state.userID,
                 courses: this.state.courses,
                 onCourseChange: this.changeSelectedCourse,
-                onCourseAdd: this.handleCourses.bind(this)
+                onCourseAdd: this.handleCourses.bind(this),
+                profile: this.state.profile
             })
         );
 
