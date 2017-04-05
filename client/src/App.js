@@ -33,6 +33,7 @@ export class App extends React.Component {
         // Listen to profile_updated events to update internal state
         props.route.auth.on('profile_updated', (newProfile) => {
             this.handleUserChange(newProfile.user_id);
+            this.setState({ profile: newProfile });
         })
     }
 
@@ -40,7 +41,7 @@ export class App extends React.Component {
         var auth = this.props.route.auth;
         if (auth.getProfile()) {
             this.handleUserChange(auth.getProfile().user_id);
-            this.setState({ profile: auth.getProfile() })
+            this.setState({ profile: auth.getProfile() });
         }
     }
 
