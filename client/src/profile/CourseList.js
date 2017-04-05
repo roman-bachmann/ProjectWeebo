@@ -1,7 +1,10 @@
 import React from 'react';
 import {Button, Glyphicon, Table, Modal} from 'react-bootstrap';
 import Client from '../Client.js';
-import './CourseList.css'
+
+import Alert from 'react-s-alert';
+
+import './CourseList.css';
 
 var CourseList = React.createClass({
     getInitialState: function () {
@@ -24,6 +27,12 @@ var CourseList = React.createClass({
         Client.deleteSubjectForUser(subjectID, userID);
         this.props.onCourseAdd(userID);
         this.closeModal();
+        Alert.success('Course successfully removed!', {
+            position: 'top-right',
+            effect: 'slide',
+            timeout: 300000,
+            offset: 50
+        });
     },
 
     render: function () {
