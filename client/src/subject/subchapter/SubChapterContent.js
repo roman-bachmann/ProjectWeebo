@@ -171,8 +171,7 @@ var SubChapterContent = React.createClass({
                   </div>
 						</Col>
             <div className="commentsWidget">
-              <div className="publishedInfo">Published by Thayanan Tharmapalan on 12.02.17</div>
-              <img className="publishedImage" src="http://en.gravatar.com/userimage/100168919/8cdea380c94fe6c69f9ab909302d7e26.jpeg" circle/>
+              <div className="publishedInfo">Published by {this.props.userID} on {v.addDate.substring(0,10)}</div>
             <Row className="comment">
               <i className="fa fa-quote-left"/> {v.Description} <i className="fa fa-quote-right"/>
             </Row>
