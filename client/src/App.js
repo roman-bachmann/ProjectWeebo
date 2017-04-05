@@ -17,8 +17,8 @@ import AuthService from './auth/AuthService.js'
 import {Router, Route, browserHistory, IndexRoute} from 'react-router';
 
 import Alert from 'react-s-alert';
-import 'react-s-alert/dist/s-alert-default.css';
-import 'react-s-alert/dist/s-alert-css-effects/slide.css';
+import './notification/s-alert-default.css';
+import './notification/slide.css';
 
 export class App extends React.Component {
 
