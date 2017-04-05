@@ -270,7 +270,7 @@ var SubChapterContent = React.createClass({
 
 		var discussList = null;
 		if(this.state.comments){
-			discussList = this.state.comments.map( (d, idx) => ( 
+			discussList = this.state.comments.map( (d, idx) => (
 				<div>
 					{this.state.discussColor === ColorsClicked.Clicked ?
 					<Row className="contentRow">
@@ -285,10 +285,10 @@ var SubChapterContent = React.createClass({
 				<Grid bsClass="container" className="subGrid">
 					<Row>
 					<button className="videoPanelBtn" style={{backgroundColor: this.state.videoColor}}
-					onClick={this.handleVideoPanel}><span><Glyphicon glyph="glyphicon glyphicon-play-circle"/>Videos</span></button>
+					onClick={this.handleVideoPanel}><span><Glyphicon glyph="glyphicon glyphicon-play-circle"/>  Videos</span></button>
 
 					<button className="discussPanelBtn" style={{backgroundColor: this.state.discussColor}}
-					onClick={this.handleDiscussPanel}><span><Glyphicon glyph="glyphicon glyphicon-comment"/>Discussion </span></button>
+					onClick={this.handleDiscussPanel}><span><Glyphicon glyph="glyphicon glyphicon-comment"/>  Discussion </span></button>
 
 					{this.state.videoColor === ColorsClicked.Clicked ?
 						<button className="shareBtn"
@@ -297,7 +297,7 @@ var SubChapterContent = React.createClass({
 					</Row>
 					{videosList}
 					{discussList}
-					
+
 				</Grid>
 
 				<VideoModal
