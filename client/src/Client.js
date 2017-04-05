@@ -39,6 +39,13 @@ function getVideosForSubChapter(subjectID, chapterID, subChapterID, cb) {
       .then(parseJSON)
       .then(cb);
 }
+function getCommentsForSubChapter(subjectID, chapterID, subChapterID, cb) {
+  return fetch(`api/getComments?s=${subjectID}&c=${chapterID}&sc=${subChapterID}`, {
+        accept: 'application/json',
+    }).then(checkStatus)
+      .then(parseJSON)
+      .then(cb);
+}
 
 function getRating(userID, videoID, rating_score, date_rated, cb) {
    return fetch(`api/getRating?u=${userID}&v=${videoID}&r=${rating_score}&d=${date_rated}`, {
@@ -164,6 +171,7 @@ const Client = {
     insertCourse,
     banUser,
     recommendVideo,
-    unRecommendVideo
+    unRecommendVideo,
+    getCommentsForSubChapter
 };
 export default Client;

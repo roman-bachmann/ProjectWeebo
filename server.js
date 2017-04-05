@@ -109,6 +109,33 @@ app.get('/api/getVideos', (req, res) => {
 
     get_videos(req, res, subjectID, chapterID, subChapterID);
 });
+app.get('/api/getComments', (req, res) => {
+    const subjectID = req.query.s;
+    const chapterID = req.query.c;
+    const subChapterID = req.query.sc;
+
+    if (!subjectID) {
+        res.json({
+            error: 'Missing required parameter `s`',
+        });
+        return;
+    }
+    if (!chapterID) {
+        res.json({
+            error: 'Missing required parameter `c`',
+        });
+        return;
+    }
+    if (!subChapterID) {
+        res.json({
+            error: 'Missing required parameter `sc`',
+        });
+        return;
+    }
+
+    get_comments(req, res, subjectID, chapterID, subChapterID);
+});
+
 app.get('/api/getVoting', (req, res) => {
   const videoID = req.query.v;
   if(!videoID){
@@ -570,8 +597,17 @@ function get_videos(req, res, subjectID, chapterID, subChapterID) {
     /* Not sure if we need the Video table so I stopped fetching from it*/
     var inserts = [subjectID, chapterID, subChapterID];
     sql = mysql.format(sql, inserts);
-
     get_data(req, res, sql);
+}
+function get_comments(req, res, subjectID, chapterID, subChapterID){
+  var sql = `SELECT Discuss.userID, Discuss.comment, Discuss.fullName, Discuss.commentTime
+            FROM Discuss
+            WHERE Discuss.subjectID = ?
+            AND Discuss.chapterID = ?
+            AND Discuss.subChapterID = ?`;
+  var inserts = [subjectID, chapterID, subChapterID];
+  sql = mysql.format(sql, inserts);
+  get_data(req, res, sql);
 }
 
 function get_votes(req, res, videoID){
