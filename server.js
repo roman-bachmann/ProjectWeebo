@@ -137,6 +137,7 @@ app.post('/api/shareVideo', (req, res) => {
   const subChapterID = req.query.subc;
   const videoID = req.query.vid;
   const description = req.query.d;
+  const curDate = new Date().toISOString().slice(0, 19).replace('T', ' ');
   if(!userID){
     res.json({
             error: 'Missing required parameter `user`',
@@ -184,7 +185,7 @@ app.post('/api/shareVideo', (req, res) => {
   var reqYou = http.request(options, function(resYou) {
     if (resYou.statusCode == 200){
         console.log("Valid Youtube ID");
-        post_video(req, res, userID, subjectID, chapterID, subChapterID, videoID, description);
+        post_video(req, res, userID, subjectID, chapterID, subChapterID, videoID, description, curDate);
     } else {
         console.log("Invalid Youtube ID");
     }
@@ -550,7 +551,7 @@ function get_subchapters(req, res, subjectID, chapterID) {
 }
 
 function get_videos(req, res, subjectID, chapterID, subChapterID) {
-    var sql = `SELECT subChapterVideo.videoID, subChapterVideo.subChapterVideoID, subChapterVideo.Description, subChapterVideo.userID, subChapterVideo.Favorite, SUM(rating.rating_score) AS votes
+    var sql = `SELECT subChapterVideo.videoID, subChapterVideo.subChapterVideoID, subChapterVideo.Description, subChapterVideo.userID, subChapterVideo.Favorite, subChapterVideo.addDate, SUM(rating.rating_score) AS votes
                 FROM subChapterVideo
                 LEFT JOIN rating
                 ON subChapterVideo.subChapterVideoID = rating.subChapterVideoID
@@ -591,10 +592,10 @@ function get_favoriteVideo(req, res, videoID) {
     get_data(req, res, sql);
 }
 
-function post_video(req, res, userID, subjectID, chapterID, subChapterID, videoID, description){
-  var sql =   `INSERT INTO subChapterVideo (userID, subjectID, chapterID, subChapterID, videoID, Description)
-              VALUES (?, ?, ?, ?, ?, ?)`;
-  var inserts = [userID, subjectID, chapterID, subChapterID, videoID, description];
+function post_video(req, res, userID, subjectID, chapterID, subChapterID, videoID, description, curDate){
+  var sql =   `INSERT INTO subChapterVideo (userID, subjectID, chapterID, subChapterID, videoID, Description, addDate)
+              VALUES (?, ?, ?, ?, ?, ?, ?)`;
+  var inserts = [userID, subjectID, chapterID, subChapterID, videoID, description, curDate];
   sql = mysql.format(sql, inserts);
   get_data(req, res, sql);
 }
