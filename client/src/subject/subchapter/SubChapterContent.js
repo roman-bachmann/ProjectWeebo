@@ -229,7 +229,6 @@ var SubChapterContent = React.createClass({
         var videosList = null;
 		if (this.state.videos) {
 			videosList = this.state.videos.map( (v, idx) => (
-<<<<<<< HEAD
 				<div>
 					{this.props.activePanel === this.state.videoActive ?
 					<Row className="contentRow">
@@ -291,8 +290,10 @@ var SubChapterContent = React.createClass({
 					<button className="discussPanelBtn" style={{backgroundColor: this.state.discussColor}}
 					onClick={this.handleDiscussPanel}><span><Glyphicon glyph="glyphicon glyphicon-comment"/>Discussion </span></button>
 
-					<button className="shareBtn"
+					{this.state.videoColor === ColorsClicked.Clicked ?
+						<button className="shareBtn"
 					onClick={()=>this.setState({ showCourseModal: true })}><span><Glyphicon glyph="glyphicon glyphicon-plus"/>  Add</span></button>
+					:null}
 					</Row>
 					{videosList}
 					{discussList}
