@@ -234,13 +234,9 @@ var SubChapterContent = React.createClass({
     },
     handleCommentTA: function (e) {
     var comm = e.target.value;
-    if(!Boolean(comm)){
-      console.log("no comment added");
-    }else{
-	    this.setState({
-	      comment: comm
-	    });
-    }
+    this.setState({
+      comment: comm
+    });
   },
   handleComment: function(){
   	var subject = this.props.subject.subjectID;
