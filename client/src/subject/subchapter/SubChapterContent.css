@@ -3,6 +3,11 @@
      src: url(../../fonts/weblysleekuil.ttf) format("truetype");
  }
 
+ @font-face {
+      font-family: "Webly Sleek Kursiv";
+      src: url(../../fonts/weblysleekuili.ttf) format("truetype");
+  }
+
 .col-md-8 {
   padding-bottom: 2px;
 }
@@ -301,7 +306,8 @@ padding: 10px;
 .comment-date {
   float: left;
   padding-left: 10px;
-  font-size: 8px;
+  font-size: 10.5px;
+  font-family: "Webly Sleek Kursiv";
 }
 .commentBox {
   float: left;
@@ -309,28 +315,29 @@ padding: 10px;
 }
 .commentTextArea {
   display: inline-block;
+   width: 100%;
+   resize: none;
+   height: auto;
+   border: none;
+overflow: auto;
+outline: none;
+-webkit-box-shadow: none;
+-moz-box-shadow: none;
+box-shadow: none;
+background-color: transparent;
 }
 .sendCommentBtn {
-  display: inline-block;
-  border-radius: 4px;
   border: none;
   color: #519d9b;
-  text-align: center;
   font-size: 15px;
-  padding: 5px;
-  width: 120px;
-  height: 30px;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 5px;
   font-family: "Webly Sleek";
-  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
-}
-.sendCommentBtn span {
+  padding-right: rem(12);
+  display: inline;
+  margin: -2px;
   cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.1s;
 }
+
+.comment-actions {
+  float: right;}
