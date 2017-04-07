@@ -352,7 +352,7 @@ var SubChapterContent = React.createClass({
 					<Row>
 						{this.state.discussColor === ColorsClicked.Clicked ?
                             <div className="comments">
-                                <div className="comment-wrap">
+                                <div className="Addcomment-wrap">
 				                        <div className="commentsPhoto">
 						                    <div><img className="commentsAvatar" src={this.props.profile.picture} /></div>
 				                        </div>
