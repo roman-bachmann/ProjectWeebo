@@ -271,11 +271,21 @@ var SubChapterContent = React.createClass({
 		var discussList = null;
 		if(this.state.comments){
 			discussList = this.state.comments.map( (d, idx) => (
-				<div>
+        <div>
 					{this.state.discussColor === ColorsClicked.Clicked ?
-					<Row className="contentRow">
-						The users name: {d.fullName}, the comment: {d.comment}, the time: {d.commentTime}
-					</Row>
+            <div className="comments">
+              <div className="comment-wrap">
+				<div className="commentsPhoto">
+						<div><img className="commentsAvatar" src="https://s.gravatar.com/avatar/dfe1a290a909f7b6448a771f0d6eb495?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fth.png" /></div>
+				</div>
+				<div className="comment-block">
+						<p className="comment-text">{d.comment}</p>
+						<div className="bottom-comment">
+								<div className="comment-date">Published on {d.commentTime} by {d.fullName}</div>
+  </div>
+  </div>
+            </div>
+            </div>
 					:null}
 				</div>
 			));
