@@ -234,7 +234,7 @@
 }
 
 .publishedImage {
-  border-radius: 4px;
+  border-radius: 50%;
   height: 58px;
   width: 58px;
 
@@ -351,6 +351,10 @@ background-color: transparent;
   display: inline;
   margin: -2px;
   cursor: pointer;
+}
+
+.sendCommentBtn:hover{
+  color: black;
 }
 
 .comment-actions {
