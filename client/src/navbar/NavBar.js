@@ -87,26 +87,24 @@ var NavBar = React.createClass({
 
                     </Nav>
 
-                    {this.props.auth.loggedIn() ? (
+                    {this.props.auth.loggedIn() && (
                         <Nav pullRight>
-                            {this.props.auth.isAdmin() &&
-                                <LinkContainer className="Nav__link" to="/admin">
-                                    <NavItem eventKey={77}>
-                                        <Glyphicon glyph="glyphicon glyphicon-wrench"/> Admin
+                            <NavDropdown
+                                    eventKey={500}
+                                    title={<Image className=" animated profileNavPhoto" src={this.props.profile.picture} circle/>}
+                                    id="basic-nav-dropdown" >
+                                {this.props.auth.isAdmin() &&
+                                    <LinkContainer className="Nav__link" to="/admin">
+                                        <MenuItem eventKey={77}>
+                                            Admin
+                                        </MenuItem>
+                                    </LinkContainer>
+                                }
+                                <LinkContainer className="Nav__link" to="/profile">
+                                    <NavItem eventKey={88}>
+                                        Profile
                                     </NavItem>
                                 </LinkContainer>
-                            }
-                            <LinkContainer className="Nav__link" to="/profile">
-                                <NavItem eventKey={88}>
-                                    <Image className="profileNavPhoto" src={this.props.profile.picture} circle/> Profile
-                                </NavItem>
-                            </LinkContainer>
-                            <NavItem eventKey={111} onClick={this.props.auth.logout.bind(this)}><Glyphicon glyph="glyphicon glyphicon-log-out"/> Log Out</NavItem>
-                            <NavDropdown
-                                    noCaret
-                                    eventKey={500}
-                                    title={<Glyphicon glyph="glyphicon glyphicon-option-vertical"/>}
-                                    id="basic-nav-dropdown" >
                                 <LinkContainer to="/about">
                                     <MenuItem eventKey={501}>
                                         About
@@ -117,11 +115,10 @@ var NavBar = React.createClass({
                                         Contact
                                     </MenuItem>
                                 </LinkContainer>
+                                <MenuItem eventKey={111} onClick={this.props.auth.logout.bind(this)}>
+                                    Log Out
+                                </MenuItem>
                             </NavDropdown>
-                        </Nav>
-                    ) : (
-                        <Nav pullRight>
-                            <NavItem eventKey={99} onClick={this.props.auth.login.bind(this)}><Glyphicon glyph="glyphicon glyphicon-log-in"/> Log In / Sign Up</NavItem>
                         </Nav>
                     )}
 

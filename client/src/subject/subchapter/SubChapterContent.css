@@ -230,9 +230,8 @@
 
 .publishedImage {
   border-radius: 4px;
-  height: 38px;
-  width: 38px;
-  opacity: 0.65;
+  height: 58px;
+  width: 58px;
 
 }
 
@@ -301,6 +300,7 @@ padding: 10px;
 
 .comment-date {
   float: left;
+  padding-left: 10px;
   font-size: 8px;
 }
 .commentBox {
