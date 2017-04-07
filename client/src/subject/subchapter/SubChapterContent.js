@@ -244,12 +244,13 @@ var SubChapterContent = React.createClass({
   	var subChapter = this.props.subchapter.subChapterID;
   	var userID = this.props.userID;
   	var fullName = this.props.profile.user_metadata.first_name + " " + this.props.profile.user_metadata.last_name;
+    var commenterGravatar = this.props.profile.picture;
   	var comment = this.state.comment;
   	if(Boolean(comment)){
-	  	Client.addComment(subject, chapter, subChapter, userID, fullName, comment, 
+	  	Client.addComment(subject, chapter, subChapter, userID, fullName, commenterGravatar, comment,
 	  				() => this.triggerReloadComments());
 	  	this.setState({
-	  		comment: '' 
+	  		comment: ''
 	  	});
   	}
   },
@@ -306,7 +307,7 @@ var SubChapterContent = React.createClass({
             <div className="comments">
               <div className="comment-wrap">
 				<div className="commentsPhoto">
-						<div><img className="commentsAvatar" src="https://s.gravatar.com/avatar/dfe1a290a909f7b6448a771f0d6eb495?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fth.png" /></div>
+						<div><img className="commentsAvatar" src={d.commenterGravatar} /></div>
 				</div>
 				<div className="comment-block">
 						<p className="comment-text">{d.comment}</p>
@@ -336,7 +337,7 @@ var SubChapterContent = React.createClass({
 					:null}
 					</Row>
 					<Row>
-						{this.state.discussColor === ColorsClicked.Clicked ? 
+						{this.state.discussColor === ColorsClicked.Clicked ?
 							<div className="commentBox">
 								<FormGroup controlId="courseIdForm"
 				                           className="commentTextArea" >

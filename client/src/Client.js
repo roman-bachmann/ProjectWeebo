@@ -95,8 +95,9 @@ function addCourseForUser(userID, role, subjectID) {
         method: 'post'
     })
 }
-function addComment(subjectID, chapterID, subChapterID, userID, fullName, comment, cb) {
-    fetch(`api/addComment?s=${subjectID}&c=${chapterID}&sc=${subChapterID}&u=${userID}&f=${fullName}&com=${comment}`, {
+function addComment(subjectID, chapterID, subChapterID, userID, fullName, commenterGravatar, comment, cb) {
+    var encodedGravatar = encodeURIComponent(commenterGravatar);
+    fetch(`api/addComment?s=${subjectID}&c=${chapterID}&sc=${subChapterID}&u=${userID}&f=${fullName}&cg=${encodedGravatar}&com=${comment}`, {
         method: 'post'
     }).then(cb);
 }

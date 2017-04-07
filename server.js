@@ -268,6 +268,7 @@ app.post('/api/addComment', (req, res) => {
   const subChapterID = req.query.sc;
   const userID = req.query.u;
   const fullName = req.query.f;
+  const commenterGravatar = req.query.cg;
   const comment = req.query.com;
   if(!subjectID){
       res.json({
@@ -299,13 +300,19 @@ app.post('/api/addComment', (req, res) => {
         });
         return;
     }
+    if(!commenterGravatar){
+      res.json({
+              error: 'Missing required parameter `cg`',
+        });
+        return;
+    }
     if(!comment){
       res.json({
               error: 'Missing required parameter `com`',
         });
         return;
     }
-    add_comment(req, res, subjectID, chapterID, subChapterID, userID, fullName, comment);
+    add_comment(req, res, subjectID, chapterID, subChapterID, userID, fullName, commenterGravatar, comment);
 });
 
 app.post('/api/voteVideo', (req, res) => {
@@ -653,7 +660,7 @@ function get_videos(req, res, subjectID, chapterID, subChapterID) {
     get_data(req, res, sql);
 }
 function get_comments(req, res, subjectID, chapterID, subChapterID){
-  var sql = `SELECT Discuss.userID, Discuss.comment, Discuss.fullName, Discuss.commentTime
+  var sql = `SELECT Discuss.userID, Discuss.comment, Discuss.fullName, Discuss.commentTime, Discuss.commenterGravatar
             FROM Discuss
             WHERE Discuss.subjectID = ?
             AND Discuss.chapterID = ?
@@ -713,11 +720,11 @@ function add_course_for_user(req, res, userID, role, subjectID) {
 
     get_data(req, res, sql);
 }
-function add_comment(req, res, subjectID, chapterID, subChapterID, userID, fullName, comment){
+function add_comment(req, res, subjectID, chapterID, subChapterID, userID, fullName, commenterGravatar, comment){
   const curDate = new Date().toISOString().slice(0, 19).replace('T', ' ');
-  var sql = `INSERT INTO Discuss (subjectID, chapterID, subChapterID, userID, fullName, comment, commentTime)
-            VALUES (?, ?, ?, ?, ?, ?, ?)`;
-  var inserts = [subjectID, chapterID, subChapterID, userID, fullName, comment, curDate];
+  var sql = `INSERT INTO Discuss (subjectID, chapterID, subChapterID, userID, fullName, comment, commentTime, commenterGravatar)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
+  var inserts = [subjectID, chapterID, subChapterID, userID, fullName, comment, curDate, commenterGravatar];
   sql = mysql.format(sql, inserts);
   get_data(req, res, sql);
 }
