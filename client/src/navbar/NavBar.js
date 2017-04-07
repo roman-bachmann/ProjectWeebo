@@ -89,17 +89,17 @@ var NavBar = React.createClass({
 
                     {this.props.auth.loggedIn() && (
                         <Nav pullRight>
-                            {this.props.auth.isAdmin() &&
-                                <LinkContainer className="Nav__link" to="/admin">
-                                    <NavItem eventKey={77}>
-                                        <Glyphicon glyph="glyphicon glyphicon-wrench"/> Admin
-                                    </NavItem>
-                                </LinkContainer>
-                            }
                             <NavDropdown
                                     eventKey={500}
                                     title={<Image className=" animated profileNavPhoto" src={this.props.profile.picture} circle/>}
                                     id="basic-nav-dropdown" >
+                                {this.props.auth.isAdmin() &&
+                                    <LinkContainer className="Nav__link" to="/admin">
+                                        <MenuItem eventKey={77}>
+                                            Admin
+                                        </MenuItem>
+                                    </LinkContainer>
+                                }
                                 <LinkContainer className="Nav__link" to="/profile">
                                     <NavItem eventKey={88}>
                                         Profile
