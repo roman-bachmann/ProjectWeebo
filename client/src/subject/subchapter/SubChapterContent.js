@@ -338,21 +338,38 @@ var SubChapterContent = React.createClass({
 					</Row>
 					<Row>
 						{this.state.discussColor === ColorsClicked.Clicked ?
-							<div className="commentBox">
-								<FormGroup controlId="courseIdForm"
-				                           className="commentTextArea" >
-				                    <ControlLabel className="addCourseControllLabel">Comment:</ControlLabel>
-				                    <FormControl
-				                        type="text"
-				                        componentClass="textarea"
-				                        value={this.state.comment}
-				                        placeholder="Enter comment here"
-				                        onChange={this.handleCommentTA} />
-				                    <FormControl.Feedback />
-				                </FormGroup>
-								<button className="sendCommentBtn" style={{backgroundColor: this.state.videoColor}}
-								onClick={this.handleComment}><span><Glyphicon glyph="glyphicon glyphicon-comment"/>  Comment</span></button>
-							</div>
+                            <div className="comments">
+                                <div className="comment-wrap">
+				                        <div className="commentsPhoto">
+						                    <div><img className="commentsAvatar" src={this.props.profile.picture} /></div>
+				                        </div>
+				                        <div className="comment-block">
+                                        <FormGroup controlId="courseIdForm">
+                                            <FormControl
+                                                type="text"
+                                                className="commentTextArea"
+                                                componentClass="textarea"
+                                                value={this.state.comment}
+                                                placeholder="Enter comment here"
+                                                onChange={this.handleCommentTA} />
+                                            <FormControl.Feedback />
+                                        </FormGroup>
+                                        <div className="bottom-comment">
+                                            <div className="comment-date">Publish as USERNAME</div>
+                                        </div>
+                                        <div>
+                                            <ul className="comment-actions">
+                                                <li className="reply">
+                                                    <div>
+                                                        <button className="sendCommentBtn" style={{backgroundColor: this.state.videoColor}}
+                                                            onClick={this.handleComment}><span>Post</span></button>
+                                                    </div>
+                                                 </li>
+                                            </ul>
+                                        </div>
+			                            </div>
+                                </div>
+      	                    </div>
 						:null}
 					</Row>
 					{videosList}
