@@ -1,7 +1,7 @@
 var React = require('react');
 import './SubChapterContent.css';
 import {Row, Col, Grid} from 'react-bootstrap';
-import {Button, Dropdown, MenuItem, Glyphicon, OverlayTrigger, Tooltip, Modal, FormGroup, ControlLabel, FormControl} from 'react-bootstrap';
+import {Button, Dropdown, MenuItem, Glyphicon, OverlayTrigger, Tooltip, Modal, FormGroup, ControlLabel, FormControl, Overlay, Popover} from 'react-bootstrap';
 var YouTube = require('./YouTubePlayer.js');
 var Upvote = require('./Upvote.js');
 var VideoModal = require('./AddVideoModal.js');
@@ -35,7 +35,8 @@ var SubChapterContent = React.createClass({
 			comments: [],
             showDeleteModal: false,
             openDeleteModalId: "",
-            comment: ''
+            comment: '',
+            show: false
 		};
 	},
 
@@ -238,7 +239,7 @@ var SubChapterContent = React.createClass({
       comment: comm
     });
   },
-  handleComment: function(){
+  handleComment: function(e){
   	var subject = this.props.subject.subjectID;
   	var chapter = this.props.chapter.chapterID;
   	var subChapter = this.props.subchapter.subChapterID;
@@ -247,11 +248,16 @@ var SubChapterContent = React.createClass({
     var commenterGravatar = this.props.profile.picture;
   	var comment = this.state.comment.replace(/(?:\r\n|\r|\n)/g, '<br />');
   	if(Boolean(comment)){
-	  	Client.addComment(subject, chapter, subChapter, userID, fullName, commenterGravatar, comment,
-	  				() => this.triggerReloadComments());
-	  	this.setState({
-	  		comment: ''
-	  	});
+  		var d = new Date();
+  		if(this.props.bantime < d){
+		  	Client.addComment(subject, chapter, subChapter, userID, fullName, commenterGravatar, comment,
+		  				() => this.triggerReloadComments());
+		  	this.setState({
+		  		comment: ''
+		  	});
+  		}else{
+  			this.setState({ target: e.target, show: !this.state.show });
+  		}
   	}
   },
 	render: function() {
@@ -369,7 +375,17 @@ var SubChapterContent = React.createClass({
                                                 <li className="reply">
                                                     <div>
                                                         <button className="sendCommentBtn" style={{backgroundColor: this.state.videoColor}}
-                                                            onClick={this.handleComment}><span>Post</span></button>
+                                                            onClick={this.handleComment}><span>Post</span>
+                                                            <Overlay
+											                show={this.state.show}
+											                target={this.state.target}
+											                placement="top"
+											                container={this}
+											                containerPadding={20}>
+											                  <Popover id="popover-contained" title="You can't comment right now." bantime={this.props.bantime}>
+											                    You have been banned until {this.props.bantime.getDate()}-{this.props.bantime.getMonth() + 1}-{this.props.bantime.getFullYear()} for posting inappropriate content.
+											                  </Popover>
+											              </Overlay></button>
                                                     </div>
                                                  </li>
                                             </ul>
