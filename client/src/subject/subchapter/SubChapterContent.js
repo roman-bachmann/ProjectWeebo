@@ -245,7 +245,7 @@ var SubChapterContent = React.createClass({
   	var userID = this.props.userID;
   	var fullName = this.props.profile.user_metadata.first_name + " " + this.props.profile.user_metadata.last_name;
     var commenterGravatar = this.props.profile.picture;
-  	var comment = this.state.comment;
+  	var comment = this.state.comment.replace(/(?:\r\n|\r|\n)/g, '<br />');
   	if(Boolean(comment)){
 	  	Client.addComment(subject, chapter, subChapter, userID, fullName, commenterGravatar, comment,
 	  				() => this.triggerReloadComments());
@@ -310,7 +310,14 @@ var SubChapterContent = React.createClass({
 						<div><img className="commentsAvatar" src={d.commenterGravatar} /></div>
 				</div>
 				<div className="comment-block">
-						<p className="comment-text">{d.comment}</p>
+						{d.comment.split('<br />').map(function(item, key) {
+						  return (
+						    <span className="comment-text" key={key}>
+						      {item}
+						      <br/>
+						    </span>
+						  )
+						})}
 						<div className="bottom-comment">
 								<div className="comment-date">Published on {d.commentTime} by {d.fullName}</div>
 			  			</div>
