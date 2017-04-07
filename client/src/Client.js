@@ -95,6 +95,11 @@ function addCourseForUser(userID, role, subjectID) {
         method: 'post'
     })
 }
+function addComment(subjectID, chapterID, subChapterID, userID, fullName, comment, cb) {
+    fetch(`api/addComment?s=${subjectID}&c=${chapterID}&sc=${subChapterID}&u=${userID}&f=${fullName}&com=${comment}`, {
+        method: 'post'
+    }).then(cb);
+}
 
 function deleteVideo(videoID, cb) {
     fetch(`api/deleteVideo?v=${videoID}`, {
@@ -172,6 +177,7 @@ const Client = {
     banUser,
     recommendVideo,
     unRecommendVideo,
-    getCommentsForSubChapter
+    getCommentsForSubChapter,
+    addComment
 };
 export default Client;

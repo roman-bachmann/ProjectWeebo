@@ -255,6 +255,52 @@ app.post('/api/addCourseForUser', (req, res) => {
     add_course_for_user(req, res, userID, role, subjectID);
 });
 
+app.post('/api/addComment', (req, res) => {
+  const subjectID = req.query.s;
+  const chapterID = req.query.c;
+  const subChapterID = req.query.sc;
+  const userID = req.query.u;
+  const fullName = req.query.f;
+  const comment = req.query.com;
+  if(!subjectID){
+      res.json({
+              error: 'Missing required parameter `s`',
+        });
+        return;
+    }
+    if(!chapterID){
+      res.json({
+              error: 'Missing required parameter `c`',
+        });
+        return;
+    }
+    if(!subChapterID){
+      res.json({
+              error: 'Missing required parameter `sc`',
+        });
+        return;
+    }
+    if(!userID){
+      res.json({
+              error: 'Missing required parameter `u`',
+        });
+        return;
+    }
+    if(!fullName){
+      res.json({
+              error: 'Missing required parameter `f`',
+        });
+        return;
+    }
+    if(!comment){
+      res.json({
+              error: 'Missing required parameter `com`',
+        });
+        return;
+    }
+    add_comment(req, res, subjectID, chapterID, subChapterID, userID, fullName, comment);
+});
+
 app.post('/api/voteVideo', (req, res) => {
   const userID = req.query.u;
   const videoID = req.query.v;
@@ -658,6 +704,14 @@ function add_course_for_user(req, res, userID, role, subjectID) {
     sql = mysql.format(sql, inserts);
 
     get_data(req, res, sql);
+}
+function add_comment(req, res, subjectID, chapterID, subChapterID, userID, fullName, comment){
+  const curDate = new Date().toISOString().slice(0, 19).replace('T', ' ');
+  var sql = `INSERT INTO Discuss (subjectID, chapterID, subChapterID, userID, fullName, comment, commentTime)
+            VALUES (?, ?, ?, ?, ?, ?, ?)`;
+  var inserts = [subjectID, chapterID, subChapterID, userID, fullName, comment, curDate];
+  sql = mysql.format(sql, inserts);
+  get_data(req, res, sql);
 }
 function ban_user(req, res, userID, banTime, subjectID) {
   var sql = `UPDATE UserSubject

@@ -34,7 +34,8 @@ var SubChapterContent = React.createClass({
 			videoActive: this.props.needActive,
 			comments: [],
             showDeleteModal: false,
-            openDeleteModalId: ""
+            openDeleteModalId: "",
+            comment: ''
 		};
 	},
 
@@ -86,6 +87,13 @@ var SubChapterContent = React.createClass({
 			this.props.subject.subjectID,
 			this.props.chapter.chapterID,
 			this.props.subchapter.subChapterID)
+    },
+    triggerReloadComments: function () {
+    	console.log("Reloading comments");
+    	this.loadCommentsFromServer(
+    		this.props.subject.subjectID,
+    		this.props.chapter.chapterID,
+    		this.props.subchapter.subChapterID)
     },
 
 	handleModerateDropdown: function (eventKey, videoID) {
@@ -224,6 +232,26 @@ var SubChapterContent = React.createClass({
     	}
     	console.log(this.state.comments);
     },
+    handleCommentTA: function (e) {
+    var comm = e.target.value;
+    if(!Boolean(comm)){
+      console.log("no comment added");
+    }else{
+	    this.setState({
+	      comment: comm
+	    });
+    }
+  },
+  handleComment: function(){
+  	var subject = this.props.subject.subjectID;
+  	var chapter = this.props.chapter.chapterID;
+  	var subChapter = this.props.subchapter.subChapterID;
+  	var userID = this.props.userID;
+  	var fullName = this.props.profile.user_metadata.first_name + " " + this.props.profile.user_metadata.last_name;
+  	var comment = this.state.comment;
+  	Client.addComment(subject, chapter, subChapter, userID, fullName, comment, 
+  				() => this.triggerReloadComments);
+  },
 	render: function() {
 		let closeCourseModal = () => this.setState({ showCourseModal: false });
         var videosList = null;
@@ -272,7 +300,7 @@ var SubChapterContent = React.createClass({
 		if(this.state.comments){
 			discussList = this.state.comments.map( (d, idx) => (
         <div>
-					{this.state.discussColor === ColorsClicked.Clicked ?
+			{this.state.discussColor === ColorsClicked.Clicked ?
             <div className="comments">
               <div className="comment-wrap">
 				<div className="commentsPhoto">
@@ -282,10 +310,10 @@ var SubChapterContent = React.createClass({
 						<p className="comment-text">{d.comment}</p>
 						<div className="bottom-comment">
 								<div className="comment-date">Published on {d.commentTime} by {d.fullName}</div>
-  </div>
-  </div>
-            </div>
-            </div>
+			  			</div>
+			  </div>
+        	</div>
+        </div>
 					:null}
 				</div>
 			));
@@ -304,6 +332,16 @@ var SubChapterContent = React.createClass({
 						<button className="shareBtn"
 					onClick={()=>this.setState({ showCourseModal: true })}><span><Glyphicon glyph="glyphicon glyphicon-plus"/>  Add</span></button>
 					:null}
+					</Row>
+					<Row>
+						{this.state.discussColor === ColorsClicked.Clicked ? 
+							<div className="commentBox">
+								<p>Comment:</p>
+								<textarea className="commentTextArea" onChange={this.handleCommentTA}/>
+								<button className="sendCommentBtn" style={{backgroundColor: this.state.videoColor}}
+								onClick={this.handleComment}><span><Glyphicon glyph="glyphicon glyphicon-comment"/>  Comment</span></button>
+							</div>
+						:null}
 					</Row>
 					{videosList}
 					{discussList}
