@@ -1,7 +1,7 @@
 var React = require('react');
 import './SubChapterContent.css';
 import {Row, Col, Grid} from 'react-bootstrap';
-import {Button, Dropdown, MenuItem, Glyphicon, OverlayTrigger, Tooltip, Modal} from 'react-bootstrap';
+import {Button, Dropdown, MenuItem, Glyphicon, OverlayTrigger, Tooltip, Modal, FormGroup, ControlLabel, FormControl} from 'react-bootstrap';
 var YouTube = require('./YouTubePlayer.js');
 var Upvote = require('./Upvote.js');
 var VideoModal = require('./AddVideoModal.js');
@@ -251,7 +251,15 @@ var SubChapterContent = React.createClass({
   	var comment = this.state.comment;
   	Client.addComment(subject, chapter, subChapter, userID, fullName, comment, 
   				() => this.triggerReloadComments());
+  	this.setState({
+  		comment: '' 
+  	});
   },
+  getCommentValidationState: function () {
+        const length = this.state.newCourseID.length;
+        if (length > 0) return 'success';
+        else return 'error';
+    },
 	render: function() {
 		let closeCourseModal = () => this.setState({ showCourseModal: false });
         var videosList = null;
@@ -337,8 +345,18 @@ var SubChapterContent = React.createClass({
 					<Row>
 						{this.state.discussColor === ColorsClicked.Clicked ? 
 							<div className="commentBox">
-								<p>Comment:</p>
-								<textarea className="commentTextArea" onChange={this.handleCommentTA}/>
+								<FormGroup controlId="courseIdForm"
+				                           validationState={this.getCommentValidationState}
+				                           className="commentTextArea" >
+				                    <ControlLabel className="addCourseControllLabel">Comment:</ControlLabel>
+				                    <FormControl
+				                        type="text"
+				                        componentClass="textarea"
+				                        value={this.state.comment}
+				                        placeholder="Enter comment here"
+				                        onChange={this.handleCommentTA} />
+				                    <FormControl.Feedback />
+				                </FormGroup>
 								<button className="sendCommentBtn" style={{backgroundColor: this.state.videoColor}}
 								onClick={this.handleComment}><span><Glyphicon glyph="glyphicon glyphicon-comment"/>  Comment</span></button>
 							</div>
@@ -367,3 +385,4 @@ var SubChapterContent = React.createClass({
 });
 
 module.exports = SubChapterContent;
+//<textarea className="commentTextArea" onChange={this.handleCommentTA}/>

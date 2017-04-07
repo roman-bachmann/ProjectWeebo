@@ -657,7 +657,8 @@ function get_comments(req, res, subjectID, chapterID, subChapterID){
             FROM Discuss
             WHERE Discuss.subjectID = ?
             AND Discuss.chapterID = ?
-            AND Discuss.subChapterID = ?`;
+            AND Discuss.subChapterID = ?
+            ORDER BY Discuss.commentTime DESC`;
   var inserts = [subjectID, chapterID, subChapterID];
   sql = mysql.format(sql, inserts);
   get_data(req, res, sql);
