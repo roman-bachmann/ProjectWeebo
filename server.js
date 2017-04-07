@@ -165,6 +165,7 @@ app.post('/api/shareVideo', (req, res) => {
   const videoID = req.query.vid;
   const description = req.query.d;
   const fullName = req.query.fn;
+  const userGravatar = req.query.gr;
   const curDate = new Date().toISOString().slice(0, 19).replace('T', ' ');
   if(!userID){
     res.json({
@@ -208,6 +209,12 @@ app.post('/api/shareVideo', (req, res) => {
       });
       return;
   }
+  if (!userGravatar) {
+      res.json({
+          error: 'Missing required parameter `gr`',
+      });
+      return;
+  }
   console.log("about to post");
 
   var options = {
@@ -219,7 +226,7 @@ app.post('/api/shareVideo', (req, res) => {
   var reqYou = http.request(options, function(resYou) {
     if (resYou.statusCode == 200){
         console.log("Valid Youtube ID");
-        post_video(req, res, userID, subjectID, chapterID, subChapterID, videoID, description, curDate, fullName);
+        post_video(req, res, userID, subjectID, chapterID, subChapterID, videoID, description, curDate, fullName, userGravatar);
     } else {
         console.log("Invalid Youtube ID");
     }
@@ -585,7 +592,7 @@ function get_subchapters(req, res, subjectID, chapterID) {
 }
 
 function get_videos(req, res, subjectID, chapterID, subChapterID) {
-    var sql = `SELECT subChapterVideo.videoID, subChapterVideo.subChapterVideoID, subChapterVideo.Description, subChapterVideo.userID, subChapterVideo.Favorite, subChapterVideo.addDate, subChapterVideo.fullName, SUM(rating.rating_score) AS votes
+    var sql = `SELECT subChapterVideo.videoID, subChapterVideo.subChapterVideoID, subChapterVideo.Description, subChapterVideo.userID, subChapterVideo.Favorite, subChapterVideo.addDate, subChapterVideo.fullName, subChapterVideo.userGravatar, SUM(rating.rating_score) AS votes
                 FROM subChapterVideo
                 LEFT JOIN rating
                 ON subChapterVideo.subChapterVideoID = rating.subChapterVideoID
@@ -635,10 +642,10 @@ function get_favoriteVideo(req, res, videoID) {
     get_data(req, res, sql);
 }
 
-function post_video(req, res, userID, subjectID, chapterID, subChapterID, videoID, description, curDate, fullName){
-  var sql =   `INSERT INTO subChapterVideo (userID, subjectID, chapterID, subChapterID, videoID, Description, addDate, fullName)
-              VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
-  var inserts = [userID, subjectID, chapterID, subChapterID, videoID, description, curDate, fullName];
+function post_video(req, res, userID, subjectID, chapterID, subChapterID, videoID, description, curDate, fullName, userGravatar) {
+  var sql =   `INSERT INTO subChapterVideo (userID, subjectID, chapterID, subChapterID, videoID, Description, addDate, fullName, userGravatar)
+              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+  var inserts = [userID, subjectID, chapterID, subChapterID, videoID, description, curDate, fullName, userGravatar];
   sql = mysql.format(sql, inserts);
   get_data(req, res, sql);
 }
