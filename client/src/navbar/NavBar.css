@@ -147,4 +147,5 @@ NavDropdown .coursesNames:hover {
 .profileNavPhoto{
   height: 30.5px;
   border: 0.1px solid #9ff2c7;
+  animation-name: fadeIn;
 }
