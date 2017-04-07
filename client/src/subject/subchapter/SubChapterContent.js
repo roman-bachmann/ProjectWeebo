@@ -250,7 +250,7 @@ var SubChapterContent = React.createClass({
   	var fullName = this.props.profile.user_metadata.first_name + " " + this.props.profile.user_metadata.last_name;
   	var comment = this.state.comment;
   	Client.addComment(subject, chapter, subChapter, userID, fullName, comment, 
-  				() => this.triggerReloadComments);
+  				() => this.triggerReloadComments());
   },
 	render: function() {
 		let closeCourseModal = () => this.setState({ showCourseModal: false });
