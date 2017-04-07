@@ -247,10 +247,10 @@ var SubChapterContent = React.createClass({
   	var comment = this.state.comment.replace(/(?:\r\n|\r|\n)/g, '<br />');;
   	console.log(comment);
   	if(Boolean(comment)){
-	  	Client.addComment(subject, chapter, subChapter, userID, fullName, encodeURIComponent(comment), 
+	  	Client.addComment(subject, chapter, subChapter, userID, fullName, comment,
 	  				() => this.triggerReloadComments());
 	  	this.setState({
-	  		comment: '' 
+	  		comment: ''
 	  	});
   	}
   },
@@ -344,22 +344,41 @@ var SubChapterContent = React.createClass({
 					:null}
 					</Row>
 					<Row>
-						{this.state.discussColor === ColorsClicked.Clicked ? 
-							<div className="commentBox">
-								<FormGroup controlId="courseIdForm"
-				                           className="commentTextArea" >
-				                    <ControlLabel className="addCourseControllLabel">Comment:</ControlLabel>
-				                    <FormControl
-				                        type="text"
-				                        componentClass="textarea"
-				                        value={this.state.comment}
-				                        placeholder="Enter comment here"
-				                        onChange={this.handleCommentTA} />
-				                    <FormControl.Feedback />
-				                </FormGroup>
-								<button className="sendCommentBtn" style={{backgroundColor: this.state.videoColor}}
-								onClick={this.handleComment}><span><Glyphicon glyph="glyphicon glyphicon-comment"/>  Comment</span></button>
-							</div>
+						{this.state.discussColor === ColorsClicked.Clicked ?
+              <div>
+              <div className="comments">
+                <div className="comment-wrap">
+  				<div className="commentsPhoto">
+  						<div><img className="commentsAvatar" src="https://s.gravatar.com/avatar/dfe1a290a909f7b6448a771f0d6eb495?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fth.png" /></div>
+  				</div>
+  				<div className="comment-block">
+            <FormGroup controlId="courseIdForm">
+
+                        <FormControl
+                            type="text"
+                            className="commentTextArea"
+                            componentClass="textarea"
+                            value={this.state.comment}
+                            placeholder="Enter comment here"
+                            onChange={this.handleCommentTA} />
+                        <FormControl.Feedback />
+                    </FormGroup>
+                    <div className="bottom-comment">
+                        <div className="comment-date">Publish as USERNAME</div>
+                      </div>
+                      <div>
+                      <ul className="comment-actions">
+    <li className="reply">  <div>
+          <button className="sendCommentBtn" style={{backgroundColor: this.state.videoColor}}
+          onClick={this.handleComment}><span>Post</span></button>
+      </div></li>
+</ul>
+</div>
+  			  </div>
+        </div>
+          	</div>
+
+            </div>
 						:null}
 					</Row>
 					{videosList}
