@@ -52,8 +52,16 @@ ul, nav{
   text-align: center;}
 
 .LogInButton {
-  background-color: #2193f5;
-
+  background-color: #2d767c;
+  border-color: #2d767c;
+  height: 50px;
+  width: 150px;
+  border-radius: 30px;
+  font-family: "Webly Sleek";
+  font-size: 20px;
+}
+.fa-sign-in{
+  font-size: 20px;
 }
 
 .LogInButton {
