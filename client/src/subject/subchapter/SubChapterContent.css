@@ -261,6 +261,20 @@
   min-height: rem(85);
 }
 
+.Addcomment-wrap {
+  margin-bottom: rem(20);
+  display: table;
+  width: 100%;
+  min-height: rem(85);
+  border: 0.5px solid #f2f2f2;
+  border-top-color: white;
+  border-left-color: white;
+  border-right-color: white;
+
+
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+}
+
 .commentsPhoto {
   background-color: white;
   padding-top: rem(10);
