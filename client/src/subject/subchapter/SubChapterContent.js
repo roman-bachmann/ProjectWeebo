@@ -255,7 +255,7 @@ var SubChapterContent = React.createClass({
 							</Col>
 	            <div className="commentsWidget">
 	              <div className="publishedInfo">Published by {v.fullName} on {v.addDate.substring(0,10)}</div>
-                  <div><img className="videoAvatar" src={decodeURIComponent(v.userGravatar)} /></div>
+                  <div><img className="publishedImage" src={decodeURIComponent(v.userGravatar)} /></div>
 	            <Row className="comment">
 	              <i className="fa fa-quote-left"/> {v.Description} <i className="fa fa-quote-right"/>
 	            </Row>
