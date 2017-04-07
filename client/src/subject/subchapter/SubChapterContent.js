@@ -249,17 +249,14 @@ var SubChapterContent = React.createClass({
   	var userID = this.props.userID;
   	var fullName = this.props.profile.user_metadata.first_name + " " + this.props.profile.user_metadata.last_name;
   	var comment = this.state.comment;
-  	Client.addComment(subject, chapter, subChapter, userID, fullName, comment, 
-  				() => this.triggerReloadComments());
-  	this.setState({
-  		comment: '' 
-  	});
+  	if(Boolean(comment)){
+	  	Client.addComment(subject, chapter, subChapter, userID, fullName, comment, 
+	  				() => this.triggerReloadComments());
+	  	this.setState({
+	  		comment: '' 
+	  	});
+  	}
   },
-  getCommentValidationState: function () {
-        const length = this.state.newCourseID.length;
-        if (length > 0) return 'success';
-        else return 'error';
-    },
 	render: function() {
 		let closeCourseModal = () => this.setState({ showCourseModal: false });
         var videosList = null;
@@ -346,7 +343,6 @@ var SubChapterContent = React.createClass({
 						{this.state.discussColor === ColorsClicked.Clicked ? 
 							<div className="commentBox">
 								<FormGroup controlId="courseIdForm"
-				                           validationState={this.getCommentValidationState}
 				                           className="commentTextArea" >
 				                    <ControlLabel className="addCourseControllLabel">Comment:</ControlLabel>
 				                    <FormControl
