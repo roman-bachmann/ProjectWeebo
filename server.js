@@ -621,7 +621,7 @@ function get_courses(req, res, userID) {
 }
 
 function get_chapters(req, res, subjectID) {
-    var sql = `SELECT chapterID, cname
+    var sql = `SELECT chapterID, cname, position
                FROM Subject, Chapter
                WHERE Subject.subjectID = Chapter.subjectID
                AND Subject.subjectID =  ?`;
