@@ -337,7 +337,7 @@ var SubChapterContent = React.createClass({
 		return (
 			<div>
 				<Grid bsClass="container" className="subGrid">
-					<Row>
+					<Row className="subChapterPanelButtonsRow">
 					<button className="videoPanelBtn" style={{backgroundColor: this.state.videoColor}}
 					onClick={this.handleVideoPanel}><span><Glyphicon glyph="glyphicon glyphicon-play-circle"/>  Videos</span></button>
 
