@@ -23,6 +23,7 @@
     max-width: 300px;
     -webkit-transition: top .4s, bottom .4s;
     transition: top .4s, bottom .4s;
+    height: 47.5px;
 }
 
 .s-alert-box.s-alert-show {
