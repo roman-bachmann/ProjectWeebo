@@ -131,9 +131,18 @@ NavDropdown .coursesNames:hover {
   color: blue;
 }
 
+.nav>li>a:focus, .nav>li>a:hover {
+    outline: 0;
+}
+
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
   background-color: white;
   color: #3cb979;
+}
+
+.navbar-inverse .navbar-nav li a {
+  outline: 0;
+  background-color: white;
 }
 
 .dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {

@@ -52,14 +52,38 @@ ul, nav{
   text-align: center;}
 
 .LogInButton {
-  background-color: #2d767c;
-  border-color: #2d767c;
+  background-color: white;
+  border-color: white;
   height: 50px;
   width: 150px;
   border-radius: 30px;
   font-family: "Webly Sleek";
   font-size: 20px;
+  color: green;
 }
+
+.LogInButton:hover {
+  background-color: #3cb979;
+  border-color: #3cb979;
+color: white;
+}
+
+button:focus {outline:0 !important;
+}
+
+
+.btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
+  background-color: #3cb979;
+  border-color: #3cb979;
+color: white;
+}
+
+.btn-primary.active, .btn-primary:active, .open>.dropdown-toggle.btn-primary{
+  background-color: #3cb979;
+  border-color: #3cb979;
+color: white;
+}
+
 .fa-sign-in{
   font-size: 20px;
 }
