@@ -1,7 +1,7 @@
 import React, { PropTypes as T } from 'react'
 import {Button, Glyphicon} from 'react-bootstrap'
 import AuthService from './AuthService.js'
-import Pekka from '../img/pekka.jpg'
+import Lundheim from '../img/lundheim.jpg'
 import App from '../img/App.png'
 import Facebook from '../img/facebook.png'
 import Twitter from '../img/twitter.png'
@@ -53,9 +53,9 @@ export class Login extends React.Component {
 		<h3 className="FeaturesTitle">What professors say</h3>
 
     <hr className="LoginHR"></hr><hr className="LoginHR2"></hr>
-<img className="Pekka" src={Pekka}></img>
+<img className="Pekka" src={Lundheim}></img>
 		<p className="quote">Weebo is an amazing product, delivered by young talents from Trondheim in Norway. I am really proud to be a part of their journey and look forward to more features in Weebo. I can't wait until April 27th to see this incredible product.</p>
-		<p className="author">— Pekka Kalevi Abrahamsson</p>
+		<p className="author">— Lars Magne Lundheim</p>
 	</div>
   </div>
 
