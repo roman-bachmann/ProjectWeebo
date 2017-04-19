@@ -18,17 +18,14 @@ export class About extends React.Component {
     <div className="animated col-md-4 col-sm-4">
       <span className="aboutIcons"><i className="fa fa-film"></i></span>
       <h3 className="animated serviceTitle">Watch</h3>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. Dolore magna aliquam erat volutpat.</p>
     </div>
     <div className="animated col-md-4 col-sm-4">
       <span className="aboutIcons"><i className="fa fa-thumbs-up"></i></span>
       <h3 className="serviceTitle">Rate</h3>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. Dolore magna aliquam erat volutpat.</p>
     </div>
     <div className="animated col-md-4 col-sm-4">
       <span className="aboutIcons"><i className="fa fa-share-alt"></i></span>
       <h3 className="serviceTitle">Share</h3>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. Dolore magna aliquam erat volutpat.</p>
     </div>
   </div>
 </div>
