@@ -12,7 +12,7 @@ var NavItem = require("react-bootstrap/lib/NavItem");
 var Nav = require("react-bootstrap/lib/Nav");
 var Accordion = require('../subchapter/Accordion.js');
 
-import AddChaptersModal from './AddChaptersModal.js';
+import EditChaptersModal from './EditChaptersModal.js';
 import Alert from 'react-s-alert';
 
 import Client from '../../Client.js';
@@ -22,9 +22,7 @@ var Tabs = React.createClass({
 		return {
 			chapters: [],
       		activeTab: 'chap0',
-			showEditChaptersModal: false,
-			showDeleteModal: false,
-			openDeleteModalId: ""
+			showEditChaptersModal: false
 		};
 	},
 
@@ -35,32 +33,6 @@ var Tabs = React.createClass({
     openEditChaptersModal: function () {
         this.setState({ showEditChaptersModal: true });
     },
-
-	openDeleteModal: function (modalId) {
-		this.setState({ showDeleteModal: true });
-        this.setState({ openDeleteModalId: modalId });
-	},
-
-	closeDeleteModal: function () {
-		this.setState({ showDeleteModal: false });
-	},
-
-	handleDeleteButton: function (chapterID) {
-		this.deleteChapter(chapterID);
-        this.closeDeleteModal();
-        Alert.success('Chapter successfully deleted!', {
-            position: 'top-right',
-            effect: 'slide',
-            timeout: 4000,
-            offset: 50
-        });
-	},
-
-	deleteChapter: function (chapterID) {
-		Client.deleteChapter(this.props.selectedCourse.subjectID, chapterID,
-			() => this.loadChaptersFromServer(this.props.selectedCourse.subjectID)
-		);
-	},
 
 	handleSelect: function (tab){
 		this.setState({
@@ -88,58 +60,45 @@ var Tabs = React.createClass({
 
 	render: function () {
 		if(this.state.chapters){
-			var chaptersList = this.state.chapters.map(function (c, idx){
-				return (<NavItem
-							eventKey={'chap' + idx}
-							onSelect={this.handleSelect}>
+			var chaptersList = this.state.chapters.map(function (c, idx) {
+				return (<NavItem eventKey={'chap' + idx}
+								 onSelect={this.handleSelect}>
 							{c.cname}
-							<Button onClick={() => this.openDeleteModal(c.chapterID)}>
-								<Glyphicon glyph="glyphicon glyphicon glyphicon-trash"/>
-							</Button>
-							<Modal show={this.state.showDeleteModal && this.state.openDeleteModalId === c.chapterID}
-								   onHide={this.closeDeleteModal} >
-			                    <Modal.Header closeButton>
-			                        <Modal.Title><Glyphicon glyph="glyphicon glyphicon-trash"/> Delete chapter</Modal.Title>
-			                    </Modal.Header>
-			                    <Modal.Body>
-			                        <p>Are you sure that you want to delete the whole chapter <strong>{c.cname}</strong>?</p>
-			                        <p><strong>This action cannot be undone!</strong></p>
-			                    </Modal.Body>
-			                    <Modal.Footer>
-			                        <Button onClick={this.closeDeleteModal}>Abort</Button>
-			                        <Button onClick={() => this.handleDeleteButton(c.chapterID)}>Delete chapter</Button>
-			                    </Modal.Footer>
-			                </Modal>
 						</NavItem>);
 			}, this);
-			var tabPanes = this.state.chapters.map(function (c, idx){
+			var tabPanes = this.state.chapters.map(function (c, idx) {
 				var theKey = 'chap' + idx;
-			return (
-			<Tab.Pane eventKey={theKey}>
-				{this.state.activeTab === theKey ?
-					<Accordion
-						subject={this.props.selectedCourse}
-						chapter={this.state.chapters[idx]}
-						chapId={'chap' + idx}
-						userID={this.props.userID}
-						auth={this.props.auth}
-						profile={this.props.profile}/>
-				:null}
-			</Tab.Pane>
-			);
+				return (
+					<Tab.Pane eventKey={theKey}>
+						{this.state.activeTab === theKey ?
+							<Accordion
+								subject={this.props.selectedCourse}
+								chapter={this.state.chapters[idx]}
+								chapId={'chap' + idx}
+								userID={this.props.userID}
+								auth={this.props.auth}
+								profile={this.props.profile}/>
+						:null}
+					</Tab.Pane>
+				);
 			}, this);
-			}
+		}
 
 		return (
 			<div>
-				<h2 className="ChapterTitle">{this.props.selectedCourse.name}</h2>
+				<h2 className="ChapterTitle">{this.props.selectedCourse.subjectID} - {this.props.selectedCourse.name}</h2>
 
 				<Tab.Container id="left-tabs-example" defaultActiveKey="chap0">
 					<Row className="clearfix">
 						<Col sm={3} className="animated chapterStack">
-							<Button className="editChaptersButton" onClick={() => this.openEditChaptersModal()}>
-								<Glyphicon glyph="glyphicon glyphicon glyphicon-list"/> Add Chapter
-							</Button>
+							<h3 className="ChapterHeading">
+								Chapters
+								{this.props.auth.canEditChapters() &&
+									<Button className="editChaptersButton" onClick={() => this.openEditChaptersModal()}>
+										<Glyphicon glyph="glyphicon glyphicon-pencil"/> Edit
+									</Button>
+								}
+							</h3>
 							<Nav bsStyle="pills" stacked>
 								{chaptersList}
 							</Nav>
@@ -152,11 +111,12 @@ var Tabs = React.createClass({
 					</Row>
 				</Tab.Container>
 
-				<AddChaptersModal
+				<EditChaptersModal
 					show={this.state.showEditChaptersModal}
 					onHide={this.closeEditChaptersModal}
 					subjectID={this.props.selectedCourse.subjectID}
-					reloadChapters={this.loadChaptersFromServer}/>
+					reloadChapters={this.loadChaptersFromServer}
+					chapters={this.state.chapters} />
 			</div>
 		)
 	}

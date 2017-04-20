@@ -134,4 +134,8 @@ export default class AuthService extends EventEmitter {
         const { roles } = profile.app_metadata || {};
         return !!roles && roles.indexOf('studass') > -1;
     }
+
+    canEditChapters() {
+        return this.isAdmin() || this.isProfessor();
+    }
 }

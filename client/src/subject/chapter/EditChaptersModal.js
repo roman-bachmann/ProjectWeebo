@@ -3,10 +3,10 @@ import {Modal, Button, ButtonToolbar, Glyphicon, FormGroup, ControlLabel, FormCo
 import Alert from 'react-s-alert';
 import Client from '../../Client.js';
 
-var EditSubChaptersModal = React.createClass({
+var EditChaptersModal = React.createClass({
     getInitialState: function () {
         return {
-            newSubChapterName: "",
+            newChapterName: "",
             showDeleteModal: false,
 			openDeleteModalId: ""
         };
@@ -21,8 +21,8 @@ var EditSubChaptersModal = React.createClass({
 		this.setState({ showDeleteModal: false });
 	},
 
-    handleDeleteButton: function (subChapterID) {
-		this.deleteSubChapter(subChapterID);
+    handleDeleteButton: function (chapterID) {
+		this.deleteChapter(chapterID);
         this.closeDeleteModal();
         Alert.success('Chapter successfully deleted!', {
             position: 'top-right',
@@ -32,22 +32,22 @@ var EditSubChaptersModal = React.createClass({
         });
 	},
 
-	deleteSubChapter: function (subChapterID) {
-		Client.deleteSubChapter(this.props.subjectID, this.props.chapterID, subChapterID,
-			() => this.props.reloadSubChapters(this.props.subjectID, this.props.chapterID)
+	deleteChapter: function (chapterID) {
+		Client.deleteChapter(this.props.subjectID, chapterID,
+			() => this.props.reloadChapters(this.props.subjectID)
 		);
 	},
 
-    handleSubChapterForm: function (e) {
-        this.setState({newSubChapterName: e.target.value});
+    handleChapterForm: function (e) {
+        this.setState({newChapterName: e.target.value});
     },
 
-    handleSubmitSubChapter: function () {
-        Client.insertSubChapter(this.props.subjectID, this.props.chapterID, this.state.newSubChapterName,
-            () => this.props.reloadSubChapters(this.props.subjectID, this.props.chapterID)
+    handleSubmitChapter: function () {
+        Client.insertChapter(this.props.subjectID, this.state.newChapterName,
+            () => this.props.reloadChapters(this.props.subjectID)
         );
-        this.setState({newSubChapterName: ""});
-        Alert.success('Subchapter successfully created!', {
+        this.setState({newChapterName: ""});
+        Alert.success('Chapter successfully created!', {
             position: 'top-right',
             effect: 'slide',
             timeout: 4000,
@@ -56,27 +56,28 @@ var EditSubChaptersModal = React.createClass({
     },
 
     render: function () {
-        var subChaptersList = this.props.subchapters.map(function (sc, idx) {
+
+        var chaptersList = this.props.chapters.map(function (c, idx) {
             return (
                 <tr>
-                    <th>{sc.sname}</th>
+                    <th>{c.cname}</th>
                     <th>
-                        <Button onClick={() => this.openDeleteModal(sc.subChapterID)}>
+                        <Button onClick={() => this.openDeleteModal(c.chapterID)}>
                             <Glyphicon glyph="glyphicon glyphicon glyphicon-trash"/>
                         </Button>
                     </th>
-                    <Modal show={this.state.showDeleteModal && this.state.openDeleteModalId === sc.subChapterID}
+                    <Modal show={this.state.showDeleteModal && this.state.openDeleteModalId === c.chapterID}
                            onHide={this.closeDeleteModal} >
                         <Modal.Header closeButton>
-                            <Modal.Title><Glyphicon glyph="glyphicon glyphicon-trash"/> Delete subchapter</Modal.Title>
+                            <Modal.Title><Glyphicon glyph="glyphicon glyphicon-trash"/> Delete chapter</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
-                            <p>Are you sure that you want to delete the whole subchapter <strong>{sc.sname}</strong>?</p>
+                            <p>Are you sure that you want to delete the whole chapter <strong>{c.cname}</strong>?</p>
                             <p><strong>This action cannot be undone!</strong></p>
                         </Modal.Body>
                         <Modal.Footer>
                             <Button onClick={this.closeDeleteModal}>Abort</Button>
-                            <Button onClick={() => this.handleDeleteButton(sc.subChapterID)}>Delete subchapter</Button>
+                            <Button onClick={() => this.handleDeleteButton(c.chapterID)}>Delete chapter</Button>
                         </Modal.Footer>
                     </Modal>
                 </tr>
@@ -89,27 +90,27 @@ var EditSubChaptersModal = React.createClass({
                    aria-labelledby="contained-modal-title-sm">
                 <Modal.Header closeButton>
                     <Modal.Title id="contained-modal-title-sm">
-                        <Glyphicon glyph="glyphicon glyphicon-pencil"/> Edit Subchapters
+                        <Glyphicon glyph="glyphicon glyphicon-pencil"/> Edit Chapters
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Table responsive>
-                        {subChaptersList}
+                        {chaptersList}
                     </Table>
-                    <form className="AddSubChapterForm">
-                        <FormGroup controlId="subChapterNameForm" >
-                            <ControlLabel className="addSubChapterControllLabel">Add a new subchapter to this chapter</ControlLabel>
+                    <form className="AddChapterForm">
+                        <FormGroup controlId="chapterNameForm" >
+                            <ControlLabel className="addChapterControllLabel">Add a new chapter to this course</ControlLabel>
                             <FormControl
                                   type="text"
-                                  value={this.state.newSubChapterName}
-                                  placeholder="Enter subchapter name"
-                                  onChange={this.handleSubChapterForm} />
+                                  value={this.state.newChapterName}
+                                  placeholder="Enter chapter name"
+                                  onChange={this.handleChapterForm} />
                             <FormControl.Feedback />
                         </FormGroup>
                     </form>
 
-                    <Button className="submitSubChapter" onClick={this.handleSubmitSubChapter}>
-                        <Glyphicon className="submitSubChapterGlyph" glyph="glyphicon glyphicon-ok"/> Add subchapter
+                    <Button className="submitChapter" onClick={this.handleSubmitChapter}>
+                        <Glyphicon className="submitChapterGlyph" glyph="glyphicon glyphicon-ok"/> Add chapter
                     </Button>
                 </Modal.Body>
             </Modal>
@@ -117,4 +118,4 @@ var EditSubChaptersModal = React.createClass({
     }
 });
 
-module.exports = EditSubChaptersModal;
+module.exports = EditChaptersModal;

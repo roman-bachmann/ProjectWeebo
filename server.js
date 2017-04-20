@@ -109,6 +109,7 @@ app.get('/api/getVideos', (req, res) => {
 
     get_videos(req, res, subjectID, chapterID, subChapterID);
 });
+
 app.get('/api/getComments', (req, res) => {
     const subjectID = req.query.s;
     const chapterID = req.query.c;
@@ -865,7 +866,7 @@ function delete_chapter(req, res, subjectID, chapterID) {
 }
 
 function delete_subchapter(req, res, subjectID, chapterID, subChapterID) {
-    var sql = `DELETE FROM Chapter
+    var sql = `DELETE FROM subChapter
                WHERE subjectID = ?
                AND chapterID = ?
                AND subChapterID = ?`;
@@ -894,7 +895,7 @@ function insert_chapter(req, res, subjectID, chapterName) {
 }
 
 function insert_subchapter(req, res, subjectID, chapterID, subChapterName) {
-    var sql = `INSERT INTO Chapter (subjectID, chapterID, sname)
+    var sql = `INSERT INTO subChapter (subjectID, chapterID, sname)
                VALUES (?, ?, ?)`;
     var inserts = [subjectID, chapterID, subChapterName];
     sql = mysql.format(sql, inserts);

@@ -127,7 +127,7 @@ function deleteChapter(subjectID, chapterID, cb) {
 }
 
 function deleteSubChapter(subjectID, chapterID, subChapterID, cb) {
-    fetch(`api/deleteChapter?s=${subjectID}&c=${chapterID}&sc=${subChapterID}`, {
+    fetch(`api/deleteSubChapter?s=${subjectID}&c=${chapterID}&sc=${subChapterID}`, {
         method: 'post'
     }).then(cb);
 }
@@ -145,7 +145,7 @@ function insertChapter(subjectID, newChapterName, cb) {
 }
 
 function insertSubChapter(subjectID, chapterID, newSubChapterName, cb) {
-    fetch(`api/insertChapter?s=${subjectID}&c=${chapterID}&name=${newSubChapterName}`, {
+    fetch(`api/insertSubChapter?s=${subjectID}&c=${chapterID}&name=${newSubChapterName}`, {
         method: 'post'
     }).then(cb);
 }
