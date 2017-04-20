@@ -24,7 +24,6 @@ export class Login extends React.Component {
       		<div className="LogoWrapper"><h1 className="WLogo">W</h1></div>
       		<h3 className="WeeboLogin">Weebo</h3>
       		<div><Button  className="animated LogInButton" bsStyle="primary" onClick={auth.login.bind(this)}><span className="fa fa-sign-in"></span> Sign In</Button></div>
-          <div><Button  className="ScrollButton"><a href="#MainFeatures">  <Glyphicon glyph="glyphicon glyphicon-menu-down" className="Glyphicon-arrow"/></a></Button></div>
       	</div>
         <div className="featuresSection">
   		<h3 className="FeaturesTitle">Features</h3>
