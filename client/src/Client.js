@@ -120,11 +120,24 @@ function deleteCourse(subjectID, cb) {
     }).then(cb);
 }
 
+function deleteChapter(subjectID, chapterID, cb) {
+    fetch(`api/deleteChapter?s=${subjectID}&c=${chapterID}`, {
+        method: 'post'
+    }).then(cb);
+}
+
+function deleteSubChapter(subjectID, chapterID, subChapterID, cb) {
+    fetch(`api/deleteChapter?s=${subjectID}&c=${chapterID}&sc=${subChapterID}`, {
+        method: 'post'
+    }).then(cb);
+}
+
 function insertCourse(subjectID, subjectName, cb) {
     fetch(`api/insertCourse?s=${subjectID}&name=${subjectName}`, {
         method: 'post'
     }).then(cb);
 }
+
 function banUser(userID, banTime, subjectID) {
   fetch(`api/banUser?u=${userID}&b=${banTime}&s=${subjectID}`, {
     method: 'post'
@@ -174,6 +187,8 @@ const Client = {
     deleteVideo,
     deleteSubjectForUser,
     deleteCourse,
+    deleteChapter,
+    deleteSubChapter,
     insertCourse,
     banUser,
     recommendVideo,

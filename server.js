@@ -447,6 +447,53 @@ app.post('/api/deleteCourse', (req, res) => {
     delete_course(req, res, subjectID);
 });
 
+app.post('/api/deleteChapter', (req, res) => {
+    const subjectID = req.query.s;
+    const chapterID = req.query.c;
+
+    if (!subjectID) {
+        res.json({
+            error: 'Missing required parameter `s`',
+        });
+        return;
+    }
+    if (!chapterID) {
+        res.json({
+            error: 'Missing required parameter `c`',
+        });
+        return;
+    }
+
+    delete_chapter(req, res, subjectID,chapterID);
+});
+
+app.post('/api/deleteSubChapter', (req, res) => {
+    const subjectID = req.query.s;
+    const chapterID = req.query.c;
+    const subChapterID = req.query.sc;
+
+    if (!subjectID) {
+        res.json({
+            error: 'Missing required parameter `s`',
+        });
+        return;
+    }
+    if (!chapterID) {
+        res.json({
+            error: 'Missing required parameter `c`',
+        });
+        return;
+    }
+    if (!subChapterID) {
+        res.json({
+            error: 'Missing required parameter `sc`',
+        });
+        return;
+    }
+
+    delete_subchapter(req, res, subjectID, chapterID, subChapterID);
+});
+
 app.post('/api/insertCourse', (req, res) => {
     const subjectID = req.query.s;
     const subjectName = req.query.name;
@@ -760,6 +807,27 @@ function delete_course_for_user(req, res, subjectID, userID) {
 function delete_course(req, res, subjectID) {
     var sql = `DELETE FROM Subject WHERE subjectID = ?`;
     var inserts = [subjectID];
+    sql = mysql.format(sql, inserts);
+
+    get_data(req, res, sql);
+}
+
+function delete_chapter(req, res, subjectID, chapterID) {
+    var sql = `DELETE FROM Chapter
+               WHERE subjectID = ?
+               AND chapterID = ?`;
+    var inserts = [subjectID, chapterID];
+    sql = mysql.format(sql, inserts);
+
+    get_data(req, res, sql);
+}
+
+function delete_subchapter(req, res, subjectID, chapterID, subChapterID) {
+    var sql = `DELETE FROM Chapter
+               WHERE subjectID = ?
+               AND chapterID = ?
+               AND subChapterID = ?`;
+    var inserts = [subjectID, chapterID, subChapterID];
     sql = mysql.format(sql, inserts);
 
     get_data(req, res, sql);
