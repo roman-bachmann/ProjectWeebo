@@ -138,6 +138,18 @@ function insertCourse(subjectID, subjectName, cb) {
     }).then(cb);
 }
 
+function insertChapter(subjectID, newChapterName, cb) {
+    fetch(`api/insertChapter?s=${subjectID}&name=${newChapterName}`, {
+        method: 'post'
+    }).then(cb);
+}
+
+function insertSubChapter(subjectID, chapterID, newSubChapterName, cb) {
+    fetch(`api/insertChapter?s=${subjectID}&c=${chapterID}&name=${newSubChapterName}`, {
+        method: 'post'
+    }).then(cb);
+}
+
 function banUser(userID, banTime, subjectID) {
   fetch(`api/banUser?u=${userID}&b=${banTime}&s=${subjectID}`, {
     method: 'post'
@@ -190,6 +202,8 @@ const Client = {
     deleteChapter,
     deleteSubChapter,
     insertCourse,
+    insertChapter,
+    insertSubChapter,
     banUser,
     recommendVideo,
     unRecommendVideo,

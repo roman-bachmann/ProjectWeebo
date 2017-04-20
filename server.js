@@ -504,13 +504,7 @@ app.post('/api/insertCourse', (req, res) => {
         });
         return;
     }
-    if (!subjectID) {
-        res.json({
-            error: 'Missing required parameter `y`',
-        });
-        return;
-    }
-    if (!subjectID) {
+    if (!subjectName) {
         res.json({
             error: 'Missing required parameter `name`',
         });
@@ -519,6 +513,54 @@ app.post('/api/insertCourse', (req, res) => {
 
     insert_course(req, res, subjectID, subjectName);
 });
+
+app.post('/api/insertChapter', (req, res) => {
+    const subjectID = req.query.s;
+    const chapterName = req.query.name;
+
+    if (!subjectID) {
+        res.json({
+            error: 'Missing required parameter `s`',
+        });
+        return;
+    }
+    if (!chapterName) {
+        res.json({
+            error: 'Missing required parameter `name`',
+        });
+        return;
+    }
+
+    insert_chapter(req, res, subjectID, chapterName);
+});
+
+app.post('/api/insertSubChapter', (req, res) => {
+    const subjectID = req.query.s;
+    const chapterID = req.query.c;
+    const subChapterName = req.query.name;
+
+    if (!subjectID) {
+        res.json({
+            error: 'Missing required parameter `s`',
+        });
+        return;
+    }
+    if (!chapterID) {
+        res.json({
+            error: 'Missing required parameter `c`',
+        });
+        return;
+    }
+    if (!subChapterName) {
+        res.json({
+            error: 'Missing required parameter `name`',
+        });
+        return;
+    }
+
+    insert_subchapter(req, res, subjectID, chapterID, subChapterName);
+});
+
 app.post('/api/banUser', (req, res) => {
   const userID = req.query.u;
   const banTime = req.query.b;
@@ -668,7 +710,7 @@ function get_courses(req, res, userID) {
 }
 
 function get_chapters(req, res, subjectID) {
-    var sql = `SELECT chapterID, cname, position
+    var sql = `SELECT chapterID, cname
                FROM Subject, Chapter
                WHERE Subject.subjectID = Chapter.subjectID
                AND Subject.subjectID =  ?`;
@@ -837,6 +879,24 @@ function insert_course(req, res, subjectID, subjectName) {
     var sql = `INSERT INTO Subject (subjectID, name)
                VALUES (?, ?)`;
     var inserts = [subjectID, subjectName];
+    sql = mysql.format(sql, inserts);
+
+    get_data(req, res, sql);
+}
+
+function insert_chapter(req, res, subjectID, chapterName) {
+    var sql = `INSERT INTO Chapter (cname, subjectID)
+               VALUES (?, ?)`;
+    var inserts = [chapterName, subjectID];
+    sql = mysql.format(sql, inserts);
+
+    get_data(req, res, sql);
+}
+
+function insert_subchapter(req, res, subjectID, chapterID, subChapterName) {
+    var sql = `INSERT INTO Chapter (subjectID, chapterID, sname)
+               VALUES (?, ?, ?)`;
+    var inserts = [subjectID, chapterID, subChapterName];
     sql = mysql.format(sql, inserts);
 
     get_data(req, res, sql);

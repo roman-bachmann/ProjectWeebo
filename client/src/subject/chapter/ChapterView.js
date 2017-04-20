@@ -57,9 +57,9 @@ var Tabs = React.createClass({
 	},
 
 	deleteChapter: function (chapterID) {
-		Client.deleteChapter(this.props.selectedCourse.subjectID, chapterID, () => {
-			this.loadChaptersFromServer(this.props.selectedCourse.subjectID);
-		});
+		Client.deleteChapter(this.props.selectedCourse.subjectID, chapterID,
+			() => this.loadChaptersFromServer(this.props.selectedCourse.subjectID)
+		);
 	},
 
 	handleSelect: function (tab){
@@ -138,7 +138,7 @@ var Tabs = React.createClass({
 					<Row className="clearfix">
 						<Col sm={3} className="animated chapterStack">
 							<Button className="editChaptersButton" onClick={() => this.openEditChaptersModal()}>
-								<Glyphicon glyph="glyphicon glyphicon glyphicon-list"/> Edit Chapters
+								<Glyphicon glyph="glyphicon glyphicon glyphicon-list"/> Add Chapter
 							</Button>
 							<Nav bsStyle="pills" stacked>
 								{chaptersList}
@@ -154,7 +154,9 @@ var Tabs = React.createClass({
 
 				<AddChaptersModal
 					show={this.state.showEditChaptersModal}
-					onHide={this.closeEditChaptersModal}/>
+					onHide={this.closeEditChaptersModal}
+					subjectID={this.props.selectedCourse.subjectID}
+					reloadChapters={this.loadChaptersFromServer}/>
 			</div>
 		)
 	}
