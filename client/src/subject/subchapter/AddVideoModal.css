@@ -57,9 +57,13 @@ input[type='radio']:after {
     content: '';
     display: inline-block;
     visibility: visible;
-    border: 2px solid white;
+    border: 1px solid #f2f2f2;
+    outline: 0 !important;
 }
 
+input[type='radio']:focus{
+  outline: 0 !important;
+  }
 input[type='radio']:checked:after {
     width: 15px;
     height: 15px;
