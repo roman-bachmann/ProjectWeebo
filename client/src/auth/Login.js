@@ -7,6 +7,7 @@ import Facebook from '../img/facebook.png'
 import Twitter from '../img/twitter.png'
 import './Login.css'
 import '../Animate.css'
+import ScrollableAnchor from 'react-scrollable-anchor'
 // import styles from './styles.module.css'
 
 export class Login extends React.Component {
@@ -27,13 +28,17 @@ export class Login extends React.Component {
           <div><Button  className="ScrollButton"><a href="#MainFeatures">  <Glyphicon glyph="glyphicon glyphicon-menu-down" className="Glyphicon-arrow"/></a></Button></div>
         </div>
         <div className="featuresSection">
-  		<h3 className="FeaturesTitle">Features</h3>
+        <ScrollableAnchor id={'MainFeatures'}>
+  		    <h3 className="FeaturesTitle">Features</h3>
+        </ScrollableAnchor>
       <hr className="LoginHR"></hr><hr className="LoginHR2"></hr>
   		<p className="FeaturesDescription">With Weebo, students are able to watch, rate and share the best educational videos for a specific subject. Professors are then able to verify the quality of content, recommend videos, or even publish an own video. Weebo will be the future for finding educational videos for any subject, independent of university or school. Wasting time on searching videos on Youtube is a past!</p>
   		<ul className="grid">
   			<li>
           <Glyphicon glyph="glyphicon glyphicon-thumbs-up" className="Glyphicon-Login"/>
-  				<h4 className="MainFeatures">Rating System</h4>
+  				
+            <h4>Rating System</h4>
+          
   				<p>A user can easily find the best rated videos on Weebo.</p>
   			</li>
   			<li>
