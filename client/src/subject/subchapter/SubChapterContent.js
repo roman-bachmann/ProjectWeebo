@@ -274,13 +274,10 @@ var SubChapterContent = React.createClass({
 									<YouTube id={v.videoID} />
 								</Row>
 								<Row>
-									<Col md={8}>
-										<Upvote videoid={v.subChapterVideoID} userID={this.props.userID}/>
-									</Col>
-									<Col md={4}>
-										{this.moderateButton(v.videoID, v.userID)}
-	                                    {this.recommendButton(v.videoID, v.Favorite)}
-	                		</Col>
+								<Upvote videoid={v.subChapterVideoID} userID={this.props.userID}/>
+								{this.moderateButton(v.videoID, v.userID)}
+                                {this.recommendButton(v.videoID, v.Favorite)}
+	                		
 					</Row>
 	              	<div>
 	                    {v.Favorite === 1 ? <Row className="recommended">
@@ -289,6 +286,7 @@ var SubChapterContent = React.createClass({
 	                    :null}
 	                  </div>
 							</Col>
+							<Col md="5">
 	            <div className="commentsWidget">
 	              <div className="publishedInfo">Published by {v.fullName} on {v.addDate.substring(0,10)}</div>
                   <div><img className="publishedImage" src={decodeURIComponent(v.userGravatar)} /></div>
@@ -297,6 +295,7 @@ var SubChapterContent = React.createClass({
 	            </Row>
 
 	            	</div>
+	            	</Col>
 	            </div>
 
 					</Row>

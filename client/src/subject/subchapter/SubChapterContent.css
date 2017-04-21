@@ -132,8 +132,27 @@
   text-align: center;
   padding-top: 8px;
 }
-
+ .btnStar_Recommend {
+  display: inline-block;
+   float: right;
+   border-radius: 50%;
+   font-size: 18px;
+   width: 40px;
+   height: 40px;
+   background-color: #eaeaea;
+   background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(white));
+   background-image: -webkit-linear-gradient(top, white, #f2f2f2);
+   background-image: -moz-linear-gradient(top, white, #f2f2f2);
+   background-image: -ms-linear-gradient(top, white, #f2f2f2);
+   background-image: -o-linear-gradient(top, white, #f2f2f2);
+   background-image: linear-gradient(top, white, #f2f2f2);
+   -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
+   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
+   box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
+    color: #519d9b;
+ }
  .btnStar_Recommended {
+  display: inline-block;
    float: right;
    border-radius: 50%;
    color: #f5e11d;
@@ -155,25 +174,6 @@
   .btnStar_Recommended:hover {
     color: white;
   }
-
- .btnStar_Recommend {
-   float: right;
-   border-radius: 50%;
-   font-size: 18px;
-   width: 40px;
-   height: 40px;
-   background-color: #eaeaea;
-   background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(white));
-   background-image: -webkit-linear-gradient(top, white, #f2f2f2);
-   background-image: -moz-linear-gradient(top, white, #f2f2f2);
-   background-image: -ms-linear-gradient(top, white, #f2f2f2);
-   background-image: -o-linear-gradient(top, white, #f2f2f2);
-   background-image: linear-gradient(top, white, #f2f2f2);
-   -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
-   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
-   box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
-    color: #519d9b;
- }
 
  .ModerateButton {
    background-color: #eaeaea;

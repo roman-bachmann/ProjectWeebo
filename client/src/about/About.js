@@ -18,14 +18,17 @@ export class About extends React.Component {
     <div className="animated col-md-4 col-sm-4">
       <span className="aboutIcons"><i className="fa fa-film"></i></span>
       <h3 className="animated serviceTitle">Watch</h3>
+      <p className="aboutWeebo">With Weebo you can instantly find the best videos for a subchapter.</p>
     </div>
     <div className="animated col-md-4 col-sm-4">
       <span className="aboutIcons"><i className="fa fa-thumbs-up"></i></span>
       <h3 className="serviceTitle">Rate</h3>
+      <p className="aboutWeebo">With our amazing rating system the best videos will always show up first in a subchapter.</p>
     </div>
     <div className="animated col-md-4 col-sm-4">
       <span className="aboutIcons"><i className="fa fa-share-alt"></i></span>
       <h3 className="serviceTitle">Share</h3>
+      <p className="aboutWeebo">You can also share the videos you want.</p>
     </div>
   </div>
 </div>

@@ -40,6 +40,7 @@ var AccordionBoot = React.createClass({
     handleDate: function () {
         console.log(this.props.subject.ban_time);
         if(this.props.subject.ban_time == '0000-00-00 00:00:00'){
+            console.log("FUCK MAN");
             var t = this.props.subject.ban_time.split(/[- :]/);
             console.log(t);
             var d = new Date(Date.UTC(t[0], t[1]-1, t[2], t[3], t[4], t[5]));
@@ -50,6 +51,7 @@ var AccordionBoot = React.createClass({
         }else{
             var d = new Date(this.props.subject.ban_time);
             console.log(d);
+            console.log("Should be date here");
             this.setState({
                 ban_time: d
             });

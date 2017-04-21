@@ -42,7 +42,7 @@ const MySmallModal = React.createClass({
 
   handleShare: function(e) {
     console.log(this.props.bantime);
-
+    console.log("say whaat");
     var d = new Date();
     console.log(d);
     //Check if bantime is before todays date
@@ -64,6 +64,7 @@ const MySmallModal = React.createClass({
         this.props.onHide();
       }
     }else{
+      console.log("should be here");
       this.setState({ target: e.target, show: !this.state.show });
     }
 
