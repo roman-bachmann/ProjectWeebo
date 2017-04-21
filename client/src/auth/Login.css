@@ -75,9 +75,9 @@ ul, nav{
 }
 
 .LogInButton:hover {
-  background-color: #3cb979;
-  border-color: #3cb979;
-color: white;
+  background-color: #f6f6f6;
+  border: #f6f6f6;
+color: #3cb979;
 }
 
 button:focus {outline:0 !important;
@@ -85,15 +85,15 @@ button:focus {outline:0 !important;
 
 
 .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
-  background-color: #3cb979;
-  border-color: #3cb979;
-color: white;
+  background-color: #f6f6f6;
+  border: #f6f6f6;
+color: #3cb979;
 }
 
 .btn-primary.active, .btn-primary:active, .open>.dropdown-toggle.btn-primary{
-  background-color: #3cb979;
-  border-color: #3cb979;
-color: white;
+  background-color: #f6f6f6;
+  border: #f6f6f6;
+color: #3cb979;
 }
 
 .fa-sign-in{
