@@ -71,7 +71,7 @@ ul, nav{
   border-radius: 30px;
   font-family: "Webly Sleek";
   font-size: 20px;
-  color: green;
+  color: #3a865f;
 }
 
 .LogInButton:hover {
@@ -87,13 +87,13 @@ button:focus {outline:0 !important;
 .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
   background-color: #f6f6f6;
   border: #f6f6f6;
-color: #3cb979;
+color: green;
 }
 
 .btn-primary.active, .btn-primary:active, .open>.dropdown-toggle.btn-primary{
   background-color: #f6f6f6;
   border: #f6f6f6;
-color: #3cb979;
+color: green;
 }
 
 .fa-sign-in{
