@@ -367,7 +367,7 @@ var SubChapterContent = React.createClass({
                                             <FormControl.Feedback />
                                         </FormGroup>
                                         <div className="bottom-comment">
-                                            <div className="comment-date">Publish with full name</div>
+                                            <div className="comment-date">This comment will be published as "{this.props.profile.user_metadata.first_name} {this.props.profile.user_metadata.last_name}"</div>
                                         </div>
                                         <div>
                                             <ul className="comment-actions">

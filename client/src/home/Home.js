@@ -36,7 +36,7 @@ var Home = React.createClass({
                   </p>
                   :
                   <p className="animated SelectTitle">
-                      You have no courses. <br/> Courses can be added via  <span className="noCourses"><Glyphicon glyph="glyphicon glyphicon-education"/> Courses <Glyphicon glyph="glyphicon glyphicon-arrow-right"/> <Glyphicon glyph="glyphicon glyphicon-pencil"/> Add courses</span>
+                      You have no courses. <br/> Courses can be added via  <span className="noCourses"><Glyphicon glyph="glyphicon glyphicon-education"/> Courses</span> in the Menu.
                   </p>
               }
 
