@@ -11,27 +11,21 @@ const Footer = React.createClass({
             <div className="footer-wrap">
       			<div className="footer-right">
 
-      				<a href="#"><i className="fa fa-facebook"></i></a>
-      				<a href="#"><i className="fa fa-twitter"></i></a>
-      				<a href="#"><i className="fa fa-google-plus"></i></a>
-      				<a href="#"><i className="fa fa-envelope"></i></a>
+      				<a href="https://www.facebook.com/Weebo-774288392725196"><i className="fa fa-facebook"></i></a>
+      				<a href="https://plus.google.com/106378086979104202590"><i className="fa fa-google-plus"></i></a>
+      				<a href="mailto:teamweebo2017@gmail.com"><i className="fa fa-envelope"></i></a>
 
       			</div>
 
       			<div className="footer-left">
 
       				<p className="footer-links">
-      					<a href="#">Home</a>
-
-      					<a href="#">Profile</a>
-
-      					<a href="#">Admin</a>
-
-      					<a href="#">About</a>
-
-      					<a href="#">Contact</a>
-
-      					<a href="#">Log out</a>
+                        <Link to="/home">Home</Link>
+                        <Link to="/profile">Profile</Link>
+                        {this.props.auth.isAdmin() && <Link to="/admin">Admin</Link> }
+                        <Link to="/about">About</Link>
+                        <Link to="/contact">Contact</Link>
+                        <Link to="/login" onClick={this.props.auth.logout.bind(this)}>Log out</Link>
       				</p>
 
       				<p className="copyright">Team Weebo &copy; 2017</p>
