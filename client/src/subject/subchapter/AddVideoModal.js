@@ -60,19 +60,18 @@ const MySmallModal = React.createClass({
         Client.videoShare(userID, subjectID, chapterID, subChapterID, videoID, descr, fullName, userGravatar,
                           () => this.props.reloadOnSubmit());
         this.props.onHide();
+        Alert.success('Video successfully added!', {
+            position: 'top-right',
+            effect: 'slide',
+            timeout: 4000,
+            offset: 50
+        });
       }else{
         this.props.onHide();
       }
     }else{
       this.setState({ target: e.target, show: !this.state.show });
     }
-
-    Alert.success('Video successfully added!', {
-        position: 'top-right',
-        effect: 'slide',
-        timeout: 4000,
-        offset: 50
-    });
 
   },
   videoSiteChange: function(e) {
