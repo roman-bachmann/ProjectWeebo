@@ -55,6 +55,4 @@ var Routes = React.createClass({
     }
 });
 
-// <Route path="login" component={Login} />
-
 module.exports = Routes;
