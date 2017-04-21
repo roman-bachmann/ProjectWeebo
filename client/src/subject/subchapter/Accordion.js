@@ -104,12 +104,14 @@ var AccordionBoot = React.createClass({
 
         return (
             <div>
-                <h3 className="subChaptersHeading">
+                <h3 className="ChapterHeading">
                     Subchapters
                     {this.props.auth.canEditChapters() &&
+                        <span className="editChaptersButtonSep">
                         <Button className="editSubChaptersButton" onClick={() => this.openEditSubChaptersModal()}>
                             <Glyphicon glyph="glyphicon glyphicon-pencil"/> Edit
                         </Button>
+                        </span>
                     }
                 </h3>
 

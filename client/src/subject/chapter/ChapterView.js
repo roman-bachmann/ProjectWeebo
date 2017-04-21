@@ -91,14 +91,18 @@ var Tabs = React.createClass({
 				<Tab.Container id="left-tabs-example" defaultActiveKey="chap0">
 					<Row className="clearfix">
 						<Col sm={3} className="animated chapterStack">
+							<div className="editChapterTitle">
 							<h3 className="ChapterHeading">
 								Chapters
 								{this.props.auth.canEditChapters() &&
+									<span className="editChaptersButtonSep">
 									<Button className="editChaptersButton" onClick={() => this.openEditChaptersModal()}>
 										<Glyphicon glyph="glyphicon glyphicon-pencil"/> Edit
 									</Button>
+									</span>
 								}
-							</h3>
+								</h3>
+							</div>
 							<Nav bsStyle="pills" stacked>
 								{chaptersList}
 							</Nav>

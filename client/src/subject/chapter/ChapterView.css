@@ -21,3 +21,16 @@
     -webkit-animation-name: pulse;
     animation-name: pulse;
 }
+
+.ChapterHeading{
+  color: #329a64;
+  font-family: "Webly Sleek";
+  font-size: 22px;
+  padding-bottom: 10px;
+  border: 1px solid #f2f2f2;
+  border-bottom-color: #d2dfdf;
+}
+
+.editChaptersButtonSep{
+  padding: 5px;
+}
