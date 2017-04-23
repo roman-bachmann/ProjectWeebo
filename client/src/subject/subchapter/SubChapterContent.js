@@ -260,9 +260,17 @@ var SubChapterContent = React.createClass({
   		}
   	}
   },
+  isProfessor: function (professorValue){
+  	if(professorValue == 'professor'){
+  		return "Posted by a professor";
+  	}else{
+  		return "";
+  	}
+  },
 	render: function() {
 		let closeCourseModal = () => this.setState({ showCourseModal: false });
         var videosList = null;
+        var professorPosted = "";
 		if (this.state.videos) {
 			videosList = this.state.videos.map( (v, idx) => (
 				<div>
@@ -292,6 +300,7 @@ var SubChapterContent = React.createClass({
                   <div><img className="publishedImage" src={decodeURIComponent(v.userGravatar)} /></div>
 	            <Row className="comment">
 	              <i className="fa fa-quote-left"/> {v.Description} <i className="fa fa-quote-right"/>
+	              <p style={{color: 'green'}}>{this.isProfessor(v.role)}</p>
 	            </Row>
 
 	            	</div>
@@ -406,6 +415,7 @@ var SubChapterContent = React.createClass({
 					chapter={this.props.chapter.chapterID}
 					subchapter={this.props.subchapter.subChapterID}
 					userID={this.props.userID}
+					auth={this.props.auth}
 					bantime={this.props.bantime}
                     reloadOnSubmit={this.triggerReloadVideos}
                     profile={this.props.profile}/>

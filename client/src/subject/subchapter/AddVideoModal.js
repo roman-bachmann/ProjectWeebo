@@ -57,7 +57,15 @@ const MySmallModal = React.createClass({
         var videoID = this.state.userInput;
         var fullName = this.props.profile.user_metadata.first_name + " " + this.props.profile.user_metadata.last_name;
         var userGravatar = this.props.profile.picture;
-        Client.videoShare(userID, subjectID, chapterID, subChapterID, videoID, descr, fullName, userGravatar,
+        var role = "student";
+        if(this.props.auth.isAdmin()){
+          role = "admin";
+        }else if(this.props.auth.isProfessor()){
+          role = "professor";
+        }else if(this.props.auth.isStudass()){
+          role = "studass";
+        }
+        Client.videoShare(userID, subjectID, chapterID, subChapterID, videoID, descr, fullName, userGravatar, role,
                           () => this.props.reloadOnSubmit());
         this.props.onHide();
         Alert.success('Video successfully added!', {

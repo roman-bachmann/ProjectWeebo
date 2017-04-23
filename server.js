@@ -167,6 +167,7 @@ app.post('/api/shareVideo', (req, res) => {
   const description = req.query.d;
   const fullName = req.query.fn;
   const userGravatar = req.query.gr;
+  const role = req.query.r;
   const curDate = new Date().toISOString().slice(0, 19).replace('T', ' ');
   if(!userID){
     res.json({
@@ -216,6 +217,12 @@ app.post('/api/shareVideo', (req, res) => {
       });
       return;
   }
+  if(!role) {
+    res.json({
+      error: 'Missing required parameter `role`',
+    });
+    return;
+  }
   console.log("about to post");
 
   var options = {
@@ -223,11 +230,11 @@ app.post('/api/shareVideo', (req, res) => {
     host: 'img.youtube.com',
     path: '/vi/' + videoID + '/0.jpg'
   };
-
+  //This function checks if the YouTube video is a valid video
   var reqYou = http.request(options, function(resYou) {
     if (resYou.statusCode == 200){
         console.log("Valid Youtube ID");
-        post_video(req, res, userID, subjectID, chapterID, subChapterID, videoID, description, curDate, fullName, userGravatar);
+        post_video(req, res, userID, subjectID, chapterID, subChapterID, videoID, description, curDate, fullName, userGravatar, role);
     } else {
         console.log("Invalid Youtube ID");
     }
@@ -735,7 +742,7 @@ function get_subchapters(req, res, subjectID, chapterID) {
 }
 
 function get_videos(req, res, subjectID, chapterID, subChapterID) {
-    var sql = `SELECT subChapterVideo.videoID, subChapterVideo.subChapterVideoID, subChapterVideo.Description, subChapterVideo.userID, subChapterVideo.Favorite, subChapterVideo.addDate, subChapterVideo.fullName, subChapterVideo.userGravatar, SUM(rating.rating_score) AS votes
+    var sql = `SELECT subChapterVideo.videoID, subChapterVideo.subChapterVideoID, subChapterVideo.Description, subChapterVideo.userID, subChapterVideo.Favorite, subChapterVideo.addDate, subChapterVideo.fullName, subChapterVideo.role, subChapterVideo.userGravatar, SUM(rating.rating_score) AS votes
                 FROM subChapterVideo
                 LEFT JOIN rating
                 ON subChapterVideo.subChapterVideoID = rating.subChapterVideoID
@@ -786,10 +793,10 @@ function get_favoriteVideo(req, res, videoID) {
     get_data(req, res, sql);
 }
 
-function post_video(req, res, userID, subjectID, chapterID, subChapterID, videoID, description, curDate, fullName, userGravatar) {
-  var sql =   `INSERT INTO subChapterVideo (userID, subjectID, chapterID, subChapterID, videoID, Description, addDate, fullName, userGravatar)
-              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
-  var inserts = [userID, subjectID, chapterID, subChapterID, videoID, description, curDate, fullName, userGravatar];
+function post_video(req, res, userID, subjectID, chapterID, subChapterID, videoID, description, curDate, fullName, userGravatar, role) {
+  var sql =   `INSERT INTO subChapterVideo (userID, subjectID, chapterID, subChapterID, videoID, Description, addDate, fullName, userGravatar, role)
+              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+  var inserts = [userID, subjectID, chapterID, subChapterID, videoID, description, curDate, fullName, userGravatar, role];
   sql = mysql.format(sql, inserts);
   get_data(req, res, sql);
 }

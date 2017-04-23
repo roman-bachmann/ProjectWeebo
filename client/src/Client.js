@@ -77,9 +77,9 @@ function getFavoriteVideo(userID, videoID, cb) {
      .then(cb);
 }
 
-function videoShare(userID, subjectID, chapterID, subChapterID, videoID, description, fullName, userGravatar, cb) {
+function videoShare(userID, subjectID, chapterID, subChapterID, videoID, description, fullName, userGravatar, role, cb) {
   var encodedGravatar = encodeURIComponent(userGravatar);
-  fetch(`api/shareVideo?user=${userID}&subj=${subjectID}&chap=${chapterID}&subc=${subChapterID}&vid=${videoID}&d=${description}&fn=${fullName}&gr=${encodedGravatar}`, {
+  fetch(`api/shareVideo?user=${userID}&subj=${subjectID}&chap=${chapterID}&subc=${subChapterID}&vid=${videoID}&d=${description}&fn=${fullName}&gr=${encodedGravatar}&r=${role}`, {
        method: 'post'
   }).then(cb);
 }
