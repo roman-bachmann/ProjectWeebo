@@ -33,7 +33,7 @@ var CourseList = React.createClass({
 
     render: function () {
         var courseItems = this.props.courses.map((c, idx) => (
-            <tr>
+            <tr key={'adminCourseItem' + idx}>
                 <th>{c.subjectID}</th>
                 <th>{c.name}</th>
                 <th>
