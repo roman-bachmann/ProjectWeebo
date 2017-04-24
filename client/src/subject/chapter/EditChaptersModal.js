@@ -57,6 +57,12 @@ var EditChaptersModal = React.createClass({
         });
     },
 
+    handleKeyPress: function (target) {
+        if(target.charCode==13){
+            this.handleSubmitChapter();
+        }
+    },
+
     render: function () {
 
         var chaptersList = this.props.chapters.map(function (c, idx) {
@@ -100,14 +106,15 @@ var EditChaptersModal = React.createClass({
                         {chaptersList}
                     </Table>
                     <div className="submitDiv">
-                        <form className="AddChapterForm">
+                        <form className="AddChapterForm" onSubmit={event => event.preventDefault()} >
                             <FormGroup controlId="chapterNameForm" >
                                 <ControlLabel className="addChapterControllLabel">Add a new chapter to this course</ControlLabel>
                                 <FormControl
                                       type="text"
                                       value={this.state.newChapterName}
                                       placeholder="Enter chapter name"
-                                      onChange={this.handleChapterForm} />
+                                      onChange={this.handleChapterForm}
+                                      onKeyPress={this.handleKeyPress} />
                                 <FormControl.Feedback />
                             </FormGroup>
                         </form>

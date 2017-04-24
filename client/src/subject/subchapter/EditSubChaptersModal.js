@@ -55,6 +55,12 @@ var EditSubChaptersModal = React.createClass({
         });
     },
 
+    handleKeyPress: function (target) {
+        if(target.charCode==13){
+            this.handleSubmitSubChapter();
+        }
+    },
+
     render: function () {
         var subChaptersList = this.props.subchapters.map(function (sc, idx) {
             return (
@@ -96,14 +102,15 @@ var EditSubChaptersModal = React.createClass({
                     <Table responsive>
                         {subChaptersList}
                     </Table>
-                    <form className="AddSubChapterForm">
+                    <form className="AddSubChapterForm" onSubmit={event => event.preventDefault()}>
                         <FormGroup controlId="subChapterNameForm" >
                             <ControlLabel className="addSubChapterControllLabel">Add a new subchapter to this chapter</ControlLabel>
                             <FormControl
                                   type="text"
                                   value={this.state.newSubChapterName}
                                   placeholder="Enter subchapter name"
-                                  onChange={this.handleSubChapterForm} />
+                                  onChange={this.handleSubChapterForm}
+                                  onKeyPress={this.handleKeyPress} />
                             <FormControl.Feedback />
                         </FormGroup>
                     </form>
