@@ -1,3 +1,5 @@
+import './EditChaptersModal.css'
+
 var React = require('react');
 import {Modal, Button, ButtonToolbar, Glyphicon, FormGroup, ControlLabel, FormControl, HelpBlock, Table} from 'react-bootstrap';
 import Alert from 'react-s-alert';
@@ -62,7 +64,7 @@ var EditChaptersModal = React.createClass({
                 <tr>
                     <th>{c.cname}</th>
                     <th>
-                        <Button onClick={() => this.openDeleteModal(c.chapterID)}>
+                        <Button style={{color: 'red'}} onClick={() => this.openDeleteModal(c.chapterID)}>
                             <Glyphicon glyph="glyphicon glyphicon glyphicon-trash"/>
                         </Button>
                     </th>
@@ -93,25 +95,27 @@ var EditChaptersModal = React.createClass({
                         <Glyphicon glyph="glyphicon glyphicon-pencil"/> Edit Chapters
                     </Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body className="modalbody">
                     <Table responsive>
                         {chaptersList}
                     </Table>
-                    <form className="AddChapterForm">
-                        <FormGroup controlId="chapterNameForm" >
-                            <ControlLabel className="addChapterControllLabel">Add a new chapter to this course</ControlLabel>
-                            <FormControl
-                                  type="text"
-                                  value={this.state.newChapterName}
-                                  placeholder="Enter chapter name"
-                                  onChange={this.handleChapterForm} />
-                            <FormControl.Feedback />
-                        </FormGroup>
-                    </form>
+                    <div className="submitDiv">
+                        <form className="AddChapterForm">
+                            <FormGroup controlId="chapterNameForm" >
+                                <ControlLabel className="addChapterControllLabel">Add a new chapter to this course</ControlLabel>
+                                <FormControl
+                                      type="text"
+                                      value={this.state.newChapterName}
+                                      placeholder="Enter chapter name"
+                                      onChange={this.handleChapterForm} />
+                                <FormControl.Feedback />
+                            </FormGroup>
+                        </form>
 
-                    <Button className="submitChapter" onClick={this.handleSubmitChapter}>
-                        <Glyphicon className="submitChapterGlyph" glyph="glyphicon glyphicon-ok"/> Add chapter
-                    </Button>
+                        <Button className="submitChapter" onClick={this.handleSubmitChapter}>
+                            <Glyphicon className="submitChapterGlyph" glyph="glyphicon glyphicon-ok"/> Add chapter
+                        </Button>
+                    </div>
                 </Modal.Body>
             </Modal>
         );

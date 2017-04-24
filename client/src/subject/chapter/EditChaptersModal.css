@@ -1,0 +1,34 @@
+.submitDiv {
+
+}
+.submitChapter {
+	display: initial;
+	float:right;
+	color: green;	
+  border-radius: 4px;
+  background-color: #519d9b;
+  border: none;
+  color: #519d9b;
+  text-align: center;
+  font-size: 15px;
+  transition: all 0.5s;
+  cursor: pointer;
+  font-family: "Webly Sleek";
+  background-color: #eaeaea;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(white));
+  background-image: -webkit-linear-gradient(top, white, #f2f2f2);
+  background-image: -moz-linear-gradient(top, white, #f2f2f2);
+  background-image: -ms-linear-gradient(top, white, #f2f2f2);
+  background-image: -o-linear-gradient(top, white, #f2f2f2);
+  background-image: linear-gradient(top, white, #f2f2f2);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
+}
+.chapterNameForm {
+	float:left;
+	display: initial;
+}
+.modalbody {
+	overflow: hidden;
+}

@@ -262,7 +262,7 @@ var SubChapterContent = React.createClass({
   },
   isProfessor: function (professorValue){
   	if(professorValue == 'professor'){
-  		return "Posted by a professor";
+  		return "Posted by a professor!";
   	}else{
   		return "";
   	}
