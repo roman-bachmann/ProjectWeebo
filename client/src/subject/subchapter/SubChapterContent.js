@@ -1,3 +1,8 @@
+/* 	Written by Roman Bachmann, Sølve Bø Hunvik and Thay Tharma
+	This component is for loading the website with videos and discuss section
+	Also contains logic for ban users, delete videos and favorite videos
+*/
+
 var React = require('react');
 import './SubChapterContent.css';
 import {Row, Col, Grid} from 'react-bootstrap';
@@ -81,7 +86,7 @@ var SubChapterContent = React.createClass({
 				nextProps.subchapter.subChapterID);
 		}
 	},
-
+	//The trigger functions runs after deleting a video or sharing a video
     triggerReloadVideos: function () {
         console.log("Reloading videos");
         this.loadVideosFromServer(
@@ -96,7 +101,7 @@ var SubChapterContent = React.createClass({
     		this.props.chapter.chapterID,
     		this.props.subchapter.subChapterID)
     },
-
+    //this function triggers the ban user modal
 	handleModerateDropdown: function (eventKey, videoID) {
 		if (eventKey === 'deleteVideoKey') {
             this.openDeleteModal(videoID);
@@ -104,7 +109,7 @@ var SubChapterContent = React.createClass({
             // Handled in modal
 		}
 	},
-
+	//Functions for deleting videos
     closeDeleteModal: function () {
         this.setState({ showDeleteModal: false });
     },
@@ -113,7 +118,6 @@ var SubChapterContent = React.createClass({
         this.setState({ showDeleteModal: true });
         this.setState({ openDeleteModalId: modalId });
     },
-
     handleDeleteVideoButton: function (videoID) {
         Client.deleteVideo(videoID, () => this.triggerReloadVideos());
         Alert.success('Video successfully deleted!', {
@@ -124,7 +128,7 @@ var SubChapterContent = React.createClass({
         });
         this.closeModal();
     },
-
+    //Functions for the star button that makes a video recommended by professor
 	handleRecommendVideo: function(videoID) {
         Client.recommendVideo(this.props.subject.subjectID,
                               this.props.chapter.chapterID,
@@ -132,7 +136,6 @@ var SubChapterContent = React.createClass({
                               videoID,
                               () => this.triggerReloadVideos());
 	},
-
 	handleUnRecommendVideo: function(videoID) {
         Client.unRecommendVideo(this.props.subject.subjectID,
                               this.props.chapter.chapterID,
@@ -140,7 +143,7 @@ var SubChapterContent = React.createClass({
                               videoID,
                               () => this.triggerReloadVideos());
 	},
-
+	//Moderate button for admins/professors/studass to delete videos or ban users
 	moderateButton: function (videoID, userID) {
 		let closeBanModal = () => this.setState({showBanModal: false});
 		if (this.props.auth.isAdmin() ||
@@ -187,7 +190,7 @@ var SubChapterContent = React.createClass({
 		}
 
 	},
-
+	//This function adds the recommend button if the user is a admin/professor/studass
     recommendButton: function (videoID, Favorite) {
         if (this.props.auth.isAdmin() ||
             this.props.auth.isProfessor() ||
@@ -214,6 +217,7 @@ var SubChapterContent = React.createClass({
             return null;
         }
     },
+    //Function that changes to the videos panel
     handleVideoPanel: function (){
     	if(this.state.videoColor != ColorsClicked.Clicked){
     		this.setState({
@@ -223,6 +227,7 @@ var SubChapterContent = React.createClass({
     		});
     	}
     },
+    //Function that changes to the discussion panel
     handleDiscussPanel: function (){
     	if(this.state.discussColor != ColorsClicked.Clicked){
     		this.setState({
@@ -233,12 +238,14 @@ var SubChapterContent = React.createClass({
     	}
     	console.log(this.state.comments);
     },
-    handleCommentTA: function (e) {
+  //Updates the state that stores the comment
+  handleCommentTA: function (e) {
     var comm = e.target.value;
     this.setState({
       comment: comm
     });
   },
+  //Adds the comment to the database
   handleComment: function(e){
   	var subject = this.props.subject.subjectID;
   	var chapter = this.props.chapter.chapterID;
@@ -249,6 +256,7 @@ var SubChapterContent = React.createClass({
   	var comment = this.state.comment.replace(/(?:\r\n|\r|\n)/g, '<br />');
   	if(Boolean(comment)){
   		var d = new Date();
+  		//Checks if the user is banned before letting him post
   		if(this.props.bantime < d){
 		  	Client.addComment(subject, chapter, subChapter, userID, fullName, commenterGravatar, comment,
 		  				() => this.triggerReloadComments());
@@ -260,6 +268,7 @@ var SubChapterContent = React.createClass({
   		}
   	}
   },
+  //Shows that a video is posted by a professor if it is posted by a professor
   isProfessor: function (professorValue){
   	if(professorValue == 'professor'){
   		return "Posted by a professor!";
@@ -271,6 +280,7 @@ var SubChapterContent = React.createClass({
 		let closeCourseModal = () => this.setState({ showCourseModal: false });
         var videosList = null;
         var professorPosted = "";
+    	{/*Creates a list of all the videos with related information*/}
 		if (this.state.videos) {
 			videosList = this.state.videos.map( (v, idx) => (
 				<div>
@@ -312,7 +322,7 @@ var SubChapterContent = React.createClass({
 				</div>
 			));
 		}
-
+		{/*Creates a list with comments and all needed information*/}
 		var discussList = null;
 		if(this.state.comments){
 			discussList = this.state.comments.map( (d, idx) => (
@@ -344,6 +354,7 @@ var SubChapterContent = React.createClass({
 		}
 		return (
 			<div>
+				{/*Adds the videos/discussion/add video button and the lists with videos and comments*/}
 				<Grid bsClass="container" className="subGrid">
 					<Row className="subChapterPanelButtonsRow">
 					<button className="videoPanelBtn" style={{backgroundColor: this.state.videoColor}}
@@ -427,4 +438,3 @@ var SubChapterContent = React.createClass({
 });
 
 module.exports = SubChapterContent;
-//<textarea className="commentTextArea" onChange={this.handleCommentTA}/>

@@ -1,3 +1,6 @@
+/*  Written by Sølve Bø Hunvik
+    All logic for banning a user in the subject you're working on
+*/
 var React = require('react');
 import {Modal, Button, Glyphicon, Popover, ButtonToolbar, Overlay} from 'react-bootstrap';
 import Client from '../../Client.js';
@@ -5,8 +8,6 @@ import DatePicker from 'material-ui/DatePicker';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Alert from 'react-s-alert';
 import './Banuser.css';
-
-
 
 const MySmallModal = React.createClass({
   getInitialState: function () {
@@ -17,6 +18,8 @@ const MySmallModal = React.createClass({
       banperiod: 7
     };
   },
+  //Updates the paragraph that tells the user how many days the user you are banning will be banned for
+  //Updates duration state
   handleChange: function (event, date) {
     var today = new Date();
     var timeDiff = Math.abs(date.getTime() - today.getTime());
@@ -26,6 +29,7 @@ const MySmallModal = React.createClass({
       banperiod: diffDays,
     });
   },
+  //Updates the database with the ban date
   handleBan: function(){
     var d = this.state.controlledDate;
     var date = d.getFullYear() + '-';

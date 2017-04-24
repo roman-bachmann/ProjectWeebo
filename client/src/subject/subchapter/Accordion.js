@@ -1,3 +1,7 @@
+/*  Written by Sølve Bø Hunvik, Roman Bachmann
+    The component above the video and discussion content that adds the Bootstrap accordion to the website below chapters
+*/
+
 var React = require('react');
 import {Accordion, PanelGroup, Panel, Button, Glyphicon, Modal} from 'react-bootstrap';
 var SubChapterContent = require('./SubChapterContent');
@@ -36,11 +40,11 @@ var AccordionBoot = React.createClass({
             this.handleDate();
         }
 	},
-
     handleDate: function () {
+    //This function could have been placed anywhere,
+    //but it formats the SQL date format to the JavaScript date format
         console.log(this.props.subject.ban_time);
         if(this.props.subject.ban_time == '0000-00-00 00:00:00'){
-            console.log("FUCK MAN");
             var t = this.props.subject.ban_time.split(/[- :]/);
             console.log(t);
             var d = new Date(Date.UTC(t[0], t[1]-1, t[2], t[3], t[4], t[5]));
@@ -50,14 +54,12 @@ var AccordionBoot = React.createClass({
             });
         }else{
             var d = new Date(this.props.subject.ban_time);
-            console.log(d);
-            console.log("Should be date here");
             this.setState({
                 ban_time: d
             });
         }
     },
-
+    //Logic to only render content from selected panel
     handleSelect: function (panel) {
         if(this.state.activePanel !== panel){
             this.setState({
@@ -69,7 +71,7 @@ var AccordionBoot = React.createClass({
             });
         }
     },
-
+    //Functions to edit the subchapters
     openEditSubChaptersModal: function () {
         this.setState({ showEditSubChaptersModal: true });
     },
@@ -81,6 +83,7 @@ var AccordionBoot = React.createClass({
     render: function () {
         if(this.state.subchapters){
             var subchaptersList = this.state.subchapters.map(function (s, idx){
+                //Logic for which panel is active
                 var theKey = this.props.chapId + 'subchap' + idx;
                 var panelName = (<span>{s.sname}</span>);
                 return (

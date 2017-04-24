@@ -1,3 +1,7 @@
+/*  Written by Sølve Bø Hunvik
+    Component for adding a new video to the subchapter
+*/
+
 var React = require('react');
 import {Modal, Button, Glyphicon, Popover, ButtonToolbar, Overlay} from 'react-bootstrap';
 var YouTube = require('./YouTubePlayer.js');
@@ -14,10 +18,10 @@ const MySmallModal = React.createClass({
       show: false
     };
   },
-
    handleUserInput: function(e) {
     //This function finds the YouTube video id to change the userInput state so that it shows in the YouTube iframe.
     var url = e.target.value;
+    //Uses a regex we found to get the id of any youtube video
     var videofinds = url.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
     var videoid = '';
     if(videofinds != null) {
@@ -30,9 +34,9 @@ const MySmallModal = React.createClass({
     });
   },
   handleDescription: function (e) {
+    //If the user doesn't write anything in description "No description." will be added, if not this will update description state
     var descr = e.target.value;
     if(!Boolean(descr)){
-      console.log("hey");
       descr = "No description.";
     }
     this.setState({
@@ -41,8 +45,7 @@ const MySmallModal = React.createClass({
   },
 
   handleShare: function(e) {
-    console.log(this.props.bantime);
-    console.log("say whaat");
+    //function to add video to database
     var d = new Date();
     console.log(d);
     //Check if bantime is before todays date
@@ -55,8 +58,10 @@ const MySmallModal = React.createClass({
         var chapterID = this.props.chapter;
         var subChapterID = this.props.subchapter;
         var videoID = this.state.userInput;
+        //Puts together first and last name from auth data
         var fullName = this.props.profile.user_metadata.first_name + " " + this.props.profile.user_metadata.last_name;
         var userGravatar = this.props.profile.picture;
+        //Adds the role of the user so that it can be prompted when loading videos if needed
         var role = "student";
         if(this.props.auth.isAdmin()){
           role = "admin";
@@ -83,6 +88,7 @@ const MySmallModal = React.createClass({
     }
 
   },
+  //Changes to vimeo sharing
   videoSiteChange: function(e) {
     this.setState({
       sharingsite: e.target.value

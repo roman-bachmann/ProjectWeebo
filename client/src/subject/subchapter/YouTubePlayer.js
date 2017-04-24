@@ -1,3 +1,5 @@
+// Simple YouTube iframe that takes in the id of a video
+
 var React = require('react');
 
 const YouTube = ({ id }) => (
