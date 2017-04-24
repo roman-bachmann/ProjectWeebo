@@ -14,7 +14,7 @@ export class ProfileDetails extends React.Component {
 
   render() {
     const { profile } = this.props
-    const { first_name, last_name } = profile.user_metadata || {}
+    const { first_name, last_name } = profile.user_metadata
     return (
     <div>
 <div><hr className="animated ProfileHR"></hr><hr className="animated ProfileHR2"></hr></div>

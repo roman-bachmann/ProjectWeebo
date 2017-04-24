@@ -11,7 +11,7 @@ var Home = React.createClass({
 
     render: function () {
         const courseButtons = this.props.courses.map((c, idx) => (
-            <span>
+            <span key={'courseButtonsKey' + idx}>
             <LinkContainer to="/learn">
                 <Button className="animated homeButtons" onClick={() => this.props.onCourseChange(c)}>
                     {c.subjectID + " - " + c.name}

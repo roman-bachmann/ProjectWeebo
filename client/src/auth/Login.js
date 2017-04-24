@@ -36,9 +36,9 @@ export class Login extends React.Component {
   		<ul className="grid">
   			<li>
           <Glyphicon glyph="glyphicon glyphicon-thumbs-up" className="Glyphicon-Login"/>
-  				
+
             <h4>Rating System</h4>
-          
+
   				<p>A user can easily find the best rated videos on Weebo.</p>
   			</li>
   			<li>
@@ -59,7 +59,7 @@ export class Login extends React.Component {
 
     <hr className="LoginHR"></hr><hr className="LoginHR2"></hr>
 <img className="Pekka" src={Lundheim}></img>
-		<p className="quote">Weebo is an amazing product, delivered by young talents from Trondheim in Norway. I am really proud to be a part of their journey and look forward to more features in Weebo. I can't wait until April 27th to see this incredible product.</p>
+		<p className="quote">Weebo is an amazing product, delivered by young talents from Trondheim in Norway. I am really proud to be a part of their journey and look forward to more features in Weebo. I cannot wait until April 27th to see this incredible product.</p>
 		<p className="author">— Lars Magne Lundheim</p>
 	</div>
   </div>

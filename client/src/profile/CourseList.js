@@ -53,7 +53,10 @@ var CourseList = React.createClass({
                     </Modal.Body>
                     <Modal.Footer>
                         <Button onClick={this.closeModal}>Abort</Button>
-                        <Button onClick={() => this.handleRemoveButton(c.subjectID, this.props.userID)}>Remove course</Button>
+                        <Button onClick={() => this.handleRemoveButton(c.subjectID, this.props.userID)}
+                                className="modalRemoveCourseButton">
+                            Remove course
+                        </Button>
                     </Modal.Footer>
                 </Modal>
             </tr>

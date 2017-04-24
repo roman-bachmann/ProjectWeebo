@@ -8,14 +8,6 @@ import {Glyphicon} from 'react-bootstrap';
 
 
 export class Profile extends React.Component {
-  static contextTypes = {
-    router: T.object
-  }
-
-  static propTypes = {
-    auth: T.instanceOf(AuthService)
-  }
-
   constructor(props, context) {
     super(props, context)
     this.state = {
@@ -25,11 +17,6 @@ export class Profile extends React.Component {
     props.auth.on('profile_updated', (newProfile) => {
       this.setState({profile: newProfile})
     })
-  }
-
-  logout() {
-    this.props.auth.logout()
-    this.context.router.push('/login');
   }
 
   render() {

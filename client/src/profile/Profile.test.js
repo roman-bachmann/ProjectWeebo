@@ -1,19 +1,56 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
+import {expect} from 'chai';
 import AuthService from '../auth/AuthService.js'
 import Profile from './Profile';
 
 it('renders without crashing', () => {
-    const clientId = 'qMCf6J8kSiuC3T8sM8jBVT92CG2R7sIY';
-    const domain = 'weebo.eu.auth0.com';
-    const authResult = {accessToken: "MAdelJM-jKWE9brz",
-                  idToken: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJod…zI5fQ.EUvW-AMEI3ykgrEYX3hq-YfzdsYc3CoFm9hXUpqPxXc",
-                  idTokenPayload: Object,
-                  refreshToken: undefined,
-                  state: "NKKgYBwCxNYrHSj1MGhhERbO8FChK9Ru"};
+    var profile = {};
 
-    var auth = new AuthService(clientId, domain);
-    auth._doAuthentication(authResult);
+    var auth = {
+        isAdmin: function () {
+            return false;
+        },
+        logout: function () {
+            return false;
+        },
+        getProfile: function () {
+            return profile;
+        },
+        on: function () {
+
+        },
+        logout: function () {
+
+        }
+    };
 
     shallow(<Profile auth={auth} />);
+});
+
+it('calls on function when profile changes', () => {
+    var profile = {
+        name: "Tester"
+    };
+
+    var profileChanged = false;
+
+    var auth = {
+        isAdmin: function () {
+            return false;
+        },
+        logout: function () {
+            return false;
+        },
+        getProfile: function () {
+            return profile;
+        },
+        on: function () {
+            profileChanged = true;
+        }
+    };
+
+    const wrapper = shallow(<Profile auth={auth} />);
+    wrapper.simulate('profile_updated', profile);
+    global.expect(profileChanged).toEqual(true);
 });
