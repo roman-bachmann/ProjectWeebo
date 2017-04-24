@@ -7,7 +7,7 @@ it('renders without crashing', () => {
     shallow(<AdminCourseList courses={courses}/>);
 });
 
-it('renders welcome message', () => {
+it('renders all courses', () => {
     var courses = [
         {subjectID: "FI1104", name: "20th Century Philosophy"},
         {subjectID: "MOL8010", name: "Advanced Cellular Imaging Techniques"},
@@ -22,9 +22,6 @@ it('renders welcome message', () => {
     ];
 
     const wrapper = shallow(<AdminCourseList courses={courses} />);
-
-    // const n = (<th>{courses[0].name}</th>);
-    // expect(wrapper.contains(n)).toEqual(true);
 
     for (var i in courses) {
         const n = (<th>{courses[i].name}</th>);
