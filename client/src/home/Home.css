@@ -1,3 +1,11 @@
+/*-------------
+ Written by Thayanan Tharmapalan
+Main styling for the Home page
+-------------*/
+
+/*-------------
+ 	Imports the font
+-------------*/
 @font-face {
      font-family: "Noteworthy";
      src: url(../fonts/Noteworthy-Light.ttf) format("truetype");
@@ -14,6 +22,9 @@ body {
   font-family: "Webly Sleek";
 }
 
+/*-------------
+Changes the animation speed - overwrites animate.css
+-------------*/
 .animated{
 animation-duration: 1.2s !important;
 }
@@ -39,28 +50,6 @@ animation-duration: 1.2s !important;
     }
   }
 
-  .homeHR{
-  	width: 450px;
-  	height: 2px;
-  	background-color: #dee1e1;
-  	border: 0;
-  	margin-bottom: 80px;
-    float: left;
-  }
-  .homeHR {
-    -webkit-animation-name: slideInLeft;
-    animation-name: slideInLeft;
-  }
-
-  .homeHR2{
-  	width: 450px;
-  	height: 2px;
-  	background-color: #dee1e1;
-  	border: 0;
-  	margin-bottom: 80px;
-    float: right;
-  }
-
   .homeHR2{
     -webkit-animation-name: slideInRight;
     animation-name: slideInRight;
@@ -76,31 +65,29 @@ animation-duration: 1.2s !important;
     animation-name: fadeInBig;
   }
 
-.Welcome {
-       font-family: "Webly Sleek";
-       font-size: 46px;
-       padding: 20px;
-       color: #0eaa90;
 
-}
+    .homeHR{
+    	width: 450px;
+    	height: 2px;
+    	background-color: #dee1e1;
+    	border: 0;
+    	margin-bottom: 80px;
+      float: left;
+    }
+    .homeHR {
+      -webkit-animation-name: slideInLeft;
+      animation-name: slideInLeft;
+    }
 
-.W_Logo {
-      font-family: "Noteworthy";
-      font-size: 100px;
-      width: 120px;
-      height: 90px;
-      border-radius: 50%;
-      margin: auto;
-             color: #3cb979;
-      text-align: center;
-      background-color: white;
-      background-image: -webkit-linear-gradient(top, #3cb979, #3cb979);
-      background-image: linear-gradient(top, #3cb979, #3cb979);
-      box-shadow: 0px 8px 10px 0px grey, inset 0px 4px 1px 1px #3cb979, inset 0px -3px 1px 1px #3cb979;
-      -webkit-transition: all .1s linear;
-      transition: all .1s linear;
-      padding-bottom: 20px;
-  }
+    .homeHR2{
+    	width: 450px;
+    	height: 2px;
+    	background-color: #dee1e1;
+    	border: 0;
+    	margin-bottom: 80px;
+      float: right;
+    }
+
 
   .homeHR{
   	width: 450px;
@@ -126,9 +113,10 @@ animation-duration: 1.2s !important;
   padding-top: 30px;
 }
 
-.LogoWrap {
-    padding: 20px;
-  }
+/*-------------
+Homes Buttons
+-------------*/
+
 
 .homeButtons {
 background-color: #4CB2BF;

@@ -1,10 +1,19 @@
+/*-------------
+ Written by Thayanan Tharmapalan
+Main styling for the Login page
+-------------*/
+
+/*-------------
+ 	Imports the font
+-------------*/
+
 @font-face {
      font-family: "Webly Sleek";
       src: url(../fonts/weblysleekuil.ttf) format("truetype");
 }
 
 
-/* service section */
+/* Worlflow section */
 
 .aboutWorkflowSectionTitle {
   border-bottom: 2px solid #49b59d;
@@ -67,6 +76,8 @@ text-align: center;
   height: 40px;
 }
 
+
+/* General */
 
 .serviceTitle {
   font-family: "Webly Sleek";

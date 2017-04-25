@@ -43,7 +43,7 @@ export class Contact extends React.Component {
       					</ul>
       				</div>
       				<div className="animated TeamRow">
-      					<a href="#" className="member-profile">
+      					<a href="mailto:roman.bachmann@epfl.ch" className="member-profile">
       						<div className="unhover_img">
       						<img src={roman}  alt="Roman Bachmann"/>
       						</div>
@@ -60,7 +60,7 @@ export class Contact extends React.Component {
       					</ul>
       				</div>
       				<div className="animated TeamRow">
-      					<a href="#" className="member-profile">
+      					<a href="mailto:thayanat@stud.ntnu.no" className="member-profile">
       						<div className="unhover_img">
       						<img src={thay}  alt="Thayanan Tharmapalan"/>
       						</div>
@@ -77,7 +77,7 @@ export class Contact extends React.Component {
       					</ul>
       				</div>
       				<div className="animated TeamRow">
-      					<a href="#" className="member-profile">
+      					<a href="mailto:emileg@stud.ntnu.no" className="member-profile">
       						<div className="unhover_img">
       						<img src={emil}  alt="Emil Grip"/>
       						</div>

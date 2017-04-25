@@ -1,3 +1,12 @@
+/*-------------
+ Written by Thayanan Tharmapalan
+Main styling for the Login page
+-------------*/
+
+/*-------------
+ 	Imports the font
+-------------*/
+
 @font-face {
      font-family: "Webly Sleek";
       src: url(../fonts/weblysleekuil.ttf) format("truetype");
@@ -6,6 +15,10 @@
 .AboutTeamWeebo {line-height: 160%;
       color: black !important;
 }
+
+/*-------------
+General styling
+-------------*/
 
 .teamImage {
   border: 0;
@@ -211,36 +224,3 @@ box-shadow: 0 5px 5px rgba(0, 0, 0, .1);
 .social-icons li a:hover {
   background: #f2af00;
 }
-
-/* copyright section */
-.copyright {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  text-align: center;
-}
-
-/* scrolltop section */
-.go-top
-  {
-    background-color: #f2af00;
-    font-size: 26px;
-    bottom: 2em;
-    right: 2em;
-    color: #FFF;
-    display: none;
-    position: fixed;
-    text-decoration: none;
-    width: 60px;
-    height: 60px;
-    line-height: 58px;
-    text-align: center;
-	transition: all 0.4s ease-in-out;
-    -webkit-transition: all 0.4s ease-in-out;
-    -moz-transition: all 0.4s ease-in-out;
-    -ms-transition: all 0.4s ease-in-out;
-  }
-.go-top:hover
-  {
-    background-color: #444;
-	color: #fff;
-  }
