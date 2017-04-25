@@ -25,16 +25,15 @@ var NavBar = React.createClass({
     },
 
     handleCourseDropdown: function (selectedKey) {
+        console.log("asdfghjk")
         // If we select to add courses
         if (selectedKey === 'addCoursesKey') {
-            console.log("Adding courses!");
             this.setState({ showCourseModal: true });
+            console.log("asdfghjk")
         }
         // If we select a course
         else if (selectedKey === parseInt(selectedKey, 10)) {
             this.props.onCourseChange(this.props.courses[selectedKey]);
-            //var subject = this.props.courses[selectedKey].subjectID;
-            //this.setState({subjectName: subject});
         }
     },
 
@@ -42,8 +41,6 @@ var NavBar = React.createClass({
         let modalClose = () => this.setState({ showCourseModal: false });
 
         var courseItems;
-
-        //console.log(this.props.courses);
 
         if (this.props.courses) {
             courseItems = this.props.courses.map((c, idx) => (
@@ -73,10 +70,11 @@ var NavBar = React.createClass({
                                     eventKey={300}
                                     title={this.state.subjectName}
                                     id="basic-nav-dropdown"
-                                    onSelect={this.handleCourseDropdown} >
+                                    onSelect={this.handleCourseDropdown}
+                                    className="courseChoiceDropdown" >
                                 {courseItems}
                                 {this.props.courses[0] && <MenuItem divider />}
-                                <MenuItem eventKey={'addCoursesKey'}><Glyphicon glyph="glyphicon glyphicon-pencil"/> Add courses</MenuItem>
+                                <MenuItem eventKey={'addCoursesKey'} className="dropdownAddCoursesButton"><Glyphicon glyph="glyphicon glyphicon-pencil"/> Add courses</MenuItem>
                                 <AddCoursesModal
 		              				show={this.state.showCourseModal}
 		              				onHide={modalClose}

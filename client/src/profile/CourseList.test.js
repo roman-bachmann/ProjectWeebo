@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
 import {expect} from 'chai';
-import Client from '../Client.js';
 import CourseList from './CourseList';
 
 it('renders without crashing', () => {
@@ -30,7 +29,6 @@ it('can open remove course modal', () => {
 it('can open remove course modal and remove course', () => {
     const userID = "npmTestUser";
     const subjectID = "TST1234";
-    //Client.addCourseForUser(userID, "student", subjectID);
 
     var courses = [
         {subjectID: subjectID, name: "npm test course"}
