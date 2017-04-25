@@ -103,7 +103,7 @@ const MySmallModal = React.createClass({
       </Popover>
     );
     return (
-      <Modal {...this.props} bsSize="medium" aria-labelledby="contained-modal-title-sm">
+      <Modal {...this.props} aria-labelledby="contained-modal-title-sm">
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-sm"><Glyphicon glyph="glyphicon glyphicon-film"/> Add video</Modal.Title>
         </Modal.Header>

@@ -3,5 +3,13 @@ import { shallow } from 'enzyme';
 import EditChaptersModal from './EditChaptersModal';
 
 it('renders without crashing', () => {
-    shallow(<EditChaptersModal/>);
+    const subjectID = "";
+    const chapters = [{}];
+    const reloadChapters = function (id) {
+
+    }
+
+    shallow(<EditChaptersModal subjectID={subjectID}
+                               chapters={chapters}
+                               reloadChapter={reloadChapters} />);
 });

@@ -27,5 +27,27 @@ it('renders without crashing', () => {
     //     profile={this.props.profile}/>
 
 
-    shallow(<SubChapterContent />);
+    const subject = {};
+    const chapter = {};
+    const subchapter = {};
+    const needActive = "";
+    const activePanel = "";
+    const userID = "";
+    const auth = {
+
+    };
+    const bantime = "";
+    const profile = {
+
+    };
+
+    shallow(<SubChapterContent subject={subject}
+                               chapter={chapter}
+                               subchapter={subchapter}
+                               needActive={needActive}
+                               activePanel={activePanel}
+                               userID={userID}
+                               auth={auth}
+                               bantime={bantime}
+                               profile={profile} />);
 });

@@ -43,7 +43,6 @@ var AccordionBoot = React.createClass({
     handleDate: function () {
     //This function could have been placed anywhere,
     //but it formats the SQL date format to the JavaScript date format
-        console.log(this.props.subject.ban_time);
         if(this.props.subject.ban_time == '0000-00-00 00:00:00'){
             var t = this.props.subject.ban_time.split(/[- :]/);
             console.log(t);

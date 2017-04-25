@@ -47,7 +47,7 @@ var NavBar = React.createClass({
 
         if (this.props.courses) {
             courseItems = this.props.courses.map((c, idx) => (
-                <LinkContainer to="/learn">
+                <LinkContainer to="/learn" key={'navBarLink' + idx}>
                     <MenuItem eventKey={idx}>
                         {c.subjectID + " - " + c.name}
                     </MenuItem>

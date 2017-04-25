@@ -57,7 +57,7 @@ const MySmallModal = React.createClass({
     var oneWeek = new Date();
     oneWeek.setDate(oneWeek.getDate() + 7);
     return (
-      <Modal {...this.props} bsSize="medium" aria-labelledby="contained-modal-title-sm">
+      <Modal {...this.props} aria-labelledby="contained-modal-title-sm">
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-sm"><Glyphicon glyph="glyphicon glyphicon-ban-circle"/>  Ban User</Modal.Title>
         </Modal.Header>
