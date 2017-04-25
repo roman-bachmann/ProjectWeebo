@@ -58,7 +58,7 @@ export class Login extends React.Component {
 		<h3 className="FeaturesTitle">What professors say</h3>
 
     <hr className="LoginHR"></hr><hr className="LoginHR2"></hr>
-<img className="Pekka" src={Lundheim}></img>
+<img className="Lundheim" src={Lundheim}></img>
 		<p className="quote">Weebo is an amazing product, delivered by young talents from Trondheim in Norway. I am really proud to be a part of their journey and look forward to more features in Weebo. I cannot wait until April 27th to see this incredible product.</p>
 		<p className="author">— Lars Magne Lundheim</p>
 	</div>
