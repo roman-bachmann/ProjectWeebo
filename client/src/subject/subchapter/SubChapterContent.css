@@ -1,3 +1,12 @@
+/*-------------
+ Written by Thayanan Tharmapalan
+Main styling for the Sub Chapter page
+-------------*/
+
+/*-------------
+ 	Imports the fonts
+-------------*/
+
 @font-face {
      font-family: "Webly Sleek";
      src: url(../../fonts/weblysleekuil.ttf) format("truetype");
@@ -7,6 +16,10 @@
       font-family: "Webly Sleek Kursiv";
       src: url(../../fonts/weblysleekuili.ttf) format("truetype");
   }
+
+  /*-------------
+General
+-------------*/
 
 .col-md-8 {
   padding-bottom: 2px;

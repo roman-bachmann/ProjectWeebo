@@ -1,3 +1,11 @@
+/*-------------
+Notification plugin for React
+Does the styling for all the notifications on the page.
+-------------*/
+/*-------------
+ 	Imports the font
+-------------*/
+
 @font-face {
      font-family: "Webly Sleek";
       src: url(../fonts/weblysleekuil.ttf) format("truetype");
@@ -27,7 +35,7 @@
     animation-timing-function: linear;
 }
 
-/* Generated with Bounce.js. Edit at http://goo.gl/akZHSq */
+/* Generated with Bounce.js. */
 
 @-webkit-keyframes animSlideElastic {
     0% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -1000, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -1000, 0, 0, 1); }

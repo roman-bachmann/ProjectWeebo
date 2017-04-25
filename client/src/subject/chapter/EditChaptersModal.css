@@ -1,10 +1,15 @@
+/*-------------
+ Written by Thayanan Tharmapalan
+Main styling for the Edit Chapter widget
+-------------*/
+
 .submitDiv {
 
 }
 .submitChapter {
 	display: initial;
 	float:right;
-	color: green;	
+	color: green;
   border-radius: 4px;
   background-color: #519d9b;
   border: none;

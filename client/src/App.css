@@ -1,7 +1,21 @@
+/*-------------
+ Written by Thayanan Tharmapalan
+General styling for the whole page
+-------------*/
+
+/*-------------
+ 	Imports the fonts
+-------------*/
+
 @font-face {
      font-family: "Webly Sleek";
      src: url(fonts/weblysleekuil.ttf) format("truetype");
  }
+
+ /*-------------
+  	General
+ -------------*/
+
 
 .App {
   text-align: center;
