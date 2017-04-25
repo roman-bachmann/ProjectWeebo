@@ -45,7 +45,7 @@ var Admin = React.createClass({
                     <img src={greenWidget}/>
                   </div>
                 <Image className="addCoursephoto" src={CourseListIcon} circle/>
-                <div className="addACourseTitle">Add courses</div>
+                <div className="addACourseTitle">Create course</div>
                 <AdminAddCourse reloadAllCourses={this.loadAllCourses}/>
                   <ul className="addCourseProfileUL">
                     <li className="addCourseProfileULLI"><Glyphicon className="Userglyph" glyph="glyphicon glyphicon-plus-sign"/></li>
