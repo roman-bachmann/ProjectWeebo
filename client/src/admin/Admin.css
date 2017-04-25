@@ -1,3 +1,12 @@
+/*-------------
+ Written by Thayanan Tharmapalan
+Main styling for the Admin page
+-------------*/
+
+/*-------------
+ 	Imports the fonts
+-------------*/
+
 @font-face {
      font-family: "Noteworthy";
      src: url(../fonts/Noteworthy-Light.ttf) format("truetype");
@@ -8,12 +17,19 @@
      src: url(../fonts/weblysleekuil.ttf) format("truetype");
  }
 
+ /*-------------
+ Page title
+ -------------*/
+
  .adminTitle {
    color: #0eaa90;
     font-family: "Webly Sleek";
     font-size: 25px;
  }
 
+ /*-------------
+ Page animations
+ -------------*/
  .adminTitle {
    -webkit-animation-name: fadeIn;
    animation-name: fadeIn;
@@ -24,6 +40,9 @@
   animation-name: fadeIn;
 }
 
+/*-------------
+General
+-------------*/
 .has-feedback .form-control {
   margin: auto;
   border-color: #cce8fe;

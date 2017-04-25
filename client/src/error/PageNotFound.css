@@ -1,3 +1,12 @@
+/*-------------
+ Written by Thayanan Tharmapalan
+Main styling for the About page
+-------------*/
+
+/*-------------
+ 	Imports the fonts
+-------------*/
+
 @font-face {
      font-family: "Webly Sleek";
       src: url(../fonts/weblysleekuil.ttf) format("truetype");
@@ -7,6 +16,11 @@
      font-family: "Noteworthy";
      src: url(../fonts/Noteworthy-Light.ttf) format("truetype");
  }
+
+
+ /*-------------
+Weebo Logo
+ -------------*/
 
 .W_Logo {
       font-family: "Noteworthy";
@@ -25,16 +39,20 @@
       transition: all .1s linear;
   }
 
+  .LogoWrap {
+      padding: 20px;
+    }
+
+  /*-------------
+Error text
+-------------*/
+
 .PageNotFoundTitle {
   font-size: 45px;
   font-family: "Webly Sleek";
   padding: 30px;
   padding-top: 100px;
 }
-
-.LogoWrap {
-    padding: 20px;
-  }
 
 .ReturnHome {
         font-family: "Webly Sleek";
