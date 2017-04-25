@@ -14,7 +14,6 @@ var Banuser = require('./Banuser.js');
 import Alert from 'react-s-alert';
 import Client from '../../Client.js';
 import '../../fonts/fontawesome/css/font-awesome.css'
-import commentsIcon from '../../img/commentsIcon.png'
 
 const tooltipRecommend = (
   <Tooltip id="tooltip-recommend"><strong>Recommend</strong> this video!</Tooltip>
@@ -295,7 +294,7 @@ var SubChapterContent = React.createClass({
 								<Upvote videoid={v.subChapterVideoID} userID={this.props.userID}/>
 								{this.moderateButton(v.videoID, v.userID)}
                                 {this.recommendButton(v.videoID, v.Favorite)}
-	                		
+
 					</Row>
 	              	<div>
 	                    {v.Favorite === 1 ? <Row className="recommended">
