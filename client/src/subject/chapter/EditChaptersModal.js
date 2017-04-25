@@ -67,7 +67,7 @@ var EditChaptersModal = React.createClass({
 
         var chaptersList = this.props.chapters.map(function (c, idx) {
             return (
-                <tr>
+                <tr key={'editChaptersModalEntry' + idx}>
                     <th>{c.cname}</th>
                     <th>
                         <Button style={{color: 'red'}} onClick={() => this.openDeleteModal(c.chapterID)}>

@@ -64,7 +64,7 @@ var EditSubChaptersModal = React.createClass({
     render: function () {
         var subChaptersList = this.props.subchapters.map(function (sc, idx) {
             return (
-                <tr>
+                <tr key={'editSubChaptersModalEntry' + idx}>
                     <th>{sc.sname}</th>
                     <th>
                         <Button onClick={() => this.openDeleteModal(sc.subChapterID)}>
