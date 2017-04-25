@@ -1,3 +1,12 @@
+/*-------------
+ Written by Thayanan Tharmapalan
+Main styling for the Navigation bar
+-------------*/
+
+/*-------------
+ 	Imports the fonts
+-------------*/
+
 @font-face {
      font-family: "Noteworthy";
      src: url(../fonts/Noteworthy-Light.ttf) format("truetype");
