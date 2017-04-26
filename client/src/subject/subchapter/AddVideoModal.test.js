@@ -91,36 +91,6 @@ it('can validate the description', () => {
     expect(wrapper.state('description')).to.equal("No description.");
 });
 
-it('can switch between sharing sites', () => {
-    const show = true;
-    const onHide = function () {};
-    const subject = "subjectID";
-    const chapter = "chapterID";
-    const subchapter = "subChapterID";
-    const userID = "userID";
-    const auth = {};
-    const bantime = new Date();
-    const reloadOnSubmit = function () {};
-    const profile = {};
-
-    const wrapper = shallow(<AddVideoModal show={show}
-                                           onHide={onHide}
-                                           subject={subject}
-                                           chapter={chapter}
-                                           subchapter={subchapter}
-                                           userID={userID}
-                                           auth={auth}
-                                           bantime={bantime}
-                                           reloadOnSubmit={reloadOnSubmit}
-                                           profile={profile} />);
-
-    // wrapper.find('input[type="radio"]').first().simulate('click');
-    // expect(wrapper.state('sharingsite')).to.equal("YouTube");
-
-    // wrapper.find('input[type="radio"]').at(1).simulate('click');
-    // expect(wrapper.state('sharingsite')).to.equal("Vimeo");
-});
-
 it('can add youtube video as admin', () => {
     const show = true;
     const onHide = function () {};
@@ -283,7 +253,6 @@ it('does not allow banned user to post', () => {
     wrapper.find('textarea').first().simulate('change', {target: {value: 'testDescription'}});
     expect(wrapper.state('description')).to.equal("testDescription");
 
-    // this.setState({ target: e.target, show: !this.state.show });
     const oldState = wrapper.state('show');
     wrapper.find('.acceptBtn').first().simulate('click', { button: 0 });
     expect(wrapper.state('show')).to.equal(!oldState);

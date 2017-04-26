@@ -4,14 +4,6 @@ import {expect} from 'chai';
 import NavBar from './NavBar';
 
 it('renders without crashing', () => {
-    // <NavBar
-    //     courses={this.state.courses}
-    //     onCourseChange={this.changeSelectedCourse}
-    //     auth={this.props.route.auth}
-    //     userID={this.state.userID}
-    //     onCourseAdd={this.handleCourses.bind(this)}
-    //     profile={this.state.profile} />
-
     const courses = [{}];
     const onCourseChange = function () {};
     const auth = {
@@ -53,16 +45,6 @@ it('can click dropdown button to add courses', () => {
                                     onCourseAdd={onCourseAdd}
                                     profile={profile} />);
 
-    // console.log(wrapper.find('Dropdown.Toggle').length)
-    // console.log(wrapper.find('MenuItem').length)
-
+    expect(wrapper.find('NavDropdown').first().length).to.equal(1);
     wrapper.find('NavDropdown').first().simulate('click', { button: 0 });
-
-    // console.log(wrapper.find('MenuItem').length)
-
-    //console.log(wrapper)
-    //wrapper.find('.dropdownAddCoursesButton').simulate('click', { button: 0 });
-
-    //expect(wrapper.state('showCourseModal')).to.equal(true);
-
 });

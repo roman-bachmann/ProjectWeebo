@@ -17,12 +17,8 @@ it('renders without crashing', () => {
         getProfile: function () {
             return profile;
         },
-        on: function () {
-
-        },
-        logout: function () {
-
-        }
+        on: function () {},
+        logout: function () {}
     };
 
     shallow(<Profile auth={auth} />);

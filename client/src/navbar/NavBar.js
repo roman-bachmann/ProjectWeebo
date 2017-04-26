@@ -14,8 +14,6 @@ import {Link} from 'react-router';
 import {LinkContainer} from 'react-router-bootstrap';
 
 
-
-
 var NavBar = React.createClass({
     getInitialState: function () {
         return {

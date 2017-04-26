@@ -50,8 +50,8 @@ var CourseList = React.createClass({
                         <p><strong>This action cannot be undone!</strong></p>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button onClick={this.closeModal}>Abort</Button>
-                        <Button onClick={() => this.handleDeleteButton(c.subjectID)}>Delete course</Button>
+                        <Button className="modalAbortButton" onClick={this.closeModal}>Abort</Button>
+                        <Button className="modalDeleteCourseButton" onClick={() => this.handleDeleteButton(c.subjectID)}>Delete course</Button>
                     </Modal.Footer>
                 </Modal>
             </tr>

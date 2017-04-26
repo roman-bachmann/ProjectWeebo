@@ -40,7 +40,9 @@ var AddCoursesModal = React.createClass({
 
     render: function () {
         return (
-            <Modal {...this.props} bsSize="large" aria-labelledby="contained-modal-title-sm">
+            <Modal show={this.props.show}
+                   onHide={this.props.onHide}
+                   bsSize="large" aria-labelledby="contained-modal-title-sm">
                 <Modal.Header closeButton>
                     <Modal.Title id="contained-modal-title-sm"><Glyphicon glyph="glyphicon glyphicon-book"/> Add course</Modal.Title>
                 </Modal.Header>

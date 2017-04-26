@@ -128,6 +128,5 @@ it('can open modal and add subchapter', () => {
     wrapper.find('FormControl').simulate('change', {target: {value: 'new'}});
     expect(wrapper.state('newSubChapterName')).to.equal("new");
     wrapper.find('FormControl').simulate('focus');
-    wrapper.find('FormControl').simulate('keyPress', {key: 'Enter'})
-    //expect(wrapper.state('newChapterName')).to.equal("");
+    wrapper.find('FormControl').simulate('keyPress', {key: 'Enter'});
 });

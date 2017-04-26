@@ -87,14 +87,12 @@ var SubChapterContent = React.createClass({
 	},
 	//The trigger functions runs after deleting a video or sharing a video
     triggerReloadVideos: function () {
-        console.log("Reloading videos");
         this.loadVideosFromServer(
 			this.props.subject.subjectID,
 			this.props.chapter.chapterID,
 			this.props.subchapter.subChapterID)
     },
     triggerReloadComments: function () {
-    	console.log("Reloading comments");
     	this.loadCommentsFromServer(
     		this.props.subject.subjectID,
     		this.props.chapter.chapterID,
@@ -176,10 +174,10 @@ var SubChapterContent = React.createClass({
 							<Glyphicon glyph="glyphicon glyphicon-remove-sign"/> Ban User
 						</MenuItem>
 						<Banuser
-						show={this.state.showBanModal}
-						onHide={closeBanModal}
-						userID={userID}
-						subject={this.props.subject.subjectID}/>
+    						show={this.state.showBanModal}
+    						onHide={closeBanModal}
+    						userID={userID}
+    						subject={this.props.subject.subjectID}/>
 					</Dropdown.Menu>
 				</Dropdown>
 
@@ -192,9 +190,7 @@ var SubChapterContent = React.createClass({
 	//This function adds the recommend button if the user is a admin/professor/studass
     recommendButton: function (videoID, Favorite) {
         if (this.props.auth.isAdmin() ||
-            this.props.auth.isProfessor() ||
-            this.props.auth.isStudass()) {
-
+            this.props.auth.isProfessor()) {
             if (Favorite === 1) {
                 return (
                     <OverlayTrigger placement="top" overlay={tooltipUnRecommend}>
@@ -235,7 +231,6 @@ var SubChapterContent = React.createClass({
     			videoActive: null
     		});
     	}
-    	console.log(this.state.comments);
     },
   //Updates the state that stores the comment
   handleCommentTA: function (e) {
@@ -282,7 +277,7 @@ var SubChapterContent = React.createClass({
     	{/*Creates a list of all the videos with related information*/}
 		if (this.state.videos) {
 			videosList = this.state.videos.map( (v, idx) => (
-				<div>
+				<div key={'videoListIdx' + idx}>
 					{this.props.activePanel === this.state.videoActive ?
 					<Row className="contentRow">
 						<div>
@@ -303,7 +298,7 @@ var SubChapterContent = React.createClass({
 	                    :null}
 	                  </div>
 							</Col>
-							<Col md="5">
+							<Col md={5}>
 	            <div className="commentsWidget">
 	              <div className="publishedInfo">Published by {v.fullName} on {v.addDate.substring(0,10)}</div>
                   <div><img className="publishedImage" src={decodeURIComponent(v.userGravatar)} /></div>

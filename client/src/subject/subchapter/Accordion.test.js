@@ -140,10 +140,4 @@ it('creates right subchapters', () => {
 
     wrapper.setState({ subchapters: subchapters });
     wrapper.update();
-
-    //const node = wrapper.find('Panel').first().props().header;
-    //console.log(wrapper.find('Panel').first().html());
-    //<span class="panel-title">subc1</span>
-    //expect(wrapper.contains(<span class="panel-title">subc1</span>)).to.equal(true);
-    //expect(wrapper.find('Panel').first().props().header).to.equal(true);
 });

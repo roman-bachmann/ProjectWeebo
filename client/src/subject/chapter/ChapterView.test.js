@@ -13,7 +13,6 @@ it('renders without crashing', () => {
     };
     const profile = {};
 
-
     shallow(<ChapterView selectedCourse={selectedCourse}
                          userID={userID}
                          auth={auth}
@@ -28,18 +27,14 @@ it('can open modal', () => {
     };
     const profile = {};
 
-
     const wrapper = shallow(<ChapterView selectedCourse={selectedCourse}
                                          userID={userID}
                                          auth={auth}
                                          profile={profile} />);
-    //wrapper.find(EditChaptersModal).render();
 
     expect(wrapper.state('showEditChaptersModal')).to.equal(false);
     wrapper.find('.editChaptersButton').first().simulate('click', { button: 0 });
     expect(wrapper.state('showEditChaptersModal')).to.equal(true);
-
-    //expect(wrapper.find(EditChaptersModal).render().find('.modalbody')).to.have.length(1);
 });
 
 it('calls componentWillMount', () => {
@@ -51,7 +46,6 @@ it('calls componentWillMount', () => {
         canEditChapters: function () {return true;}
     };
     const profile = {};
-
 
     const wrapper = mount(<ChapterView selectedCourse={selectedCourse}
                                        userID={userID}
@@ -121,7 +115,6 @@ it('can select chapters', () => {
     wrapper.update();
     expect(wrapper.state().chapters).to.equal(chapters);
 
-    console.log(wrapper.find('NavItem').first().length);
     wrapper.find('NavItem').first().simulate('select');
     expect(wrapper.state().activeTab).to.equal("chap0");
 });

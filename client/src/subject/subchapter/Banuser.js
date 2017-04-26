@@ -41,7 +41,6 @@ const MySmallModal = React.createClass({
       monthString = month.toString();
     }
     date += monthString + - + d.getDate() + ' 23:59:59';
-    console.log(date);
     Client.banUser(this.props.userID, date, this.props.subject);
     this.props.onHide();
     Alert.success('User successfully banned!', {
@@ -57,7 +56,9 @@ const MySmallModal = React.createClass({
     var oneWeek = new Date();
     oneWeek.setDate(oneWeek.getDate() + 7);
     return (
-      <Modal {...this.props} aria-labelledby="contained-modal-title-sm">
+      <Modal show={this.props.show}
+             onHide={this.props.onHide}
+             aria-labelledby="contained-modal-title-sm">
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-sm"><Glyphicon glyph="glyphicon glyphicon-ban-circle"/>  Ban User</Modal.Title>
         </Modal.Header>

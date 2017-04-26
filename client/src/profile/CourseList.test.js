@@ -20,6 +20,8 @@ it('can open remove course modal', () => {
     const wrapper = shallow(<CourseList courses={courses}
                                         userID={userID} />);
 
+    expect(wrapper.state('showModal')).to.equal(false);
+
     wrapper.find('.removeCourseButton').first().simulate('click', { button: 0 });
 
     expect(wrapper.state('showModal')).to.equal(true);

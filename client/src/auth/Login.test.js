@@ -5,9 +5,7 @@ import Login from './Login';
 it('renders without crashing', () => {
     const route = {
         auth: {
-            login: function () {
-
-            }
+            login: function () {}
         }
     }
     shallow(<Login route={route}/>);
