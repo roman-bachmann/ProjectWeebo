@@ -1,7 +1,20 @@
+/*-------------
+ Written by Thayanan Tharmapalan
+Main styling for the Chapter panel
+-------------*/
+
+/*-------------
+ 	Imports the fonts
+-------------*/
+
 @font-face {
      font-family: "Webly Sleek";
       src: url(../../fonts/weblysleekuil.ttf) format("truetype");
 }
+
+/*-------------
+General
+-------------*/
 
 .ChapterTitle {
   color: #329a64;

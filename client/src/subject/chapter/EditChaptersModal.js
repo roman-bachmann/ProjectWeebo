@@ -72,8 +72,8 @@ var EditChaptersModal = React.createClass({
                     <th>
                         <Button style={{color: 'red'}}
                                 onClick={() => this.openDeleteModal(c.chapterID)}
-                                className={'editChaptersDeleteModalButton' + idx} >
-                            <Glyphicon glyph="glyphicon glyphicon glyphicon-trash"/>
+                                className={'removeCourseButton' + idx} >
+                            <Glyphicon className="CourseRemove" glyph="glyphicon glyphicon glyphicon-trash"/>
                         </Button>
                     </th>
                     <Modal show={this.state.showDeleteModal && this.state.openDeleteModalId === c.chapterID}

@@ -69,7 +69,7 @@ var EditSubChaptersModal = React.createClass({
                     <th>
                         <Button onClick={() => this.openDeleteModal(sc.subChapterID)}
                                 className={'editSubChaptersDeleteModalButton' + idx} >
-                            <Glyphicon glyph="glyphicon glyphicon glyphicon-trash"/>
+                            <Glyphicon className="CourseRemove" glyph="glyphicon glyphicon-trash"/>
                         </Button>
                     </th>
                     <Modal show={this.state.showDeleteModal && this.state.openDeleteModalId === sc.subChapterID}
@@ -123,7 +123,7 @@ var EditSubChaptersModal = React.createClass({
                     </form>
 
                     <Button className="submitSubChapter" onClick={this.handleSubmitSubChapter}>
-                        <Glyphicon className="submitSubChapterGlyph" glyph="glyphicon glyphicon-ok"/> Add subchapter
+                        <Glyphicon className="submitChapterGlyph" glyph="glyphicon glyphicon-ok"/> Add subchapter
                     </Button>
                 </Modal.Body>
             </Modal>
