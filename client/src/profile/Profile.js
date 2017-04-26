@@ -1,11 +1,8 @@
-import React, { PropTypes as T } from 'react'
-import AuthService from '../auth/AuthService.js'
+import React from 'react'
 import ProfileDetails from './ProfileDetails.js'
 import './Profile.css'
 import '../Animate.css'
 import '../fonts/fontawesome/css/font-awesome.css'
-import {Glyphicon} from 'react-bootstrap';
-
 
 export class Profile extends React.Component {
   constructor(props, context) {

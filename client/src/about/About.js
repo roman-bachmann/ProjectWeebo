@@ -1,5 +1,4 @@
 import React from 'react'
-import {Link} from 'react-router'
 import './About.css'
 import AppImage from '../img/App.png'
 
@@ -92,7 +91,7 @@ export class About extends React.Component {
 <h2 className="aboutWorkflowSectionTitle">Future Plans</h2>
 <p className="aboutWeebo">Team Weebo is continiously working on improving the user experience. Our next goal is to make Weebo fully compitable to mobile devices with apps launching for both Andorid and iOS devices as well as Apple TV 4 in a couple of months.</p>
 </div>
-<img src={AppImage} className="aboutAppImage"/>
+<img src={AppImage} alt="" className="aboutAppImage"/>
 </div>
 </div>
 <div>

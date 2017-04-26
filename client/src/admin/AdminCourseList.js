@@ -1,7 +1,6 @@
 import React from 'react';
 import {Button, Glyphicon, Table, Modal} from 'react-bootstrap';
 import Alert from 'react-s-alert';
-import Client from '../Client.js';
 
 var CourseList = React.createClass({
     getInitialState: function () {

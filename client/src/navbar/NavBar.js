@@ -3,7 +3,6 @@ import './NavBar.css';
 import '../fonts/fontawesome/css/font-awesome.css'
 import {Image, Glyphicon} from 'react-bootstrap';
 
-var FontAwesome = require('react-fontawesome');
 var Navbar = require("react-bootstrap/lib/Navbar");
 var Nav = require("react-bootstrap/lib/Nav");
 var NavItem = require("react-bootstrap/lib/NavItem");

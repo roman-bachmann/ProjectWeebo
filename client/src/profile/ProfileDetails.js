@@ -20,7 +20,7 @@ export class ProfileDetails extends React.Component {
 <div><hr className="animated ProfileHR"></hr><hr className="animated ProfileHR2"></hr></div>
       <div className=" animated widget">
         <div className="cover">
-          <img src={greenWidget}/>
+          <img src={greenWidget} alt=""/>
         </div>
       <Image className="photo" src={profile.picture} circle/>
       <div className="ProfileDetailsContent">
@@ -34,7 +34,7 @@ export class ProfileDetails extends React.Component {
 
       <div className=" animated Coursewidget">
         <div className="Coursecover">
-          <img src={blueWidget} />
+          <img src={blueWidget} alt=""/>
         </div>
       <Image className="Coursephoto" src={CourseListIcon} circle/>
             <div className="CourseList"><CourseList

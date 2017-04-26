@@ -223,7 +223,6 @@ app.post('/api/shareVideo', (req, res) => {
     });
     return;
   }
-  console.log("about to post");
 
   var options = {
     method: 'HEAD',
@@ -352,7 +351,6 @@ app.post('/api/voteVideo', (req, res) => {
       });
       return;
   }
-  console.log("bout to send vote");
   send_vote(req, res, userID, videoID, rating_score, dato);
 });
 
@@ -675,17 +673,13 @@ function get_data(req, res, sql) {
     pool.getConnection(function(err,connection){
         if (err) {
             connection.release();
-            //res.json({"code" : 100, "status" : "Error in connection database"});
-            res.json([]);
+            res.json({"code" : 100, "status" : "Error in connection database"});
             return;
         }
-
-        //console.log('connected as id ' + connection.threadId);
 
         connection.query(sql, function(err,rows){
             connection.release();
             if (!err) {
-                //console.log('The solution is: ', rows);
                 res.json(rows);
             } else {
                 console.log('Error while performing Query.');
@@ -693,8 +687,7 @@ function get_data(req, res, sql) {
         });
 
         connection.on('error', function(err) {
-            //res.json({"code" : 100, "status" : "Error in connection database"});
-            res.json([]);
+            res.json({"code" : 100, "status" : "Error in connection database"});
             return;
         });
     });

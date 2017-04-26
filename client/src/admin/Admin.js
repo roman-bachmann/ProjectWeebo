@@ -42,7 +42,7 @@ var Admin = React.createClass({
         <div className="animated addDeleteCourseWidgets">
                 <div className=" animated AddCoursewidget">
                   <div className="addCoursecover">
-                    <img src={greenWidget}/>
+                    <img src={greenWidget} alt=""/>
                   </div>
                 <Image className="addCoursephoto" src={CourseListIcon} circle/>
                 <div className="addACourseTitle">Create course</div>
@@ -54,7 +54,7 @@ var Admin = React.createClass({
 
                 <div className=" animated deleteCoursewidget">
                   <div className="deleteCoursecover">
-                    <img src={redWidget} />
+                    <img src={redWidget} alt=""/>
                   </div>
                 <Image className="deleteCoursephoto" src={CourseListIcon} circle/>
                 <h2 className="DeleteCourses">Delete courses</h2>

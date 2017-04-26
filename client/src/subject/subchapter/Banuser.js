@@ -2,7 +2,7 @@
     All logic for banning a user in the subject you're working on
 */
 var React = require('react');
-import {Modal, Button, Glyphicon, Popover, ButtonToolbar, Overlay} from 'react-bootstrap';
+import {Modal, Button, Glyphicon} from 'react-bootstrap';
 import Client from '../../Client.js';
 import DatePicker from 'material-ui/DatePicker';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';

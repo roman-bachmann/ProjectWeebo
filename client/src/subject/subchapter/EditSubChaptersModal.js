@@ -1,5 +1,5 @@
 var React = require('react');
-import {Modal, Button, ButtonToolbar, Glyphicon, FormGroup, ControlLabel, FormControl, HelpBlock, Table} from 'react-bootstrap';
+import {Modal, Button, Glyphicon, FormGroup, ControlLabel, FormControl, Table} from 'react-bootstrap';
 import Alert from 'react-s-alert';
 import Client from '../../Client.js';
 
@@ -56,7 +56,7 @@ var EditSubChaptersModal = React.createClass({
     },
 
     handleKeyPress: function (target) {
-        if(target.charCode==13){
+        if(target.charCode === 13){
             this.handleSubmitSubChapter();
         }
     },

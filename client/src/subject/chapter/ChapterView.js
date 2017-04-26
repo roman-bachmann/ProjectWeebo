@@ -6,14 +6,13 @@ var Tab = require("react-bootstrap/lib/Tab");
 var Col = require("react-bootstrap/lib/Col");
 var Row = require("react-bootstrap/lib/Row");
 
-import {Button, Glyphicon, Modal} from 'react-bootstrap';
+import {Button, Glyphicon} from 'react-bootstrap';
 
 var NavItem = require("react-bootstrap/lib/NavItem");
 var Nav = require("react-bootstrap/lib/Nav");
 var Accordion = require('../subchapter/Accordion.js');
 
 import EditChaptersModal from './EditChaptersModal.js';
-import Alert from 'react-s-alert';
 
 import Client from '../../Client.js';
 

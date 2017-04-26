@@ -1,10 +1,7 @@
-import React, { PropTypes as T } from 'react'
-import {Button, Jumbotron, Glyphicon} from 'react-bootstrap'
-import AuthService from '../auth/AuthService.js'
-import {Link} from 'react-router';
+import React from 'react'
+import {Button, Glyphicon} from 'react-bootstrap'
 import './Home.css'
 import '../Animate.css'
-import Client from '../Client.js';
 import {LinkContainer} from 'react-router-bootstrap';
 
 var Home = React.createClass({
@@ -17,7 +14,7 @@ var Home = React.createClass({
                     {c.subjectID + " - " + c.name}
                 </Button>
             </LinkContainer>
-            {idx%2==1 && <br/>}
+            {idx%2 === 1 && <br/>}
             </span>
         ));
 

@@ -1,5 +1,4 @@
 import React from 'react'
-import {Link} from 'react-router'
 import './Contact.css'
 import '../fonts/fontawesome/css/font-awesome.css'
 import '../Animate.css'

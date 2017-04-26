@@ -3,10 +3,9 @@
 */
 
 var React = require('react');
-import {Accordion, PanelGroup, Panel, Button, Glyphicon, Modal} from 'react-bootstrap';
+import {Accordion, Panel, Button, Glyphicon} from 'react-bootstrap';
 var SubChapterContent = require('./SubChapterContent');
 import EditSubChaptersModal from './EditSubChaptersModal.js';
-import Alert from 'react-s-alert';
 import Client from '../../Client.js';
 import './Accordion.css';
 
@@ -43,14 +42,14 @@ var AccordionBoot = React.createClass({
     handleDate: function () {
     //This function could have been placed anywhere,
     //but it formats the SQL date format to the JavaScript date format
-        if(this.props.subject.ban_time == '0000-00-00 00:00:00'){
+        if(this.props.subject.ban_time === '0000-00-00 00:00:00'){
             var t = this.props.subject.ban_time.split(/[- :]/);
             var d = new Date(Date.UTC(t[0], t[1]-1, t[2], t[3], t[4], t[5]));
             this.setState({
                 ban_time: d
             });
         }else{
-            var d = new Date(this.props.subject.ban_time);
+            d = new Date(this.props.subject.ban_time);
             this.setState({
                 ban_time: d
             });

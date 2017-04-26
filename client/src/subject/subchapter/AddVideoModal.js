@@ -94,11 +94,6 @@ const MySmallModal = React.createClass({
   },
 
   render() {
-    const popoverTop = (
-      <Popover id="popover-positioned-top" title="Popover top">
-        <strong>Holy guacamole!</strong> Check this info.
-      </Popover>
-    );
     return (
       <Modal show={this.props.show}
              onHide={this.props.onHide}

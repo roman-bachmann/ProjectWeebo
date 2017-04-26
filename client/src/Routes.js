@@ -1,5 +1,5 @@
 import React from 'react';
-import {Router, Route, browserHistory, IndexRoute, IndexRedirect, Redirect} from 'react-router';
+import {Router, Route, browserHistory, IndexRedirect, Redirect} from 'react-router';
 import AuthService from './auth/AuthService.js';
 
 import App from './App.js';

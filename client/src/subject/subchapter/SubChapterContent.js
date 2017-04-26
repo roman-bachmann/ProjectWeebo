@@ -6,7 +6,7 @@
 var React = require('react');
 import './SubChapterContent.css';
 import {Row, Col, Grid} from 'react-bootstrap';
-import {Button, Dropdown, MenuItem, Glyphicon, OverlayTrigger, Tooltip, Modal, FormGroup, ControlLabel, FormControl, Overlay, Popover} from 'react-bootstrap';
+import {Button, Dropdown, MenuItem, Glyphicon, OverlayTrigger, Tooltip, Modal, FormGroup, FormControl, Overlay, Popover} from 'react-bootstrap';
 var YouTube = require('./YouTubePlayer.js');
 var Upvote = require('./Upvote.js');
 var VideoModal = require('./AddVideoModal.js');
@@ -214,7 +214,7 @@ var SubChapterContent = React.createClass({
     },
     //Function that changes to the videos panel
     handleVideoPanel: function (){
-    	if(this.state.videoColor != ColorsClicked.Clicked){
+    	if(this.state.videoColor !== ColorsClicked.Clicked){
     		this.setState({
     			videoColor: ColorsClicked.Clicked,
     			discussColor: ColorsClicked.Unclicked,
@@ -224,7 +224,7 @@ var SubChapterContent = React.createClass({
     },
     //Function that changes to the discussion panel
     handleDiscussPanel: function (){
-    	if(this.state.discussColor != ColorsClicked.Clicked){
+    	if(this.state.discussColor !== ColorsClicked.Clicked){
     		this.setState({
     			discussColor: ColorsClicked.Clicked,
     			videoColor: ColorsClicked.Unclicked,
@@ -264,7 +264,7 @@ var SubChapterContent = React.createClass({
   },
   //Shows that a video is posted by a professor if it is posted by a professor
   isProfessor: function (professorValue){
-  	if(professorValue == 'professor'){
+  	if(professorValue === 'professor'){
   		return "Posted by a professor!";
   	}else{
   		return "";
@@ -273,8 +273,7 @@ var SubChapterContent = React.createClass({
 	render: function() {
 		let closeCourseModal = () => this.setState({ showCourseModal: false });
         var videosList = null;
-        var professorPosted = "";
-    	{/*Creates a list of all the videos with related information*/}
+    	/*Creates a list of all the videos with related information*/
 		if (this.state.videos) {
 			videosList = this.state.videos.map( (v, idx) => (
 				<div key={'videoListIdx' + idx}>
@@ -301,7 +300,7 @@ var SubChapterContent = React.createClass({
 							<Col md={5}>
 	            <div className="commentsWidget">
 	              <div className="publishedInfo">Published by {v.fullName} on {v.addDate.substring(0,10)}</div>
-                  <div><img className="publishedImage" src={decodeURIComponent(v.userGravatar)} /></div>
+                  <div><img className="publishedImage" alt="" src={decodeURIComponent(v.userGravatar)} /></div>
 	            <Row className="comment">
 	              <i className="fa fa-quote-left"/> {v.Description} <i className="fa fa-quote-right"/>
 	              <p style={{color: 'green'}}>{this.isProfessor(v.role)}</p>
@@ -316,7 +315,7 @@ var SubChapterContent = React.createClass({
 				</div>
 			));
 		}
-		{/*Creates a list with comments and all needed information*/}
+		/*Creates a list with comments and all needed information*/
 		var discussList = null;
 		if(this.state.comments){
 			discussList = this.state.comments.map( (d, idx) => (
@@ -325,7 +324,7 @@ var SubChapterContent = React.createClass({
             <div className="comments">
               <div className="comment-wrap">
 				<div className="commentsPhoto">
-						<div><img className="commentsAvatar" src={d.commenterGravatar} /></div>
+						<div><img className="commentsAvatar" alt="" src={d.commenterGravatar} /></div>
 				</div>
 				<div className="comment-block">
 						{d.comment.split('<br />').map(function(item, key) {
@@ -367,7 +366,7 @@ var SubChapterContent = React.createClass({
                             <div className="comments">
                                 <div className="Addcomment-wrap">
 				                        <div className="commentsPhoto">
-						                    <div><img className="commentsAvatar" src={this.props.profile.picture} /></div>
+						                    <div><img className="commentsAvatar" alt="" src={this.props.profile.picture} /></div>
 				                        </div>
 				                        <div className="comment-block">
                                         <FormGroup controlId="courseIdForm">

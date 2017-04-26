@@ -58,7 +58,7 @@ export class Login extends React.Component {
 		<h3 className="FeaturesTitle">What professors say</h3>
 
     <hr className="LoginHR"></hr><hr className="LoginHR2"></hr>
-<img className="Lundheim" src={Lundheim}></img>
+        <img className="Lundheim" alt="" src={Lundheim}></img>
 		<p className="quote">Weebo is an amazing product, delivered by young talents from Trondheim in Norway. I am really proud to be a part of their journey and look forward to more features in Weebo. I cannot wait until April 27th to see this incredible product.</p>
 		<p className="author">— Lars Magne Lundheim</p>
 	</div>
@@ -68,14 +68,14 @@ export class Login extends React.Component {
   <div className="features">
   <h3 className="FeaturesTitle">Coming Soon to mobile devices</h3>
   <hr className="LoginHR"></hr><hr className="LoginHR2"></hr>
-<div  className="Appimage"><img src={App}></img><img  className="ComingSoon" src="https://myreps.in/images/coming_soon_appstore.png"></img></div>
+<div  className="Appimage"><img src={App} alt=""></img><img className="ComingSoon" alt="" src="https://myreps.in/images/coming_soon_appstore.png"></img></div>
 </div>
 	</div>
   <div className="footerLogin">
 
     <ul className="FooterUL">
-			<li><a href="https://www.facebook.com/Weebo-774288392725196/"><img className="facebooklogo" src={Facebook}/></a></li>
-			<li><a href="https://twitter.com/weeboteam"><img className="twitterlogo" src={Twitter}/></a></li>
+			<li><a href="https://www.facebook.com/Weebo-774288392725196/"><img className="facebooklogo" alt="" src={Facebook}/></a></li>
+			<li><a href="https://twitter.com/weeboteam"><img className="twitterlogo" alt="" src={Twitter}/></a></li>
 		</ul>
 
   <p>Made with <Glyphicon glyph="glyphicon glyphicon-heart"/> by <a href="" target="_blank">Team Weebo</a>. Images courtesy to <a href="http://freepik.com/" target="_blank">Freepik</a>.</p>

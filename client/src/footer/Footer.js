@@ -1,8 +1,6 @@
 import React from 'react';
 import './Footer.css'
 import {Link} from 'react-router';
-import Facebook from '../img/facebook.png'
-import Twitter from '../img/twitter.png'
 
 const Footer = React.createClass({
     render: function() {

@@ -1,21 +1,10 @@
-import React, { Component } from 'react';
-import { PropTypes as T } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-var Col = require("react-bootstrap/lib/Col");
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
-
 var NavBar = require('./navbar/NavBar.js');
-var ChapTabs = require('./subject/chapter/ChapterView.js');
-var Login = require('./auth/Login.js');
 import Footer from './footer/Footer.js';
-
-
 import Client from './Client';
-import AuthService from './auth/AuthService.js'
-import {Router, Route, browserHistory, IndexRoute} from 'react-router';
-
 import Alert from 'react-s-alert';
 import './notification/s-alert-default.css';
 import './notification/slide.css';
