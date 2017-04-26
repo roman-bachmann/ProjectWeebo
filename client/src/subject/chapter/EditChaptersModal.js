@@ -70,7 +70,9 @@ var EditChaptersModal = React.createClass({
                 <tr key={'editChaptersModalEntry' + idx}>
                     <th>{c.cname}</th>
                     <th>
-                        <Button style={{color: 'red'}} onClick={() => this.openDeleteModal(c.chapterID)}>
+                        <Button style={{color: 'red'}}
+                                onClick={() => this.openDeleteModal(c.chapterID)}
+                                className={'editChaptersDeleteModalButton' + idx} >
                             <Glyphicon glyph="glyphicon glyphicon glyphicon-trash"/>
                         </Button>
                     </th>
@@ -84,8 +86,12 @@ var EditChaptersModal = React.createClass({
                             <p><strong>This action cannot be undone!</strong></p>
                         </Modal.Body>
                         <Modal.Footer>
-                            <Button onClick={this.closeDeleteModal}>Abort</Button>
-                            <Button onClick={() => this.handleDeleteButton(c.chapterID)}>Delete chapter</Button>
+                            <Button onClick={this.closeDeleteModal} className={'abortButton' + idx}>
+                                Abort
+                            </Button>
+                            <Button onClick={() => this.handleDeleteButton(c.chapterID)} className={'deleteButton' + idx}>
+                                Delete chapter
+                            </Button>
                         </Modal.Footer>
                     </Modal>
                 </tr>
@@ -93,7 +99,8 @@ var EditChaptersModal = React.createClass({
         }, this);
 
         return (
-            <Modal {...this.props}
+            <Modal show={this.props.show}
+                   onHide={this.props.onHide}
                    bsSize="large"
                    aria-labelledby="contained-modal-title-sm">
                 <Modal.Header closeButton>
@@ -103,7 +110,7 @@ var EditChaptersModal = React.createClass({
                 </Modal.Header>
                 <Modal.Body className="modalbody">
                     <Table responsive>
-                        {chaptersList}
+                        <tbody>{chaptersList}</tbody>
                     </Table>
                     <div className="submitDiv">
                         <form className="AddChapterForm" onSubmit={event => event.preventDefault()} >
@@ -114,7 +121,8 @@ var EditChaptersModal = React.createClass({
                                       value={this.state.newChapterName}
                                       placeholder="Enter chapter name"
                                       onChange={this.handleChapterForm}
-                                      onKeyPress={this.handleKeyPress} />
+                                      onKeyPress={this.handleKeyPress}
+                                      className="addChapterInputField" />
                                 <FormControl.Feedback />
                             </FormGroup>
                         </form>

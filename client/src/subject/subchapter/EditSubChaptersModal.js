@@ -67,7 +67,8 @@ var EditSubChaptersModal = React.createClass({
                 <tr key={'editSubChaptersModalEntry' + idx}>
                     <th>{sc.sname}</th>
                     <th>
-                        <Button onClick={() => this.openDeleteModal(sc.subChapterID)}>
+                        <Button onClick={() => this.openDeleteModal(sc.subChapterID)}
+                                className={'editSubChaptersDeleteModalButton' + idx} >
                             <Glyphicon glyph="glyphicon glyphicon glyphicon-trash"/>
                         </Button>
                     </th>
@@ -81,8 +82,12 @@ var EditSubChaptersModal = React.createClass({
                             <p><strong>This action cannot be undone!</strong></p>
                         </Modal.Body>
                         <Modal.Footer>
-                            <Button onClick={this.closeDeleteModal}>Abort</Button>
-                            <Button onClick={() => this.handleDeleteButton(sc.subChapterID)}>Delete subchapter</Button>
+                            <Button onClick={this.closeDeleteModal} className={'abortButton' + idx}>
+                                Abort
+                            </Button>
+                            <Button onClick={() => this.handleDeleteButton(sc.subChapterID)} className={'deleteButton' + idx}>
+                                Delete subchapter
+                            </Button>
                         </Modal.Footer>
                     </Modal>
                 </tr>
@@ -90,7 +95,8 @@ var EditSubChaptersModal = React.createClass({
         }, this);
 
         return (
-            <Modal {...this.props}
+            <Modal show={this.props.show}
+                   onHide={this.props.onHide}
                    bsSize="large"
                    aria-labelledby="contained-modal-title-sm">
                 <Modal.Header closeButton>
@@ -100,7 +106,7 @@ var EditSubChaptersModal = React.createClass({
                 </Modal.Header>
                 <Modal.Body>
                     <Table responsive>
-                        {subChaptersList}
+                        <tbody>{subChaptersList}</tbody>
                     </Table>
                     <form className="AddSubChapterForm" onSubmit={event => event.preventDefault()}>
                         <FormGroup controlId="subChapterNameForm" >
@@ -110,7 +116,8 @@ var EditSubChaptersModal = React.createClass({
                                   value={this.state.newSubChapterName}
                                   placeholder="Enter subchapter name"
                                   onChange={this.handleSubChapterForm}
-                                  onKeyPress={this.handleKeyPress} />
+                                  onKeyPress={this.handleKeyPress}
+                                  className="addSubChapterInputField" />
                             <FormControl.Feedback />
                         </FormGroup>
                     </form>

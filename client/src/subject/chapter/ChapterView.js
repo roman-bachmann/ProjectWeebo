@@ -62,14 +62,16 @@ var Tabs = React.createClass({
 		if(this.state.chapters){
 			var chaptersList = this.state.chapters.map(function (c, idx) {
 				return (<NavItem eventKey={'chap' + idx}
-								 onSelect={this.handleSelect}>
+								 onSelect={this.handleSelect}
+								 key={'chapterNavItemIdx' + idx}
+								 className={'chapterNavItemClassIdx' + idx}>
 							{c.cname}
 						</NavItem>);
 			}, this);
 			var tabPanes = this.state.chapters.map(function (c, idx) {
 				var theKey = 'chap' + idx;
 				return (
-					<Tab.Pane eventKey={theKey}>
+					<Tab.Pane eventKey={theKey} key={'chapterTabPaneIdx' + idx}>
 						{this.state.activeTab === theKey ?
 							<Accordion
 								subject={this.props.selectedCourse}

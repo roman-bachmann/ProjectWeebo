@@ -47,11 +47,9 @@ const MySmallModal = React.createClass({
   handleShare: function(e) {
     //function to add video to database
     var d = new Date();
-    console.log(d);
     //Check if bantime is before todays date
     if(this.props.bantime < d){
       if(this.state.sharingsite === 'YouTube'){
-        console.log(this.state.userInput);
         var descr = this.state.description;
         var userID = this.props.userID;
         var subjectID = this.props.subject;
@@ -83,7 +81,6 @@ const MySmallModal = React.createClass({
         this.props.onHide();
       }
     }else{
-      console.log("should be here");
       this.setState({ target: e.target, show: !this.state.show });
     }
 
@@ -103,7 +100,9 @@ const MySmallModal = React.createClass({
       </Popover>
     );
     return (
-      <Modal {...this.props} aria-labelledby="contained-modal-title-sm">
+      <Modal show={this.props.show}
+             onHide={this.props.onHide}
+             aria-labelledby="contained-modal-title-sm">
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-sm"><Glyphicon glyph="glyphicon glyphicon-film"/> Add video</Modal.Title>
         </Modal.Header>
@@ -111,7 +110,7 @@ const MySmallModal = React.createClass({
           <p><span>YouTube </span><input name="sharingsite" type="radio" value="YouTube" onChange={this.videoSiteChange} checked={this.state.sharingsite === 'YouTube'}/>
            <span> Vimeo </span><input name="sharingsite" type="radio" value="Vimeo" onChange={this.videoSiteChange} checked={this.state.sharingsite === 'Vimeo'}/>
           </p>
-          <p>{this.state.sharingsite} Link/ID: <input type="text" onChange={this.handleUserInput}/></p>
+          <p>{this.state.sharingsite} Link/ID: <input type="text" className="inputLink" onChange={this.handleUserInput}/></p>
           <p className="Description">Description: <textarea onChange={this.handleDescription}/></p>
           {this.state.sharingsite === 'YouTube' ?
             <YouTube id={this.state.userInput}/>

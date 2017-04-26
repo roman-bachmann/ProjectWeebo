@@ -45,9 +45,7 @@ var AccordionBoot = React.createClass({
     //but it formats the SQL date format to the JavaScript date format
         if(this.props.subject.ban_time == '0000-00-00 00:00:00'){
             var t = this.props.subject.ban_time.split(/[- :]/);
-            console.log(t);
             var d = new Date(Date.UTC(t[0], t[1]-1, t[2], t[3], t[4], t[5]));
-            console.log(d);
             this.setState({
                 ban_time: d
             });
@@ -90,7 +88,8 @@ var AccordionBoot = React.createClass({
                       className="animated subChapterPanel"
                       header={panelName}
                       eventKey={theKey}
-                      onSelect={this.handleSelect}>
+                      onSelect={this.handleSelect}
+                      key={'panelKeyIdx' + idx}>
                           <SubChapterContent
                               subject={this.props.subject}
                               chapter={this.props.chapter}

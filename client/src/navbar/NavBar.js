@@ -25,11 +25,9 @@ var NavBar = React.createClass({
     },
 
     handleCourseDropdown: function (selectedKey) {
-        console.log("asdfghjk")
         // If we select to add courses
         if (selectedKey === 'addCoursesKey') {
             this.setState({ showCourseModal: true });
-            console.log("asdfghjk")
         }
         // If we select a course
         else if (selectedKey === parseInt(selectedKey, 10)) {
