@@ -1,17 +1,30 @@
 # ProjectWeebo
 TDT4140 - Software Engineering Project, Group 32
 
-### What the readme file should include:
+Authors: Emil Eyser Grip, Roman Christian Bachmann, Sølve Robert Bø Hunvik, Thayanan Tharmapalan
 
-- name of the projects and all sub-modules and libraries (sometimes they are named different and very confusing to new users)
-- descriptions of all the project, and all sub-modules and libraries
-- 5-line code snippet on how its used (if it's a library)
-- copyright and licensing information (or "Read LICENSE")
-- instruction to grab the documentation
-- instructions to install, configure, and to run the programs
-- instruction to grab the latest code and detailed instructions to build it (or quick overview and "Read INSTALL")
-- list of authors or "Read AUTHORS"
-- instructions to submit bugs, feature requests, submit patches, join mailing list, get announcements, or join the user or dev community in other forms
-- other contact info (email address, website, company name, address, etc)
-- a brief history if it's a replacement or a fork of something else
-- legal notices (crypto stuff)
+### About
+
+This is the semester project from the NTNU course TDT4140 Software Engineering, spring 2017. The goal of the project is to build a software bot that revolutionizes the learning experience.
+
+The webpage is built on React, using node.js as the API backend and a mysql server hosted by NTNU. For authentication, auth0 is used.
+
+### How to install
+
+- Make sure you have node.js installed
+- Clone this repository
+- Navigate to the project root folder: "cd ProjectWeebo"
+- Run "npm i"
+- Navigate to the client folder: "cd client"
+- Run "npm i"
+
+### How to run
+
+- Navigate to the project root folder again: "cd .."
+- Make sure you are in the NTNU network, either physically or via VPN
+- To start a developer server:
+  - Run "npm start"
+  - Navigate to localhost:3000 in your browser
+- To build for production:
+  - Navigate to the client folder: "cd client"
+  - Run "npm run build"
