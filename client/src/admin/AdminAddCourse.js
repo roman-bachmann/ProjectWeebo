@@ -44,8 +44,6 @@ var AdminAddCourse = React.createClass({
         });
     },
 
-
-
     render: function () {
         return (
             <form className="AdminAddCourseForm">

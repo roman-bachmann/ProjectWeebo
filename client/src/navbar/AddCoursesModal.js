@@ -19,6 +19,12 @@ var AddCoursesModal = React.createClass({
         });
     },
 
+    componentWillReceiveProps: function () {
+        Client.getAllCourses((crs) => {
+            this.setState({courseOptions: crs});
+        });
+    },
+
     handleTypeahead: function (crs) {
         this.setState({selectedCourses: crs});
     },
