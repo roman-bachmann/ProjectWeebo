@@ -5,7 +5,9 @@ Authors: Emil Eyser Grip, Roman Christian Bachmann, Sølve Robert Bø Hunvik, Th
 
 ### About
 
-This is the semester project from the NTNU course TDT4140 Software Engineering, spring 2017. The webpage is built on React, using node.js as the API backend and a mysql server hosted by NTNU.
+This is the semester project from the NTNU course TDT4140 Software Engineering, spring 2017. The goal of the project is to build a software bot that revolutionizes the learning experience.
+
+The webpage is built on React, using node.js as the API backend and a mysql server hosted by NTNU. For authentication, auth0 is used.
 
 ### How to install
 
@@ -23,5 +25,6 @@ This is the semester project from the NTNU course TDT4140 Software Engineering, 
 - To start a developer server:
   - Run "npm start"
   - Navigate to localhost:3000 in your browser
-- To build:
+- To build for production:
+  - Navigate to the client folder: "cd client"
   - Run "npm run build"
