@@ -32,8 +32,8 @@ Weebo Logo
              color: white;
       text-align: center;
       background-color: #3cb979;
-      background-image: -webkit-linear-gradient(top, #3cb979, #3cb979);
-      background-image: linear-gradient(top, #3cb979, #3cb979);
+      background-image: -webkit-linear-gradient(to bottom, #3cb979, #3cb979);
+      background-image: linear-gradient(to bottom, #3cb979, #3cb979);
       box-shadow: 0px 8px 10px 0px grey, inset 0px 4px 1px 1px #3cb979, inset 0px -3px 1px 1px #3cb979;
       -webkit-transition: all .1s linear;
       transition: all .1s linear;
