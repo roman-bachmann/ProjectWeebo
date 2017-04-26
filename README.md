@@ -28,3 +28,8 @@ The webpage is built on React, using node.js as the API backend and a mysql serv
 - To build for production:
   - Navigate to the client folder: "cd client"
   - Run "npm run build"
+
+### Running tests
+- Navigate to the client folder: "cd client"
+- Run "npm test -- --coverage"
+- The coverage can be found in the command line output and in the client/coverage/ folder
