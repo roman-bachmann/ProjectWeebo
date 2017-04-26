@@ -2,6 +2,9 @@ import React from 'react'
 import {Link} from 'react-router'
 import './PageNotFound.css'
 
+/**
+ * Component that gets rendered when a 404 Page Not Found error happens
+ */
 export class PageNotFound extends React.Component {
   render() {
     return (

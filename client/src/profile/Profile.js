@@ -4,6 +4,9 @@ import './Profile.css'
 import '../Animate.css'
 import '../fonts/fontawesome/css/font-awesome.css'
 
+/**
+ * Component hosting the ProfileDetails component
+ */
 export class Profile extends React.Component {
   constructor(props, context) {
     super(props, context)

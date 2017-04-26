@@ -2,6 +2,9 @@ import React from 'react';
 import './Footer.css'
 import {Link} from 'react-router';
 
+/**
+ * Footer component hosting links to different parts of the Website and social media
+ */
 const Footer = React.createClass({
     render: function() {
         return (

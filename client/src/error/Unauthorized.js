@@ -1,6 +1,9 @@
 import React from 'react'
 import {Link} from 'react-router'
 
+/**
+ * Component that loads when a user tries to access a resource without having access
+ */
 export class Unauthorized extends React.Component {
   render() {
     return (

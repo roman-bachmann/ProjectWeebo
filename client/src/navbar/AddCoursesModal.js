@@ -5,6 +5,9 @@ import Client from '../Client.js';
 import Alert from 'react-s-alert';
 import './AddCoursesModal.css';
 
+/**
+ * Modal where users can search and add courses to their course list
+ */
 var AddCoursesModal = React.createClass({
     getInitialState: function () {
         return {

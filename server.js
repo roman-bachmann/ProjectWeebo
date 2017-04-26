@@ -1,3 +1,8 @@
+/**
+ * node.js backend server acting as an interface between the frontend and the
+ * database.
+ */
+
 const express = require('express');
 const morgan = require('morgan');
 var http = require('http');
@@ -147,6 +152,7 @@ app.get('/api/getVoting', (req, res) => {
   }
   get_votes(req, res, videoID);
 });
+
 app.get('/api/getVoteCount', (req, res) => {
   const videoID = req.query.v;
   if(!videoID){
@@ -590,7 +596,8 @@ app.post('/api/banUser', (req, res) => {
     return;
   }
   ban_user(req, res, userID, banTime, subjectID);
-})
+});
+
 app.post('/api/recommendVideo', (req, res) => {
     const subjectID = req.query.s;
     const chapterID = req.query.chap;
@@ -658,6 +665,7 @@ app.post('/api/unRecommendVideo', (req, res) => {
 
     unrecommend_video(req, res, subjectID, chapterID, subChapterID, videoID);
 });
+
 app.listen(app.get('port'), () => {
     console.log(`Find the server at: http://localhost:${app.get('port')}/`);
 });
@@ -744,11 +752,11 @@ function get_videos(req, res, subjectID, chapterID, subChapterID) {
                 AND subChapterVideo.subChapterID = ?
                 GROUP BY subChapterVideo.subChapterVideoID
                 ORDER BY votes DESC;`;
-    /* Not sure if we need the Video table so I stopped fetching from it*/
     var inserts = [subjectID, chapterID, subChapterID];
     sql = mysql.format(sql, inserts);
     get_data(req, res, sql);
 }
+
 function get_comments(req, res, subjectID, chapterID, subChapterID){
   var sql = `SELECT Discuss.userID, Discuss.comment, Discuss.fullName, Discuss.commentTime, Discuss.commenterGravatar
             FROM Discuss
@@ -768,6 +776,7 @@ function get_votes(req, res, videoID){
   sql = mysql.format(sql, videoID);
   get_data(req, res, sql);
 }
+
 function get_vote_count(req, res, videoID){
   var sql =   `SELECT SUM(rating_score) AS votes
               FROM rating
@@ -810,6 +819,7 @@ function add_course_for_user(req, res, userID, role, subjectID) {
 
     get_data(req, res, sql);
 }
+
 function add_comment(req, res, subjectID, chapterID, subChapterID, userID, fullName, commenterGravatar, comment){
   const curDate = new Date().toISOString().slice(0, 19).replace('T', ' ');
   var sql = `INSERT INTO Discuss (subjectID, chapterID, subChapterID, userID, fullName, comment, commentTime, commenterGravatar)
@@ -818,6 +828,7 @@ function add_comment(req, res, subjectID, chapterID, subChapterID, userID, fullN
   sql = mysql.format(sql, inserts);
   get_data(req, res, sql);
 }
+
 function ban_user(req, res, userID, banTime, subjectID) {
   var sql = `UPDATE UserSubject
             SET ban_time = ?
@@ -932,7 +943,7 @@ function unrecommend_video(req, res, subjectID, chapterID, subChapterID, videoID
 // ******* Handling exits *******
 // ##############################
 
-process.stdin.resume();//so the program will not close instantly
+process.stdin.resume(); //so the program will not close instantly
 
 function exitHandler(options, err) {
     if (options.cleanup) {

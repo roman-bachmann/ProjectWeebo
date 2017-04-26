@@ -1,5 +1,8 @@
 import decode from 'jwt-decode';
 
+/**
+ * Helper class handling Jason Web Tokens for AuthService.
+ */
 export function getTokenExpirationDate(token) {
     const decoded = decode(token)
     if(!decoded.exp) {

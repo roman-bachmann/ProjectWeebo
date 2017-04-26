@@ -9,6 +9,10 @@ import Alert from 'react-s-alert';
 import './notification/s-alert-default.css';
 import './notification/slide.css';
 
+/**
+ * Top level component that hosts a navigation bar on top of all pages that can
+ * be displayed underneath it.
+ */
 export class App extends React.Component {
 
     constructor(props, context) {

@@ -12,7 +12,10 @@ var AddCoursesModal = require('./AddCoursesModal.js');
 import {Link} from 'react-router';
 import {LinkContainer} from 'react-router-bootstrap';
 
-
+/**
+ * Navigation Bar component hosting a way to choose courses and links to navigate
+ * the web page.
+ */
 var NavBar = React.createClass({
     getInitialState: function () {
         return {

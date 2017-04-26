@@ -5,6 +5,9 @@ import {Modal, Button, Glyphicon, FormGroup, ControlLabel, FormControl, Table} f
 import Alert from 'react-s-alert';
 import Client from '../../Client.js';
 
+/**
+ * Component that presents a modal allowing professors to edit the course chapters
+ */
 var EditChaptersModal = React.createClass({
     getInitialState: function () {
         return {

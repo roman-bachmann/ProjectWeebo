@@ -8,8 +8,11 @@ import Twitter from '../img/twitter.png'
 import './Login.css'
 import '../Animate.css'
 import ScrollableAnchor from 'react-scrollable-anchor'
-// import styles from './styles.module.css'
 
+/**
+ * Component of the Login page. Contains the Login/Signup button, as well as some
+ * general information about Weebo.
+ */
 export class Login extends React.Component {
   static propTypes = {
     location: T.object,

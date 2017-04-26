@@ -2,6 +2,10 @@ import React from 'react';
 import {Button, Glyphicon, Table, Modal} from 'react-bootstrap';
 import Alert from 'react-s-alert';
 
+/**
+ * Component where admins can get a list of all courses in the database and
+ * if needed delete them.
+ */
 var CourseList = React.createClass({
     getInitialState: function () {
         return {

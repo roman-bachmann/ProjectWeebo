@@ -4,6 +4,10 @@ import Client from '../Client.js';
 import Alert from 'react-s-alert';
 import './CourseList.css';
 
+/**
+ * Component that lists all courses that a user added to his course list. Also
+ * offers the possibility for the user to unenroll in a course.
+ */
 var CourseList = React.createClass({
     getInitialState: function () {
         return {

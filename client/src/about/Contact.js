@@ -11,6 +11,9 @@ import romanbw from '../img/romanbw.jpg'
 import emil from '../img/grip.jpg'
 import emilbw from '../img/gripbw.jpg'
 
+/**
+ * This component acts as an Contact page to display information about the creators of Weebo.
+ */
 export class Contact extends React.Component {
   render() {
     return (

@@ -4,8 +4,10 @@ import './Home.css'
 import '../Animate.css'
 import {LinkContainer} from 'react-router-bootstrap';
 
+/**
+ * Home page component rendering a quick access view to the user's courses
+ */
 var Home = React.createClass({
-
     render: function () {
         const courseButtons = this.props.courses.map((c, idx) => (
             <span key={'courseButtonIdx' + idx}>

@@ -13,7 +13,6 @@ import ChapterView from './subject/chapter/ChapterView.js';
 import About from './about/About.js';
 import Contact from './about/Contact.js';
 
-
 const auth = new AuthService('qMCf6J8kSiuC3T8sM8jBVT92CG2R7sIY', 'weebo.eu.auth0.com');
 
 // validate authentication for private routes
@@ -32,6 +31,9 @@ const requireAdminAuth = (nextState, replace) => {
     }
 }
 
+/**
+ * Compontent handling the frontend routing
+ */
 var Routes = React.createClass({
     render: function () {
         return (

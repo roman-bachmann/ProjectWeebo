@@ -1,4 +1,6 @@
-// Handels API calls to the backend
+/**
+ * Handels API calls to the backend
+ */
 
 function getAllCourses(cb) {
     return fetch(`api/getAllCourses`, {

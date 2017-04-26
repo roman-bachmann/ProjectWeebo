@@ -3,6 +3,9 @@ import Client from '../Client.js'
 import {Button, FormGroup, ControlLabel, FormControl, HelpBlock, Glyphicon} from 'react-bootstrap';
 import Alert from 'react-s-alert';
 
+/**
+ * Component where admins can create new courses and add them to the database
+ */
 var AdminAddCourse = React.createClass({
     getInitialState: function () {
         return {

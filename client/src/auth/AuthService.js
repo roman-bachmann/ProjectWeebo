@@ -4,6 +4,10 @@ import { isTokenExpired } from './jwtHelper'
 import { browserHistory } from 'react-router'
 import LogoImg from '../img/W.png';
 
+/**
+ * Authentication class for auth0. Will be created when a user logs in. From this
+ * class, one can get the users profile information, as well as the users role.
+ */
 export default class AuthService extends EventEmitter {
     constructor(clientId, domain) {
         super()

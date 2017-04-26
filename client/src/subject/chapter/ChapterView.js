@@ -16,6 +16,10 @@ import EditChaptersModal from './EditChaptersModal.js';
 
 import Client from '../../Client.js';
 
+/**
+ * Main component for displaying the chapters, subchapters and videos for a
+ * specific course. Creates the tab view for the chapters.
+ */
 var Tabs = React.createClass({
 	getInitialState: function () {
 		return {
