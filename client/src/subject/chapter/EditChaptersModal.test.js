@@ -46,7 +46,7 @@ it('can open modal and abort', () => {
                                              onHide={onHide} />);
 
     expect(wrapper.state('showDeleteModal')).to.equal(false);
-    wrapper.find('.editChaptersDeleteModalButton0').first().simulate('click', { button: 0 });
+    wrapper.find('.removeCourseButton0').first().simulate('click', { button: 0 });
     expect(wrapper.state('showDeleteModal')).to.equal(true);
     wrapper.update()
 
@@ -72,7 +72,7 @@ it('can open modal and delete chapter', () => {
                                              onHide={onHide} />);
 
     expect(wrapper.state('showDeleteModal')).to.equal(false);
-    wrapper.find('.editChaptersDeleteModalButton0').first().simulate('click', { button: 0 });
+    wrapper.find('.removeCourseButton0').first().simulate('click', { button: 0 });
     expect(wrapper.state('showDeleteModal')).to.equal(true);
     wrapper.update()
 
@@ -98,7 +98,7 @@ it('can open modal and add chapter', () => {
                                              onHide={onHide} />);
 
     expect(wrapper.state('showDeleteModal')).to.equal(false);
-    wrapper.find('.editChaptersDeleteModalButton0').first().simulate('click', { button: 0 });
+    wrapper.find('.removeCourseButton0').first().simulate('click', { button: 0 });
     expect(wrapper.state('showDeleteModal')).to.equal(true);
     wrapper.update()
 
